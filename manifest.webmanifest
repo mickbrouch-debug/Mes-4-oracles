@@ -6,5 +6,27 @@
   "display": "standalone",
   "background_color": "#17111f",
   "theme_color": "#17111f",
-  "description": "Tarot, Lenormand et deux oracles réunis."
+  "description": "Tarot, Lenormand et deux oracles réunis.",
+  "id": "./",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
 }
