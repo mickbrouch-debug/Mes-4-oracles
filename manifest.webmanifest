@@ -1,0 +1,10 @@
+{
+  "name": "Les 4 Oracles",
+  "short_name": "4 Oracles",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#17111f",
+  "theme_color": "#17111f",
+  "description": "Tarot, Lenormand et deux oracles réunis."
+}
