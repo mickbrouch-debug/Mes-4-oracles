@@ -1148,7 +1148,7 @@ shuffleDeck();
      if(it.cards){const p=document.createElement('p');p.textContent=it.cards;body.append(p)}
      if(it.interpretation){const p=document.createElement('p');p.textContent='Interprétation IA :\n'+it.interpretation;body.append(p)}
      details.append(body);card.append(details);
-     if(it.interpretation){const b=document.createElement('button');b.type='button';b.textContent='🔊 Lire l’interprétation';b.style.marginTop='8px';b.addEventListener('click',()=>{if(!('speechSynthesis'in window)){alert('Lecture vocale indisponible dans ce navigateur.');return;}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(it.interpretation);u.lang='fr-FR';u.rate=0.95;speechSynthesis.speak(u)});card.append(b)}
+     if(it.interpretation){const b=document.createElement('button');b.type='button';b.textContent='🔊 Lire l’interprétation';b.style.marginTop='8px';b.addEventListener('click',()=>{if(!('speechSynthesis'in window)){alert('Lecture vocale indisponible dans ce navigateur.');return;}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(it.interpretation);u.lang='fr-FR';u.rate=0.95;speakOracleText(u.text)});card.append(b)}
      host.append(card);
    });
  }
@@ -1245,6 +1245,36 @@ shuffleDeck();
 (()=>{const K='oraclesSuiteGeminiApiKeyV1';const field=document.getElementById('aiKey');if(!field)return;try{const saved=localStorage.getItem(K)||'';if(saved)field.value=saved;}catch(e){}
  field.addEventListener('input',()=>{try{localStorage.setItem(K,field.value.trim());}catch(e){}});
  window.addEventListener('storage',e=>{if(e.key===K)field.value=e.newValue||'';});
+})();
+</script>
+<script>
+(()=>{
+ const page=location.pathname.split('/').pop()||'oracle';
+ const store='oraclesGeminiModelByOracleV1';
+ const catalog=[
+  ['gemini-3.8-flash','Gemini 3.8 Flash — recommandé'],['gemini-3.7-flash','Gemini 3.7 Flash'],['gemini-3.6-flash','Gemini 3.6 Flash'],['gemini-3.5-flash','Gemini 3.5 Flash'],['gemini-3.5-flash-lite','Gemini 3.5 Flash-Lite — économique'],['gemini-3.1-flash-lite','Gemini 3.1 Flash-Lite'],['gemini-3.1-pro-preview','Gemini 3.1 Pro — aperçu'],['gemini-3-flash-preview','Gemini 3 Flash — aperçu'],['gemini-2.5-pro','Gemini 2.5 Pro — accès restreint'],['gemini-2.5-flash','Gemini 2.5 Flash — accès restreint'],['gemini-2.5-flash-lite','Gemini 2.5 Flash-Lite — accès restreint']
+ ];
+ const getKey=()=>localStorage.getItem('oraclesSuiteGeminiApiKeyV1')||localStorage.getItem('geminiApiKey')||'';
+ let choices={};try{choices=JSON.parse(localStorage.getItem(store)||'{}')}catch(e){}
+ let selected=choices[page]||'gemini-3.8-flash';
+ const box=document.createElement('section');box.id='oracleGeminiModelPanel';box.style.cssText='margin:12px 0;padding:12px;border:1px solid #b99a62;border-radius:12px;background:rgba(25,20,34,.94);color:#f7efd9;font:14px system-ui';
+ const title=document.createElement('label');title.textContent='⚙ Modèle Gemini pour cet oracle';title.style.cssText='display:block;font-weight:700;margin-bottom:7px';
+ const select=document.createElement('select');select.id='oracleGeminiModelChoice';select.style.cssText='width:100%;padding:10px;border-radius:8px;background:#17283b;color:#fff;border:1px solid #8b7048';
+ const status=document.createElement('div');status.style.cssText='font-size:12px;opacity:.85;margin-top:7px';status.textContent='Choix enregistré séparément pour cet oracle. Modèles listés à titre indicatif : disponibilité selon la clé et le compte Google.';
+ const refresh=document.createElement('button');refresh.type='button';refresh.textContent='Actualiser la liste depuis Google';refresh.style.cssText='margin-top:8px;padding:8px 10px;border-radius:8px;border:1px solid #b99a62;background:transparent;color:inherit';
+ const fill=(arr)=>{select.innerHTML='';arr.forEach(([id,label])=>{let o=document.createElement('option');o.value=id;o.textContent=label;select.append(o)});if(!arr.some(x=>x[0]===selected))selected=arr[0]?.[0]||'gemini-3.8-flash';select.value=selected;};fill(catalog);
+ select.addEventListener('change',()=>{selected=select.value;choices[page]=selected;localStorage.setItem(store,JSON.stringify(choices));status.textContent='Modèle choisi : '+selected+'. Il sera utilisé pour les prochaines analyses de cet oracle.';});
+ refresh.addEventListener('click',async()=>{const key=getKey();if(!key){status.textContent='Enregistre d’abord ta clé Gemini sur la page d’accueil.';return;}refresh.disabled=true;status.textContent='Récupération des modèles accessibles à ta clé…';try{const r=await fetch('https://generativelanguage.googleapis.com/v1beta/models?key='+encodeURIComponent(key));const d=await r.json();if(!r.ok)throw Error(d.error?.message||('HTTP '+r.status));const found=(d.models||[]).filter(m=>(m.supportedGenerationMethods||[]).includes('generateContent')).map(m=>{const id=(m.name||'').replace(/^models\//,'');return [id,(m.displayName||id)+(m.description?' — '+m.description.slice(0,65):'')]}).filter(x=>/^gemini-/.test(x[0]));if(!found.length)throw Error('Google n’a renvoyé aucun modèle compatible generateContent.');const unique=[...new Map(found.map(x=>[x[0],x])).values()].sort((a,b)=>a[0].localeCompare(b[0]));fill(unique);status.textContent=unique.length+' modèles Gemini compatibles trouvés pour cette clé. Le choix reste propre à cet oracle.';}catch(e){status.textContent='Impossible d’actualiser : '+e.message+' — la liste intégrée reste disponible.';}finally{refresh.disabled=false;}});
+ box.append(title,select,refresh,status);
+ const target=document.querySelector('main')||document.querySelector('.container')||document.body;
+ target.insertBefore(box,target.firstChild);
+ // Existing legacy dropdowns remain synchronized for scripts that read #aiModel.
+ const legacy=document.getElementById('aiModel');if(legacy){legacy.value=selected;legacy.addEventListener('change',()=>{select.value=legacy.value;selected=legacy.value;choices[page]=selected;localStorage.setItem(store,JSON.stringify(choices));});select.addEventListener('change',()=>{if([...legacy.options].some(o=>o.value===selected))legacy.value=selected;});}
+ // Route every generateContent request through this oracle's selected model.
+ const nativeFetch=window.fetch.bind(window);
+ window.fetch=(input,init)=>{let url=typeof input==='string'?input:(input&&input.url)||'';if(url.includes('/models/')&&url.includes(':generateContent')){const u=new URL(url,location.href);const m=u.pathname.match(/\/models\/([^/:]+):generateContent/);if(m){u.pathname=u.pathname.replace('/models/'+m[1]+':generateContent','/models/'+encodeURIComponent(selected)+':generateContent');input=typeof input==='string'?u.toString():new Request(u.toString(),input);}}return nativeFetch(input,init);};
+ // Android Chrome can stall on long speech utterances: split at sentence boundaries.
+ window.speakOracleText=(text)=>{if(!('speechSynthesis'in window)){alert('La lecture vocale n’est pas disponible dans ce navigateur.');return;}const synth=window.speechSynthesis;synth.cancel();const clean=String(text||'').replace(/```[\s\S]*?```/g,' ').replace(/[#*_`]/g,' ').replace(/\s+/g,' ').trim();if(!clean)return;const chunks=[];let rest=clean;while(rest.length>0){if(rest.length<=180){chunks.push(rest);break;}let cut=Math.max(rest.lastIndexOf('. ',180),rest.lastIndexOf('! ',180),rest.lastIndexOf('? ',180),rest.lastIndexOf('; ',180),rest.lastIndexOf(', ',180),rest.lastIndexOf(' ',180));if(cut<70)cut=180;chunks.push(rest.slice(0,cut+1).trim());rest=rest.slice(cut+1).trim();}let i=0;const next=()=>{if(i>=chunks.length)return;const u=new SpeechSynthesisUtterance(chunks[i++]);u.lang='fr-FR';u.rate=.94;u.onend=()=>{if(i<chunks.length)next()};u.onerror=(e)=>{if(e.error!=='canceled'&&i<chunks.length)setTimeout(next,150)};synth.speak(u)};setTimeout(next,120);};
 })();
 </script>
 </body></html>
