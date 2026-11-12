@@ -135,44 +135,148 @@ $("aiCancel").addEventListener("click",()=>{if(aiController)aiController.abort()
 
 </script>
 <script>
+/* Historique partagé et fiable : un enregistrement par tirage, enrichi après l'analyse IA */
 (function(){
- const KEY='oraclesSuiteHistoryV1';
+ const KEY='oraclesSuiteHistoryV2';
+ const OLD='oraclesSuiteHistoryV1';
+ const $=id=>document.getElementById(id);
  const read=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return []}};
- const save=x=>{try{localStorage.setItem(KEY,JSON.stringify(x.slice(0,100)))}catch(e){}};
- const panel=document.getElementById('historyPanel');
- document.getElementById('showHistory')?.addEventListener('click',()=>{
-   const items=read(); const host=document.getElementById('historyItems');
-   host.innerHTML='';
-   if(!items.length){host.textContent='Aucun tirage enregistré pour le moment.'}
-   items.forEach(it=>{const el=document.createElement('article');el.style.cssText='padding:10px 0;border-bottom:1px solid #6e583d;white-space:pre-wrap';
-     const h=document.createElement('b');h.textContent=it.game+' · '+it.date;el.appendChild(h);
-     const p=document.createElement('p');p.textContent=it.summary;el.appendChild(p);
-     if(it.cards){const q=document.createElement('small');q.textContent=it.cards;el.appendChild(q)}
-     host.appendChild(el);
+ const write=a=>{try{localStorage.setItem(KEY,JSON.stringify(a.slice(0,150)));return true}catch(e){return false}};
+ // Migration douce de l'ancien historique, sans écraser les nouvelles données.
+ try{if(!localStorage.getItem(KEY)){const old=JSON.parse(localStorage.getItem(OLD)||'[]');if(Array.isArray(old)&&old.length)write(old.map(x=>({...x,question:x.question||'',interpretation:x.interpretation||''})));}}catch(e){}
+ const panel=$('historyPanel'),host=$('historyItems');
+ const game=(document.querySelector('h1')?.textContent||document.title||location.pathname).trim();
+ let lastSignature=''; let timer=null;
+ const visible=el=>!!el && !el.classList.contains('hidden') && el.hidden!==true && getComputedStyle(el).display!=='none';
+ const textOf=sel=>{const e=document.querySelector(sel);return e?(e.innerText||e.textContent||'').trim():''};
+ const getCards=()=>textOf('#drawn')||textOf('#spreadView')||textOf('#drawnCards');
+ const getInterpretation=()=>textOf('#interpretation')||textOf('#aiOutput')||textOf('#interpretations');
+ const getQuestion=()=>($('question')?.value||'').trim();
+ const getSummary=()=>textOf('#summary');
+ function capture(){
+   const result=$('result'); if(!visible(result))return;
+   const cards=getCards(), summary=getSummary(), question=getQuestion(), interpretation=getInterpretation();
+   if(!cards && !summary)return;
+   const signature=game+'|'+cards.slice(0,1800)+'|'+question;
+   if(signature.length<10)return;
+   const items=read();
+   let item=items.find(x=>x.signature===signature);
+   if(!item){item={id:signature.slice(0,120),signature,game,date:new Date().toLocaleString('fr-FR'),question,domain:$('domain')?.value||'',summary,cards,interpretation};items.unshift(item);}
+   else {item.question=question||item.question;item.domain=$('domain')?.value||item.domain;item.summary=summary||item.summary;item.cards=cards||item.cards;if(interpretation.length>20)item.interpretation=interpretation;item.updatedAt=new Date().toLocaleString('fr-FR');}
+   write(items);lastSignature=signature;
+ }
+ function schedule(){clearTimeout(timer);timer=setTimeout(capture,700)}
+ function render(){
+   if(!host)return;host.replaceChildren();const items=read();
+   if(!items.length){host.textContent='Aucun tirage enregistré sur cet appareil.';return;}
+   items.forEach((it,index)=>{
+     const card=document.createElement('article');card.style.cssText='padding:12px 0;border-bottom:1px solid #6e583d;white-space:pre-wrap';
+     const title=document.createElement('b');title.textContent=(it.game||'Oracle')+' · '+(it.date||'');card.append(title);
+     if(it.question){const q=document.createElement('p');q.textContent='Question : '+it.question;card.append(q)}
+     if(it.domain){const d=document.createElement('small');d.textContent='Domaine : '+it.domain;card.append(d)}
+     const details=document.createElement('details');details.style.marginTop='8px';const sum=document.createElement('summary');sum.textContent='Voir le tirage et l’interprétation';details.append(sum);
+     const body=document.createElement('div');body.style.cssText='margin-top:8px;white-space:pre-wrap';
+     if(it.summary){const p=document.createElement('p');p.textContent=it.summary;body.append(p)}
+     if(it.cards){const p=document.createElement('p');p.textContent=it.cards;body.append(p)}
+     if(it.interpretation){const p=document.createElement('p');p.textContent='Interprétation IA :\n'+it.interpretation;body.append(p)}
+     details.append(body);card.append(details);
+     if(it.interpretation){const b=document.createElement('button');b.type='button';b.textContent='🔊 Lire l’interprétation';b.style.marginTop='8px';b.addEventListener('click',()=>{if(!('speechSynthesis'in window)){alert('Lecture vocale indisponible dans ce navigateur.');return;}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(it.interpretation);u.lang='fr-FR';u.rate=0.95;speechSynthesis.speak(u)});card.append(b)}
+     host.append(card);
    });
-   panel.style.display='block';
+ }
+ $('showHistory')?.addEventListener('click',()=>{render();panel.style.display='block'});
+ $('closeHistory')?.addEventListener('click',()=>panel.style.display='none');
+ $('clearHistory')?.addEventListener('click',()=>{if(confirm('Effacer tous les tirages enregistrés sur cet appareil ?')){write([]);render()}});
+ const result=$('result'); if(result){new MutationObserver(schedule).observe(result,{subtree:true,attributes:true,childList:true,characterData:true});}
+ document.addEventListener('click',e=>{if(e.target.closest('#reveal')||e.target.closest('#aiAnalysis')||e.target.closest('#aiStart')||e.target.closest('#aiRetry')){setTimeout(schedule,1200);setTimeout(schedule,4000)}});
+ document.addEventListener('change',e=>{if(e.target.id==='question'||e.target.id==='domain')schedule()});
+ // Capture également les changements de texte de la zone IA, parfois hors de #result.
+ ['#interpretation','#aiOutput','#interpretations'].forEach(sel=>{const el=document.querySelector(sel);if(el)new MutationObserver(schedule).observe(el,{subtree:true,childList:true,characterData:true})});
+ window.addEventListener('pagehide',capture);
+})();
+</script>
+<script>
+/* Dictée vocale française pour les champs de question */
+(function(){
+ const field=document.getElementById('question'); if(!field) return;
+ const Recognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+ const wrap=document.createElement('div'); wrap.className='voice-question-tools';
+ wrap.style.cssText='display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px';
+ const mic=document.createElement('button'); mic.type='button'; mic.className='btn secondary'; mic.textContent='🎙️ Dicter ma question';
+ mic.style.cssText='margin:0;min-height:42px';
+ const status=document.createElement('span'); status.className='help'; status.setAttribute('aria-live','polite');
+ wrap.append(mic,status); field.insertAdjacentElement('afterend',wrap);
+ if(!Recognition){mic.disabled=true;status.textContent='La dictée vocale n’est pas disponible dans ce navigateur. Essaie Chrome Android.';return;}
+ let rec=null,active=false,base='';
+ mic.addEventListener('click',()=>{
+   if(active){try{rec.stop()}catch(e){};return;}
+   rec=new Recognition();rec.lang='fr-FR';rec.continuous=true;rec.interimResults=true;active=true;base=field.value.trim();
+   mic.textContent='⏹ Arrêter la dictée';status.textContent='Je t’écoute…';
+   rec.onresult=e=>{let finalText='',interim='';for(let i=e.resultIndex;i<e.results.length;i++){const t=e.results[i][0].transcript;if(e.results[i].isFinal)finalText+=t+' ';else interim+=t;}
+     if(finalText){base=(base?base+' ':'')+finalText.trim();field.value=base;field.dispatchEvent(new Event('input',{bubbles:true}));}
+     status.textContent=interim?'En cours : '+interim:'Dictée retranscrite. Tu peux continuer à parler.';
+   };
+   rec.onerror=e=>{status.textContent=e.error==='not-allowed'?'Autorise le microphone dans Chrome.':'Dictée interrompue : '+e.error;};
+   rec.onend=()=>{active=false;mic.textContent='🎙️ Dicter ma question';if(status.textContent==='Je t’écoute…')status.textContent='Dictée terminée.';};
+   try{rec.start()}catch(e){active=false;mic.textContent='🎙️ Dicter ma question';status.textContent='Impossible de démarrer le microphone. Réessaie.';}
  });
- document.getElementById('closeHistory')?.addEventListener('click',()=>panel.style.display='none');
- document.getElementById('clearHistory')?.addEventListener('click',()=>{if(confirm('Effacer tous les tirages enregistrés sur cet appareil ?')){save([]);document.getElementById('historyItems').textContent='Historique effacé.'}});
- const game=document.title||location.pathname;
- let last='';
- const capture=()=>{
-   const result=document.querySelector('#result');
-   if(!result || result.classList.contains('hidden') || result.offsetParent===null)return;
-   const summary=(document.querySelector('#summary')?.innerText||'').trim();
-   const cards=(document.querySelector('#drawn, #spreadView, #drawnCards')?.innerText||'').trim().slice(0,2500);
-   const text=(summary+'
-'+cards).trim();
-   if(text.length<8 || text===last)return;
-   last=text;
-   const all=read();
-   all.unshift({game,date:new Date().toLocaleString('fr-FR'),summary:summary||'Tirage révélé',cards});
-   save(all);
+})();
+</script>
+<script>
+/* Complète automatiquement les réponses Gemini arrêtées par la limite de sortie */
+(function(){
+ const nativeFetch=window.fetch.bind(window);
+ window.fetch=async function(input,init){
+   const url=typeof input==='string'?input:(input&&input.url)||'';
+   if(!/generateContent/.test(url)||!init||!init.body||!init.method||init.method.toUpperCase()!=='POST')return nativeFetch(input,init);
+   let request;try{request=JSON.parse(init.body)}catch(e){return nativeFetch(input,init)}
+   const first=await nativeFetch(input,init);if(!first.ok)return first;
+   let data;try{data=await first.clone().json()}catch(e){return first}
+   let candidate=data.candidates&&data.candidates[0];if(!candidate)return first;
+   let parts=(candidate.content&&candidate.content.parts)||[];let combined=parts.map(p=>p.text||'').join('');
+   let rounds=0;
+   while(candidate.finishReason==='MAX_TOKENS' && rounds<3){
+     rounds++;
+     const status=document.getElementById('aiStatus');if(status)status.textContent='Interprétation longue : récupération automatique de la suite ('+rounds+'/3)…';
+     const next=JSON.parse(JSON.stringify(request));
+     next.contents=(request.contents||[]).concat([{role:'model',parts:parts},{role:'user',parts:[{text:'Continue exactement à partir du dernier mot, sans répéter les passages précédents. Termine toutes les sections demandées et conclus complètement.'}]}]);
+     next.generationConfig=Object.assign({},request.generationConfig||{},{maxOutputTokens:4096});
+     const r=await nativeFetch(input,Object.assign({},init,{body:JSON.stringify(next)}));if(!r.ok)break;
+     let d;try{d=await r.json()}catch(e){break};let c=d.candidates&&d.candidates[0];if(!c)break;
+     const more=(c.content&&c.content.parts)||[];parts=parts.concat(more);combined=parts.map(p=>p.text||'').join('');candidate=c;
+     if(d.promptFeedback)data.promptFeedback=d.promptFeedback;
+   }
+   data.candidates=data.candidates||[];data.candidates[0]=Object.assign({},candidate,{content:Object.assign({},candidate.content||{},{parts}),finishReason:candidate.finishReason||'STOP'});
+   if(rounds && document.getElementById('aiStatus'))document.getElementById('aiStatus').textContent='Réponse Gemini complétée automatiquement.';
+   return new Response(JSON.stringify(data),{status:first.status,statusText:first.statusText,headers:{'Content-Type':'application/json'}});
  };
- const observer=new MutationObserver(capture);
- observer.observe(document.body,{subtree:true,attributes:true,childList:true,characterData:true});
- document.addEventListener('click',e=>{if(e.target.closest('#reveal'))setTimeout(capture,300)});
- if('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js').catch(()=>{});
+})();
+</script>
+<script>
+/* Lecture vocale de l'interprétation Gemini : lecture, pause/reprise et arrêt */
+(function(){
+ const output=document.getElementById('interpretation')||document.getElementById('aiOutput')||document.getElementById('interpretations');
+ if(!output)return;
+ const synth=window.speechSynthesis;
+ const bar=document.createElement('div');bar.style.cssText='display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;align-items:center';
+ const make=(label)=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.style.cssText='padding:9px 12px;border-radius:9px;cursor:pointer';return b};
+ const play=make('🔊 Écouter l’interprétation'),pause=make('⏸ Pause'),stop=make('⏹ Arrêter');
+ const status=document.createElement('span');status.className='help';status.setAttribute('aria-live','polite');
+ bar.append(play,pause,stop,status);output.insertAdjacentElement('afterend',bar);
+ let utterance=null;
+ function content(){return (output.innerText||output.textContent||'').trim()}
+ function voice(){const vs=synth.getVoices();return vs.find(v=>/^fr(-|_)/i.test(v.lang)&&/Google|Microsoft|français|French/i.test(v.name))||vs.find(v=>/^fr(-|_)/i.test(v.lang))||null}
+ play.addEventListener('click',()=>{const t=content();if(!t){status.textContent='Aucune interprétation à lire pour le moment.';return;}if(!('speechSynthesis'in window)){status.textContent='La lecture vocale n’est pas disponible dans ce navigateur.';return;}synth.cancel();utterance=new SpeechSynthesisUtterance(t);utterance.lang='fr-FR';utterance.rate=0.95;utterance.pitch=1;const v=voice();if(v)utterance.voice=v;utterance.onstart=()=>status.textContent='Lecture en cours…';utterance.onend=()=>status.textContent='Lecture terminée.';utterance.onerror=()=>status.textContent='La lecture a été interrompue.';synth.speak(utterance)});
+ pause.addEventListener('click',()=>{if(!('speechSynthesis'in window))return;if(synth.paused){synth.resume();status.textContent='Lecture reprise.'}else if(synth.speaking){synth.pause();status.textContent='Lecture en pause.'}});
+ stop.addEventListener('click',()=>{if('speechSynthesis'in window)synth.cancel();status.textContent='Lecture arrêtée.'});
+ document.addEventListener('visibilitychange',()=>{if(document.hidden&&synth.speaking)synth.pause()});
+})();
+</script>
+<script>
+// Clé Gemini commune aux quatre oracles : stockage local sur cet appareil uniquement.
+(()=>{const K='oraclesSuiteGeminiApiKeyV1';const field=document.getElementById('aiKey');if(!field)return;try{const saved=localStorage.getItem(K)||'';if(saved)field.value=saved;}catch(e){}
+ field.addEventListener('input',()=>{try{localStorage.setItem(K,field.value.trim());}catch(e){}});
+ window.addEventListener('storage',e=>{if(e.key===K)field.value=e.newValue||'';});
 })();
 </script>
 </body></html>
