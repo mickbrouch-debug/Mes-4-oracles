@@ -291,33 +291,49 @@ footer,.footer,.muted,.sub,.help,.tiny{color:var(--sanct-muted)!important}
 @media(prefers-reduced-motion:reduce){.tarotface,.face{animation:none!important}}
 </style>
 
+<style id="sanctuaire-card-art-v6">
+.tarotface,.face,.card.front{position:relative!important;overflow:hidden!important;isolation:isolate!important;background-size:cover!important;background-position:center!important;border:2px solid #d9b66b!important;box-shadow:0 0 0 3px #21162d,0 0 0 5px #c5a05a,0 16px 30px #0009!important}
+.tarotface:after,.face:after,.card.front:after{content:"";position:absolute;inset:7px;border:1px solid #f3d98f;border-radius:8px;pointer-events:none;z-index:2}
+.tarotface .inner,.face>*,.card.front>*{position:relative;z-index:3}
+.tarotface .inner{background:linear-gradient(180deg,transparent 40%,#080b18d9 100%);padding:8px;color:#fff8e6;text-shadow:0 2px 5px #000}
+.tarotface .cardname,.face .nm,.face .name,.face .keyword,.face .sub,.card.front small{background:#100d1ddd;color:#fff0c8!important;border:1px solid #d6b66b;border-radius:999px;padding:5px 8px;text-shadow:0 1px 3px #000}
+.cardback,.back{background:radial-gradient(circle at center,#51356d,#15152c 70%)!important;border:2px solid #d7b76b!important;box-shadow:inset 0 0 0 5px #22152f,inset 0 0 0 7px #d7b76b,0 8px 18px #0008!important}
+.drawnitem .tarotface,.slot .face,.face{min-height:250px}
+.tarotface.reversed{transform:perspective(900px) rotateY(0deg)}
+.tarotface.reversed .inner{transform:rotate(180deg)}
+@keyframes sanctuaireCardReveal{0%{transform:perspective(900px) rotateY(90deg) scale(.94);filter:brightness(1.7)}100%{transform:perspective(900px) rotateY(0) scale(1);filter:brightness(1)}}
+.tarotface,.face{animation:sanctuaireCardReveal .75s cubic-bezier(.2,.75,.25,1) both}
+@media(prefers-reduced-motion:reduce){.tarotface,.face{animation:none!important}}
+</style>
 
-
-<style id="sanctuaire-card-render-fix-v6-1">
-/* Correctif : le visuel SVG dynamique doit primer sur les anciens fonds CSS. */
-#drawn .tarotface, #drawn .face, #drawn .card.front {
+<style id="sanctuaire-v62-card-render-fix">
+/* V6.2 — cartes illustrées : l'image SVG générée doit rester au-dessus des fonds de secours */
+.tarotface,.face,.card.front{
   background-repeat:no-repeat!important;
   background-size:cover!important;
   background-position:center!important;
   transform-style:preserve-3d;
-  -webkit-transform-style:preserve-3d;
   backface-visibility:hidden;
-  -webkit-backface-visibility:hidden;
-  animation:sanctuaireTrueFlip .92s cubic-bezier(.2,.72,.22,1) both!important;
 }
-#drawn .tarotface .inner, #drawn .face > *, #drawn .card.front > * {
-  position:relative;
-  z-index:3;
+.tarotface:before,.face:before,.card.front:before{pointer-events:none}
+.tarotface .inner,.face>*,.card.front>*{position:relative;z-index:3}
+.tarotface .inner{background:linear-gradient(180deg,transparent 48%,rgba(5,7,17,.76) 100%)}
+.tarotface,.face,.card.front{animation:sanctuaireV62Reveal .82s cubic-bezier(.2,.75,.25,1) both}
+@keyframes sanctuaireV62Reveal{
+  0%{opacity:.25;transform:perspective(900px) rotateY(-82deg) scale(.94);filter:brightness(1.5)}
+  65%{opacity:1;transform:perspective(900px) rotateY(9deg) scale(1.015);filter:brightness(1.08)}
+  100%{opacity:1;transform:perspective(900px) rotateY(0) scale(1);filter:brightness(1)}
 }
-@keyframes sanctuaireTrueFlip {
-  0% { transform:perspective(1100px) rotateY(-88deg) scale(.94); filter:brightness(1.5); }
-  55% { transform:perspective(1100px) rotateY(12deg) scale(1.015); filter:brightness(1.12); }
-  100% { transform:perspective(1100px) rotateY(0deg) scale(1); filter:brightness(1); }
+.tarotface.reversed .inner{transform:rotate(180deg)}
+@media(max-width:600px){
+ .drawn{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .tarotface,.face,.card.front{min-height:220px}
 }
-@media(prefers-reduced-motion:reduce) {
-  #drawn .tarotface, #drawn .face, #drawn .card.front { animation:none!important; }
+@media(prefers-reduced-motion:reduce){
+ .tarotface,.face,.card.front{animation:none!important;transform:none!important}
 }
 </style>
+
 </head><body>
 <nav class="oracles-key-nav" aria-label="Navigation Oracles Studio">
 <a href="index.html" class="brand">ORACLES <span>/</span> STUDIO</a>
@@ -346,7 +362,7 @@ function renderDeck(){
   d.setAttribute('aria-label',chosen?'Carte '+c.name+' sélectionnée':'Retourner cette carte pour la sélectionner');
   d.disabled=chosen||pulled.length>=+$('count').value;
   if(chosen){
-   d.innerHTML='<span class="front-mark">'+(c.symbol||'✧')+'</span><b>'+c.name+'</b><small>'+pos(chosenIndex)+'</small><small>Choisie · '+(chosenIndex+1)+'</small>';d.style.setProperty("background-image",window.SanctuaireCardArt(c.name,c.symbol||pos(chosenIndex),"runes"),"important");
+   d.innerHTML='<span class="front-mark">'+(c.symbol||'✧')+'</span><b>'+c.name+'</b><small>'+pos(chosenIndex)+'</small><small>Choisie · '+(chosenIndex+1)+'</small>';d.style.setProperty('background-image',window.SanctuaireCardArt(c.name,c.symbol||pos(chosenIndex),"runes"),'important');
   }else{
    d.innerHTML='<span class="back-mark">'+(kind==='runes'?'ᚱ':'✧')+'</span><b>Carte cachée</b><small>Toucher pour retourner</small>';
   }
@@ -438,6 +454,8 @@ $('count').onchange=()=>{pulled=[];renderDeck();$('status').textContent='Choisis
 
 
 
+
+
 <script id="sanctuaire-card-art-engine">
 (function(){
 const PALETTES={
@@ -483,7 +501,4 @@ window.SanctuaireCardArt=art;
 window.SanctuaireCardBack=function(oracle){const p=PALETTES[oracle]||PALETTES.tarot;return 'radial-gradient(circle at 50% 42%, '+p[1]+', '+p[0]+' 72%)'};
 })();
 </script>
-
-
-
 </body></html>

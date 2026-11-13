@@ -1,10 +1,12 @@
-INSTALLATION GITHUB MOBILE — V6.0
+SANCTUAIRE DES ORACLES — V6.2
 
-Aucun dossier assets n'est nécessaire : le moteur d'illustration est intégré aux six pages HTML.
+Remplacement complet du site :
+1. Décompresse cette archive.
+2. Dans GitHub, ouvre le dépôt puis la branche V5.2.
+3. Remplace les fichiers du site par TOUS les fichiers de cette archive
+   (sans créer de sous-dossier).
+4. Vérifie que index.html est bien à la racine.
+5. Attends la fin du déploiement GitHub Pages puis recharge le site en navigation privée.
 
-1. Décompresser le ZIP.
-2. Téléverser les fichiers à la racine de la branche V5.2 (remplacer les versions existantes).
-3. Vérifier que sw.js est également remplacé : son cache passe en v6.0.
-4. GitHub Pages doit publier la branche V5.2 à la racine (/).
-
-Après publication, fermer complètement l'application installée ou le navigateur, puis rouvrir le site. Si l'ancien écran persiste, désinstaller le raccourci/PWA puis réinstaller après vérification du site web.
+L'archive contient les pages HTML et les éléments PWA à la racine.
+La branche principale de sauvegarde n'a pas besoin d'être supprimée.

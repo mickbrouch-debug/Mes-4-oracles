@@ -1,9 +1,13 @@
-SANCTUAIRE — REFONTE DU MOTEUR GRAPHIQUE V6.0
-- Remplacement des illustrations génériques statiques par un moteur SVG génératif intégré dans chaque page oracle.
-- Chaque carte révélée reçoit une composition visuelle calculée à partir de son nom et de ses attributs : palettes, symboles, géométrie, scène de fond et cadre varient par carte.
-- Univers différenciés : Tarot, Belline, Lenormand, Portes de l'Intuition, Astrologie et Runes.
-- Révélation animée en perspective et respect de prefers-reduced-motion.
-- Images intégrées directement aux pages HTML : aucun dossier assets à téléverser.
-- Cache du service worker renouvelé en v6.0.
-- Les fonctions de tirage et d'interprétation présentes dans la base V5.2 sont conservées.
-Note artistique : les illustrations sont générées en SVG par le moteur embarqué ; ce ne sont pas des peintures réalisées individuellement par un illustrateur.
+SANCTUAIRE DES ORACLES — V6.2
+Correctif d'affichage des illustrations et de révélation des cartes.
+
+- Corrige la priorité CSS qui masquait les illustrations SVG des cartes.
+- Applique les images de cartes avec une priorité inline explicite.
+- Supprime les doubles moteurs d'illustration strictement identiques.
+- Ajoute une animation de révélation 3D cohérente sur les cartes tirées.
+- Préserve les pages, les tirages, les interprétations, les réglages IA/API,
+  l'analyse croisée et les éléments PWA présents dans la base V6.
+
+Note : les illustrations restent des compositions vectorielles générées à partir
+des noms et familles des cartes ; cette version ne prétend pas fournir une
+peinture artisanale unique pour chaque carte.
