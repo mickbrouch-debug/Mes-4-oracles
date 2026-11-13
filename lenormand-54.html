@@ -1,8 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="fr">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#111827">
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#111827" name="theme-color"/>
 <title>Grand Jeu de Mlle Lenormand — Oracle interactif</title>
 <style>
 :root{--bg:#0b1220;--panel:#151f31;--panel2:#1b2940;--gold:#e4c58a;--cream:#f6efdf;--muted:#b5c2d3;--teal:#8bd4c9;--line:#3d5068;--rose:#d7a2b0}
@@ -13,40 +14,36 @@
 @media(max-width:430px){.deck{grid-template-columns:repeat(4,minmax(0,1fr))}.grand{grid-template-columns:repeat(4,minmax(0,1fr))}.spread{gap:5px}.face{min-height:80px}.face .nm{font-size:10px}}
 @media print{body{background:white;color:#111}.panel{background:white;border:1px solid #aaa;box-shadow:none}.deck,.actions,.btn{display:none!important}.face{break-inside:avoid}.reading{break-inside:avoid}}
 </style>
-<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#17111f"></head>
+<link href="manifest.webmanifest" rel="manifest"/><meta content="#17111f" name="theme-color"/></head>
 <body>
 <div id="oracle-appbar" style="position:sticky;top:0;z-index:9999;background:#101b2aee;backdrop-filter:blur(10px);padding:9px 12px;border-bottom:1px solid #b99a6044;display:flex;gap:8px;align-items:center;justify-content:space-between;font:13px Arial,sans-serif">
-  <a href="index.html" style="color:#f2dfaa;text-decoration:none;font-weight:bold">✧ Les 4 Oracles</a>
-  <span style="color:#c2b5ca">Application installable · historique local</span>
-  <button id="showHistory" style="background:#2a2035;color:#f2dfaa;border:1px solid #8b7048;border-radius:8px;padding:7px 10px">Historique</button>
+<a href="index.html" style="color:#f2dfaa;text-decoration:none;font-weight:bold">✧ Les 4 Oracles</a>
+<span style="color:#c2b5ca">Application installable · historique local</span>
+<button id="showHistory" style="background:#2a2035;color:#f2dfaa;border:1px solid #8b7048;border-radius:8px;padding:7px 10px">Historique</button>
 </div>
 <div id="historyPanel" style="display:none;position:fixed;z-index:10000;inset:55px 10px auto 10px;max-height:70vh;overflow:auto;background:#17111f;color:#f8f0dc;border:1px solid #d7b76b;border-radius:14px;padding:16px;box-shadow:0 12px 40px #000b;font:14px Arial,sans-serif">
-  <div style="display:flex;justify-content:space-between;align-items:center"><b>Historique des tirages</b><button id="closeHistory">Fermer</button></div>
-  <div id="historyItems" style="margin-top:12px"></div>
-  <button id="clearHistory" style="margin-top:12px">Effacer l’historique</button>
+<div style="display:flex;justify-content:space-between;align-items:center"><b>Historique des tirages</b><button id="closeHistory">Fermer</button></div>
+<div id="historyItems" style="margin-top:12px"></div>
+<button id="clearHistory" style="margin-top:12px">Effacer l’historique</button>
 </div>
 <div class="shell">
-<header class="hero"><div class="sigil">✧</div><div class="eyebrow">Lecture symbolique & combinaisons</div><h1>Le Grand Jeu de Mlle Lenormand</h1><p>54 cartes et une lecture symbolique approfondie : cartomancie, mythologie, astrologie, astronomie, alchimie, géomancie et langage des fleurs. Les interprétations restent des pistes à confronter au réel, jamais des certitudes sur l’avenir.</p></header>
-
+<header class="hero"><div class="sigil">✧</div><div class="eyebrow">Lecture symbolique &amp; combinaisons</div><h1>Le Grand Jeu de Mlle Lenormand</h1><p>54 cartes et une lecture symbolique approfondie : cartomancie, mythologie, astrologie, astronomie, alchimie, géomancie et langage des fleurs. Les interprétations restent des pistes à confronter au réel, jamais des certitudes sur l’avenir.</p></header>
 <section class="panel"><h2>Ⅰ · Préparer le tirage</h2><div class="gridform">
 <div class="field"><label for="domain">Thème</label><select id="domain"><option>Général</option><option>Amour et relations</option><option>Travail et projets</option><option>Finances et ressources</option><option>Famille et entourage</option><option>Choix et décisions</option></select></div>
-<div class="field"><label for="spreadType">Méthode traditionnelle</label><select id="spreadType"><option value="three">Ligne de 3 cartes — passé, présent, évolution</option><option value="five">Ligne de 5 cartes — lecture approfondie</option><option value="nine" selected>Carré de 9 — situation et entourage</option><option value="grand">Tirage complet — 54 cartes (6 × 9)</option><option value="custom">Tirage personnalisé — 1 à 54 cartes</option></select></div>
-<div class="field" id="countWrap"><label for="count">Nombre de cartes personnalisées</label><select id="count"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>15</option><option>18</option><option>21</option><option>24</option><option>27</option><option>30</option><option>36</option><option>42</option><option>48</option><option>54</option></select></div>
+<div class="field"><label for="spreadType">Méthode traditionnelle</label><select id="spreadType"><option value="three">Ligne de 3 cartes — passé, présent, évolution</option><option value="five">Ligne de 5 cartes — lecture approfondie</option><option selected="" value="nine">Carré de 9 — situation et entourage</option><option value="grand">Tirage complet — 54 cartes (6 × 9)</option><option value="custom">Tirage personnalisé — 1 à 54 cartes</option></select></div>
+<div class="field" id="countWrap"><label for="count">Nombre de cartes personnalisées</label><select id="count"><option>1</option><option>2</option><option selected="">3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>15</option><option>18</option><option>21</option><option>24</option><option>27</option><option>30</option><option>36</option><option>42</option><option>48</option><option>54</option></select></div>
 <div class="field"><label for="focus">Angle de lecture</label><select id="focus"><option value="balanced">Équilibré : cartes + combinaisons</option><option value="traditional">Traditionnel : mots-clés et associations</option><option value="practical">Concret : conseils et éléments à vérifier</option></select></div>
 <div class="field full"><label for="question">Question précise (facultatif)</label><textarea id="question" placeholder="Ex. : Comment pourrait évoluer cette situation professionnelle dans les prochaines semaines ?"></textarea><div class="help">Le Grand Jeu associe plusieurs couches symboliques sur chaque carte. Formule une question claire et distingue interprétation, hypothèse et fait vérifiable.</div></div>
 </div></section>
-
-<section class="panel" id="selection"><h2>Ⅱ · Mélanger et choisir les cartes</h2><div class="actions"><button class="btn" id="shuffle">✧ Mélanger les 54 cartes</button><button class="btn secondary" id="clear">Réinitialiser</button></div><div class="statusline"><span id="countLabel">0 / 9 cartes choisies</span><span>54 cartes · sélection tactile</span></div><div class="progress"><span id="progress"></span></div><p class="help" id="selectHelp">Sélectionne les cartes une à une, dans l’ordre qui t’attire. Pour le tirage complet, les 54 cartes seront disposées dans l’ordre sélectionné.</p><div id="deck" class="deck"></div><div class="actions" style="margin-top:14px"><button class="btn" id="reveal" disabled>Révéler le tirage</button></div></section>
-
-<section class="panel hidden" id="result"><h2>Ⅲ · Ton tirage</h2><div id="summary" class="notice"></div><div id="spreadView"></div><div id="localReading"></div></section>
-
+<section class="panel" id="selection"><h2>Ⅱ · Mélanger et choisir les cartes</h2><div class="actions"><button class="btn" id="shuffle">✧ Mélanger les 54 cartes</button><button class="btn secondary" id="clear">Réinitialiser</button></div><div class="statusline"><span id="countLabel">0 / 9 cartes choisies</span><span>54 cartes · sélection tactile</span></div><div class="progress"><span id="progress"></span></div><p class="help" id="selectHelp">Sélectionne les cartes une à une, dans l’ordre qui t’attire. Pour le tirage complet, les 54 cartes seront disposées dans l’ordre sélectionné.</p><div class="deck" id="deck"></div><div class="actions" style="margin-top:14px"><button class="btn" disabled="" id="reveal">Révéler le tirage</button></div></section>
+<section class="panel hidden" id="result"><h2>Ⅲ · Ton tirage</h2><div class="notice" id="summary"></div><div id="spreadView"></div><div id="localReading"></div></section>
 <section class="panel" id="aiPanel"><h2>Ⅳ · Analyse approfondie par IA (Gemini)</h2><p class="help">La lecture locale fonctionne sans connexion. Gemini peut développer les associations, les positions, les répétitions et les nuances de la méthode choisie. La clé est partagée avec les quatre oracles et enregistrée localement sur cet appareil uniquement. Ne saisis pas ta clé sur un appareil partagé.</p>
-<label for="aiKey">Clé API Gemini</label><input id="aiKey" type="password" autocomplete="off" placeholder="Ta clé commune est chargée automatiquement">
+<label for="aiKey">Clé API Gemini</label><input autocomplete="off" id="aiKey" placeholder="Ta clé commune est chargée automatiquement" type="password"/>
 <label for="aiModel" style="display:block;margin-top:10px">Modèle Gemini</label><select id="aiModel"><option value="gemini-2.5-flash">Gemini 2.5 Flash — valeur de départ</option></select>
 <div class="actions" style="margin-top:10px"><button class="btn secondary" id="aiRefreshModels">Actualiser les modèles depuis Google</button><button class="btn secondary" id="aiTestModel">Tester le modèle</button></div>
-<div class="actions"><button class="btn" id="aiStart">Lancer l’analyse IA</button><button class="btn secondary" id="aiCancel" disabled>Interrompre</button><button class="btn secondary" id="aiRetry" hidden>Réessayer</button></div>
-<div id="aiStatus" class="notice" role="status" aria-live="polite" style="margin-top:12px">Prêt. Effectue et révèle d’abord un tirage.</div>
-<div id="aiProgressWrap" class="hidden" style="margin-top:10px"><div id="aiProgressLabel" class="help">Préparation…</div><div class="progress" style="margin-top:6px"><span id="aiProgressBar" style="width:5%"></span></div><div id="aiElapsed" class="help" style="margin-top:5px"></div></div><div id="aiOutput" class="reading" style="white-space:pre-wrap"></div>
+<div class="actions"><button class="btn" id="aiStart">Lancer l’analyse IA</button><button class="btn secondary" disabled="" id="aiCancel">Interrompre</button><button class="btn secondary" hidden="" id="aiRetry">Réessayer</button></div>
+<div aria-live="polite" class="notice" id="aiStatus" role="status" style="margin-top:12px">Prêt. Effectue et révèle d’abord un tirage.</div>
+<div class="hidden" id="aiProgressWrap" style="margin-top:10px"><div class="help" id="aiProgressLabel">Préparation…</div><div class="progress" style="margin-top:6px"><span id="aiProgressBar" style="width:5%"></span></div><div class="help" id="aiElapsed" style="margin-top:5px"></div></div><div class="reading" id="aiOutput" style="white-space:pre-wrap"></div>
 </section>
 <section class="panel"><h2>Repères de lecture</h2><p class="help">Le Grand Jeu est distinct du Petit Lenormand : ses 54 cartes combinent cartomancie et correspondances symboliques (mythologie, astrologie, géomancie, fleurs, lettres). Les détails précis varient selon les éditions ; l’application ne prétend pas reproduire toutes les illustrations d’un coffret physique.</p></section>
 <footer class="footer">Grand Jeu de Mlle Lenormand interactif · lecture symbolique · usage personnel</footer>
@@ -248,92 +245,48 @@ $("countWrap").classList.add("hidden");reset();
  document.addEventListener('visibilitychange',()=>{if(document.hidden&&synth.speaking)synth.pause()});
 })();
 </script>
-<script>
-// Clé Gemini commune aux quatre oracles : stockage local sur cet appareil uniquement.
-(()=>{const K='oraclesSuiteGeminiApiKeyV1';const field=document.getElementById('aiKey');if(!field)return;try{const saved=localStorage.getItem(K)||'';if(saved)field.value=saved;}catch(e){}
- field.addEventListener('input',()=>{try{localStorage.setItem(K,field.value.trim());}catch(e){}});
- window.addEventListener('storage',e=>{if(e.key===K)field.value=e.newValue||'';});
-})();
-</script>
 
 
-<script>
-(()=> {
+<script id="oracles-unified-gemini-v1">
+(()=>{
  'use strict';
- const file=(location.pathname.split('/').pop()||'index.html').toLowerCase();
- const pageKey=({ 'tarot-78.html':'tarot','lenormand-54.html':'lenormand','belline.html':'belline','portes-intuition.html':'portes','astrologie.html':'astrologie','runes.html':'runes','analyse-croisee.html':'analyse-croisee' })[file]||file;
- const KEY='oraclesGeminiModelByOracleV1';
- const KEY_API='oraclesSuiteGeminiApiKeyV1';
- const getKey=()=>{try{return localStorage.getItem(KEY_API)||localStorage.getItem('geminiApiKey')||''}catch(e){return ''}};
- let choices={};try{choices=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
- let selected=choices[pageKey]||'gemini-2.5-flash';
- const legacy=document.getElementById('aiModel');
- let panel=document.createElement('section');
- panel.id='geminiModelSelectorFixed';
- panel.style.cssText='margin:14px 0;padding:14px;border:1px solid #b99a62;border-radius:12px;background:#171827;color:#f8f2e6;font:14px system-ui;position:relative;z-index:5';
- const label=document.createElement('label');label.textContent='Modèle Gemini utilisé pour cet oracle';label.style.cssText='display:block;font-weight:700;margin-bottom:8px';
- let select=legacy||document.createElement('select');
- if(!legacy) select.id='geminiModelSelectorFixedSelect';
- select.style.cssText='display:block;width:100%;min-height:44px;padding:9px;border-radius:8px;background:#fff;color:#171827;border:1px solid #9a855d;font:16px system-ui';
- const status=document.createElement('p');status.style.cssText='margin:8px 0 0;font-size:12px;line-height:1.4';status.textContent='Modèle mémorisé pour cet oracle. Actualise la liste pour afficher les modèles réellement proposés par Google avec ta clé.';
+ const file=(location.pathname.split('/').pop()||'').toLowerCase();
+ const oracle=({'tarot-78.html':'tarot','lenormand-54.html':'lenormand','belline.html':'belline','portes-intuition.html':'portes','astrologie.html':'astrologie','runes.html':'runes'})[file];
+ if(!oracle)return;
+ const $=id=>document.getElementById(id);
+ const keyField=$('aiKey')||$('apiKey');
+ const modelField=$('aiModel')||$('model');
+ if(!keyField||!modelField)return;
+ const KEY='oraclesGeminiApiKeyByOracleV2';
+ const MODELS='oraclesGeminiModelByOracleV2';
+ const read=o=>{try{return JSON.parse(localStorage.getItem(o)||'{}')}catch(e){return {}}};
+ let keys=read(KEY), models=read(MODELS);
+ // Migration douce : conserve la clé précédemment utilisée, sans l'exposer dans le code.
+ const legacyKey=localStorage.getItem('oraclesSuiteGeminiApiKeyV1')||localStorage.getItem('geminiApiKey')||'';
+ const oldPageKey=oracle==='astrologie'?'oraclesGeminiApiKey_astro_V1':oracle==='runes'?'oraclesGeminiApiKey_runes_V1':'';
+ const saved=keys[oracle]|| (oldPageKey&&localStorage.getItem(oldPageKey)) || legacyKey || '';
+ if(saved)keyField.value=saved;
+ const oldModel=models[oracle]||localStorage.getItem(oracle==='astrologie'?'oraclesGeminiModel_astro_V1':oracle==='runes'?'oraclesGeminiModel_runes_V1':'')||modelField.value||'gemini-2.5-flash';
+ const saveKey=()=>{keys=read(KEY);keys[oracle]=keyField.value.trim();try{localStorage.setItem(KEY,JSON.stringify(keys));}catch(e){} };
+ const saveModel=()=>{models=read(MODELS);models[oracle]=modelField.value;try{localStorage.setItem(MODELS,JSON.stringify(models));}catch(e){} };
+ keyField.addEventListener('input',saveKey);keyField.addEventListener('change',saveKey);
+ if(oldModel){if(![...modelField.options].some(o=>o.value===oldModel)){const o=document.createElement('option');o.value=oldModel;o.textContent=oldModel;modelField.append(o)}modelField.value=oldModel;}
+ modelField.addEventListener('change',saveModel);
+ const panel=document.createElement('div');panel.id='gemini-unified-controls';panel.style.cssText='margin:12px 0;padding:12px;border:1px solid #b99a62;border-radius:12px;background:rgba(20,15,29,.55)';
  const actions=document.createElement('div');actions.style.cssText='display:flex;gap:8px;flex-wrap:wrap;margin-top:9px';
- const refresh=document.createElement('button');refresh.type='button';refresh.textContent='Actualiser les modèles Google';
- refresh.style.cssText='padding:9px 12px;border-radius:8px;border:1px solid #b99a62;background:#30283a;color:#fff';
- const test=document.createElement('button');test.type='button';test.textContent='Tester ce modèle';
- test.style.cssText=refresh.style.cssText;
- if(!legacy){panel.append(label,select); } else { panel.append(label,select); }
- actions.append(refresh,test);panel.append(actions,status);
- // Place the selector at the start of the page, not buried inside a hidden modal.
- const target=document.querySelector('main')||document.querySelector('.container')||document.body;
- target.insertBefore(panel,target.firstChild);
- const saveChoice=()=>{selected=select.value;choices[pageKey]=selected;try{localStorage.setItem(KEY,JSON.stringify(choices))}catch(e){}status.textContent='Choix enregistré pour '+pageKey+' : '+selected+'. Les prochaines interprétations utiliseront ce modèle.'};
- // Keep a stable selection even if the current page's old select had only one hard-coded option.
- if(![...select.options].some(o=>o.value===selected)){let o=document.createElement('option');o.value=selected;o.textContent=selected+' (sélection mémorisée)';select.append(o)}
- select.value=selected;select.addEventListener('change',saveChoice);
- async function refreshModels(){
-   const key=getKey();if(!key){status.textContent='Clé API absente. Enregistre la clé commune sur la page d’accueil, puis réessaie.';return}
-   refresh.disabled=true;status.textContent='Interrogation de Google pour obtenir les modèles compatibles…';
-   try{
-     const r=await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000',{headers:{'x-goog-api-key':key}});
-     const d=await r.json();if(!r.ok)throw new Error(d.error?.message||('HTTP '+r.status));
-     const models=(d.models||[]).filter(m=>(m.supportedGenerationMethods||[]).includes('generateContent')&&/^models\/gemini-/i.test(m.name||'')&&!/(embedding|image|tts|live|audio|video|transcrib)/i.test((m.name||'')+' '+(m.displayName||'')));
-     if(!models.length)throw new Error('Google ne renvoie aucun modèle compatible generateContent pour cette clé.');
-     const items=models.map(m=>({id:(m.name||'').replace(/^models\//,''),label:(m.displayName||m.name)+' — '+(m.name||'').replace(/^models\//,'')})).sort((a,b)=>a.id.localeCompare(b.id));
-     const old=selected;select.replaceChildren();
-     for(const m of items){const o=document.createElement('option');o.value=m.id;o.textContent=m.label;select.append(o)}
-     if(items.some(m=>m.id===old))select.value=old;else {select.value=items.some(m=>m.id==='gemini-2.5-flash')?'gemini-2.5-flash':items[0].id}
-     saveChoice();status.textContent=items.length+' modèles réellement proposés par Google et compatibles avec generateContent. Le modèle sélectionné est enregistré uniquement pour cet oracle.';
-   }catch(e){status.textContent='Échec de récupération : '+e.message+'. Vérifie la clé, la connexion et les droits de l’API Gemini.'}
-   finally{refresh.disabled=false}
- }
- async function testModel(){
-   const key=getKey();if(!key){status.textContent='Clé API absente : enregistre-la sur la page d’accueil.';return}
-   saveChoice();test.disabled=true;status.textContent='Test du modèle '+selected+'…';
-   try{
-     const r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(selected)+':generateContent',{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':key},body:JSON.stringify({contents:[{parts:[{text:'Réponds uniquement par OK.'}]}],generationConfig:{maxOutputTokens:16,temperature:0}})});
-     const d=await r.json();if(!r.ok)throw new Error(d.error?.message||('HTTP '+r.status));
-     status.textContent='Test réussi : '+selected+' répond correctement.';
-   }catch(e){status.textContent='Test échoué pour '+selected+' : '+e.message}
-   finally{test.disabled=false}
- }
- refresh.addEventListener('click',refreshModels);test.addEventListener('click',testModel);
- // Critical: every oracle previously called a hard-coded model. Rewrite ONLY the
- // generateContent endpoint at request time using the per-oracle saved selection.
- const nativeFetch=window.fetch.bind(window);
- window.fetch=function(input,init){
-   let raw=typeof input==='string'?input:(input&&input.url)||'';
-   if(raw.includes('generativelanguage.googleapis.com')&&raw.includes(':generateContent')){
-     let current=selected;try{const c=JSON.parse(localStorage.getItem(KEY)||'{}');current=c[pageKey]||selected}catch(e){}
-     const u=new URL(raw,location.href);
-     u.pathname=u.pathname.replace(/\/models\/[^/]+:generateContent/, '/models/'+encodeURIComponent(current)+':generateContent');
-     if(typeof input==='string') input=u.toString();
-     else input=new Request(u.toString(),input);
-   }
-   return nativeFetch(input,init);
- };
- // If API key already exists, populate the list automatically once on page load.
- if(getKey()) refreshModels();
+ const refresh=document.createElement('button');refresh.type='button';refresh.textContent='Actualiser les modèles Gemini';
+ const testBtn=document.createElement('button');testBtn.type='button';testBtn.textContent='Tester le modèle choisi';
+ [refresh,testBtn].forEach(b=>b.style.cssText='padding:9px 12px;border-radius:8px;border:1px solid #b99a62;background:#30283a;color:inherit;font:inherit');
+ const status=document.createElement('p');status.style.cssText='font-size:13px;margin:8px 0 0';status.setAttribute('aria-live','polite');status.textContent='Clé et modèle enregistrés séparément pour '+oracle+'.';
+ actions.append(refresh,testBtn);panel.append(actions,status);modelField.parentElement.append(panel);
+ // Désactive les anciens boutons de gestion des modèles pour éviter deux moteurs concurrents.
+ ['aiRefreshModels','aiTestModel','loadModels'].forEach(id=>{const b=$(id);if(b){b.hidden=true;b.disabled=true;}});
+ async function fetchModels(){saveKey();const key=keyField.value.trim();if(!key){status.textContent='Saisis la clé API de cet oracle avant de charger les modèles.';keyField.focus();return;}refresh.disabled=true;status.textContent='Récupération des modèles compatibles auprès de Google…';
+  try{const r=await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000',{headers:{'x-goog-api-key':key}});const d=await r.json();if(!r.ok)throw Error(d.error?.message||('HTTP '+r.status));const list=(d.models||[]).filter(m=>(m.supportedGenerationMethods||[]).includes('generateContent')&&/^models\/gemini-/i.test(m.name||'')&&!/(embedding|image|tts|live|audio|video|transcrib)/i.test((m.name||'')+' '+(m.displayName||''))).map(m=>({id:m.name.replace(/^models\//,''),label:(m.displayName||m.name)+' — '+m.name.replace(/^models\//,'')})).sort((a,b)=>a.id.localeCompare(b.id));if(!list.length)throw Error('Aucun modèle Gemini compatible retourné par Google.');const wanted=modelField.value||oldModel;modelField.replaceChildren();for(const m of list){const o=document.createElement('option');o.value=m.id;o.textContent=m.label;modelField.append(o);}modelField.value=list.some(x=>x.id===wanted)?wanted:(list.find(x=>x.id==='gemini-2.5-flash')?.id||list[0].id);saveModel();status.textContent=list.length+' modèles compatibles chargés. Modèle choisi : '+modelField.value+'.';}
+  catch(e){status.textContent='Échec du chargement : '+e.message;}finally{refresh.disabled=false;}}
+ async function testModelNow(){saveKey();saveModel();const key=keyField.value.trim(),model=modelField.value;if(!key){status.textContent='Clé API manquante.';return;}if(!model){status.textContent='Choisis un modèle Gemini.';return;}testBtn.disabled=true;status.textContent='Test de '+model+'…';try{const r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(model)+':generateContent',{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':key},body:JSON.stringify({contents:[{parts:[{text:'Réponds uniquement : OK'}]}],generationConfig:{temperature:0,maxOutputTokens:12}})});const d=await r.json();if(!r.ok)throw Error(d.error?.message||('HTTP '+r.status));status.textContent='Test réussi : '+model+' répond correctement.';}catch(e){status.textContent='Test impossible : '+e.message;}finally{testBtn.disabled=false;}}
+ refresh.addEventListener('click',fetchModels);testBtn.addEventListener('click',testModelNow);
+ if(saved&&(!modelField.options.length||modelField.options.length<2))fetchModels();
 })();
 </script>
-
 </body></html>
