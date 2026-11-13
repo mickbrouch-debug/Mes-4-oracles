@@ -1,14 +1,8 @@
-SANCTUAIRE DES ORACLES — VERSION 10.0
-Refonte visuelle majeure de l'interface.
-
-- Nouvelle direction artistique sombre, céleste et éditoriale.
-- Accueil repensé : hiérarchie, cartes d'accès, contrastes et composition.
-- Six espaces oracle harmonisés avec une identité visuelle premium.
-- Panneaux, formulaires, navigation, boutons et zones de lecture retravaillés.
-- Navigation mobile et champs adaptés aux écrans étroits.
-- Effets de profondeur, halos, textures stellaires et micro-interactions.
-- Les moteurs de tirage, interprétations, réglages IA/API, historiques,
-  analyse croisée et éléments PWA de la base fournie sont conservés.
-
-Cette version est une refonte d'interface et de styles, pas une réécriture
-des systèmes symboliques ni une promesse de nouvelles illustrations peintes.
+V11.0 — RECONSTRUCTION DE L'APPLICATION
+Nouvelle architecture TypeScript / Web Components.
+L'ancien accueil est remplacé par un véritable shell applicatif : navigation
+latérale sur ordinateur, dock mobile, accueil éditorial, six cartes-univers,
+espace de travail intégré, accès à l'analyse croisée et aux réglages API.
+Les ateliers historiques sont chargés dans des iframes de même origine et
+rethématisés dynamiquement après leur chargement complet. Les fonctions métier
+existantes restent ainsi présentes sans être réécrites à l'aveugle.

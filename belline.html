@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#080914">
+<meta name="theme-color" content="#090a18">
 <meta name="description" content="Oracle de Belline — un espace symbolique de tirage et de réflexion.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
-<title>Oracle de Belline — Oracles Studio — V10</title>
+<title>Oracle de Belline — Oracles Studio</title>
 <style>
 :root{--bg:#120e19;--panel:#21182c;--panel2:#2b2038;--gold:#d7b76b;--gold2:#f2dfaa;--ink:#f8f0dc;--muted:#c2b5ca;--line:#6e583d;--rose:#6f3c5c}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top,#35213f 0,#17111f 42%,#0d0b12 100%);color:var(--ink);font-family:Georgia,'Times New Roman',serif;min-height:100vh}button,input,select,textarea{font:inherit}button{cursor:pointer;touch-action:manipulation}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}.shell{max-width:1120px;margin:auto;padding:18px 16px 50px}.hero{text-align:center;padding:22px 12px 28px}.sigil{width:74px;height:74px;border:1px solid var(--gold);border-radius:50%;margin:0 auto 15px;display:grid;place-items:center;color:var(--gold2);font-size:34px;box-shadow:0 0 28px #d7b76b20,inset 0 0 18px #d7b76b10}.eyebrow{letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font:11px Arial,sans-serif}.hero h1{font-size:clamp(28px,5vw,47px);font-weight:normal;letter-spacing:.045em;margin:10px 0;color:var(--gold2)}.hero p{color:var(--muted);max-width:620px;margin:0 auto;line-height:1.6}.ornament{color:var(--gold);letter-spacing:.6em;margin:18px 0}.panel{border:1px solid #8b70484d;background:linear-gradient(145deg,#241a30f2,#17121f);border-radius:18px;padding:20px;margin:14px 0;box-shadow:0 15px 40px #0003}.panel h2{font-size:21px;font-weight:normal;color:var(--gold2);margin:0 0 15px}.gridform{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}label,.label{color:var(--gold2);font-size:14px}input,select,textarea{width:100%;background:#120e19;color:var(--ink);border:1px solid #745e47;border-radius:10px;padding:12px}textarea{min-height:88px;resize:vertical}.help{color:var(--muted);font:12px/1.5 Arial,sans-serif}.btn{border:1px solid var(--gold);background:linear-gradient(120deg,#8c6634,#c19c50);color:#1b1220;padding:11px 15px;border-radius:10px;font-weight:bold}.btn.secondary{background:#2a2035;color:var(--gold2);border-color:#6d583f}.btn.ghost{background:transparent;color:var(--gold2)}.btn:disabled{opacity:.35;cursor:not-allowed}.actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.stats{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;color:var(--muted);font:13px Arial,sans-serif;margin:12px 0}.progress{height:5px;background:#49364d;border-radius:8px;overflow:hidden;margin:12px 0}.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));width:0;transition:width .2s}.deck{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:9px;margin-top:15px}.cardback,.tarotface{position:relative;aspect-ratio:2/3;border-radius:8px;border:1px solid var(--gold);padding:5px;background:linear-gradient(150deg,#35203f,#17111f 70%);box-shadow:0 4px 12px #0005;display:flex;align-items:center;justify-content:center;min-width:0;overflow:hidden}.cardback:before,.tarotface:before{content:"";position:absolute;inset:5px;border:1px solid #b99755;border-radius:5px;pointer-events:none}.cardback:after{content:"✧  ☾  ✧";position:absolute;color:#d9bb75;letter-spacing:.08em;font-size:clamp(8px,1.4vw,14px)}.cardback .num{position:absolute;bottom:10px;color:#b99a60;font:9px Arial,sans-serif}.cardback.selected{background:linear-gradient(150deg,#73502f,#32203e);box-shadow:0 0 0 2px var(--gold2),0 0 20px #d7b76b38}.cardback:disabled{opacity:.36}.cardback .mini{display:none}.cardback .back-art{position:absolute;inset:8%;width:84%;height:84%;opacity:.92;pointer-events:none}.cardback:after{content:"";display:none}.cardback.selected .back-art{filter:drop-shadow(0 0 4px #f4d58b)}.tarotface{position:relative;isolation:isolate;background:radial-gradient(ellipse at 50% 28%,#fff2c9 0,#e5cc91 43%,#9c7948 100%);border:2px solid #e3c47d;box-shadow:0 8px 20px #0007,inset 0 0 0 3px #563b2a,inset 0 0 0 5px #e4c77d}.tarotface:before{inset:7px;border:1px solid #79502b;border-radius:4px}.tarotface .card-art{width:100%;height:60%;min-height:60px;max-height:190px;z-index:1;filter:drop-shadow(0 3px 2px #4b2b2528)}.tarotface .inner{gap:7px}.tarotface .cardname{font-family:Georgia,serif;font-size:clamp(11px,1.5vw,15px);font-weight:bold;letter-spacing:.025em;text-transform:uppercase}.tarotface .edition{font:8px Arial,sans-serif;letter-spacing:.18em;color:#79502b;z-index:1}.cardname{font-size:clamp(8px,1.2vw,12px);line-height:1.2;text-align:center;overflow-wrap:anywhere}.drawn{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}.drawnitem{min-width:0}.tarotface{background:linear-gradient(150deg,#f0dfb5,#bda16b 80%);color:#291b2e;flex-direction:column;gap:8px;text-align:center;padding:12px}.tarotface:before{border-color:#6c4b29}.tarotface .symbol{font-size:clamp(22px,4vw,38px);z-index:1}.tarotface .cardname{font-size:13px;z-index:1}.tarotface.reversed .inner{transform:rotate(180deg)}.tarotface .inner{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;z-index:1;width:100%;height:100%}.poslabel{text-align:center;color:var(--gold2);font-size:13px;margin:7px 0}.reading{border-top:1px solid #71593e;padding:14px 0}.reading h3{color:var(--gold2);font-weight:normal;margin:0 0 6px}.reading p{line-height:1.6;color:#e9dfeb;margin:7px 0}.reading .keywords{color:var(--gold);font:12px Arial,sans-serif}.reading .advice{border-left:2px solid var(--gold);padding-left:10px;color:var(--muted)}.notice{padding:12px;border:1px solid #6e583d;border-radius:10px;background:#21182c;color:var(--muted);font:13px/1.55 Arial,sans-serif}.footer{text-align:center;color:#8e8197;font:11px/1.6 Arial,sans-serif;margin-top:24px}.hidden{display:none!important}.pill{border:1px solid #735b3c;border-radius:999px;padding:5px 9px;color:var(--gold2);font:11px Arial,sans-serif}
@@ -325,144 +325,32 @@ footer,.footer,.muted,.sub,.help,.tiny{color:var(--sanct-muted)!important}
 @media(prefers-reduced-motion:reduce){.tarotface,.face{animation:none!important}}
 </style>
 
-<style id="sanctuaire-v10-design-system">
-:root{
- --v10-bg:#070812;--v10-panel:rgba(18,20,39,.82);--v10-panel-hi:rgba(29,28,53,.88);
- --v10-gold:#e9ca88;--v10-gold-soft:#b9955b;--v10-cream:#f8f2e6;
- --v10-muted:#b8b4ca;--v10-line:rgba(232,205,147,.2);--v10-violet:#a58de8;
- --v10-teal:#82c9c5;--v10-shadow:0 24px 70px rgba(0,0,0,.34);
+<style id="sanctuaire-v62-card-render-fix">
+/* V6.2 — cartes illustrées : l'image SVG générée doit rester au-dessus des fonds de secours */
+.tarotface,.face,.card.front{
+  background-repeat:no-repeat!important;
+  background-size:cover!important;
+  background-position:center!important;
+  transform-style:preserve-3d;
+  backface-visibility:hidden;
 }
-html{scroll-padding-top:90px}
-body{
- background:
-  radial-gradient(ellipse at 50% -20%,rgba(126,89,174,.32),transparent 44%),
-  radial-gradient(ellipse at 0% 45%,rgba(47,87,139,.17),transparent 38%),
-  radial-gradient(ellipse at 100% 70%,rgba(139,75,129,.14),transparent 38%),
-  linear-gradient(160deg,#080914 0%,#111126 50%,#080914 100%)!important;
- color:var(--v10-cream)!important;
- font-family:ui-serif,Georgia,"Times New Roman",serif;
+.tarotface:before,.face:before,.card.front:before{pointer-events:none}
+.tarotface .inner,.face>*,.card.front>*{position:relative;z-index:3}
+.tarotface .inner{background:linear-gradient(180deg,transparent 48%,rgba(5,7,17,.76) 100%)}
+.tarotface,.face,.card.front{animation:sanctuaireV62Reveal .82s cubic-bezier(.2,.75,.25,1) both}
+@keyframes sanctuaireV62Reveal{
+  0%{opacity:.25;transform:perspective(900px) rotateY(-82deg) scale(.94);filter:brightness(1.5)}
+  65%{opacity:1;transform:perspective(900px) rotateY(9deg) scale(1.015);filter:brightness(1.08)}
+  100%{opacity:1;transform:perspective(900px) rotateY(0) scale(1);filter:brightness(1)}
 }
-body:before{
- content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.26;
- background-image:radial-gradient(1px 1px at 10% 18%,#fff 98%,transparent),
- radial-gradient(1px 1px at 30% 74%,#e9ca88 98%,transparent),
- radial-gradient(1.5px 1.5px at 70% 28%,#fff 98%,transparent),
- radial-gradient(1px 1px at 90% 82%,#bda8f1 98%,transparent);
- background-size:280px 240px;animation:v10Stars 100s linear infinite;
+.tarotface.reversed .inner{transform:rotate(180deg)}
+@media(max-width:600px){
+ .drawn{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .tarotface,.face,.card.front{min-height:220px}
 }
-@keyframes v10Stars{to{background-position:0 480px,0 -360px,0 280px,0 -480px}}
-.shell,.wrap{max-width:1240px!important;padding-left:clamp(14px,3vw,34px)!important;padding-right:clamp(14px,3vw,34px)!important}
-.hero{
- position:relative;isolation:isolate;overflow:hidden;
- padding:clamp(28px,5vw,64px) 22px!important;
- margin:10px 0 28px!important;
- border:1px solid rgba(233,202,136,.28)!important;
- border-radius:30px!important;
- background:
-  radial-gradient(circle at 50% 0%,rgba(171,133,219,.22),transparent 48%),
-  linear-gradient(125deg,rgba(34,29,61,.97),rgba(13,21,40,.96) 55%,rgba(31,25,49,.97))!important;
- box-shadow:var(--v10-shadow),inset 0 1px 0 rgba(255,255,255,.08)!important;
+@media(prefers-reduced-motion:reduce){
+ .tarotface,.face,.card.front{animation:none!important;transform:none!important}
 }
-.hero:before{
- content:"";position:absolute;z-index:-1;width:min(58vw,520px);aspect-ratio:1;
- right:-8%;top:-65%;border:1px solid rgba(233,202,136,.22);border-radius:50%;
- box-shadow:0 0 0 24px rgba(233,202,136,.035),0 0 0 54px rgba(165,141,232,.035),0 0 100px rgba(165,141,232,.15);
-}
-.hero:after{
- content:"✧";position:absolute;right:clamp(18px,5vw,58px);bottom:12px;
- font-size:clamp(54px,9vw,112px);line-height:1;color:rgba(233,202,136,.11);
- text-shadow:0 0 45px rgba(233,202,136,.2);pointer-events:none;
-}
-.hero h1,h1{color:#f2dca8!important;text-shadow:0 5px 32px rgba(233,202,136,.12)}
-.hero p{max-width:760px;line-height:1.8}
-.eyebrow{letter-spacing:.28em!important;color:#d8bd85!important}
-.sigil{
- width:88px!important;height:88px!important;border-radius:28px!important;
- border:1px solid rgba(233,202,136,.5)!important;
- background:linear-gradient(145deg,rgba(233,202,136,.13),rgba(165,141,232,.08))!important;
- box-shadow:0 12px 35px rgba(0,0,0,.22),inset 0 0 24px rgba(233,202,136,.08)!important;
- transform:rotate(-4deg);
-}
-.panel{
- position:relative;overflow:hidden;
- background:linear-gradient(145deg,rgba(28,29,54,.91),rgba(13,17,34,.94))!important;
- border:1px solid var(--v10-line)!important;border-radius:24px!important;
- padding:clamp(17px,2.5vw,28px)!important;margin:18px 0!important;
- box-shadow:0 18px 48px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.045)!important;
- backdrop-filter:blur(16px);
-}
-.panel h2{color:var(--v10-gold)!important;font-size:clamp(19px,2vw,24px)!important;letter-spacing:-.02em}
-.panel h2:after{content:"";display:block;width:46px;height:2px;margin-top:10px;background:linear-gradient(90deg,var(--v10-gold),transparent);opacity:.8}
-.gridform,.form{gap:16px!important}
-.field{gap:8px!important}
-label{font:600 12px/1.4 ui-sans-serif,system-ui,sans-serif!important;letter-spacing:.07em;text-transform:uppercase;color:#c9b9e7!important}
-input,select,textarea{
- min-height:46px!important;padding:12px 14px!important;border-radius:13px!important;
- border:1px solid rgba(184,176,213,.25)!important;
- background:rgba(6,9,24,.78)!important;color:#fff8eb!important;
- box-shadow:inset 0 1px 4px rgba(0,0,0,.22)!important;
-}
-textarea{line-height:1.65!important}
-button,.btn{
- border-radius:13px!important;padding:12px 18px!important;
- font:750 13px/1.25 ui-sans-serif,system-ui,sans-serif!important;
- letter-spacing:.025em;min-height:44px;
-}
-button:not(.secondary),.btn:not(.secondary){
- color:#1a1721!important;border:1px solid rgba(255,230,174,.65)!important;
- background:linear-gradient(135deg,#9b7845,#e9ca88 52%,#b18b51)!important;
- box-shadow:0 8px 22px rgba(188,145,72,.2),inset 0 1px 0 rgba(255,255,255,.35)!important;
-}
-button.secondary,.btn.secondary,.btn.ghost,.secondary{
- color:#eee8fa!important;background:linear-gradient(135deg,rgba(165,141,232,.16),rgba(91,112,168,.12))!important;
- border:1px solid rgba(165,141,232,.35)!important;box-shadow:none!important;
-}
-button:hover,.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
-.actions{gap:10px!important;flex-wrap:wrap}
-.nav,.navlinks,.links{
- position:sticky!important;top:8px;z-index:20;
- display:flex;flex-wrap:wrap;gap:8px!important;
- padding:9px!important;margin:10px 0 22px!important;
- border:1px solid rgba(233,202,136,.17)!important;border-radius:16px!important;
- background:rgba(8,10,25,.78)!important;backdrop-filter:blur(18px);
- box-shadow:0 12px 30px rgba(0,0,0,.22)!important;
-}
-.nav a,.navlinks a,.links a{
- padding:8px 12px!important;border-radius:10px!important;
- background:rgba(255,255,255,.035);text-decoration:none!important;
- font:650 12px ui-sans-serif,system-ui,sans-serif!important;color:#e9d9b8!important;
-}
-.nav a:hover,.navlinks a:hover,.links a:hover{background:rgba(233,202,136,.13)!important}
-.cards,.drawn{gap:clamp(10px,2vw,18px)!important}
-.card,.tarotface,.face{
- border-radius:18px!important;border:1px solid rgba(233,202,136,.65)!important;
- box-shadow:0 18px 36px rgba(0,0,0,.4),inset 0 0 0 4px rgba(233,202,136,.08),inset 0 1px 0 rgba(255,255,255,.22)!important;
- overflow:hidden;
-}
-.card.back{
- background:
-  radial-gradient(circle at center,transparent 0 22%,rgba(233,202,136,.13) 22.5% 23%,transparent 23.5% 37%,rgba(233,202,136,.12) 37.5% 38%,transparent 38.5%),
-  repeating-conic-gradient(from 8deg,rgba(233,202,136,.10) 0 2deg,transparent 2deg 12deg),
-  linear-gradient(145deg,#262044,#10152a 60%,#302044)!important;
-}
-.reading,.out,.result,.interpretation,#output,#localOutput,#result,#crossOutput{
- border-radius:20px!important;border:1px solid rgba(233,202,136,.24)!important;
- background:linear-gradient(145deg,rgba(29,29,53,.97),rgba(12,17,34,.97))!important;
- padding:clamp(16px,2.5vw,25px)!important;
- box-shadow:0 16px 42px rgba(0,0,0,.24)!important;
-}
-.statusline,.notice,.stats{border-radius:14px!important}
-footer{padding:25px 8px;color:#a9a3ba!important}
-@media(max-width:680px){
- .hero{border-radius:22px!important;padding:28px 18px!important}
- .hero:after{opacity:.5}
- .nav,.navlinks,.links{top:4px;overflow-x:auto;flex-wrap:nowrap;white-space:nowrap}
- .nav a,.navlinks a,.links a{flex:0 0 auto}
- .gridform,.form{grid-template-columns:1fr!important}
- .full{grid-column:auto!important}
- .panel{border-radius:18px!important}
-}
-@media(prefers-reduced-motion:reduce){body:before{animation:none!important}button,.btn{transition:none!important}}
 </style>
 
 </head>
@@ -1463,7 +1351,7 @@ function updateProgress(){const n=Number($("count").value);$("countLabel").textC
 function flipOrientations(){orientations={};selected.forEach(id=>orientations[id]=false);renderDeck();if(revealed)renderDrawn()}
 function getSelected(){return selected.map(id=>({card:TAROT_CARDS.find(c=>c.id===id),reversed:!!orientations[id]}))}
 function revealCards(){revealed=true;$("result").classList.remove("hidden");$("summary").textContent=`Thème : ${$("domain").value} · Question : ${$("question").value.trim()||"Tirage général"} · ${selected.length} cartes`;renderDrawn();$("interpretation").innerHTML="";$("aiStatus").classList.add("hidden");$("result").scrollIntoView({behavior:"smooth",block:"start"})}
-function renderDrawn(){const root=$("drawn");root.innerHTML="";const n=selected.length;const pos=positionsFor(n);getSelected().forEach((item,i)=>{const name=pos[i*2]||`Carte ${i+1}`;const el=document.createElement("div");el.className="drawnitem";el.innerHTML=`<div class="tarotface ${item.reversed?"reversed":""}"><div class="inner">${bellineArt(item.card)}<div class="edition">✦ ORACLE DE BELLINE ✦</div><div class="cardname"></div><div style="font:8px Arial,sans-serif;letter-spacing:.14em">${item.reversed?"RENversée":"DROITE"}</div></div></div><div class="poslabel"></div>`;const face=el.querySelector(".tarotface");face.style.backgroundImage=window.SanctuaireCardArt(item.card.name,item.card.suit||item.card.arcana||"Arcane","belline");el.querySelector(".cardname").textContent=item.card.name;el.querySelector(".poslabel").textContent=name;root.appendChild(el)})}
+function renderDrawn(){const root=$("drawn");root.innerHTML="";const n=selected.length;const pos=positionsFor(n);getSelected().forEach((item,i)=>{const name=pos[i*2]||`Carte ${i+1}`;const el=document.createElement("div");el.className="drawnitem";el.innerHTML=`<div class="tarotface ${item.reversed?"reversed":""}"><div class="inner">${bellineArt(item.card)}<div class="edition">✦ ORACLE DE BELLINE ✦</div><div class="cardname"></div><div style="font:8px Arial,sans-serif;letter-spacing:.14em">${item.reversed?"RENversée":"DROITE"}</div></div></div><div class="poslabel"></div>`;const face=el.querySelector(".tarotface");face.style.setProperty('background-image',window.SanctuaireCardArt(item.card.name,item.card.suit||item.card.arcana||"Arcane","belline"),'important');el.querySelector(".cardname").textContent=item.card.name;el.querySelector(".poslabel").textContent=name;root.appendChild(el)})}
 function localAnalysis(){
  const items=getSelected(), n=items.length, pos=positionsFor(n), domain=$("domain").value, question=$("question").value.trim();
  if(!items.length){$("interpretation").innerHTML='<div class="notice">Choisis d’abord tes cartes.</div>';return;}
@@ -1786,51 +1674,7 @@ window.addEventListener('storage',e=>{if(e.key===COMMON&&!localStorage.getItem(I
 </script>
 
 
-<script id="sanctuaire-card-art-engine">
-(function(){
-const PALETTES={
- tarot:['#07152f','#172d5b','#eac46e','#b7d9ff'],
- belline:['#210d25','#5a1d3a','#e9bd70','#f3d5a0'],
- lenormand:['#0c302e','#1d6151','#e7d29a','#b8e4c6'],
- portes:['#21143d','#58346c','#e9c28c','#d7b7ff'],
- astrologie:['#071a38','#174b77','#f0d17a','#a8d9ff'],
- runes:['#102a25','#3c5c48','#d8c18b','#b7d4a7']
-};
-function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
-function art(name,detail,oracle){
- const p=PALETTES[oracle]||PALETTES.tarot, seed=hash(oracle+'|'+name), a=p[0],b=p[1],g=p[2],light=p[3];
- const cx=300,cy=365, rot=seed%360, rays=Array.from({length:16},(_,i)=>{let an=(i*22.5+rot)*Math.PI/180;let x1=cx+Math.cos(an)*130,y1=cy+Math.sin(an)*130,x2=cx+Math.cos(an)*245,y2=cy+Math.sin(an)*245;return `<path d="M${x1.toFixed(1)} ${y1.toFixed(1)}L${x2.toFixed(1)} ${y2.toFixed(1)}" stroke="${g}" stroke-width="${i%2?2:4}" opacity=".65"/>`}).join('');
- const stars=Array.from({length:38},(_,i)=>{let x=35+((seed*(i+3)+i*97)%530),y=50+((seed>>>((i%4)*5))+i*131)%690,r=1+(i%3);return `<circle cx="${x}" cy="${y}" r="${r}" fill="${light}" opacity=".8"/>`}).join('');
- let icon='✦';
- const n=name.toLowerCase();
- if(/lune|moon|papesse|intuition|rêve/.test(n)) icon='☾';
- else if(/soleil|sun|joie|succès|énergie/.test(n)) icon='☼';
- else if(/amoureux|amour|cœur|coupes|coupe/.test(n)) icon='♡';
- else if(/mort|transformation|fin|renaissance/.test(n)) icon='✧';
- else if(/étoile|star|espoir/.test(n)) icon='✶';
- else if(/tour|maison|ancrage|bouclier/.test(n)) icon='⌂';
- else if(/roue|destin|cycle|fortune/.test(n)) icon='☸';
- else if(/rune|fehu|uruz|thurisaz|ansuz|raidho|kenaz|gebo|wunjo|hagalaz|nauthiz|isa|jera|eihwaz|perthro|algiz|sowilo|tiwaz|berkano|ehwaz|mannaz|laguz|ingwaz|dagaz|othala/.test(n)) icon='ᚱ';
- else if(/balance|justice|loi|contrat/.test(n)) icon='⚖';
- else if(/oiseau|messager|lettre|communication/.test(n)) icon='♧';
- else if(/arbre|nature|jardin|croissance/.test(n)) icon='❀';
- else if(/éclair|orage|danger|conflit/.test(n)) icon='ϟ';
- const scene=oracle==='runes'
- ? `<path d="M300 165L440 300L390 610L300 760L210 610L160 300Z" fill="${b}" stroke="${g}" stroke-width="7"/><path d="M300 250V650 M220 350L380 540 M380 350L220 540" stroke="${light}" stroke-width="18" stroke-linecap="round"/><circle cx="300" cy="430" r="220" fill="none" stroke="${g}" stroke-width="3" stroke-dasharray="8 13"/>`
- : oracle==='astrologie'
- ? `<circle cx="300" cy="365" r="220" fill="none" stroke="${g}" stroke-width="5"/><circle cx="300" cy="365" r="168" fill="none" stroke="${light}" stroke-width="2"/><path d="M300 145V585M80 365H520M145 210L455 520M455 210L145 520" stroke="${g}" stroke-width="3"/><circle cx="300" cy="365" r="105" fill="url(#orb)" stroke="${g}" stroke-width="5"/>`
- : oracle==='lenormand'
- ? `<path d="M35 670Q140 520 255 670T565 650V860H35Z" fill="#102d2b"/><path d="M300 690V300M300 500Q175 425 140 300Q260 330 300 465M300 465Q425 330 470 240Q365 270 300 410" fill="#34765b" stroke="${g}" stroke-width="5"/><circle cx="300" cy="260" r="95" fill="url(#orb)" stroke="${g}" stroke-width="4"/>`
- : oracle==='portes'
- ? `<path d="M105 760V350Q105 135 300 135Q495 135 495 350V760" fill="none" stroke="${g}" stroke-width="18"/><path d="M155 760V360Q155 195 300 195Q445 195 445 360V760Z" fill="${b}" stroke="${light}" stroke-width="4"/><path d="M300 220L380 405L300 565L220 405Z" fill="url(#orb)" stroke="${g}" stroke-width="5"/>`
- : `<path d="M40 690Q140 500 250 680T560 660V860H40Z" fill="#10152c"/><path d="M110 690L110 460L185 385L260 460V690M365 690Q405 520 490 690" fill="none" stroke="${g}" stroke-width="7"/><circle cx="300" cy="290" r="112" fill="url(#orb)" stroke="${g}" stroke-width="5"/>`;
- const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900"><defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="${a}"/><stop offset=".58" stop-color="${b}"/><stop offset="1" stop-color="#080b18"/></linearGradient><radialGradient id="orb"><stop stop-color="#fff8d8"/><stop offset=".3" stop-color="${g}"/><stop offset="1" stop-color="${g}" stop-opacity="0"/></radialGradient><linearGradient id="gold"><stop stop-color="${g}"/><stop offset=".5" stop-color="#fff1c5"/><stop offset="1" stop-color="${g}"/></linearGradient></defs><rect width="600" height="900" fill="url(#bg)"/>${stars}${rays}${scene}<circle cx="300" cy="365" r="65" fill="url(#orb)" opacity=".6"/><text x="300" y="405" font-size="${icon.length>1?90:120}" text-anchor="middle" dominant-baseline="middle" fill="${light}" font-family="serif" opacity=".95">${icon}</text><rect x="22" y="22" width="556" height="856" rx="26" fill="none" stroke="url(#gold)" stroke-width="8"/><rect x="40" y="40" width="520" height="820" rx="18" fill="none" stroke="${g}" stroke-width="2"/><path d="M300 60l22 30-22 30-22-30Z M300 780l22 30-22 30-22-30Z" fill="${g}"/><path d="M75 95Q300 35 525 95M75 805Q300 865 525 805" fill="none" stroke="${g}" stroke-width="2"/><rect x="55" y="735" width="490" height="95" rx="14" fill="#090b18" fill-opacity=".82" stroke="${g}" stroke-width="2"/><text x="300" y="775" text-anchor="middle" fill="#fff1c9" font-family="Georgia,serif" font-size="25">${String(name).replace(/[<>&"]/g,'').slice(0,27)}</text><text x="300" y="808" text-anchor="middle" fill="${g}" font-family="Georgia,serif" font-size="13" letter-spacing="3">${String(detail||'').replace(/[<>&"]/g,'').slice(0,38)}</text></svg>`;
- return 'url("data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg)+'")';
-}
-window.SanctuaireCardArt=art;
-window.SanctuaireCardBack=function(oracle){const p=PALETTES[oracle]||PALETTES.tarot;return 'radial-gradient(circle at 50% 42%, '+p[1]+', '+p[0]+' 72%)'};
-})();
-</script>
+
 
 <script id="sanctuaire-card-art-engine">
 (function(){
