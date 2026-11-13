@@ -1,12 +1,12 @@
-SANCTUAIRE DES ORACLES — V6.2
+SANCTUAIRE DES ORACLES — V10.0
 
-Remplacement complet du site :
+INSTALLATION COMPLÈTE
 1. Décompresse cette archive.
-2. Dans GitHub, ouvre le dépôt puis la branche V5.2.
-3. Remplace les fichiers du site par TOUS les fichiers de cette archive
-   (sans créer de sous-dossier).
-4. Vérifie que index.html est bien à la racine.
-5. Attends la fin du déploiement GitHub Pages puis recharge le site en navigation privée.
+2. Dans GitHub, ouvre le dépôt Mes-4-oracles et la branche V5.2.
+3. Remplace les fichiers du site par TOUS les fichiers de cette archive.
+4. Laisse index.html à la racine (ne place pas les fichiers dans un sous-dossier).
+5. Attends la fin de GitHub Pages.
+6. Ouvre le site avec un rechargement forcé ou en navigation privée.
 
-L'archive contient les pages HTML et les éléments PWA à la racine.
-La branche principale de sauvegarde n'a pas besoin d'être supprimée.
+Garde la branche principale comme sauvegarde.
+L'archive ne nécessite aucun dossier d'images externe.

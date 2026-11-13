@@ -1,13 +1,14 @@
-SANCTUAIRE DES ORACLES — V6.2
-Correctif d'affichage des illustrations et de révélation des cartes.
+SANCTUAIRE DES ORACLES — VERSION 10.0
+Refonte visuelle majeure de l'interface.
 
-- Corrige la priorité CSS qui masquait les illustrations SVG des cartes.
-- Applique les images de cartes avec une priorité inline explicite.
-- Supprime les doubles moteurs d'illustration strictement identiques.
-- Ajoute une animation de révélation 3D cohérente sur les cartes tirées.
-- Préserve les pages, les tirages, les interprétations, les réglages IA/API,
-  l'analyse croisée et les éléments PWA présents dans la base V6.
+- Nouvelle direction artistique sombre, céleste et éditoriale.
+- Accueil repensé : hiérarchie, cartes d'accès, contrastes et composition.
+- Six espaces oracle harmonisés avec une identité visuelle premium.
+- Panneaux, formulaires, navigation, boutons et zones de lecture retravaillés.
+- Navigation mobile et champs adaptés aux écrans étroits.
+- Effets de profondeur, halos, textures stellaires et micro-interactions.
+- Les moteurs de tirage, interprétations, réglages IA/API, historiques,
+  analyse croisée et éléments PWA de la base fournie sont conservés.
 
-Note : les illustrations restent des compositions vectorielles générées à partir
-des noms et familles des cartes ; cette version ne prétend pas fournir une
-peinture artisanale unique pour chaque carte.
+Cette version est une refonte d'interface et de styles, pas une réécriture
+des systèmes symboliques ni une promesse de nouvelles illustrations peintes.
