@@ -1,5 +1,9 @@
-SANCTUAIRE — ÉDITION VISUELLE V5
-Six illustrations vectorielles originales, une par famille d'oracle : Tarot, Belline, Lenormand, Portes de l'Intuition, Astrologie et Runes.
-Habillage illustré des faces révélées, dos de cartes renforcés, cadre doré et contraste.
-Les pages, scripts, interprétations, clés API et historique de la version précédente sont conservés.
-Note : ces illustrations sont des compositions décoratives propres à chaque famille d'oracle ; elles ne constituent pas encore une illustration narrative unique pour chacune des 78/54 cartes.
+SANCTUAIRE — REFONTE DU MOTEUR GRAPHIQUE V6.0
+- Remplacement des illustrations génériques statiques par un moteur SVG génératif intégré dans chaque page oracle.
+- Chaque carte révélée reçoit une composition visuelle calculée à partir de son nom et de ses attributs : palettes, symboles, géométrie, scène de fond et cadre varient par carte.
+- Univers différenciés : Tarot, Belline, Lenormand, Portes de l'Intuition, Astrologie et Runes.
+- Révélation animée en perspective et respect de prefers-reduced-motion.
+- Images intégrées directement aux pages HTML : aucun dossier assets à téléverser.
+- Cache du service worker renouvelé en v6.0.
+- Les fonctions de tirage et d'interprétation présentes dans la base V5.2 sont conservées.
+Note artistique : les illustrations sont générées en SVG par le moteur embarqué ; ce ne sont pas des peintures réalisées individuellement par un illustrateur.

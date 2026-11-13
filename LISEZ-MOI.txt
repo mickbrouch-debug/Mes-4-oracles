@@ -1,16 +1,10 @@
-INSTALLATION GITHUB SUR ANDROID — VERSION 5.2
+INSTALLATION GITHUB MOBILE — V6.0
 
-Cette version ne nécessite AUCUN dossier assets et AUCUN fichier SVG séparé.
-Les six illustrations sont intégrées directement dans les six pages HTML :
-- tarot-78.html
-- belline.html
-- lenormand-54.html
-- portes-intuition.html
-- astrologie.html
-- runes.html
+Aucun dossier assets n'est nécessaire : le moteur d'illustration est intégré aux six pages HTML.
 
-Décompressez le ZIP, puis téléversez les fichiers du dossier extrait à la racine
-du dépôt GitHub, comme des fichiers ordinaires. Vous n'avez aucun sous-dossier
-à sélectionner ni à créer.
+1. Décompresser le ZIP.
+2. Téléverser les fichiers à la racine de la branche V5.2 (remplacer les versions existantes).
+3. Vérifier que sw.js est également remplacé : son cache passe en v6.0.
+4. GitHub Pages doit publier la branche V5.2 à la racine (/).
 
-Important : téléverser/remplacer aussi sw.js et les autres fichiers de l'archive.
+Après publication, fermer complètement l'application installée ou le navigateur, puis rouvrir le site. Si l'ancien écran persiste, désinstaller le raccourci/PWA puis réinstaller après vérification du site web.
