@@ -1,0 +1,13 @@
+
+:root{--gold:#e8c36f;--violet:#a879ed;--cream:#fff0d1}
+body{background:radial-gradient(ellipse at 50% 0,#3c225d 0,transparent 42%),linear-gradient(145deg,#080914,#15112b 55%,#080914)!important;color:var(--cream)!important}
+h1,h2,h3{color:#ffedc7!important}
+.v3-banner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;margin:10px auto;max-width:1200px;border:1px solid #d6ad5d;border-radius:18px;background:linear-gradient(100deg,#261638,#10172f);box-shadow:0 0 25px #e8b95a22}
+.v3-banner strong{font:600 19px Georgia;color:var(--gold)}.v3-banner a{color:#fff0d1;text-decoration:none;border:1px solid #b98b4d;padding:9px 13px;border-radius:12px;background:#36234f}
+.v3-gallery{max-width:1400px;margin:auto;padding:14px}.v3-head{text-align:center;padding:20px}.v3-head h1{font:clamp(28px,5vw,54px) Georgia;color:var(--gold)!important}.v3-head p{color:#d2c2dc}
+.v3-tabs{display:flex;gap:8px;overflow:auto;padding:10px 0}.v3-tabs button{white-space:nowrap;background:#281b3c;color:#fff0d1;border:1px solid #b99154;border-radius:12px;padding:10px 14px}
+.v3-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(135px,1fr));gap:14px}
+.v3-card{background:linear-gradient(145deg,#24183a,#0d1125);border:1px solid #b98d50;border-radius:15px;padding:7px;text-align:center;box-shadow:0 8px 24px #0008}
+.v3-card img{width:100%;display:block;border-radius:10px}.v3-card span{display:block;color:#ffe7b3;padding:8px 2px;font:14px Georgia}
+.v3-section{display:none}.v3-section.active{display:block}
+@media(max-width:600px){.v3-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.v3-banner{flex-wrap:wrap}.v3-card span{font-size:12px}}

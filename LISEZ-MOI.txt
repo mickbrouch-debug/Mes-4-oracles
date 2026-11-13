@@ -1,32 +1,12 @@
-LE SANCTUAIRE DES ORACLES — VERSION 11.0
-Migration d'architecture vers une application TypeScript à composants Web.
+SANCTUAIRE DES ORACLES — V10.0
 
-CE QUI CHANGE
-- Nouvel accueil applicatif avec une navigation unifiée.
-- Six univers visuels différenciés et une expérience adaptée au mobile.
-- Les anciens ateliers de tirage restent intégrés pour conserver les moteurs,
-  les cartes, les interprétations locales, Gemini, la voix et les historiques.
-- Le thème est injecté dans les ateliers après leur chargement complet, ce qui
-  résout les conflits entre les anciennes feuilles de style.
-- La lecture croisée et les réglages API restent accessibles dans l'application.
-- Application statique : aucun serveur personnel et aucun service payant requis.
+INSTALLATION COMPLÈTE
+1. Décompresse cette archive.
+2. Dans GitHub, ouvre le dépôt Mes-4-oracles et la branche V5.2.
+3. Remplace les fichiers du site par TOUS les fichiers de cette archive.
+4. Laisse index.html à la racine (ne place pas les fichiers dans un sous-dossier).
+5. Attends la fin de GitHub Pages.
+6. Ouvre le site avec un rechargement forcé ou en navigation privée.
 
-INSTALLATION SUR GITHUB PAGES
-1. Décompresser cette archive.
-2. Dans le dépôt Mes-4-oracles, sélectionner la branche V5.2.
-3. Remplacer les fichiers du site par TOUS les fichiers de cette archive.
-4. Garder tous les fichiers à la racine, notamment index.html, app-v11.js,
-   app-v11.css et legacy-v11.css. Ne pas les mettre dans un sous-dossier.
-5. Attendre le déploiement GitHub Pages.
-6. Sur le téléphone, fermer l'ancien onglet puis rouvrir le site. Si l'ancienne
-   version persiste, vider les données du site ou tester en navigation privée.
-
-FONCTIONS CONSERVÉES
-Les huit pages historiques (six oracles, lecture croisée et réglages API) sont
-incluses et utilisées par l'application. Les liens directs vers ces pages restent
-également disponibles.
-
-TECHNOLOGIE
-app-v11.ts est la source TypeScript. app-v11.js est le fichier compilé prêt à
-être servi par GitHub Pages. L'application utilise des Web Components natifs et
-ne dépend d'aucun CDN ou framework externe.
+Garde la branche principale comme sauvegarde.
+L'archive ne nécessite aucun dossier d'images externe.
