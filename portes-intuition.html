@@ -1,28 +1,27 @@
-<!DOCTYPE html>
-<html lang="fr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="#101b2a" name="theme-color"/><title>L’Oracle des Portes de l’Intuition</title><style>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101b2a"><title>L’Oracle des Portes de l’Intuition</title><style>
 :root{--bg:#0b1421;--panel:#142337;--gold:#d9bd82;--cream:#f7efd9;--muted:#b8c8d7;--teal:#77c9c2}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#203b51,#0b1421 60%,#080d16);color:var(--cream);font-family:Georgia,serif}.shell{max-width:1100px;margin:auto;padding:16px}.hero{text-align:center;padding:25px 10px}.sigil{font-size:38px;color:var(--gold);border:1px solid var(--gold);border-radius:50%;width:78px;height:78px;display:grid;place-items:center;margin:auto}.eyebrow{color:var(--teal);font:11px Arial;letter-spacing:.2em;text-transform:uppercase}h1{font-weight:normal;color:var(--gold);font-size:clamp(28px,5vw,48px)}.hero p,.help{color:var(--muted);line-height:1.6}.hero p{max-width:680px;margin:auto}.panel{background:linear-gradient(145deg,#172a3e,#101b2a);border:1px solid #7895a744;border-radius:16px;padding:20px;margin:14px 0}.panel h2{color:var(--gold);font-weight:normal}.form{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:7px}.full{grid-column:1/-1}label{color:var(--teal)}select,textarea{background:#0b1421;color:var(--cream);border:1px solid #4d6c82;border-radius:9px;padding:12px;font:inherit}textarea{min-height:85px}.btn{padding:11px 14px;border-radius:9px;border:1px solid var(--gold);background:linear-gradient(120deg,#8b754b,#d9bd82);color:#101b2a;font-weight:bold;margin:4px;cursor:pointer}.secondary{background:#20364a;color:var(--cream)}.stats{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font:13px Arial;margin:12px 0}.progress{height:5px;background:#263c50;border-radius:8px;overflow:hidden}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--gold))}.deck{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px;margin-top:14px}.back,.face{aspect-ratio:2/3;border-radius:8px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;text-align:center;position:relative;min-width:0}.back{background:linear-gradient(145deg,#1b3a50,#0c1828);color:var(--gold);font-size:27px;cursor:pointer}.back:after{content:"✧";position:absolute;bottom:8px;font-size:12px}.back.selected{background:#376b75;outline:2px solid var(--teal)}.back:disabled{opacity:.3}.drawn{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:12px}.face{background:radial-gradient(ellipse at 50% 25%,#e8dfc5,#9bb3b4 75%,#466a78);color:#102234;flex-direction:column;padding:10px}.face .symbol{font-size:34px}.face .name{font-size:12px;font-weight:bold;text-transform:uppercase}.face .keyword{font:10px Arial;text-transform:uppercase;letter-spacing:.1em}.pos{text-align:center;color:var(--gold);font-size:13px;margin:8px}.reading{border-top:1px solid #426078;padding:13px 0;line-height:1.65}.reading h3{color:var(--gold);font-weight:normal}.advice{border-left:2px solid var(--teal);padding-left:10px;color:var(--muted)}.notice{padding:12px;border:1px solid #426078;border-radius:9px;color:var(--muted);line-height:1.6}.hidden{display:none}.footer{text-align:center;color:#8195a7;font:11px Arial;margin:25px}@media(max-width:700px){.form{grid-template-columns:1fr}.deck{grid-template-columns:repeat(5,minmax(0,1fr))}.panel{padding:14px}}@media(max-width:390px){.deck{grid-template-columns:repeat(4,minmax(0,1fr))}}@media print{body{background:white;color:black}.panel{background:white}.deck,.actions{display:none}.reading{break-inside:avoid}}
-</style><link href="manifest.webmanifest" rel="manifest"/><meta content="#17111f" name="theme-color"/></head><body>
+</style><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#17111f"></head><body>
 <div id="oracle-appbar" style="position:sticky;top:0;z-index:9999;background:#101b2aee;backdrop-filter:blur(10px);padding:9px 12px;border-bottom:1px solid #b99a6044;display:flex;gap:8px;align-items:center;justify-content:space-between;font:13px Arial,sans-serif">
-<a href="index.html" style="color:#f2dfaa;text-decoration:none;font-weight:bold">✧ Les 4 Oracles</a>
-<span style="color:#c2b5ca">Application installable · historique local</span>
-<button id="showHistory" style="background:#2a2035;color:#f2dfaa;border:1px solid #8b7048;border-radius:8px;padding:7px 10px">Historique</button>
+  <a href="index.html" style="color:#f2dfaa;text-decoration:none;font-weight:bold">✧ Les 4 Oracles</a>
+  <span style="color:#c2b5ca">Application installable · historique local</span>
+  <button id="showHistory" style="background:#2a2035;color:#f2dfaa;border:1px solid #8b7048;border-radius:8px;padding:7px 10px">Historique</button>
 </div>
 <div id="historyPanel" style="display:none;position:fixed;z-index:10000;inset:55px 10px auto 10px;max-height:70vh;overflow:auto;background:#17111f;color:#f8f0dc;border:1px solid #d7b76b;border-radius:14px;padding:16px;box-shadow:0 12px 40px #000b;font:14px Arial,sans-serif">
-<div style="display:flex;justify-content:space-between;align-items:center"><b>Historique des tirages</b><button id="closeHistory">Fermer</button></div>
-<div id="historyItems" style="margin-top:12px"></div>
-<button id="clearHistory" style="margin-top:12px">Effacer l’historique</button>
+  <div style="display:flex;justify-content:space-between;align-items:center"><b>Historique des tirages</b><button id="closeHistory">Fermer</button></div>
+  <div id="historyItems" style="margin-top:12px"></div>
+  <button id="clearHistory" style="margin-top:12px">Effacer l’historique</button>
 </div>
 <div class="shell"><header class="hero"><div class="sigil">✧</div><div class="eyebrow">Un chemin vers soi</div><h1>L’Oracle des Portes de l’Intuition</h1><p>46 portes symboliques pour écouter ton ressenti, clarifier une question et retrouver une direction. Les cartes proposent des pistes de réflexion, jamais une certitude sur l’avenir ou sur les pensées d’une autre personne.</p></header>
-<section class="panel"><h2>Ⅰ · Préparer le tirage</h2><div class="form"><div class="field"><label for="domain">Domaine</label><select id="domain"><option>Général</option><option>Amour et relations</option><option>Travail et projets</option><option>Famille et entourage</option><option>Choix et décisions</option><option>Évolution personnelle</option></select></div><div class="field"><label for="count">Nombre de portes</label><select id="count"><option value="1">1 — message du moment</option><option selected="" value="3">3 — situation, éclairage, conseil</option><option value="5">5 — analyse approfondie</option><option value="7">7 — parcours détaillé</option><option value="10">10 — exploration complète</option></select></div><div class="field full"><label for="question">Ta question</label><textarea id="question" placeholder="Ex. : Qu’est-ce que je ne vois pas encore et quel pas serait juste pour moi ?"></textarea><div class="help">Le tirage est un support d’introspection : il ne révèle pas de faits cachés et ne garantit aucun événement.</div></div></div></section>
-<section class="panel" id="selection"><h2>Ⅱ · Mélanger et choisir</h2><div class="actions"><button class="btn" id="shuffle">✧ Mélanger les portes</button><button class="btn secondary" id="clear">Recommencer</button></div><div class="stats"><span id="countLabel">0 / 3 choisies</span><span>46 cartes · sélection tactile</span></div><div class="progress"><span id="progress"></span></div><p class="help">Touche les dos des cartes pour les sélectionner, puis révèle ton tirage.</p><div class="deck" id="deck"></div><div class="actions" style="margin-top:12px"><button class="btn" disabled="" id="reveal">Révéler mon tirage</button></div></section>
-<section class="panel hidden" id="result"><h2>Ⅲ · Lecture des portes</h2><div class="notice" id="summary"></div><div class="drawn" id="drawn" style="margin-top:15px"></div><div id="interpretations"></div><section class="panel" id="aiPanel" style="margin-top:18px;background:#101d2d;border:1px solid #8b754c">
+<section class="panel"><h2>Ⅰ · Préparer le tirage</h2><div class="form"><div class="field"><label for="domain">Domaine</label><select id="domain"><option>Général</option><option>Amour et relations</option><option>Travail et projets</option><option>Famille et entourage</option><option>Choix et décisions</option><option>Évolution personnelle</option></select></div><div class="field"><label for="count">Nombre de portes</label><select id="count"><option value="1">1 — message du moment</option><option value="3" selected>3 — situation, éclairage, conseil</option><option value="5">5 — analyse approfondie</option><option value="7">7 — parcours détaillé</option><option value="10">10 — exploration complète</option></select></div><div class="field full"><label for="question">Ta question</label><textarea id="question" placeholder="Ex. : Qu’est-ce que je ne vois pas encore et quel pas serait juste pour moi ?"></textarea><div class="help">Le tirage est un support d’introspection : il ne révèle pas de faits cachés et ne garantit aucun événement.</div></div></div></section>
+<section class="panel" id="selection"><h2>Ⅱ · Mélanger et choisir</h2><div class="actions"><button class="btn" id="shuffle">✧ Mélanger les portes</button><button class="btn secondary" id="clear">Recommencer</button></div><div class="stats"><span id="countLabel">0 / 3 choisies</span><span>46 cartes · sélection tactile</span></div><div class="progress"><span id="progress"></span></div><p class="help">Touche les dos des cartes pour les sélectionner, puis révèle ton tirage.</p><div id="deck" class="deck"></div><div class="actions" style="margin-top:12px"><button class="btn" id="reveal" disabled>Révéler mon tirage</button></div></section>
+<section class="panel hidden" id="result"><h2>Ⅲ · Lecture des portes</h2><div class="notice" id="summary"></div><div id="drawn" class="drawn" style="margin-top:15px"></div><div id="interpretations"></div><section class="panel" id="aiPanel" style="margin-top:18px;background:#101d2d;border:1px solid #8b754c">
 <h2>✦ Analyse approfondie par IA (Gemini)</h2>
 <p class="help">La lecture locale fonctionne sans clé. Pour l’analyse générée par Gemini, colle ta clé API Google AI Studio. Elle reste uniquement dans cet onglet et n’est pas enregistrée. Ne partage jamais le fichier avec une clé secrète intégrée au code.</p>
 <label for="aiKey">Clé API Gemini</label>
-<input autocomplete="off" id="aiKey" placeholder="Colle ici ta clé Gemini" style="width:100%;padding:12px;margin:7px 0 12px;border-radius:10px" type="password"/>
+<input id="aiKey" type="password" autocomplete="off" placeholder="Colle ici ta clé Gemini" style="width:100%;padding:12px;margin:7px 0 12px;border-radius:10px">
 <label for="aiModel">Choisir une version Gemini</label>
 <select id="aiModel" style="width:100%;padding:12px;margin:7px 0 8px;border-radius:10px;background:#17283b;color:#f7efd9">
-<option selected="" value="gemini-3.8-flash">Gemini 3.8 Flash — recommandé</option>
+<option value="gemini-3.8-flash" selected>Gemini 3.8 Flash — recommandé</option>
 <option value="gemini-3.6-flash">Gemini 3.6 Flash</option>
 <option value="gemini-3.5-flash">Gemini 3.5 Flash</option>
 <option value="gemini-3.5-flash-lite">Gemini 3.5 Flash-Lite — léger</option>
@@ -40,12 +39,12 @@
 </div>
 <div class="actions" style="display:flex;gap:8px;flex-wrap:wrap">
 <button class="btn" id="aiStart" type="button">Lancer l’analyse IA</button>
-<button class="btn secondary" disabled="" id="aiCancel" type="button">Interrompre</button>
-<button class="btn secondary" hidden="" id="aiRetry" type="button">Réessayer</button>
+<button class="btn secondary" id="aiCancel" type="button" disabled>Interrompre</button>
+<button class="btn secondary" id="aiRetry" type="button" hidden>Réessayer</button>
 </div>
-<div aria-live="polite" class="notice" id="aiStatus" role="status" style="margin-top:12px">L’analyse IA n’a pas encore été lancée.</div>
-<div hidden="" id="aiProgressWrap" style="margin-top:10px"><div class="help" id="aiProgressLabel">Préparation…</div><div style="height:8px;background:#26384a;border-radius:8px;overflow:hidden;margin-top:6px"><div id="aiProgressBar" style="height:100%;width:8%;background:#d9bd82;transition:width .4s"></div></div><div class="help" id="aiElapsed" style="margin-top:5px"></div></div>
-<div class="reading" id="aiOutput" style="margin-top:14px;white-space:pre-wrap"></div>
+<div id="aiStatus" class="notice" role="status" aria-live="polite" style="margin-top:12px">L’analyse IA n’a pas encore été lancée.</div>
+<div id="aiProgressWrap" hidden style="margin-top:10px"><div id="aiProgressLabel" class="help">Préparation…</div><div style="height:8px;background:#26384a;border-radius:8px;overflow:hidden;margin-top:6px"><div id="aiProgressBar" style="height:100%;width:8%;background:#d9bd82;transition:width .4s"></div></div><div id="aiElapsed" class="help" style="margin-top:5px"></div></div>
+<div id="aiOutput" class="reading" style="margin-top:14px;white-space:pre-wrap"></div>
 </section><button class="btn secondary" id="again">Nouveau tirage</button><button class="btn secondary" id="print">Imprimer / PDF</button></section>
 <section class="panel"><h2>Intuition et discernement</h2><p class="help">Demande-toi : qu’est-ce qui résonne avec mon vécu ? Qu’est-ce qui est vérifiable ? Quelle action dépend de moi ? Garde ce qui t’aide à réfléchir et laisse de côté ce qui ne correspond pas à la réalité.</p></section><footer class="footer">Oracle des Portes de l’Intuition · outil symbolique de réflexion personnelle</footer></div>
 <script>const CARDS=[{"name": "La Porte entrouverte", "keyword": "Possibilité", "meaning": "Une possibilité se dessine, sans être encore certaine.", "advice": "Fais un premier pas prudent et observe la réponse du réel."}, {"name": "Le Seuil", "keyword": "Transition", "meaning": "Tu traverses une période entre deux étapes.", "advice": "Accepte le passage et avance à ton rythme."}, {"name": "La Clé intérieure", "keyword": "Ressource", "meaning": "Tes valeurs et ton expérience contiennent des repères utiles.", "advice": "Écoute-toi avant de chercher une validation extérieure."}, {"name": "Le Voile", "keyword": "Flou", "meaning": "Tout n’est pas encore visible ou compréhensible.", "advice": "Sépare les faits, les suppositions et les craintes."}, {"name": "Le Miroir", "keyword": "Lucidité", "meaning": "La situation peut révéler un besoin ou une attente personnelle.", "advice": "Observe ta réaction sans te juger."}, {"name": "La Boussole", "keyword": "Direction", "meaning": "Un cap clair vaut mieux qu’une multitude de signes.", "advice": "Choisis selon tes priorités et tes valeurs."}, {"name": "Le Jardin secret", "keyword": "Intuition", "meaning": "Un ressenti mérite d’être écouté puis vérifié.", "advice": "Note ton intuition et confronte-la aux faits."}, {"name": "La Fenêtre", "keyword": "Perspective", "meaning": "Un autre point de vue peut changer la lecture de la situation.", "advice": "Demande-toi ce que tu verrais avec plus de recul."}, {"name": "Le Pont", "keyword": "Lien", "meaning": "Un lien ou un dialogue peut rapprocher deux positions.", "advice": "Cherche une parole claire et une réciprocité réelle."}, {"name": "La Porte fermée", "keyword": "Limite", "meaning": "Une limite ou une indisponibilité doit être reconnue.", "advice": "Ne force pas ce qui ne s’ouvre pas."}, {"name": "L’Escalier", "keyword": "Progression", "meaning": "L’évolution se fait par petites étapes.", "advice": "Découpe ton objectif en actions simples."}, {"name": "Le Labyrinthe", "keyword": "Recherche", "meaning": "Tu risques de tourner en rond à force de tout analyser.", "advice": "Reviens à la question essentielle et aux faits."}, {"name": "La Lanterne", "keyword": "Clarté", "meaning": "Une petite lumière suffit pour trouver le prochain pas.", "advice": "Tu n’as pas besoin de tout prévoir."}, {"name": "La Source", "keyword": "Renouveau", "meaning": "Une énergie nouvelle peut revenir en prenant soin de toi.", "advice": "Restaure tes forces avant de décider."}, {"name": "La Racine", "keyword": "Fondations", "meaning": "Une habitude ancienne influence peut-être le présent.", "advice": "Repère ce qui se répète et ce que tu veux changer."}, {"name": "La Graine", "keyword": "Potentiel", "meaning": "Quelque chose peut grandir, mais demande du temps.", "advice": "Crée de bonnes conditions sans exiger un résultat immédiat."}, {"name": "Le Vent", "keyword": "Mouvement", "meaning": "Un changement ou une information peut déplacer tes repères.", "advice": "Reste souple et vérifie les nouvelles."}, {"name": "La Marée", "keyword": "Cycles", "meaning": "La situation peut évoluer par phases.", "advice": "Ne conclus pas définitivement à partir d’un seul moment."}, {"name": "L’Écho", "keyword": "Résonance", "meaning": "Une expérience passée influence encore ta lecture.", "advice": "Distingue le passé de ce qui se passe aujourd’hui."}, {"name": "Le Silence", "keyword": "Écoute", "meaning": "L’absence de réponse ne donne pas une explication certaine.", "advice": "Laisse de l’espace puis demande clairement."}, {"name": "La Rencontre", "keyword": "Présence", "meaning": "Un échange peut apporter une compréhension nouvelle.", "advice": "Reste ouvert sans oublier la réciprocité."}, {"name": "Le Fil rouge", "keyword": "Cohérence", "meaning": "Un thème commun peut relier plusieurs éléments.", "advice": "Cherche les répétitions concrètes sans surinterpréter les coïncidences."}, {"name": "La Balance", "keyword": "Équilibre", "meaning": "Les options demandent une évaluation juste.", "advice": "Compare les conséquences selon des critères clairs."}, {"name": "Le Cœur ouvert", "keyword": "Vulnérabilité", "meaning": "L’émotion a sa place sans devenir une certitude sur l’autre.", "advice": "Exprime ton ressenti sans présumer du sien."}, {"name": "La Muraille", "keyword": "Protection", "meaning": "Une défense protège peut-être une zone sensible.", "advice": "Demande-toi si elle protège encore ou isole."}, {"name": "Le Feu doux", "keyword": "Désir", "meaning": "Une motivation vivante peut soutenir un projet ou un lien.", "advice": "Transforme l’élan en gestes concrets et respectueux."}, {"name": "La Pluie", "keyword": "Décharge", "meaning": "Une émotion accumulée demande à être reconnue.", "advice": "Accorde-toi du temps avant de résoudre."}, {"name": "L’Aube", "keyword": "Espoir lucide", "meaning": "Un nouveau départ devient envisageable.", "advice": "Appuie ton espoir sur des actes observables."}, {"name": "Le Crépuscule", "keyword": "Bilan", "meaning": "Une étape demande peut-être à être comprise ou close.", "advice": "Garde les apprentissages et laisse le reste."}, {"name": "La Porte des possibles", "keyword": "Ouverture", "meaning": "Plusieurs chemins sont envisageables.", "advice": "Explore les options réelles avant de choisir."}, {"name": "La Chambre close", "keyword": "Intimité", "meaning": "Un sujet demande du recul ou de la confidentialité.", "advice": "Clarifie ce que tu veux partager ou préserver."}, {"name": "Le Messager", "keyword": "Information", "meaning": "Un message ou un fait nouveau peut éclairer la situation.", "advice": "Écoute les mots exacts et vérifie le contexte."}, {"name": "La Main tendue", "keyword": "Soutien", "meaning": "Une aide ou une coopération peut alléger le chemin.", "advice": "Formule une demande précise."}, {"name": "Le Pas de côté", "keyword": "Alternative", "meaning": "La voie habituelle n’est peut-être pas la seule.", "advice": "Teste une autre approche à petite échelle."}, {"name": "Le Compas", "keyword": "Limites saines", "meaning": "Il faut clarifier ta direction et tes limites.", "advice": "Définis une limite concrète et exprime-la calmement."}, {"name": "La Porte du pardon", "keyword": "Apaisement", "meaning": "Un apaisement intérieur est possible sans nier le passé.", "advice": "Distingue pardonner, renouer et refaire confiance."}, {"name": "Le Phare", "keyword": "Repère", "meaning": "Une valeur stable peut guider tes choix.", "advice": "Reviens à tes principes quand les émotions varient."}, {"name": "Le Carrefour", "keyword": "Choix", "meaning": "Une décision implique des avantages et des renoncements.", "advice": "Choisis lucidement plutôt que d’attendre un risque nul."}, {"name": "Le Temps juste", "keyword": "Maturation", "meaning": "Certaines choses demandent encore du temps.", "advice": "Vérifie ce qui est prêt et ce qui ne l’est pas."}, {"name": "La Porte du courage", "keyword": "Audace", "meaning": "Un pas honnête peut demander du courage.", "advice": "Commence par une action modeste et sûre."}, {"name": "La Porte du détachement", "keyword": "Lâcher-prise", "meaning": "Tu peux relâcher le contrôle sur ce qui dépend d’autrui.", "advice": "Concentre-toi sur tes choix et tes limites."}, {"name": "La Porte de l’alignement", "keyword": "Authenticité", "meaning": "Tes actes et tes besoins cherchent à se rejoindre.", "advice": "Choisis une action fidèle à tes valeurs."}, {"name": "La Porte de la vérité", "keyword": "Franchise", "meaning": "Une clarification vaut mieux que des suppositions.", "advice": "Pose une question directe et écoute la réponse."}, {"name": "La Porte de la confiance", "keyword": "Sécurité", "meaning": "La confiance se construit par des actes cohérents.", "advice": "Observe la constance dans la durée."}, {"name": "La Porte de l’inconnu", "keyword": "Incertitude", "meaning": "Une part du chemin reste inconnue.", "advice": "Avance sans exiger de tout savoir d’avance."}, {"name": "La Porte de l’intuition", "keyword": "Discernement", "meaning": "Le ressenti est une information intérieure, pas une preuve sur autrui.", "advice": "Écoute-le puis confronte-le aux faits et au dialogue."}];const glyphs=["✧","☾","◇","⌘","☼","⌖","❋","♧","∞","⚿","⟡","△","◉","⌂","❈"];const positions={1:["Message du moment"],3:["La situation","Ce qui demande ton attention","Le conseil"],5:["Le cœur de la question","Ce qui est visible","Ce qui reste en retrait","La ressource","Le prochain pas"],7:["Le point de départ","L’énergie présente","L’obstacle","La ressource intérieure","L’influence extérieure","La direction possible","Le conseil central"],10:["Le contexte","Le défi","La base","Le passé récent","Ce qui est conscient","Le prochain pas","Ton attitude","L’environnement","L’espoir ou la crainte","La synthèse"]};let order=[],chosen=[];const $=id=>document.getElementById(id);function mix(a){for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}function n(){return +$("count").value}function init(){order=mix(CARDS.map((_,i)=>i));chosen=[];$("result").classList.add("hidden");render();status()}function render(){let d=$("deck");d.innerHTML="";order.forEach((idx,s)=>{let b=document.createElement("button");b.className="back"+(chosen.includes(idx)?" selected":"");b.type="button";b.setAttribute("aria-label","Choisir la carte "+(s+1));b.innerHTML=glyphs[idx%glyphs.length];b.disabled=chosen.length>=n()&&!chosen.includes(idx);b.onclick=()=>{if(chosen.includes(idx))chosen=chosen.filter(x=>x!==idx);else if(chosen.length<n())chosen.push(idx);render();status()};d.appendChild(b)})}function status(){$("countLabel").textContent=chosen.length+" / "+n()+" portes choisies";$("progress").style.width=(chosen.length/n()*100)+"%";$("reveal").disabled=chosen.length!==n()}function read(){let picked=chosen.map(i=>CARDS[i]),p=positions[n()]||positions[3];$("summary").textContent="Domaine : "+$("domain").value+($("question").value.trim()?" · Question : "+$("question").value.trim():"")+" — Lecture symbolique à confronter à ton expérience.";let d=$("drawn");d.innerHTML="";$("interpretations").innerHTML="";picked.forEach((c,i)=>{let box=document.createElement("div");box.innerHTML='<div class="face"><div class="symbol">'+glyphs[chosen[i]%glyphs.length]+'</div><div class="name">'+c.name+'</div><div class="keyword">'+c.keyword+'</div></div><div class="pos">'+(p[i]||("Porte "+(i+1)))+'</div>';d.appendChild(box);let a=document.createElement("article");a.className="reading";let h=document.createElement("h3");h.textContent=(p[i]||("Porte "+(i+1)))+" — "+c.name;let m=document.createElement("p");m.textContent=c.meaning;let adv=document.createElement("p");adv.className="advice";adv.textContent="Piste d’intuition : "+c.advice;a.append(h,m,adv);$("interpretations").appendChild(a)});let end=document.createElement("article");end.className="reading";end.innerHTML="<h3>Relier les portes</h3><p>Quel thème revient ? Quelle limite respecter ? Quelle petite action concrète dépend de toi ? Observe les liens entre les cartes sans les prendre comme une prédiction certaine.</p>";$("interpretations").appendChild(end);$("result").classList.remove("hidden");$("result").scrollIntoView({behavior:"smooth"})}$("shuffle").onclick=init;$("clear").onclick=init;$("again").onclick=init;$("reveal").onclick=read;$("count").onchange=init;$("print").onclick=()=>window.print();init();
@@ -273,48 +272,103 @@ $("aiCancel").addEventListener("click",()=>{if(aiController)aiController.abort()
  document.addEventListener('visibilitychange',()=>{if(document.hidden&&synth.speaking)synth.pause()});
 })();
 </script>
-
-
-<script id="oracles-unified-gemini-v1">
-(()=>{
- 'use strict';
- const file=(location.pathname.split('/').pop()||'').toLowerCase();
- const oracle=({'tarot-78.html':'tarot','lenormand-54.html':'lenormand','belline.html':'belline','portes-intuition.html':'portes','astrologie.html':'astrologie','runes.html':'runes'})[file];
- if(!oracle)return;
- const $=id=>document.getElementById(id);
- const keyField=$('aiKey')||$('apiKey');
- const modelField=$('aiModel')||$('model');
- if(!keyField||!modelField)return;
- const KEY='oraclesGeminiApiKeyByOracleV2';
- const MODELS='oraclesGeminiModelByOracleV2';
- const read=o=>{try{return JSON.parse(localStorage.getItem(o)||'{}')}catch(e){return {}}};
- let keys=read(KEY), models=read(MODELS);
- // Migration douce : conserve la clé précédemment utilisée, sans l'exposer dans le code.
- const legacyKey=localStorage.getItem('oraclesSuiteGeminiApiKeyV1')||localStorage.getItem('geminiApiKey')||'';
- const oldPageKey=oracle==='astrologie'?'oraclesGeminiApiKey_astro_V1':oracle==='runes'?'oraclesGeminiApiKey_runes_V1':'';
- const saved=keys[oracle]|| (oldPageKey&&localStorage.getItem(oldPageKey)) || legacyKey || '';
- if(saved)keyField.value=saved;
- const oldModel=models[oracle]||localStorage.getItem(oracle==='astrologie'?'oraclesGeminiModel_astro_V1':oracle==='runes'?'oraclesGeminiModel_runes_V1':'')||modelField.value||'gemini-2.5-flash';
- const saveKey=()=>{keys=read(KEY);keys[oracle]=keyField.value.trim();try{localStorage.setItem(KEY,JSON.stringify(keys));}catch(e){} };
- const saveModel=()=>{models=read(MODELS);models[oracle]=modelField.value;try{localStorage.setItem(MODELS,JSON.stringify(models));}catch(e){} };
- keyField.addEventListener('input',saveKey);keyField.addEventListener('change',saveKey);
- if(oldModel){if(![...modelField.options].some(o=>o.value===oldModel)){const o=document.createElement('option');o.value=oldModel;o.textContent=oldModel;modelField.append(o)}modelField.value=oldModel;}
- modelField.addEventListener('change',saveModel);
- const panel=document.createElement('div');panel.id='gemini-unified-controls';panel.style.cssText='margin:12px 0;padding:12px;border:1px solid #b99a62;border-radius:12px;background:rgba(20,15,29,.55)';
- const actions=document.createElement('div');actions.style.cssText='display:flex;gap:8px;flex-wrap:wrap;margin-top:9px';
- const refresh=document.createElement('button');refresh.type='button';refresh.textContent='Actualiser les modèles Gemini';
- const testBtn=document.createElement('button');testBtn.type='button';testBtn.textContent='Tester le modèle choisi';
- [refresh,testBtn].forEach(b=>b.style.cssText='padding:9px 12px;border-radius:8px;border:1px solid #b99a62;background:#30283a;color:inherit;font:inherit');
- const status=document.createElement('p');status.style.cssText='font-size:13px;margin:8px 0 0';status.setAttribute('aria-live','polite');status.textContent='Clé et modèle enregistrés séparément pour '+oracle+'.';
- actions.append(refresh,testBtn);panel.append(actions,status);modelField.parentElement.append(panel);
- // Désactive les anciens boutons de gestion des modèles pour éviter deux moteurs concurrents.
- ['aiRefreshModels','aiTestModel','loadModels'].forEach(id=>{const b=$(id);if(b){b.hidden=true;b.disabled=true;}});
- async function fetchModels(){saveKey();const key=keyField.value.trim();if(!key){status.textContent='Saisis la clé API de cet oracle avant de charger les modèles.';keyField.focus();return;}refresh.disabled=true;status.textContent='Récupération des modèles compatibles auprès de Google…';
-  try{const r=await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000',{headers:{'x-goog-api-key':key}});const d=await r.json();if(!r.ok)throw Error(d.error?.message||('HTTP '+r.status));const list=(d.models||[]).filter(m=>(m.supportedGenerationMethods||[]).includes('generateContent')&&/^models\/gemini-/i.test(m.name||'')&&!/(embedding|image|tts|live|audio|video|transcrib)/i.test((m.name||'')+' '+(m.displayName||''))).map(m=>({id:m.name.replace(/^models\//,''),label:(m.displayName||m.name)+' — '+m.name.replace(/^models\//,'')})).sort((a,b)=>a.id.localeCompare(b.id));if(!list.length)throw Error('Aucun modèle Gemini compatible retourné par Google.');const wanted=modelField.value||oldModel;modelField.replaceChildren();for(const m of list){const o=document.createElement('option');o.value=m.id;o.textContent=m.label;modelField.append(o);}modelField.value=list.some(x=>x.id===wanted)?wanted:(list.find(x=>x.id==='gemini-2.5-flash')?.id||list[0].id);saveModel();status.textContent=list.length+' modèles compatibles chargés. Modèle choisi : '+modelField.value+'.';}
-  catch(e){status.textContent='Échec du chargement : '+e.message;}finally{refresh.disabled=false;}}
- async function testModelNow(){saveKey();saveModel();const key=keyField.value.trim(),model=modelField.value;if(!key){status.textContent='Clé API manquante.';return;}if(!model){status.textContent='Choisis un modèle Gemini.';return;}testBtn.disabled=true;status.textContent='Test de '+model+'…';try{const r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(model)+':generateContent',{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':key},body:JSON.stringify({contents:[{parts:[{text:'Réponds uniquement : OK'}]}],generationConfig:{temperature:0,maxOutputTokens:12}})});const d=await r.json();if(!r.ok)throw Error(d.error?.message||('HTTP '+r.status));status.textContent='Test réussi : '+model+' répond correctement.';}catch(e){status.textContent='Test impossible : '+e.message;}finally{testBtn.disabled=false;}}
- refresh.addEventListener('click',fetchModels);testBtn.addEventListener('click',testModelNow);
- if(saved&&(!modelField.options.length||modelField.options.length<2))fetchModels();
+<script>
+// Clé Gemini commune aux quatre oracles : stockage local sur cet appareil uniquement.
+(()=>{const K='oraclesSuiteGeminiApiKeyV1';const field=document.getElementById('aiKey');if(!field)return;try{const saved=localStorage.getItem(K)||'';if(saved)field.value=saved;}catch(e){}
+ field.addEventListener('input',()=>{try{localStorage.setItem(K,field.value.trim());}catch(e){}});
+ window.addEventListener('storage',e=>{if(e.key===K)field.value=e.newValue||'';});
 })();
 </script>
+
+
+<script>
+(()=> {
+ 'use strict';
+ const file=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+ const pageKey=({ 'tarot-78.html':'tarot','lenormand-54.html':'lenormand','belline.html':'belline','portes-intuition.html':'portes','astrologie.html':'astrologie','runes.html':'runes','analyse-croisee.html':'analyse-croisee' })[file]||file;
+ const KEY='oraclesGeminiModelByOracleV1';
+ const KEY_API='oraclesSuiteGeminiApiKeyV1';
+ const PAGE_API='oraclesGeminiApiKey_portes_V1';
+ const getKey=()=>{try{return localStorage.getItem(PAGE_API)||localStorage.getItem(KEY_API)||localStorage.getItem('geminiApiKey')||''}catch(e){return ''}};
+ let choices={};try{choices=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+ let selected=choices[pageKey]||'gemini-2.5-flash';
+ const legacy=document.getElementById('aiModel');
+ let panel=document.createElement('section');
+ panel.id='geminiModelSelectorFixed';
+ panel.style.cssText='margin:14px 0;padding:14px;border:1px solid #b99a62;border-radius:12px;background:#171827;color:#f8f2e6;font:14px system-ui;position:relative;z-index:5';
+ const label=document.createElement('label');label.textContent='Modèle Gemini utilisé pour cet oracle';label.style.cssText='display:block;font-weight:700;margin-bottom:8px';
+ let select=legacy||document.createElement('select');
+ if(!legacy) select.id='geminiModelSelectorFixedSelect';
+ select.style.cssText='display:block;width:100%;min-height:44px;padding:9px;border-radius:8px;background:#fff;color:#171827;border:1px solid #9a855d;font:16px system-ui';
+ const status=document.createElement('p');status.style.cssText='margin:8px 0 0;font-size:12px;line-height:1.4';status.textContent='Modèle mémorisé pour cet oracle. Actualise la liste pour afficher les modèles réellement proposés par Google avec ta clé.';
+ const actions=document.createElement('div');actions.style.cssText='display:flex;gap:8px;flex-wrap:wrap;margin-top:9px';
+ const refresh=document.createElement('button');refresh.type='button';refresh.textContent='Actualiser les modèles Google';
+ refresh.style.cssText='padding:9px 12px;border-radius:8px;border:1px solid #b99a62;background:#30283a;color:#fff';
+ const test=document.createElement('button');test.type='button';test.textContent='Tester ce modèle';
+ test.style.cssText=refresh.style.cssText;
+ if(!legacy){panel.append(label,select); } else { panel.append(label,select); }
+ actions.append(refresh,test);panel.append(actions,status);
+ // Place the selector at the start of the page, not buried inside a hidden modal.
+ const target=document.querySelector('main')||document.querySelector('.container')||document.body;
+ target.insertBefore(panel,target.firstChild);
+ const saveChoice=()=>{selected=select.value;choices[pageKey]=selected;try{localStorage.setItem(KEY,JSON.stringify(choices))}catch(e){}status.textContent='Choix enregistré pour '+pageKey+' : '+selected+'. Les prochaines interprétations utiliseront ce modèle.'};
+ // Keep a stable selection even if the current page's old select had only one hard-coded option.
+ if(![...select.options].some(o=>o.value===selected)){let o=document.createElement('option');o.value=selected;o.textContent=selected+' (sélection mémorisée)';select.append(o)}
+ select.value=selected;select.addEventListener('change',saveChoice);
+ async function refreshModels(){
+   const key=getKey();if(!key){status.textContent='Clé API absente. Enregistre la clé commune sur la page d’accueil, puis réessaie.';return}
+   refresh.disabled=true;status.textContent='Interrogation de Google pour obtenir les modèles compatibles…';
+   try{
+     const r=await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000',{headers:{'x-goog-api-key':key}});
+     const d=await r.json();if(!r.ok)throw new Error(d.error?.message||('HTTP '+r.status));
+     const models=(d.models||[]).filter(m=>(m.supportedGenerationMethods||[]).includes('generateContent')&&/^models\/gemini-/i.test(m.name||'')&&!/(embedding|image|tts|live|audio|video|transcrib)/i.test((m.name||'')+' '+(m.displayName||'')));
+     if(!models.length)throw new Error('Google ne renvoie aucun modèle compatible generateContent pour cette clé.');
+     const items=models.map(m=>({id:(m.name||'').replace(/^models\//,''),label:(m.displayName||m.name)+' — '+(m.name||'').replace(/^models\//,'')})).sort((a,b)=>a.id.localeCompare(b.id));
+     const old=selected;select.replaceChildren();
+     for(const m of items){const o=document.createElement('option');o.value=m.id;o.textContent=m.label;select.append(o)}
+     if(items.some(m=>m.id===old))select.value=old;else {select.value=items.some(m=>m.id==='gemini-2.5-flash')?'gemini-2.5-flash':items[0].id}
+     saveChoice();status.textContent=items.length+' modèles réellement proposés par Google et compatibles avec generateContent. Le modèle sélectionné est enregistré uniquement pour cet oracle.';
+   }catch(e){status.textContent='Échec de récupération : '+e.message+'. Vérifie la clé, la connexion et les droits de l’API Gemini.'}
+   finally{refresh.disabled=false}
+ }
+ async function testModel(){
+   const key=getKey();if(!key){status.textContent='Clé API absente : enregistre-la sur la page d’accueil.';return}
+   saveChoice();test.disabled=true;status.textContent='Test du modèle '+selected+'…';
+   try{
+     const r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(selected)+':generateContent',{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':key},body:JSON.stringify({contents:[{parts:[{text:'Réponds uniquement par OK.'}]}],generationConfig:{maxOutputTokens:16,temperature:0}})});
+     const d=await r.json();if(!r.ok)throw new Error(d.error?.message||('HTTP '+r.status));
+     status.textContent='Test réussi : '+selected+' répond correctement.';
+   }catch(e){status.textContent='Test échoué pour '+selected+' : '+e.message}
+   finally{test.disabled=false}
+ }
+ refresh.addEventListener('click',refreshModels);test.addEventListener('click',testModel);
+ // Critical: every oracle previously called a hard-coded model. Rewrite ONLY the
+ // generateContent endpoint at request time using the per-oracle saved selection.
+ const nativeFetch=window.fetch.bind(window);
+ window.fetch=function(input,init){
+   let raw=typeof input==='string'?input:(input&&input.url)||'';
+   if(raw.includes('generativelanguage.googleapis.com')&&raw.includes(':generateContent')){
+     let current=selected;try{const c=JSON.parse(localStorage.getItem(KEY)||'{}');current=c[pageKey]||selected}catch(e){}
+     const u=new URL(raw,location.href);
+     u.pathname=u.pathname.replace(/\/models\/[^/]+:generateContent/, '/models/'+encodeURIComponent(current)+':generateContent');
+     if(typeof input==='string') input=u.toString();
+     else input=new Request(u.toString(),input);
+   }
+   return nativeFetch(input,init);
+ };
+ // If API key already exists, populate the list automatically once on page load.
+ if(getKey()) refreshModels();
+})();
+</script>
+
+<script>
+(()=>{const key='oraclesGeminiApiKey_portes_V1';const field=document.getElementById('aiKey');if(!field)return;
+ try{const saved=localStorage.getItem(key)||localStorage.getItem('oraclesSuiteGeminiApiKeyV1')||localStorage.getItem('geminiApiKey')||'';if(saved)field.value=saved;}catch(e){}
+ const save=()=>{try{localStorage.setItem(key,field.value.trim())}catch(e){}};
+ field.addEventListener('input',save);field.addEventListener('change',save);
+ const oldRefresh=document.getElementById('aiRefreshModels');if(oldRefresh)oldRefresh.addEventListener('click',save,true);
+})();
+</script>
+<script>if('serviceWorker'in navigator){navigator.serviceWorker.register('sw.js?v=20261113-r2').catch(()=>{});}</script>
+<script src="oracle-runtime.js?v=20261113-r2"></script>
 </body></html>

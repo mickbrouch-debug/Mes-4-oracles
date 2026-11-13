@@ -1,0 +1,19 @@
+LES 6 ORACLES — VERSION HARMONISÉE R2 — 13/11/2026
+
+Contenu : les 6 oracles, l'analyse croisée, les icônes, le manifeste, le moteur vocal commun et le service worker actualisé.
+
+Améliorations incluses :
+- cache GitHub Pages corrigé : réseau prioritaire pour les pages HTML, purge des anciens caches, nouveau nom de cache ;
+- moteur vocal commun avec découpage des longs textes, choix de voix française, pause/reprise/arrêt et compatibilité avec les anciens appels d'historique ;
+- correction de l'appel vocal de l'analyse croisée ;
+- sauvegarde immédiate des clés par oracle sur les 4 pages historiques, avec reprise de l'ancienne clé commune comme migration ;
+- sauvegarde des clés dès la saisie et au chargement des modèles sur Astrologie et Runes ;
+- bouton de test POST generateContent sur Astrologie et Runes ;
+- conservation des tirages manuels existants des deux nouveaux oracles ;
+- sélection de modèles réellement renvoyés par l'API Google conservée.
+
+INSTALLATION : décompresser et remplacer TOUS les fichiers du dépôt par le contenu de cette archive, à la racine de main (/) puis commit. Ne pas téléverser le dossier parent lui-même.
+
+IMPORTANT : les clés API sont stockées dans le stockage local du navigateur, jamais dans les fichiers du dépôt. Après remplacement, ouvrir le site, recharger les pages. Si le stockage du site a été effacé, ressaisir la clé sur chaque oracle.
+
+LIMITES DE VALIDATION : contrôle statique JavaScript, vérification des IDs référencés, contrôle ZIP et revue des appels API effectués localement. Les appels Gemini réels, le microphone et la synthèse vocale ne peuvent pas être testés sans les clés et le navigateur Android de l'utilisateur.
