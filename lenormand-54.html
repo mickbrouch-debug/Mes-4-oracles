@@ -291,7 +291,20 @@ footer,.footer,.muted,.sub,.help,.tiny{color:var(--sanct-muted)!important}
 .drawn>*{perspective:1100px}.drawn>*:nth-child(1){animation-delay:.05s}.drawn>*:nth-child(2){animation-delay:.18s}.drawn>*:nth-child(3){animation-delay:.31s}.drawn>*:nth-child(4){animation-delay:.44s}.drawn>*:nth-child(5){animation-delay:.57s}.drawn>*:nth-child(6){animation-delay:.70s}
 @media(prefers-reduced-motion:reduce){.tarotface,.face,.card.front{animation:none!important;transform:none!important}}
 </style>
-</head>
+<style id="sanctuaire-original-art">
+/* Sanctuaire V5 — galerie illustrée originale par oracle */
+.tarotface,.face,.card.front{position:relative!important;isolation:isolate!important;overflow:hidden!important;background-size:cover!important;background-position:center!important;border:2px solid #d9b66b!important;box-shadow:0 0 0 3px #21162d,0 0 0 5px #c5a05a,0 16px 30px #0009!important;color:#fff4dc!important}
+.tarotface:after,.face:after,.card.front:after{content:"";position:absolute;inset:7px;border:1px solid #f3d98f;border-radius:8px;pointer-events:none;z-index:0;box-shadow:inset 0 0 20px #f4d58b25}
+.tarotface .inner,.face>*,.card.front>*{position:relative;z-index:1}
+.tarotface .inner{background:linear-gradient(180deg,#090b1808 0%,#090b1840 55%,#090b18e8 100%);border-radius:8px;padding:8px;color:#fff8e6;text-shadow:0 2px 5px #000}
+.tarotface .cardname,.face .nm,.face .name,.face .sub,.face .keyword,.card.front small{background:#17101bdc;color:#fff0c8!important;border:1px solid #d6b66b;border-radius:999px;padding:5px 8px;text-shadow:0 1px 3px #000}
+.tarotface .symbol,.face .emoji,.face .symbol,.card.front .front-mark{filter:drop-shadow(0 3px 8px #000)!important;color:#ffe7a1!important}
+.tarotface.reversed .inner{transform:rotate(180deg)}
+.cardback,.back{background:radial-gradient(circle at center,#51356d,#15152c 70%)!important;border:2px solid #d7b76b!important;box-shadow:inset 0 0 0 5px #22152f,inset 0 0 0 7px #d7b76b,0 8px 18px #0008!important}
+.cardback:after,.back:after{color:#f3d98f!important;text-shadow:0 0 12px #f7d477}
+
+.face{background-image:linear-gradient(180deg,#090b1810,#090b1850),url("assets/lenormand-illustration.svg")!important;background-size:cover!important;background-position:center!important}
+</style></head>
 <body>
 <nav class="oracles-key-nav" aria-label="Navigation Oracles Studio">
 <a href="index.html" class="brand">ORACLES <span>/</span> STUDIO</a>
