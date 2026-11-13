@@ -1,74 +1,46 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#17111f"><meta name="description" content="Six systèmes symboliques réunis dans une application."><link rel="manifest" href="manifest.webmanifest"><title>Les 6 Oracles — Espace de consultation</title><style>
-:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#35213f,#17111f 55%,#0d0b12);color:#f8f0dc;font-family:Georgia,serif}.wrap{max-width:960px;margin:auto;padding:24px 16px 50px}.hero{text-align:center;padding:34px 10px}.sigil{font-size:42px;color:#f2dfaa}.eyebrow{font:11px Arial;letter-spacing:.25em;color:#d7b76b;text-transform:uppercase}h1{font-size:clamp(30px,6vw,48px);font-weight:normal;color:#f2dfaa;margin:12px 0}.hero p{color:#c2b5ca;line-height:1.6}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.game{display:block;text-decoration:none;color:inherit;background:linear-gradient(145deg,#2b2038,#17121f);border:1px solid #8b704866;border-radius:17px;padding:22px;min-height:160px}.game:hover{border-color:#d7b76b}.symbol{font-size:30px;color:#d7b76b}.game h2{font-size:20px;font-weight:normal;color:#f2dfaa}.game p{font:13px/1.55 Arial;color:#c2b5ca}.note{margin-top:20px;padding:14px;border:1px solid #6e583d;border-radius:12px;color:#c2b5ca;font:13px/1.6 Arial}.foot{text-align:center;color:#8e8197;font:11px Arial;margin-top:30px}
-</style>
-<style id="oracles-professional-ui-v1">
-:root{
- --ui-bg:#0b1020;--ui-surface:#121a2d;--ui-surface-2:#18233a;--ui-line:rgba(190,205,232,.16);
- --ui-text:#eef2fb;--ui-muted:#aab6cc;--ui-accent:#d7b875;--ui-accent-2:#f0dba4;
- --ui-radius:18px;--ui-shadow:0 16px 42px rgba(0,0,0,.24);
-}
-html{scroll-behavior:smooth}
-body{
- font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;
- color:var(--ui-text)!important;
- background:radial-gradient(ellipse at 50% -15%,#263452 0%,#111a2d 38%,#090e1a 78%)!important;
- line-height:1.58;letter-spacing:.005em
-}
-h1,h2,h3,h4,.hero-title{font-family:Inter,ui-sans-serif,system-ui,sans-serif!important;letter-spacing:-.025em;line-height:1.18}
-h1{font-size:clamp(1.75rem,4vw,2.55rem)!important;font-weight:750!important}
-h2{font-size:clamp(1.25rem,2.8vw,1.65rem)!important;font-weight:700!important}
-h3{font-weight:680!important}
-p,li,label,small{line-height:1.62}
-button,input,select,textarea{font:inherit!important}
-button{
- border-radius:12px!important;border:1px solid rgba(215,184,117,.34)!important;
- box-shadow:0 5px 16px rgba(0,0,0,.14);transition:transform .16s ease,filter .16s ease,box-shadow .16s ease
-}
-button:hover{filter:brightness(1.08);transform:translateY(-1px)}
-button:active{transform:translateY(0)}
-button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{
- outline:3px solid rgba(215,184,117,.72)!important;outline-offset:3px
-}
-input,select,textarea{
- background:#0d1628!important;color:var(--ui-text)!important;border:1px solid var(--ui-line)!important;
- border-radius:11px!important;min-height:42px
-}
-textarea{min-height:100px}
-a{color:var(--ui-accent-2);text-underline-offset:3px}
-.panel,.card,.section,.box,.oracle-card,.result,.settings,.controls,.content-card{
- border-color:var(--ui-line)!important;border-radius:var(--ui-radius)!important;
- box-shadow:var(--ui-shadow)
-}
-header,.hero,.topbar{font-family:inherit}
-hr{border:0;border-top:1px solid var(--ui-line)}
-img{max-width:100%;height:auto}
-.oracles-global-nav{
- max-width:1180px;margin:0 auto 16px;padding:10px 16px;
- display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
- border:1px solid var(--ui-line);border-radius:15px;background:rgba(13,21,38,.78);
- box-shadow:0 10px 28px rgba(0,0,0,.16);backdrop-filter:blur(14px)
-}
-.oracles-global-nav .brand{font-weight:800;letter-spacing:.02em;color:#f2dfb2;text-decoration:none}
-.oracles-global-nav .links{display:flex;gap:8px;flex-wrap:wrap}
-.oracles-global-nav .links a{
- display:inline-flex;align-items:center;padding:7px 10px;border:1px solid var(--ui-line);
- border-radius:10px;text-decoration:none;color:#dbe5f5;font-size:.88rem
-}
-.oracles-global-nav .links a:hover{background:rgba(215,184,117,.12);border-color:rgba(215,184,117,.4)}
-@media(max-width:600px){
- .oracles-global-nav{margin:0 10px 12px;padding:9px 10px}
- .oracles-global-nav .links{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
- .oracles-global-nav .links a{white-space:nowrap;font-size:.8rem}
-}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
-</style>
-
-</head><body><main class="wrap"><header class="hero"><div class="sigil">✧ ☾ ✧</div><div class="eyebrow">Espace personnel de cartomancie</div><h1>Les 6 Oracles</h1><p>Six univers de lecture réunis dans une seule application.<br>Choisis ton système ou lance une analyse croisée.</p></header><section class="grid">
-<a class="game" href="tarot-78.html"><div class="symbol">☼</div><h2>Tarot des 78 Arcanes</h2><p>Arcanes majeurs et mineurs · tirages de 1 à 10 cartes.</p></a>
-<a class="game" href="lenormand-54.html"><div class="symbol">✦</div><h2>Grand Jeu de Mlle Lenormand</h2><p>54 cartes · méthodes personnalisées et Grand Tableau.</p></a>
-<a class="game" href="portes-intuition.html"><div class="symbol">◇</div><h2>Oracle des Portes de l’Intuition</h2><p>46 portes symboliques · tirages de 1 à 10 cartes.</p></a>
-<a class="game" href="belline.html"><div class="symbol">☾</div><h2>Oracle de Belline</h2><p>53 cartes · tirages de 1 à 10 cartes.</p></a>
-<a class="game" href="astrologie.html"><div class="symbol">☉</div><h2>Oracle astrologique</h2><p>12 signes, planètes et maisons · lecture symbolique des dynamiques.</p></a>
-<a class="game" href="runes.html"><div class="symbol">ᚱ</div><h2>Oracle des runes nordiques</h2><p>24 runes de l’Elder Futhark · tirages et interprétation.</p></a>
-<a class="game" href="analyse-croisee.html"><div class="symbol">✧</div><h2>Analyse croisée IA</h2><p>Confronte les tirages sauvegardés des six systèmes avec Gemini.</p></a>
-</section><section class="note" style="margin-top:18px"><h2 style="color:#f2dfaa;font-weight:normal;margin:0 0 10px">⚙ Clé API Gemini commune</h2><p>Renseigne ta clé une seule fois : elle sera utilisée par les six systèmes sur ce téléphone.</p><label for="sharedGeminiKey">Clé API Gemini</label><input id="sharedGeminiKey" type="password" autocomplete="off" placeholder="Colle ta clé Gemini ici" style="width:100%;padding:12px;border-radius:9px;border:1px solid #8b7048;background:#17111f;color:#fff;margin:8px 0"><div style="display:flex;gap:8px;flex-wrap:wrap"><button id="saveGeminiKey" type="button" style="padding:10px 14px;border-radius:9px;border:0;background:#d7b76b;color:#17111f;font-weight:bold">Enregistrer la clé</button><button id="removeGeminiKey" type="button" style="padding:10px 14px;border-radius:9px;border:1px solid #8b7048;background:transparent;color:#f8f0dc">Supprimer</button></div><p id="geminiKeyStatus" aria-live="polite">La clé reste dans le stockage local de ce navigateur, jamais dans les fichiers GitHub.</p></section><div class="note"><b>Installation Android :</b> héberge ce dossier sur une adresse HTTPS, ouvre-la dans Chrome, puis menu ⋮ → « Ajouter à l’écran d’accueil » ou « Installer l’application ». Les tirages sont enregistrés localement sur cet appareil. Fais régulièrement une sauvegarde si tu changes de téléphone ou effaces les données du navigateur.<br><br><b>IA Gemini :</b> configure ta clé une seule fois dans le panneau ci-dessus. Elle est conservée localement dans ce navigateur et partagée par les six systèmes ; elle n’est pas publiée dans GitHub.</div><footer class="foot">Les 6 Oracles · application personnelle · fonctionnement local</footer></main><script>if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});const GEMINI_STORE='oraclesSuiteGeminiApiKeyV1';const keyInput=document.getElementById('sharedGeminiKey');const keyStatus=document.getElementById('geminiKeyStatus');try{keyInput.value=localStorage.getItem(GEMINI_STORE)||'';}catch(e){}document.getElementById('saveGeminiKey').onclick=()=>{try{localStorage.setItem(GEMINI_STORE,keyInput.value.trim());keyStatus.textContent=keyInput.value.trim()?'Clé enregistrée sur cet appareil. Les six systèmes peuvent maintenant l’utiliser.':'Aucune clé saisie.';}catch(e){keyStatus.textContent='Impossible d’enregistrer la clé dans le navigateur.';}};document.getElementById('removeGeminiKey').onclick=()=>{try{localStorage.removeItem(GEMINI_STORE);keyInput.value='';keyStatus.textContent='Clé supprimée de cet appareil.';}catch(e){keyStatus.textContent='Suppression impossible.';}};if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});</script></body></html>
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#142746"><meta name="description" content="Oracles Studio — six systèmes symboliques, analyses locales et interprétations IA.">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>Oracles Studio — Les six systèmes</title>
+<style>
+:root{color-scheme:light;--ink:#182338;--muted:#68758b;--line:#e3e9f2;--blue:#315efb}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#edf3fb,#f7f9fc 420px,#f3f6fb);color:var(--ink);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial}
+.wrap{max-width:1160px;margin:auto;padding:28px 20px 64px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:26px}
+.brand{font-weight:850;letter-spacing:-.04em;font-size:17px;color:#1c3150}.brand span{color:var(--blue)}
+.pill{font-size:12px;font-weight:700;color:#315b88;background:#e7f2fa;padding:7px 11px;border-radius:30px}
+.hero{position:relative;overflow:hidden;padding:38px;border-radius:26px;background:linear-gradient(115deg,#142746,#1d3d69 57%,#246b85);color:white;box-shadow:0 20px 55px #18345c24}
+.hero:after{content:"";position:absolute;width:390px;height:390px;border:1px solid #ffffff20;border-radius:50%;right:-120px;top:-185px;box-shadow:0 0 0 42px #ffffff08,0 0 0 88px #ffffff06}
+.eyebrow{text-transform:uppercase;letter-spacing:.17em;font-size:11px;font-weight:800;color:#a9d9ee}
+h1{font-size:clamp(34px,6vw,54px);line-height:1.04;letter-spacing:-.055em;margin:14px 0 12px}
+.hero p{max-width:620px;color:#d7e4f3;margin:0;font-size:16px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:32px 2px 14px}
+h2{font-size:19px;letter-spacing:-.025em;margin:0;color:#1c2c45}.sub{font-size:13px;color:var(--muted);margin:4px 0 0}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.tile{position:relative;display:flex;flex-direction:column;min-height:190px;padding:22px;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);border-radius:19px;box-shadow:0 10px 30px #1d30520b;transition:transform .18s,box-shadow .18s,border-color .18s}
+.tile:hover{transform:translateY(-4px);box-shadow:0 18px 42px #1d30521c;border-color:#b9cafa}
+.icon{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:#edf2ff;color:var(--blue);font-size:22px;font-weight:800}
+.tile h3{font-size:18px;letter-spacing:-.025em;margin:14px 0 5px;color:#1c3150}.tile p{font-size:13px;color:var(--muted);margin:0 0 18px}
+.go{margin-top:auto;font-size:12px;font-weight:800;color:var(--blue)}
+.cross{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:16px;padding:22px 24px;background:#eaf4f8;border:1px solid #d6e9f0;border-radius:18px;text-decoration:none;color:#183a56}
+.cross strong{display:block;font-size:17px}.cross span{font-size:13px;color:#557188}
+.cross b{white-space:nowrap;background:#fff;padding:10px 14px;border-radius:11px;color:#2455b5}
+footer{margin-top:28px;color:#8793a5;font-size:12px;text-align:center}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){.wrap{padding:16px 13px 42px}.hero{padding:26px 22px;border-radius:20px}.grid{grid-template-columns:1fr}.tile{min-height:150px}.section-head{align-items:start;flex-direction:column}.cross{align-items:start;flex-direction:column}}
+</style></head><body><main class="wrap">
+<div class="top"><div class="brand">ORACLES <span>/</span> STUDIO</div><div class="pill">ESPACE DE CONSULTATION</div></div>
+<header class="hero"><div class="eyebrow">Six systèmes · Une expérience unifiée</div><h1>Explorez les symboles.<br>Éclairez vos réflexions.</h1><p>Choisissez un oracle, réalisez votre tirage et combinez analyse symbolique locale et interprétation assistée par IA.</p></header>
+<div class="section-head"><div><h2>Choisir un système</h2><p class="sub">Chaque espace conserve ses méthodes et son identité de lecture.</p></div></div>
+<section class="grid">
+<a class="tile" href="tarot-78.html"><div class="icon">✦</div><h3>Tarot des 78 Arcanes</h3><p>Arcanes majeurs et mineurs, tirages et lectures approfondies.</p><span class="go">Ouvrir le Tarot →</span></a>
+<a class="tile" href="lenormand-54.html"><div class="icon">⌘</div><h3>Grand Lenormand</h3><p>Associations, symboles et lecture des configurations.</p><span class="go">Ouvrir le Lenormand →</span></a>
+<a class="tile" href="belline.html"><div class="icon">✧</div><h3>Oracle de Belline</h3><p>Lecture des influences, des tendances et des associations.</p><span class="go">Ouvrir Belline →</span></a>
+<a class="tile" href="portes-intuition.html"><div class="icon">◈</div><h3>Portes de l’Intuition</h3><p>Exploration intuitive, symbolique et introspective.</p><span class="go">Ouvrir les Portes →</span></a>
+<a class="tile" href="astrologie.html"><div class="icon">◎</div><h3>Oracle astrologique</h3><p>Archétypes célestes, cycles et dynamiques symboliques.</p><span class="go">Ouvrir l’Astrologie →</span></a>
+<a class="tile" href="runes.html"><div class="icon">ᚱ</div><h3>Runes nordiques</h3><p>Symboles runiques, positions et interprétation des tirages.</p><span class="go">Ouvrir les Runes →</span></a>
+</section>
+<a class="cross" href="analyse-croisee.html"><div><strong>Analyse croisée des six systèmes</strong><span>Mettre plusieurs traditions symboliques en regard dans une même lecture.</span></div><b>Lancer l’analyse →</b></a>
+<footer>ORACLES STUDIO · Un espace de réflexion et d’exploration symbolique</footer>
+</main></body></html>

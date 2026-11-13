@@ -1,75 +1,53 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#17111f"><link rel="manifest" href="manifest.webmanifest"><title>Oracle des Runes nordiques — Les 6 Oracles</title><style>:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#35213f,#17111f 55%,#0d0b12);color:#f8f0dc;font-family:Georgia,serif}.wrap{max-width:900px;margin:auto;padding:22px 16px 50px}.panel{background:#21182b;border:1px solid #8b704866;border-radius:16px;padding:18px;margin:14px 0}.gold{color:#f2dfaa}button,select,input,textarea{font:inherit;border-radius:9px;padding:11px;border:1px solid #8b7048;background:#17111f;color:#fff;max-width:100%}button{background:#d7b76b;color:#17111f;font-weight:bold;cursor:pointer;margin:5px}textarea{width:100%;min-height:85px}a{color:#f2dfaa}.muted{color:#c2b5ca;font:14px/1.6 Arial}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}.card{background:linear-gradient(145deg,#40304d,#21182b);border:2px solid #c5a66b;border-radius:14px;padding:10px;text-align:center;min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;white-space:normal;touch-action:manipulation;user-select:none;-webkit-tap-highlight-color:transparent;box-shadow:0 5px 12px #0006;transition:transform .15s,border-color .15s}.card:active{transform:scale(.96)}.card.back{background:repeating-linear-gradient(45deg,#30213b,#30213b 8px,#3b2948 8px,#3b2948 16px);color:#f2dfaa}.card.front{background:linear-gradient(145deg,#59445f,#2b2035);border-color:#e4c77f}.card:disabled{opacity:1;cursor:default}.card .back-mark{font-size:38px;border:1px solid #c5a66b;border-radius:50%;width:62px;height:62px;display:grid;place-items:center}.card .front-mark{font-size:42px;color:#f2dfaa}.card small{font:12px Arial;color:#e4d5b8}.out{white-space:pre-wrap;line-height:1.7;font:15px/1.7 Arial;color:#f7edda}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.status{color:#d7b76b;font:13px Arial}.home{display:inline-block;margin-bottom:15px}</style>
-<style id="oracles-professional-ui-v1">
-:root{
- --ui-bg:#0b1020;--ui-surface:#121a2d;--ui-surface-2:#18233a;--ui-line:rgba(190,205,232,.16);
- --ui-text:#eef2fb;--ui-muted:#aab6cc;--ui-accent:#d7b875;--ui-accent-2:#f0dba4;
- --ui-radius:18px;--ui-shadow:0 16px 42px rgba(0,0,0,.24);
-}
-html{scroll-behavior:smooth}
-body{
- font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;
- color:var(--ui-text)!important;
- background:radial-gradient(ellipse at 50% -15%,#263452 0%,#111a2d 38%,#090e1a 78%)!important;
- line-height:1.58;letter-spacing:.005em
-}
-h1,h2,h3,h4,.hero-title{font-family:Inter,ui-sans-serif,system-ui,sans-serif!important;letter-spacing:-.025em;line-height:1.18}
-h1{font-size:clamp(1.75rem,4vw,2.55rem)!important;font-weight:750!important}
-h2{font-size:clamp(1.25rem,2.8vw,1.65rem)!important;font-weight:700!important}
-h3{font-weight:680!important}
-p,li,label,small{line-height:1.62}
-button,input,select,textarea{font:inherit!important}
-button{
- border-radius:12px!important;border:1px solid rgba(215,184,117,.34)!important;
- box-shadow:0 5px 16px rgba(0,0,0,.14);transition:transform .16s ease,filter .16s ease,box-shadow .16s ease
-}
-button:hover{filter:brightness(1.08);transform:translateY(-1px)}
-button:active{transform:translateY(0)}
-button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{
- outline:3px solid rgba(215,184,117,.72)!important;outline-offset:3px
-}
-input,select,textarea{
- background:#0d1628!important;color:var(--ui-text)!important;border:1px solid var(--ui-line)!important;
- border-radius:11px!important;min-height:42px
-}
-textarea{min-height:100px}
-a{color:var(--ui-accent-2);text-underline-offset:3px}
-.panel,.card,.section,.box,.oracle-card,.result,.settings,.controls,.content-card{
- border-color:var(--ui-line)!important;border-radius:var(--ui-radius)!important;
- box-shadow:var(--ui-shadow)
-}
-header,.hero,.topbar{font-family:inherit}
-hr{border:0;border-top:1px solid var(--ui-line)}
-img{max-width:100%;height:auto}
-.oracles-global-nav{
- max-width:1180px;margin:0 auto 16px;padding:10px 16px;
- display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
- border:1px solid var(--ui-line);border-radius:15px;background:rgba(13,21,38,.78);
- box-shadow:0 10px 28px rgba(0,0,0,.16);backdrop-filter:blur(14px)
-}
-.oracles-global-nav .brand{font-weight:800;letter-spacing:.02em;color:#f2dfb2;text-decoration:none}
-.oracles-global-nav .links{display:flex;gap:8px;flex-wrap:wrap}
-.oracles-global-nav .links a{
- display:inline-flex;align-items:center;padding:7px 10px;border:1px solid var(--ui-line);
- border-radius:10px;text-decoration:none;color:#dbe5f5;font-size:.88rem
-}
-.oracles-global-nav .links a:hover{background:rgba(215,184,117,.12);border-color:rgba(215,184,117,.4)}
-@media(max-width:600px){
- .oracles-global-nav{margin:0 10px 12px;padding:9px 10px}
- .oracles-global-nav .links{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
- .oracles-global-nav .links a{white-space:nowrap;font-size:.8rem}
-}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#17111f"><link rel="manifest" href="manifest.webmanifest"><title>Oracle des Runes nordiques — Oracles Studio</title><style>:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#35213f,#17111f 55%,#0d0b12);color:#f8f0dc;font-family:Georgia,serif}.wrap{max-width:900px;margin:auto;padding:22px 16px 50px}.panel{background:#21182b;border:1px solid #8b704866;border-radius:16px;padding:18px;margin:14px 0}.gold{color:#f2dfaa}button,select,input,textarea{font:inherit;border-radius:9px;padding:11px;border:1px solid #8b7048;background:#17111f;color:#fff;max-width:100%}button{background:#d7b76b;color:#17111f;font-weight:bold;cursor:pointer;margin:5px}textarea{width:100%;min-height:85px}a{color:#f2dfaa}.muted{color:#c2b5ca;font:14px/1.6 Arial}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}.card{background:linear-gradient(145deg,#40304d,#21182b);border:2px solid #c5a66b;border-radius:14px;padding:10px;text-align:center;min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;white-space:normal;touch-action:manipulation;user-select:none;-webkit-tap-highlight-color:transparent;box-shadow:0 5px 12px #0006;transition:transform .15s,border-color .15s}.card:active{transform:scale(.96)}.card.back{background:repeating-linear-gradient(45deg,#30213b,#30213b 8px,#3b2948 8px,#3b2948 16px);color:#f2dfaa}.card.front{background:linear-gradient(145deg,#59445f,#2b2035);border-color:#e4c77f}.card:disabled{opacity:1;cursor:default}.card .back-mark{font-size:38px;border:1px solid #c5a66b;border-radius:50%;width:62px;height:62px;display:grid;place-items:center}.card .front-mark{font-size:42px;color:#f2dfaa}.card small{font:12px Arial;color:#e4d5b8}.out{white-space:pre-wrap;line-height:1.7;font:15px/1.7 Arial;color:#f7edda}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.status{color:#d7b76b;font:13px Arial}.home{display:inline-block;margin-bottom:15px}</style>
+<style id="oracles-modern-ui-v2">
+:root{color-scheme:light;--app-bg:#f3f6fb;--app-ink:#182338;--app-muted:#68758b;--app-panel:#fff;--app-line:#e3e9f2;--app-primary:#315efb;--app-cyan:#20b8c5;--app-shadow:0 12px 34px rgba(29,48,82,.08)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--app-bg)}
+body{margin:0!important;background:linear-gradient(180deg,#edf3fb 0,#f7f9fc 360px,#f3f6fb 100%)!important;color:var(--app-ink)!important;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;line-height:1.55;min-height:100vh}
+.wrap,.shell{max-width:1160px!important;margin:0 auto!important;padding:26px 20px 64px!important}
+.hero{position:relative!important;text-align:left!important;padding:30px 30px 32px!important;margin:14px 0 24px!important;border:1px solid #e4eaf4!important;border-radius:24px!important;background:linear-gradient(120deg,#142746 0%,#1d3d69 55%,#246b85 100%)!important;box-shadow:0 18px 48px rgba(24,52,92,.16)!important;overflow:hidden}
+.hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid #ffffff20;border-radius:50%;right:-110px;top:-170px;box-shadow:0 0 0 38px #ffffff08,0 0 0 78px #ffffff06}
+.hero .sigil{display:none!important}
+.eyebrow{font:700 11px/1.4 Inter,system-ui,sans-serif!important;letter-spacing:.16em!important;color:#a9d9ee!important;text-transform:uppercase}
+.hero h1{font:750 clamp(30px,5vw,48px)/1.08 Inter,system-ui,sans-serif!important;letter-spacing:-.045em!important;color:#fff!important;margin:12px 0!important}
+.hero p{font-size:15px!important;max-width:650px!important;color:#d7e4f3!important;margin:0!important}
+h1,h2,h3,h4{font-family:Inter,system-ui,sans-serif!important;letter-spacing:-.025em!important;color:#1c2c45!important}
+h1{font-weight:750!important}h2{font-size:21px!important;font-weight:700!important}
+p,li,label,small{font-family:inherit}
+.panel,.game,.note,.card:not(.back):not(.front),.settings,.section,.result,.content-card{background:#fff!important;color:var(--app-ink)!important;border:1px solid var(--app-line)!important;border-radius:18px!important;box-shadow:var(--app-shadow)!important}
+.panel{padding:22px!important;margin:16px 0!important}
+.panel h2,.game h2{color:#1d3150!important;font-weight:700!important}
+.game{display:flex!important;flex-direction:column;min-height:190px!important;padding:22px!important;text-decoration:none!important;transition:transform .18s,box-shadow .18s,border-color .18s!important}
+.game:hover{transform:translateY(-4px)!important;box-shadow:0 18px 40px rgba(31,67,120,.13)!important;border-color:#b8c9f8!important}
+.game h2{font-size:19px!important;margin:10px 0 4px!important}
+.game p,.muted,.note{color:var(--app-muted)!important;font-size:13px!important}
+.symbol{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:#edf2ff;color:var(--app-primary)!important;font-size:23px!important}
+button{background:linear-gradient(135deg,#315efb,#4778ff)!important;color:#fff!important;border:1px solid #315efb!important;border-radius:11px!important;padding:11px 16px!important;font-weight:650!important;box-shadow:0 5px 14px rgba(49,94,251,.17)!important;transition:transform .15s,filter .15s!important}
+button:hover{filter:brightness(1.05);transform:translateY(-1px)}
+button:disabled{opacity:.5!important}
+input,select,textarea{background:#fff!important;color:#1b2a42!important;border:1px solid #dce4ef!important;border-radius:10px!important;padding:11px 13px!important;min-height:42px!important;max-width:100%}
+textarea{width:100%}
+a{color:#315efb!important;text-underline-offset:3px}
+hr{border:0;border-top:1px solid var(--app-line)}
+.out{color:#24334b!important;background:#f7f9fd!important;border:1px solid var(--app-line)!important;border-radius:14px!important;padding:18px!important}
+.cards{gap:12px!important}
+.card{background:#fff!important;color:#1e3150!important;border:1px solid #dce5f2!important;border-radius:14px!important;box-shadow:0 8px 20px rgba(34,55,90,.08)!important}
+.card.back{background:linear-gradient(145deg,#1a3153,#28547b)!important;color:#fff!important;border:1px solid #47729a!important}
+.card.back .back-mark{border-color:#8bb7d8!important;color:#d7f2ff!important}
+.card.front{background:linear-gradient(145deg,#f8fbff,#eaf1fa)!important;color:#1c3150!important;border:1px solid #b9cce3!important}
+.card .front-mark{color:#315efb!important}
+.row{gap:10px}
+.oracles-modern-nav{max-width:1160px;margin:0 auto 16px;padding:11px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#fff;border:1px solid #e4eaf2;border-radius:15px;box-shadow:0 6px 22px rgba(32,53,88,.05)}
+.oracles-modern-nav .brand{font-weight:800;letter-spacing:-.02em;color:#1c3150!important;text-decoration:none!important}
+.oracles-modern-nav .links{display:flex;gap:6px;flex-wrap:wrap}
+.oracles-modern-nav .links a{padding:7px 10px;border-radius:9px;color:#52627b!important;text-decoration:none!important;font-size:12px;font-weight:650}
+.oracles-modern-nav .links a:hover{background:#edf2ff;color:#315efb!important}
+:focus-visible{outline:3px solid #7aa0ff!important;outline-offset:3px}
+@media(max-width:650px){.wrap,.shell{padding:12px 12px 42px!important}.hero{padding:24px 20px!important;border-radius:19px!important}.oracles-modern-nav{margin:0 10px 12px;padding:10px}.oracles-modern-nav .links{width:100%;overflow-x:auto;flex-wrap:nowrap}.oracles-modern-nav .links a{white-space:nowrap}.panel{padding:16px!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 </style>
 
-</head><body>
-<nav class="oracles-global-nav" aria-label="Navigation des oracles">
-<a class="brand" href="index.html">✦ LES 6 ORACLES</a>
-<div class="links">
-<a href="tarot-78.html">Tarot</a><a href="lenormand-54.html">Lenormand</a>
-<a href="belline.html">Belline</a><a href="portes-intuition.html">Portes</a>
-<a href="astrologie.html">Astrologie</a><a href="runes.html">Runes</a>
-<a href="analyse-croisee.html">Analyse croisée</a>
-</div></nav><main class="wrap"><a class="home" href="index.html">← Retour aux six oracles</a><h1 class="gold">Oracle des Runes nordiques</h1><p class="muted">Symboles à visée réflexive. Tu choisis personnellement chaque carte ; aucune carte n’est tirée automatiquement.</p>
+</head><body><main class="wrap"><a class="home" href="index.html">← Retour aux six oracles</a><h1 class="gold">Oracle des runes nordiques</h1><p class="muted">Symboles à visée réflexive. Tu choisis personnellement chaque carte ; aucune carte n’est tirée automatiquement.</p>
 <section class="panel"><h2 class="gold">1 · Préparer ton tirage</h2><label for="question">Ta question</label><textarea id="question" placeholder="Dicte ou écris ta question…"></textarea><button id="mic">🎙️ Dicter</button><span id="voiceStatus" class="status"></span><p><label for="count">Nombre de cartes</label> <select id="count"><option value="1">1</option><option value="3" selected>3</option><option value="5">5</option><option value="7">7</option></select></p><button id="draw">Mélanger les cartes</button><button id="undo">Annuler la dernière carte</button><button id="reset">Recommencer le tirage</button><p class="muted">Le paquet est affiché face cachée. Touche une carte pour la retourner et la sélectionner toi-même. Aucune carte n’est choisie à ta place.</p><div id="countLabel" class="status"></div><div id="drawn" class="cards"></div></section>
 <section class="panel" id="localPanel"><h2 class="gold">2 · Analyse symbolique locale (sans IA)</h2><p class="muted">Cette lecture est construite directement à partir des symboles choisis et de leur position. Elle fonctionne sans clé API ni connexion Internet. Tu peux ensuite demander une interprétation IA plus développée.</p><button id="localAnalyze">Construire l’analyse locale</button><div id="localOutput" class="out" aria-live="polite"></div><div class="row"><button id="speakLocal">🔊 Lire l’analyse locale</button></div></section>
 <section class="panel"><h2 class="gold">3 · Réglages Gemini pour cet oracle</h2><label for="apiKey">Clé API Gemini individuelle</label><input id="apiKey" type="password" autocomplete="off" placeholder="Colle ici la clé API de cet oracle" style="width:100%"><p class="muted">Cette clé est enregistrée uniquement sur cet appareil et séparément des autres oracles.</p><button id="loadModels">Charger les versions Gemini disponibles</button><p><label for="model">Version de Gemini pour l’analyse</label><select id="model" style="width:100%"><option value="">Charge les modèles avec ta clé</option></select></p><div id="modelStatus" class="status"></div></section>

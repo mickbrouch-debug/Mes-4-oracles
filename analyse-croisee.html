@@ -1,75 +1,53 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Analyse croisée — Les 6 Oracles</title><style>:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#35213f,#17111f 55%,#0d0b12);color:#f8f0dc;font-family:Georgia,serif}.wrap{max-width:900px;margin:auto;padding:22px 16px 50px}.panel{background:#21182b;border:1px solid #8b704866;border-radius:16px;padding:18px;margin:14px 0}.gold{color:#f2dfaa}button,select,input,textarea{font:inherit;border-radius:9px;padding:11px;border:1px solid #8b7048;background:#17111f;color:#fff;max-width:100%}button{background:#d7b76b;color:#17111f;font-weight:bold;cursor:pointer;margin:5px}textarea{width:100%;min-height:85px}a{color:#f2dfaa}.muted{color:#c2b5ca;font:14px/1.6 Arial}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}.card{background:#30233b;border:1px solid #a88b5c;border-radius:12px;padding:13px;text-align:center;min-height:105px}.out{white-space:pre-wrap;line-height:1.7;font:15px/1.7 Arial;color:#f7edda}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.status{color:#d7b76b;font:13px Arial}.home{display:inline-block;margin-bottom:15px}</style>
-<style id="oracles-professional-ui-v1">
-:root{
- --ui-bg:#0b1020;--ui-surface:#121a2d;--ui-surface-2:#18233a;--ui-line:rgba(190,205,232,.16);
- --ui-text:#eef2fb;--ui-muted:#aab6cc;--ui-accent:#d7b875;--ui-accent-2:#f0dba4;
- --ui-radius:18px;--ui-shadow:0 16px 42px rgba(0,0,0,.24);
-}
-html{scroll-behavior:smooth}
-body{
- font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;
- color:var(--ui-text)!important;
- background:radial-gradient(ellipse at 50% -15%,#263452 0%,#111a2d 38%,#090e1a 78%)!important;
- line-height:1.58;letter-spacing:.005em
-}
-h1,h2,h3,h4,.hero-title{font-family:Inter,ui-sans-serif,system-ui,sans-serif!important;letter-spacing:-.025em;line-height:1.18}
-h1{font-size:clamp(1.75rem,4vw,2.55rem)!important;font-weight:750!important}
-h2{font-size:clamp(1.25rem,2.8vw,1.65rem)!important;font-weight:700!important}
-h3{font-weight:680!important}
-p,li,label,small{line-height:1.62}
-button,input,select,textarea{font:inherit!important}
-button{
- border-radius:12px!important;border:1px solid rgba(215,184,117,.34)!important;
- box-shadow:0 5px 16px rgba(0,0,0,.14);transition:transform .16s ease,filter .16s ease,box-shadow .16s ease
-}
-button:hover{filter:brightness(1.08);transform:translateY(-1px)}
-button:active{transform:translateY(0)}
-button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{
- outline:3px solid rgba(215,184,117,.72)!important;outline-offset:3px
-}
-input,select,textarea{
- background:#0d1628!important;color:var(--ui-text)!important;border:1px solid var(--ui-line)!important;
- border-radius:11px!important;min-height:42px
-}
-textarea{min-height:100px}
-a{color:var(--ui-accent-2);text-underline-offset:3px}
-.panel,.card,.section,.box,.oracle-card,.result,.settings,.controls,.content-card{
- border-color:var(--ui-line)!important;border-radius:var(--ui-radius)!important;
- box-shadow:var(--ui-shadow)
-}
-header,.hero,.topbar{font-family:inherit}
-hr{border:0;border-top:1px solid var(--ui-line)}
-img{max-width:100%;height:auto}
-.oracles-global-nav{
- max-width:1180px;margin:0 auto 16px;padding:10px 16px;
- display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
- border:1px solid var(--ui-line);border-radius:15px;background:rgba(13,21,38,.78);
- box-shadow:0 10px 28px rgba(0,0,0,.16);backdrop-filter:blur(14px)
-}
-.oracles-global-nav .brand{font-weight:800;letter-spacing:.02em;color:#f2dfb2;text-decoration:none}
-.oracles-global-nav .links{display:flex;gap:8px;flex-wrap:wrap}
-.oracles-global-nav .links a{
- display:inline-flex;align-items:center;padding:7px 10px;border:1px solid var(--ui-line);
- border-radius:10px;text-decoration:none;color:#dbe5f5;font-size:.88rem
-}
-.oracles-global-nav .links a:hover{background:rgba(215,184,117,.12);border-color:rgba(215,184,117,.4)}
-@media(max-width:600px){
- .oracles-global-nav{margin:0 10px 12px;padding:9px 10px}
- .oracles-global-nav .links{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
- .oracles-global-nav .links a{white-space:nowrap;font-size:.8rem}
-}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Analyse croisée des six systèmes — Oracles Studio</title><style>:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#35213f,#17111f 55%,#0d0b12);color:#f8f0dc;font-family:Georgia,serif}.wrap{max-width:900px;margin:auto;padding:22px 16px 50px}.panel{background:#21182b;border:1px solid #8b704866;border-radius:16px;padding:18px;margin:14px 0}.gold{color:#f2dfaa}button,select,input,textarea{font:inherit;border-radius:9px;padding:11px;border:1px solid #8b7048;background:#17111f;color:#fff;max-width:100%}button{background:#d7b76b;color:#17111f;font-weight:bold;cursor:pointer;margin:5px}textarea{width:100%;min-height:85px}a{color:#f2dfaa}.muted{color:#c2b5ca;font:14px/1.6 Arial}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}.card{background:#30233b;border:1px solid #a88b5c;border-radius:12px;padding:13px;text-align:center;min-height:105px}.out{white-space:pre-wrap;line-height:1.7;font:15px/1.7 Arial;color:#f7edda}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.status{color:#d7b76b;font:13px Arial}.home{display:inline-block;margin-bottom:15px}</style>
+<style id="oracles-modern-ui-v2">
+:root{color-scheme:light;--app-bg:#f3f6fb;--app-ink:#182338;--app-muted:#68758b;--app-panel:#fff;--app-line:#e3e9f2;--app-primary:#315efb;--app-cyan:#20b8c5;--app-shadow:0 12px 34px rgba(29,48,82,.08)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--app-bg)}
+body{margin:0!important;background:linear-gradient(180deg,#edf3fb 0,#f7f9fc 360px,#f3f6fb 100%)!important;color:var(--app-ink)!important;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;line-height:1.55;min-height:100vh}
+.wrap,.shell{max-width:1160px!important;margin:0 auto!important;padding:26px 20px 64px!important}
+.hero{position:relative!important;text-align:left!important;padding:30px 30px 32px!important;margin:14px 0 24px!important;border:1px solid #e4eaf4!important;border-radius:24px!important;background:linear-gradient(120deg,#142746 0%,#1d3d69 55%,#246b85 100%)!important;box-shadow:0 18px 48px rgba(24,52,92,.16)!important;overflow:hidden}
+.hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid #ffffff20;border-radius:50%;right:-110px;top:-170px;box-shadow:0 0 0 38px #ffffff08,0 0 0 78px #ffffff06}
+.hero .sigil{display:none!important}
+.eyebrow{font:700 11px/1.4 Inter,system-ui,sans-serif!important;letter-spacing:.16em!important;color:#a9d9ee!important;text-transform:uppercase}
+.hero h1{font:750 clamp(30px,5vw,48px)/1.08 Inter,system-ui,sans-serif!important;letter-spacing:-.045em!important;color:#fff!important;margin:12px 0!important}
+.hero p{font-size:15px!important;max-width:650px!important;color:#d7e4f3!important;margin:0!important}
+h1,h2,h3,h4{font-family:Inter,system-ui,sans-serif!important;letter-spacing:-.025em!important;color:#1c2c45!important}
+h1{font-weight:750!important}h2{font-size:21px!important;font-weight:700!important}
+p,li,label,small{font-family:inherit}
+.panel,.game,.note,.card:not(.back):not(.front),.settings,.section,.result,.content-card{background:#fff!important;color:var(--app-ink)!important;border:1px solid var(--app-line)!important;border-radius:18px!important;box-shadow:var(--app-shadow)!important}
+.panel{padding:22px!important;margin:16px 0!important}
+.panel h2,.game h2{color:#1d3150!important;font-weight:700!important}
+.game{display:flex!important;flex-direction:column;min-height:190px!important;padding:22px!important;text-decoration:none!important;transition:transform .18s,box-shadow .18s,border-color .18s!important}
+.game:hover{transform:translateY(-4px)!important;box-shadow:0 18px 40px rgba(31,67,120,.13)!important;border-color:#b8c9f8!important}
+.game h2{font-size:19px!important;margin:10px 0 4px!important}
+.game p,.muted,.note{color:var(--app-muted)!important;font-size:13px!important}
+.symbol{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:#edf2ff;color:var(--app-primary)!important;font-size:23px!important}
+button{background:linear-gradient(135deg,#315efb,#4778ff)!important;color:#fff!important;border:1px solid #315efb!important;border-radius:11px!important;padding:11px 16px!important;font-weight:650!important;box-shadow:0 5px 14px rgba(49,94,251,.17)!important;transition:transform .15s,filter .15s!important}
+button:hover{filter:brightness(1.05);transform:translateY(-1px)}
+button:disabled{opacity:.5!important}
+input,select,textarea{background:#fff!important;color:#1b2a42!important;border:1px solid #dce4ef!important;border-radius:10px!important;padding:11px 13px!important;min-height:42px!important;max-width:100%}
+textarea{width:100%}
+a{color:#315efb!important;text-underline-offset:3px}
+hr{border:0;border-top:1px solid var(--app-line)}
+.out{color:#24334b!important;background:#f7f9fd!important;border:1px solid var(--app-line)!important;border-radius:14px!important;padding:18px!important}
+.cards{gap:12px!important}
+.card{background:#fff!important;color:#1e3150!important;border:1px solid #dce5f2!important;border-radius:14px!important;box-shadow:0 8px 20px rgba(34,55,90,.08)!important}
+.card.back{background:linear-gradient(145deg,#1a3153,#28547b)!important;color:#fff!important;border:1px solid #47729a!important}
+.card.back .back-mark{border-color:#8bb7d8!important;color:#d7f2ff!important}
+.card.front{background:linear-gradient(145deg,#f8fbff,#eaf1fa)!important;color:#1c3150!important;border:1px solid #b9cce3!important}
+.card .front-mark{color:#315efb!important}
+.row{gap:10px}
+.oracles-modern-nav{max-width:1160px;margin:0 auto 16px;padding:11px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#fff;border:1px solid #e4eaf2;border-radius:15px;box-shadow:0 6px 22px rgba(32,53,88,.05)}
+.oracles-modern-nav .brand{font-weight:800;letter-spacing:-.02em;color:#1c3150!important;text-decoration:none!important}
+.oracles-modern-nav .links{display:flex;gap:6px;flex-wrap:wrap}
+.oracles-modern-nav .links a{padding:7px 10px;border-radius:9px;color:#52627b!important;text-decoration:none!important;font-size:12px;font-weight:650}
+.oracles-modern-nav .links a:hover{background:#edf2ff;color:#315efb!important}
+:focus-visible{outline:3px solid #7aa0ff!important;outline-offset:3px}
+@media(max-width:650px){.wrap,.shell{padding:12px 12px 42px!important}.hero{padding:24px 20px!important;border-radius:19px!important}.oracles-modern-nav{margin:0 10px 12px;padding:10px}.oracles-modern-nav .links{width:100%;overflow-x:auto;flex-wrap:nowrap}.oracles-modern-nav .links a{white-space:nowrap}.panel{padding:16px!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 </style>
 
-</head><body>
-<nav class="oracles-global-nav" aria-label="Navigation des oracles">
-<a class="brand" href="index.html">✦ LES 6 ORACLES</a>
-<div class="links">
-<a href="tarot-78.html">Tarot</a><a href="lenormand-54.html">Lenormand</a>
-<a href="belline.html">Belline</a><a href="portes-intuition.html">Portes</a>
-<a href="astrologie.html">Astrologie</a><a href="runes.html">Runes</a>
-<a href="analyse-croisee.html">Analyse croisée</a>
-</div></nav><main class="wrap"><a class="home" href="index.html">← Retour aux six oracles</a><h1 class="gold">Analyse croisée des six systèmes</h1><p class="muted">Sélectionne des tirages enregistrés dans l’historique commun. Gemini recherchera convergences, nuances et contradictions sans confondre les traditions.</p><section class="panel"><label>Question centrale (facultatif)</label><textarea id="question" placeholder="Quelle question veux-tu éclairer à travers plusieurs systèmes ?"></textarea><div id="entries"></div><div class="row"><button id="refresh">Actualiser l’historique</button><button id="run">Lancer l’analyse croisée</button><button id="cancel">Interrompre</button></div><div id="status" class="status"></div></section><section class="panel"><h2 class="gold">Synthèse comparative IA</h2><div id="output" class="out"></div><div class="row"><button id="speak">🔊 Lire</button><button id="pause">Pause / Reprise</button><button id="stop">Arrêter</button></div></section></main><script>const STORE='oraclesSuiteHistoryV2',KEY='oraclesSuiteGeminiApiKeyV1';const $=id=>document.getElementById(id);let selected=[],controller=null;function load(){let a=[];try{a=JSON.parse(localStorage.getItem(STORE)||'[]')}catch(e){}$('entries').innerHTML='';if(!a.length){$('entries').textContent='Aucun tirage trouvé. Effectue d’abord des tirages dans les oracles puis reviens ici.';return}a.forEach((x,i)=>{let l=document.createElement('label');l.style.cssText='display:block;padding:10px;border-bottom:1px solid #55435f;font:14px Arial';let c=document.createElement('input');c.type='checkbox';c.value=i;c.style.marginRight='9px';c.onchange=()=>{selected=c.checked?[...selected,i]:selected.filter(n=>n!==i)};l.append(c,document.createTextNode((x.game||'Oracle')+' · '+(x.date||'')+' · '+(x.question||'Tirage général')+' · '+(x.interpretation?'IA disponible':'sans interprétation IA')));$('entries').append(l)});window.__crossHistory=a}async function run(){let a=window.__crossHistory||[];let chosen=selected.map(i=>a[i]).filter(Boolean);if(chosen.length<2){$('status').textContent='Sélectionne au moins deux tirages de systèmes différents.';return}let systems=[...new Set(chosen.map(x=>x.game))];if(systems.length<2){$('status').textContent='Choisis au moins deux systèmes différents.';return}let key=localStorage.getItem(KEY)||'';if(!key){$('status').textContent='Ajoute ta clé Gemini sur la page d’accueil.';return}let prompt=`Tu es un analyste comparatif des traditions symboliques. Analyse ces tirages provenant de systèmes différents. Respecte la logique propre de chaque système, ne fusionne pas leurs significations et n’invente aucune donnée. Distingue convergences réelles, complémentarités, contradictions, éléments absents et hypothèses. Ne transforme pas une lecture symbolique en prédiction certaine. Structure : contexte commun; lecture de chaque système séparément; convergences; divergences/contradictions; ce que chaque système apporte de spécifique; synthèse intégrée; conseils concrets et questions de réflexion. Question centrale : ${$('question').value||'Aucune question centrale précisée'}. Données : ${JSON.stringify(chosen)}`;controller=new AbortController();$('status').textContent='Gemini compare '+systems.length+' systèmes…';$('output').textContent='';try{let r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key='+encodeURIComponent(key),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{temperature:0.7,maxOutputTokens:12000}}),signal:controller.signal});let j=await r.json();if(!r.ok)throw Error(j.error?.message||'Erreur Gemini');let t=j.candidates?.[0]?.content?.parts?.map(x=>x.text||'').join('\n')||'Réponse vide';$('output').textContent=t;$('status').textContent='Analyse terminée.'}catch(e){$('status').textContent=e.name==='AbortError'?'Analyse interrompue.':e.message}}$('refresh').onclick=load;$('run').onclick=run;$('cancel').onclick=()=>controller?.abort();$('speak').onclick=()=>{speechSynthesis.cancel();let u=new SpeechSynthesisUtterance($('output').textContent);u.lang='fr-FR';speakOracleText(u.text)};$('pause').onclick=()=>speechSynthesis.paused?speechSynthesis.resume():speechSynthesis.pause();$('stop').onclick=()=>speechSynthesis.cancel();load();</script>
+</head><body><main class="wrap"><a class="home" href="index.html">← Retour aux six oracles</a><h1 class="gold">Analyse croisée des systèmes</h1><p class="muted">Sélectionne des tirages enregistrés dans l’historique commun. Gemini recherchera convergences, nuances et contradictions sans confondre les traditions.</p><section class="panel"><label>Question centrale (facultatif)</label><textarea id="question" placeholder="Quelle question veux-tu éclairer à travers plusieurs systèmes ?"></textarea><div id="entries"></div><div class="row"><button id="refresh">Actualiser l’historique</button><button id="run">Lancer l’analyse croisée</button><button id="cancel">Interrompre</button></div><div id="status" class="status"></div></section><section class="panel"><h2 class="gold">Synthèse comparative IA</h2><div id="output" class="out"></div><div class="row"><button id="speak">🔊 Lire</button><button id="pause">Pause / Reprise</button><button id="stop">Arrêter</button></div></section></main><script>const STORE='oraclesSuiteHistoryV2',KEY='oraclesSuiteGeminiApiKeyV1';const $=id=>document.getElementById(id);let selected=[],controller=null;function load(){let a=[];try{a=JSON.parse(localStorage.getItem(STORE)||'[]')}catch(e){}$('entries').innerHTML='';if(!a.length){$('entries').textContent='Aucun tirage trouvé. Effectue d’abord des tirages dans les oracles puis reviens ici.';return}a.forEach((x,i)=>{let l=document.createElement('label');l.style.cssText='display:block;padding:10px;border-bottom:1px solid #55435f;font:14px Arial';let c=document.createElement('input');c.type='checkbox';c.value=i;c.style.marginRight='9px';c.onchange=()=>{selected=c.checked?[...selected,i]:selected.filter(n=>n!==i)};l.append(c,document.createTextNode((x.game||'Oracle')+' · '+(x.date||'')+' · '+(x.question||'Tirage général')+' · '+(x.interpretation?'IA disponible':'sans interprétation IA')));$('entries').append(l)});window.__crossHistory=a}async function run(){let a=window.__crossHistory||[];let chosen=selected.map(i=>a[i]).filter(Boolean);if(chosen.length<2){$('status').textContent='Sélectionne au moins deux tirages de systèmes différents.';return}let systems=[...new Set(chosen.map(x=>x.game))];if(systems.length<2){$('status').textContent='Choisis au moins deux systèmes différents.';return}let key=localStorage.getItem(KEY)||'';if(!key){$('status').textContent='Ajoute ta clé Gemini sur la page d’accueil.';return}let prompt=`Tu es un analyste comparatif des traditions symboliques. Analyse ces tirages provenant de systèmes différents. Respecte la logique propre de chaque système, ne fusionne pas leurs significations et n’invente aucune donnée. Distingue convergences réelles, complémentarités, contradictions, éléments absents et hypothèses. Ne transforme pas une lecture symbolique en prédiction certaine. Structure : contexte commun; lecture de chaque système séparément; convergences; divergences/contradictions; ce que chaque système apporte de spécifique; synthèse intégrée; conseils concrets et questions de réflexion. Question centrale : ${$('question').value||'Aucune question centrale précisée'}. Données : ${JSON.stringify(chosen)}`;controller=new AbortController();$('status').textContent='Gemini compare '+systems.length+' systèmes…';$('output').textContent='';try{let r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key='+encodeURIComponent(key),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{temperature:0.7,maxOutputTokens:12000}}),signal:controller.signal});let j=await r.json();if(!r.ok)throw Error(j.error?.message||'Erreur Gemini');let t=j.candidates?.[0]?.content?.parts?.map(x=>x.text||'').join('\n')||'Réponse vide';$('output').textContent=t;$('status').textContent='Analyse terminée.'}catch(e){$('status').textContent=e.name==='AbortError'?'Analyse interrompue.':e.message}}$('refresh').onclick=load;$('run').onclick=run;$('cancel').onclick=()=>controller?.abort();$('speak').onclick=()=>{speechSynthesis.cancel();let u=new SpeechSynthesisUtterance($('output').textContent);u.lang='fr-FR';speakOracleText(u.text)};$('pause').onclick=()=>speechSynthesis.paused?speechSynthesis.resume():speechSynthesis.pause();$('stop').onclick=()=>speechSynthesis.cancel();load();</script>
 
 <script>
 (()=> {
