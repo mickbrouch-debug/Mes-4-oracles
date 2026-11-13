@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#17111f">
+<meta name="theme-color" content="#090a18">
 <meta name="description" content="Tarot des 78 Arcanes — un espace symbolique de tirage et de réflexion.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
@@ -63,8 +63,113 @@ hr{border:0;border-top:1px solid var(--app-line)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
 </style>
 
+
+<style id="sanctuaire-esoterique-theme">
+/* ORACLES STUDIO — Sanctuaire ésotérique */
+:root{
+ --sanct-bg:#080914;--sanct-panel:rgba(20,18,38,.82);--sanct-panel2:rgba(31,25,52,.82);
+ --sanct-gold:#e8c982;--sanct-gold2:#b99555;--sanct-violet:#a88be8;--sanct-blue:#7189d7;
+ --sanct-text:#f5efdf;--sanct-muted:#bcb4cf;--sanct-line:rgba(225,198,137,.22);
+}
+html{background:var(--sanct-bg)!important;scroll-behavior:smooth}
+body{
+ color:var(--sanct-text)!important;
+ background:
+  radial-gradient(ellipse at 50% -15%,rgba(117,82,170,.30),transparent 48%),
+  radial-gradient(ellipse at 8% 35%,rgba(51,76,137,.20),transparent 38%),
+  radial-gradient(ellipse at 92% 75%,rgba(128,82,155,.14),transparent 36%),
+  linear-gradient(160deg,#090a18 0%,#111026 48%,#080914 100%)!important;
+ position:relative;isolation:isolate;min-height:100vh;
+}
+body:before{
+ content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.42;
+ background-image:
+  radial-gradient(1px 1px at 7% 13%,#fff 98%,transparent),
+  radial-gradient(1px 1px at 19% 72%,#e8c982 98%,transparent),
+  radial-gradient(1.5px 1.5px at 38% 27%,#fff 98%,transparent),
+  radial-gradient(1px 1px at 64% 12%,#c9b5ff 98%,transparent),
+  radial-gradient(1px 1px at 83% 58%,#fff 98%,transparent),
+  radial-gradient(1px 1px at 92% 22%,#e8c982 98%,transparent),
+  radial-gradient(1px 1px at 51% 83%,#fff 98%,transparent),
+  radial-gradient(1px 1px at 28% 44%,#c9b5ff 98%,transparent);
+ background-size:310px 270px;animation:sanctStars 95s linear infinite;
+}
+body:after{
+ content:"";position:fixed;width:min(72vw,680px);height:min(72vw,680px);left:50%;top:48%;
+ transform:translate(-50%,-50%);z-index:-1;pointer-events:none;opacity:.075;
+ border:1px solid var(--sanct-gold);border-radius:50%;
+ box-shadow:0 0 0 24px rgba(232,201,130,.08),0 0 0 48px rgba(168,139,232,.06),0 0 90px rgba(168,139,232,.18);
+ background:repeating-conic-gradient(from 0deg,transparent 0deg 14deg,rgba(232,201,130,.22) 14.2deg 14.5deg,transparent 14.7deg 30deg);
+ animation:sanctMandala 180s linear infinite;
+}
+@keyframes sanctStars{to{background-position:0 540px,0 -400px,0 320px,0 -540px,0 460px,0 -320px,0 600px,0 -260px}}
+@keyframes sanctMandala{to{rotate:360deg}}
+@keyframes sanctGlow{0%,100%{box-shadow:0 0 0 rgba(232,201,130,0)}50%{box-shadow:0 0 28px rgba(232,201,130,.13)}}
+@keyframes sanctRise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+h1,h2,h3,.brand,.hero,.section-head{color:var(--sanct-text)}
+.brand{letter-spacing:.045em}
+.eyebrow,.pill,.sigil,.ornament{color:var(--sanct-gold)!important}
+.hero,.panel,.tile,.card,.item,.reading,.out,.notice,.stats,.deck,.cross,.field,.statusline{
+ background:linear-gradient(145deg,rgba(31,27,53,.88),rgba(13,16,34,.88))!important;
+ border-color:var(--sanct-line)!important;
+ box-shadow:0 16px 42px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.035)!important;
+ backdrop-filter:blur(12px);
+}
+.hero,.panel,.tile,.card,.item,.reading,.out,.notice,.stats,.deck,.cross{
+ border-radius:20px!important;animation:sanctRise .65s both;
+}
+.tile,.card,.item,.panel,.deck{transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease}
+.tile:hover,.card:hover,.item:hover,.deck:hover{
+ transform:translateY(-4px);border-color:rgba(232,201,130,.52)!important;
+ box-shadow:0 18px 46px rgba(0,0,0,.32),0 0 24px rgba(168,139,232,.12)!important;
+}
+button,.btn,.go,.primary,.secondary,a.go{
+ transition:transform .22s ease,filter .22s ease,box-shadow .22s ease!important;
+}
+button,.btn,.go,.primary{
+ border-color:rgba(232,201,130,.48)!important;
+ background:linear-gradient(135deg,#8e6c37,#d5b56f 52%,#9c7b45)!important;
+ color:#171323!important;font-weight:750!important;
+ box-shadow:0 6px 22px rgba(191,151,79,.18)!important;
+}
+button:hover,.btn:hover,.go:hover,.primary:hover{
+ transform:translateY(-2px);filter:brightness(1.12);
+ box-shadow:0 8px 28px rgba(211,178,107,.28),0 0 20px rgba(168,139,232,.12)!important;
+}
+.btn.ghost,.btn.secondary,.secondary,button.secondary{
+ background:rgba(168,139,232,.10)!important;color:var(--sanct-text)!important;
+ border:1px solid rgba(168,139,232,.35)!important;box-shadow:none!important;
+}
+a{color:#e8cd91}
+input,select,textarea{
+ color:var(--sanct-text)!important;background:rgba(8,10,25,.72)!important;
+ border-color:rgba(206,185,226,.24)!important;border-radius:12px!important;
+}
+input:focus,select:focus,textarea:focus{outline:none!important;border-color:var(--sanct-gold)!important;box-shadow:0 0 0 3px rgba(232,201,130,.12)!important}
+hr{border-color:var(--sanct-line)!important}
+.navlinks,.nav,.links{border-color:var(--sanct-line)!important}
+.navlinks a,.nav a,.links a{color:#e9d8ae!important}
+img{transition:filter .3s ease}
+.deck img,.drawn img{filter:drop-shadow(0 10px 16px rgba(0,0,0,.32))}
+.progress{background:rgba(168,139,232,.16)!important}
+.progress>*{background:linear-gradient(90deg,#9278d4,#e8c982)!important}
+footer,.footer,.muted,.sub,.help,.tiny{color:var(--sanct-muted)!important}
+::selection{background:rgba(168,139,232,.38);color:#fff}
+@media(max-width:650px){
+ body:after{width:88vw;height:88vw;opacity:.045}
+ .hero,.panel,.tile,.card,.item,.reading,.out{border-radius:16px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+}
+</style>
+
 </head>
 <body>
+<nav class="oracles-key-nav" aria-label="Navigation Oracles Studio">
+<a href="index.html" class="brand">ORACLES <span>/</span> STUDIO</a>
+<div class="navlinks"><a href="index.html">Accueil</a><a href="cle-api.html">Clé API commune</a><a href="tarot-78.html">Tarot</a><a href="lenormand-54.html">Lenormand</a><a href="belline.html">Belline</a><a href="portes-intuition.html">Portes</a><a href="astrologie.html">Astrologie</a><a href="runes.html">Runes</a><a href="analyse-croisee.html">Analyse croisée</a></div></nav>
+<style id="oracles-key-nav-style">.oracles-key-nav{max-width:1180px;margin:0 auto 16px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:rgba(255,255,255,.94);border:1px solid #e2e8f1;border-radius:15px;box-shadow:0 8px 24px #1d30520c}.oracles-key-nav .brand{font-weight:850;letter-spacing:-.04em;color:#203553;text-decoration:none}.oracles-key-nav .brand span{color:#315efb}.oracles-key-nav .navlinks{display:flex;gap:5px;flex-wrap:wrap}.oracles-key-nav .navlinks a{font-size:12px;text-decoration:none;color:#43536d;padding:6px 8px;border-radius:8px;white-space:nowrap}.oracles-key-nav .navlinks a:hover{background:#edf2ff;color:#315efb}@media(max-width:650px){.oracles-key-nav{margin:0 8px 12px}.oracles-key-nav .navlinks{width:100%;overflow-x:auto;flex-wrap:nowrap}.oracles-key-nav .navlinks a{flex:0 0 auto}}</style>
 <div id="oracle-appbar" style="position:sticky;top:0;z-index:9999;background:#101b2aee;backdrop-filter:blur(10px);padding:9px 12px;border-bottom:1px solid #b99a6044;display:flex;gap:8px;align-items:center;justify-content:space-between;font:13px Arial,sans-serif">
   <a href="index.html" style="color:#f2dfaa;text-decoration:none;font-weight:bold">✧ Les 4 Oracles</a>
   <span style="color:#c2b5ca">Application installable · historique local</span>
@@ -1706,10 +1811,11 @@ shuffleDeck();
 })();
 </script>
 <script>
-// Clé Gemini commune aux quatre oracles : stockage local sur cet appareil uniquement.
-(()=>{const K='oraclesSuiteGeminiApiKeyV1';const field=document.getElementById('aiKey');if(!field)return;try{const saved=localStorage.getItem(K)||'';if(saved)field.value=saved;}catch(e){}
- field.addEventListener('input',()=>{try{localStorage.setItem(K,field.value.trim());}catch(e){}});
- window.addEventListener('storage',e=>{if(e.key===K)field.value=e.newValue||'';});
+// Clé individuelle prioritaire, clé commune en secours.
+(()=>{const COMMON='oraclesSuiteGeminiApiKeyV1',IND='oraclesGeminiApiKey_tarot_V1';const field=document.getElementById('aiKey');if(!field)return;try{field.value=localStorage.getItem(IND)||localStorage.getItem(COMMON)||'';}catch(e){}
+field.addEventListener('input',()=>{try{const v=field.value.trim();if(v)localStorage.setItem(IND,v);else localStorage.removeItem(IND);}catch(e){}});
+field.addEventListener('blur',()=>{if(!field.value.trim()){try{field.value=localStorage.getItem(COMMON)||'';}catch(e){}}});
+window.addEventListener('storage',e=>{if(e.key===COMMON&&!localStorage.getItem(IND))field.value=e.newValue||'';});
 })();
 </script>
 
@@ -1721,7 +1827,8 @@ shuffleDeck();
  const pageKey=({ 'tarot-78.html':'tarot','lenormand-54.html':'lenormand','belline.html':'belline','portes-intuition.html':'portes','astrologie.html':'astrologie','runes.html':'runes','analyse-croisee.html':'analyse-croisee' })[file]||file;
  const KEY='oraclesGeminiModelByOracleV1';
  const KEY_API='oraclesSuiteGeminiApiKeyV1';
- const getKey=()=>{try{return localStorage.getItem(KEY_API)||localStorage.getItem('geminiApiKey')||''}catch(e){return ''}};
+ const INDIVIDUAL_KEY='oraclesGeminiApiKey_tarot_V1';
+ const getKey=()=>{try{return localStorage.getItem(INDIVIDUAL_KEY)||localStorage.getItem(KEY_API)||localStorage.getItem('geminiApiKey')||''}catch(e){return ''}};
  let choices={};try{choices=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
  let selected=choices[pageKey]||'gemini-2.5-flash';
  const legacy=document.getElementById('aiModel');

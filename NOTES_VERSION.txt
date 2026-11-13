@@ -1,12 +1,8 @@
-ORACLES STUDIO — ÉDITION INTERFACE MODERNE
-Date : 13 novembre 2026
-
-Cette archive remplace l'interface visuelle des six oracles et la page d'accueil.
-- Nouvelle page d'accueil de type dashboard.
-- Nouvelle identité visuelle claire, contemporaine et orientée produit numérique.
-- Navigation compacte commune sur les sept pages de consultation.
-- Titres harmonisés.
-- Mise à jour du cache service worker.
-
-Les moteurs de tirage, les interprétations locales et IA, les réglages Gemini et le moteur vocal sont conservés dans les pages sources.
-Cette livraison est une refonte visuelle non destructive. Elle n'est pas une certification de tests réels sur appareil ou de disponibilité de l'API Gemini.
+ORACLES STUDIO — ÉDITION SANCTUAIRE ÉSOTÉRIQUE
+Refonte visuelle transversale des huit pages.
+- Ambiance céleste sombre, halos violets et or, texture étoilée animée.
+- Ornement géométrique animé en arrière-plan.
+- Panneaux vitrés, boutons dorés, champs harmonisés.
+- Transitions discrètes et prise en charge de prefers-reduced-motion.
+- Fonctions métier, tirages, interprétations, voix, historique et clés API conservés.
+- Cache du service worker renouvelé.

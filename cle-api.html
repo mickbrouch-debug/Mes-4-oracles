@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090a18"><title>Clé API commune — Oracles Studio</title>
+<style>
+:root{color-scheme:light;--ink:#17243a;--muted:#65738a;--line:#e2e8f1;--blue:#315efb;--panel:#fff}
+*{box-sizing:border-box}body{margin:0;background:#f3f6fb;color:var(--ink);font:15px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:900px;margin:auto;padding:22px 18px 60px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 16px;background:#fff;border:1px solid var(--line);border-radius:16px;margin-bottom:22px}
+.brand{font-weight:850;letter-spacing:-.04em;color:#203553;text-decoration:none}.brand span{color:var(--blue)}
+.links{display:flex;gap:8px;flex-wrap:wrap}.links a{font-size:13px;text-decoration:none;color:#43536d;padding:7px 10px;border-radius:9px}.links a:hover{background:#edf2ff;color:var(--blue)}
+.hero{padding:30px;border-radius:22px;background:linear-gradient(120deg,#142746,#24527c);color:white;box-shadow:0 16px 40px #18345c20}
+.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#b8dff0;font-weight:800}
+h1{font-size:clamp(28px,5vw,40px);line-height:1.1;letter-spacing:-.04em;margin:10px 0}
+.hero p{color:#dce8f4;margin:0;max-width:650px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px;margin-top:18px;box-shadow:0 12px 32px #1d30520a}
+label{display:block;font-weight:750;margin-bottom:8px}
+input{width:100%;padding:14px 15px;border:1px solid #d7dfeb;border-radius:12px;font:inherit;color:var(--ink);background:#fbfcfe}
+input:focus{outline:3px solid #315efb22;border-color:var(--blue)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+button{border:0;border-radius:11px;padding:11px 16px;font:700 14px inherit;cursor:pointer}
+.primary{background:var(--blue);color:white}.secondary{background:#edf2f8;color:#273954}
+.note{font-size:13px;color:var(--muted);margin:12px 0 0}
+.status{font-size:13px;margin-top:12px;min-height:20px;color:#27634a}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px}
+.item{padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fbfcff;font-size:13px}
+.item b{display:block;color:#203553}
+@media(max-width:600px){.wrap{padding:12px}.hero{padding:23px}.card{padding:18px}.grid{grid-template-columns:1fr}.links{width:100%;overflow:auto;flex-wrap:nowrap}.links a{white-space:nowrap}}
+</style>
+<style id="sanctuaire-esoterique-theme">
+/* ORACLES STUDIO — Sanctuaire ésotérique */
+:root{
+ --sanct-bg:#080914;--sanct-panel:rgba(20,18,38,.82);--sanct-panel2:rgba(31,25,52,.82);
+ --sanct-gold:#e8c982;--sanct-gold2:#b99555;--sanct-violet:#a88be8;--sanct-blue:#7189d7;
+ --sanct-text:#f5efdf;--sanct-muted:#bcb4cf;--sanct-line:rgba(225,198,137,.22);
+}
+html{background:var(--sanct-bg)!important;scroll-behavior:smooth}
+body{
+ color:var(--sanct-text)!important;
+ background:
+  radial-gradient(ellipse at 50% -15%,rgba(117,82,170,.30),transparent 48%),
+  radial-gradient(ellipse at 8% 35%,rgba(51,76,137,.20),transparent 38%),
+  radial-gradient(ellipse at 92% 75%,rgba(128,82,155,.14),transparent 36%),
+  linear-gradient(160deg,#090a18 0%,#111026 48%,#080914 100%)!important;
+ position:relative;isolation:isolate;min-height:100vh;
+}
+body:before{
+ content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.42;
+ background-image:
+  radial-gradient(1px 1px at 7% 13%,#fff 98%,transparent),
+  radial-gradient(1px 1px at 19% 72%,#e8c982 98%,transparent),
+  radial-gradient(1.5px 1.5px at 38% 27%,#fff 98%,transparent),
+  radial-gradient(1px 1px at 64% 12%,#c9b5ff 98%,transparent),
+  radial-gradient(1px 1px at 83% 58%,#fff 98%,transparent),
+  radial-gradient(1px 1px at 92% 22%,#e8c982 98%,transparent),
+  radial-gradient(1px 1px at 51% 83%,#fff 98%,transparent),
+  radial-gradient(1px 1px at 28% 44%,#c9b5ff 98%,transparent);
+ background-size:310px 270px;animation:sanctStars 95s linear infinite;
+}
+body:after{
+ content:"";position:fixed;width:min(72vw,680px);height:min(72vw,680px);left:50%;top:48%;
+ transform:translate(-50%,-50%);z-index:-1;pointer-events:none;opacity:.075;
+ border:1px solid var(--sanct-gold);border-radius:50%;
+ box-shadow:0 0 0 24px rgba(232,201,130,.08),0 0 0 48px rgba(168,139,232,.06),0 0 90px rgba(168,139,232,.18);
+ background:repeating-conic-gradient(from 0deg,transparent 0deg 14deg,rgba(232,201,130,.22) 14.2deg 14.5deg,transparent 14.7deg 30deg);
+ animation:sanctMandala 180s linear infinite;
+}
+@keyframes sanctStars{to{background-position:0 540px,0 -400px,0 320px,0 -540px,0 460px,0 -320px,0 600px,0 -260px}}
+@keyframes sanctMandala{to{rotate:360deg}}
+@keyframes sanctGlow{0%,100%{box-shadow:0 0 0 rgba(232,201,130,0)}50%{box-shadow:0 0 28px rgba(232,201,130,.13)}}
+@keyframes sanctRise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+h1,h2,h3,.brand,.hero,.section-head{color:var(--sanct-text)}
+.brand{letter-spacing:.045em}
+.eyebrow,.pill,.sigil,.ornament{color:var(--sanct-gold)!important}
+.hero,.panel,.tile,.card,.item,.reading,.out,.notice,.stats,.deck,.cross,.field,.statusline{
+ background:linear-gradient(145deg,rgba(31,27,53,.88),rgba(13,16,34,.88))!important;
+ border-color:var(--sanct-line)!important;
+ box-shadow:0 16px 42px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.035)!important;
+ backdrop-filter:blur(12px);
+}
+.hero,.panel,.tile,.card,.item,.reading,.out,.notice,.stats,.deck,.cross{
+ border-radius:20px!important;animation:sanctRise .65s both;
+}
+.tile,.card,.item,.panel,.deck{transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease}
+.tile:hover,.card:hover,.item:hover,.deck:hover{
+ transform:translateY(-4px);border-color:rgba(232,201,130,.52)!important;
+ box-shadow:0 18px 46px rgba(0,0,0,.32),0 0 24px rgba(168,139,232,.12)!important;
+}
+button,.btn,.go,.primary,.secondary,a.go{
+ transition:transform .22s ease,filter .22s ease,box-shadow .22s ease!important;
+}
+button,.btn,.go,.primary{
+ border-color:rgba(232,201,130,.48)!important;
+ background:linear-gradient(135deg,#8e6c37,#d5b56f 52%,#9c7b45)!important;
+ color:#171323!important;font-weight:750!important;
+ box-shadow:0 6px 22px rgba(191,151,79,.18)!important;
+}
+button:hover,.btn:hover,.go:hover,.primary:hover{
+ transform:translateY(-2px);filter:brightness(1.12);
+ box-shadow:0 8px 28px rgba(211,178,107,.28),0 0 20px rgba(168,139,232,.12)!important;
+}
+.btn.ghost,.btn.secondary,.secondary,button.secondary{
+ background:rgba(168,139,232,.10)!important;color:var(--sanct-text)!important;
+ border:1px solid rgba(168,139,232,.35)!important;box-shadow:none!important;
+}
+a{color:#e8cd91}
+input,select,textarea{
+ color:var(--sanct-text)!important;background:rgba(8,10,25,.72)!important;
+ border-color:rgba(206,185,226,.24)!important;border-radius:12px!important;
+}
+input:focus,select:focus,textarea:focus{outline:none!important;border-color:var(--sanct-gold)!important;box-shadow:0 0 0 3px rgba(232,201,130,.12)!important}
+hr{border-color:var(--sanct-line)!important}
+.navlinks,.nav,.links{border-color:var(--sanct-line)!important}
+.navlinks a,.nav a,.links a{color:#e9d8ae!important}
+img{transition:filter .3s ease}
+.deck img,.drawn img{filter:drop-shadow(0 10px 16px rgba(0,0,0,.32))}
+.progress{background:rgba(168,139,232,.16)!important}
+.progress>*{background:linear-gradient(90deg,#9278d4,#e8c982)!important}
+footer,.footer,.muted,.sub,.help,.tiny{color:var(--sanct-muted)!important}
+::selection{background:rgba(168,139,232,.38);color:#fff}
+@media(max-width:650px){
+ body:after{width:88vw;height:88vw;opacity:.045}
+ .hero,.panel,.tile,.card,.item,.reading,.out{border-radius:16px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+}
+</style>
+
+</head><body><main class="wrap">
+<nav class="nav"><a class="brand" href="index.html">ORACLES <span>/</span> STUDIO</a><div class="links"><a href="index.html">Accueil</a><a href="tarot-78.html">Tarot</a><a href="lenormand-54.html">Lenormand</a><a href="belline.html">Belline</a><a href="portes-intuition.html">Portes</a><a href="astrologie.html">Astrologie</a><a href="runes.html">Runes</a></div></nav>
+<header class="hero"><div class="eyebrow">Configuration centrale</div><h1>Clé API Gemini commune</h1><p>Enregistre ici une seule clé pour les six oracles et l'analyse croisée. Chaque oracle pourra l'utiliser automatiquement, tout en conservant la possibilité d'une clé individuelle si tu en renseignes une dans ses réglages.</p></header>
+<section class="card"><h2>Clé API partagée</h2><label for="commonKey">Clé Google AI Studio</label><input id="commonKey" type="password" autocomplete="off" placeholder="Colle ta clé API Gemini ici">
+<div class="actions"><button class="primary" id="save">Enregistrer la clé commune</button><button class="secondary" id="toggle">Afficher / masquer</button><button class="secondary" id="clear">Effacer</button></div>
+<p class="note">La clé est enregistrée uniquement dans le stockage local de ce navigateur. Elle n'est pas ajoutée aux fichiers GitHub. Ne la partage pas et ne la publie jamais dans le dépôt.</p><div class="status" id="status" role="status" aria-live="polite"></div></section>
+<section class="card"><h2>Utilisation dans l'application</h2><div class="grid">
+<div class="item"><b>Tarot, Lenormand, Belline, Portes</b>Utilisent la clé commune enregistrée ici.</div>
+<div class="item"><b>Astrologie et Runes</b>Utilisent leur clé individuelle si elle existe, sinon la clé commune.</div>
+<div class="item"><b>Analyse croisée</b>Utilise la clé commune.</div>
+<div class="item"><b>Modèles Gemini</b>Le modèle reste sélectionnable indépendamment dans chaque oracle.</div>
+</div></section>
+</main><script>
+(()=>{'use strict';const KEY='oraclesSuiteGeminiApiKeyV1',field=document.getElementById('commonKey'),status=document.getElementById('status');
+try{field.value=localStorage.getItem(KEY)||''}catch(e){status.textContent='Le stockage local est indisponible dans ce navigateur.'}
+document.getElementById('save').addEventListener('click',()=>{try{const value=field.value.trim();if(!value){status.textContent='Saisis une clé avant de l’enregistrer.';return}localStorage.setItem(KEY,value);status.textContent='Clé commune enregistrée sur cet appareil.'}catch(e){status.textContent='Impossible d’enregistrer la clé : '+e.message}});
+document.getElementById('toggle').addEventListener('click',()=>{field.type=field.type==='password'?'text':'password'});
+document.getElementById('clear').addEventListener('click',()=>{try{localStorage.removeItem(KEY);field.value='';status.textContent='Clé commune effacée.'}catch(e){status.textContent='Impossible d’effacer la clé.'}});
+field.addEventListener('input',()=>{status.textContent='Modifications non enregistrées.'});
+})();
+</script></body></html>
