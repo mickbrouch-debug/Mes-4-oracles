@@ -1,0 +1,18 @@
+CORRECTIF TECHNIQUE V6.1 — RAPPORT DE CONTRÔLE
+
+Base : archive V6.0 fournie dans la conversation.
+
+Corrections effectuées :
+- Suppression des blocs CSS V6 strictement dupliqués dans les six pages d'oracles.
+- Suppression des moteurs SVG JavaScript strictement dupliqués dans les six pages.
+- Correction des affectations background-image : elles utilisent désormais setProperty(..., "important")
+  afin de passer devant les anciens arrière-plans CSS déclarés en !important.
+- Ajout d'une animation de révélation 3D en perspective sur les faces affichées.
+- Respect de prefers-reduced-motion.
+- Incrément du nom de cache du service worker vers V6.1.
+
+Limites :
+- Le moteur d'illustration demeure un générateur SVG décoratif déterministe à partir du nom et des mots-clés.
+  Il ne s'agit pas de peintures originales individuelles pour chaque carte.
+- Contrôle statique des scripts JavaScript et de l'intégrité de l'archive effectué.
+- Aucun test de navigateur Android réel ni validation visuelle sur GitHub Pages n'a été effectué.
