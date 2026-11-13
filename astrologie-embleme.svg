@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-label="L’Oracle Astrologique">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#111e49"/><stop offset="1" stop-color="#080914"/></linearGradient><radialGradient id="glow"><stop stop-color="#d7b5ff" stop-opacity=".35"/><stop offset="1" stop-color="#d7b5ff" stop-opacity="0"/></radialGradient></defs>
+<rect width="640" height="420" rx="26" fill="url(#bg)"/><circle cx="320" cy="190" r="210" fill="url(#glow)"/>
+<g fill="none" stroke="#d7b5ff" opacity=".55"><rect x="14" y="14" width="612" height="392" rx="22" stroke-width="2"/><rect x="25" y="25" width="590" height="370" rx="18"/><path d="M30 65H610M30 355H610"/></g>
+<g fill="#d7b5ff" opacity=".9" font-family="serif" text-anchor="middle"><text x="320" y="58" font-size="19" letter-spacing="5">LA CARTE DU CIEL</text><text x="320" y="386" font-size="24">L’Oracle Astrologique</text></g>
+<g><circle cx="320" cy="192" r="106" fill="none" stroke="#d7b5ff" stroke-width="3"/><circle cx="320" cy="192" r="74" fill="none" stroke="#d7b5ff" stroke-width="2"/><path d="M320 76V308M204 192H436M238 110L402 274M402 110L238 274" stroke="#d7b5ff" opacity=".65" stroke-width="2"/><circle cx="320" cy="192" r="19" fill="#d7b5ff"/><path d="M320 45L332 75L320 67L308 75Z M467 192L437 204L445 192L437 180Z M320 339L308 309L320 317L332 309Z M173 192L203 180L195 192L203 204Z" fill="#d7b5ff"/></g>
+<g fill="#d7b5ff" font-family="serif" text-anchor="middle"><text x="320" y="205" font-size="46" opacity=".0">☉</text><text x="320" y="345" font-size="22">♈  ✦  ☉  ✦  ♈</text></g>
+<g fill="#d7b5ff" opacity=".8"><circle cx="75" cy="95" r="2"/><circle cx="120" cy="260" r="3"/><circle cx="540" cy="90" r="2"/><circle cx="565" cy="280" r="3"/><circle cx="105" cy="330" r="1.8"/><circle cx="500" cy="350" r="2"/></g>
+</svg>

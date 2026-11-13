@@ -12,7 +12,7 @@ Cette archive est un prototype visuel transversal basé sur la version V10 fourn
 ## Installation de test
 1. Créer une branche séparée, par exemple `refonte-visuelle-v1`.
 2. Décompresser toute l'archive.
-3. Envoyer tous les fichiers et le dossier `assets/` à la racine de cette branche, en conservant l'arborescence.
+3. Envoyer tous les fichiers avec les fichiers SVG directement à la racine de cette branche, en conservant l'arborescence.
 4. Configurer GitHub Pages temporairement sur cette branche pour tester, sans toucher à V11.0.
 
 ## Limites connues

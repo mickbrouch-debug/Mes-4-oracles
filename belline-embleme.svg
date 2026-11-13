@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-label="L’Oracle de Belline">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#32172e"/><stop offset="1" stop-color="#080914"/></linearGradient><radialGradient id="glow"><stop stop-color="#e6b85c" stop-opacity=".35"/><stop offset="1" stop-color="#e6b85c" stop-opacity="0"/></radialGradient></defs>
+<rect width="640" height="420" rx="26" fill="url(#bg)"/><circle cx="320" cy="190" r="210" fill="url(#glow)"/>
+<g fill="none" stroke="#e6b85c" opacity=".55"><rect x="14" y="14" width="612" height="392" rx="22" stroke-width="2"/><rect x="25" y="25" width="590" height="370" rx="18"/><path d="M30 65H610M30 355H610"/></g>
+<g fill="#e6b85c" opacity=".9" font-family="serif" text-anchor="middle"><text x="320" y="58" font-size="19" letter-spacing="5">LE LANGAGE DES ASTRES</text><text x="320" y="386" font-size="24">L’Oracle de Belline</text></g>
+<g><circle cx="320" cy="192" r="92" fill="none" stroke="#e6b85c" stroke-width="4"/><circle cx="320" cy="192" r="68" fill="none" stroke="#e6b85c" stroke-width="2"/><path d="M320 65V319M193 192H447M230 102L410 282M410 102L230 282" stroke="#e6b85c" opacity=".7" stroke-width="2"/><circle cx="320" cy="192" r="34" fill="#e6b85c" opacity=".2"/><path d="M320 125L337 175L390 192L337 209L320 259L303 209L250 192L303 175Z" fill="#e6b85c" opacity=".8"/></g>
+<g fill="#e6b85c" font-family="serif" text-anchor="middle"><text x="320" y="205" font-size="46" opacity=".0">☼</text><text x="320" y="345" font-size="22">✧  ✦  ☼  ✦  ✧</text></g>
+<g fill="#e6b85c" opacity=".8"><circle cx="75" cy="95" r="2"/><circle cx="120" cy="260" r="3"/><circle cx="540" cy="90" r="2"/><circle cx="565" cy="280" r="3"/><circle cx="105" cy="330" r="1.8"/><circle cx="500" cy="350" r="2"/></g>
+</svg>
