@@ -1,4 +1,4 @@
-const CACHE='oracles-sanctuaire-esoterique-v3-20261113';
+const CACHE='oracles-sanctuaire-esoterique-v4-20261113';
 const FILES=['./','./index.html','./tarot-78.html','./lenormand-54.html','./portes-intuition.html','./belline.html','./astrologie.html','./runes.html','./analyse-croisee.html','./cle-api.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./icon.svg'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));

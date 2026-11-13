@@ -6,3 +6,12 @@ Refonte visuelle transversale des huit pages.
 - Transitions discrètes et prise en charge de prefers-reduced-motion.
 - Fonctions métier, tirages, interprétations, voix, historique et clés API conservés.
 - Cache du service worker renouvelé.
+
+
+VERSION 4 — DIRECTION ARTISTIQUE & RÉVÉLATION 3D (13/11/2026)
+- Ajout d’une direction artistique différenciée pour les six oracles : palettes, cadres, reliefs et halos dédiés.
+- Animation de révélation avec perspective 3D, rotation Y, éclairage et apparition séquencée des cartes tirées.
+- Dos de cartes enrichis et effets de survol tactiles sur les paquets.
+- Respect de prefers-reduced-motion.
+- Cache du service worker incrémenté pour éviter de conserver l’ancienne version.
+- Les fonctions métier et les moteurs d’interprétation existants ont été conservés ; aucune nouvelle signification traditionnelle n’a été inventée pour les systèmes sans cartes inversées établies.

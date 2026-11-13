@@ -279,6 +279,18 @@ footer,.footer,.muted,.sub,.help,.tiny{color:var(--sanct-muted)!important}
 }
 </style>
 
+
+<style id="oracle-art-direction">
+/* GRAND RITUEL DE RÉVÉLATION — LENORMAND */
+.deck .back{transform-style:preserve-3d;transition:transform .55s,box-shadow .35s;background:radial-gradient(circle at 50% 35%,#276c69,#102d38 72%,#081b26)!important;border:1px solid #d5bd78!important;box-shadow:inset 0 0 0 4px #09232b,inset 0 0 0 6px #b99b58,0 8px 18px #0009!important;color:#f5df9c!important}
+.deck .back:before{content:'✥';display:block;font-size:clamp(28px,4vw,46px);text-shadow:0 0 16px #a8f0d4}
+.deck .back:hover{transform:translateY(-7px) rotateY(10deg);box-shadow:0 0 24px #5bcbb477!important}
+.face{transform-style:preserve-3d;backface-visibility:hidden;animation:oracleFlip .9s cubic-bezier(.2,.75,.25,1) both;border:2px solid #d9c17f!important;border-radius:12px!important;box-shadow:0 0 0 4px #123b3d,0 0 0 6px #c1a15e,0 14px 26px #0009!important;background:radial-gradient(circle at 50% 25%,#fff8dc,#e7d6aa 65%,#b4a078)!important;color:#183536!important}
+
+@keyframes oracleFlip{0%{transform:perspective(1100px) rotateY(88deg) scale(.88);opacity:.15;filter:brightness(1.8) blur(1px)}48%{transform:perspective(1100px) rotateY(-12deg) scale(1.035);opacity:1;filter:brightness(1.22)}72%{transform:perspective(1100px) rotateY(5deg) scale(1.01);filter:brightness(1.08)}100%{transform:perspective(1100px) rotateY(0) scale(1);opacity:1;filter:none}}
+.drawn>*{perspective:1100px}.drawn>*:nth-child(1){animation-delay:.05s}.drawn>*:nth-child(2){animation-delay:.18s}.drawn>*:nth-child(3){animation-delay:.31s}.drawn>*:nth-child(4){animation-delay:.44s}.drawn>*:nth-child(5){animation-delay:.57s}.drawn>*:nth-child(6){animation-delay:.70s}
+@media(prefers-reduced-motion:reduce){.tarotface,.face,.card.front{animation:none!important;transform:none!important}}
+</style>
 </head>
 <body>
 <nav class="oracles-key-nav" aria-label="Navigation Oracles Studio">
