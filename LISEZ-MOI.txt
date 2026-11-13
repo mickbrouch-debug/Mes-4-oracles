@@ -1,9 +1,16 @@
-CORRECTIF ORACLE ASTROLOGIQUE + RUNES NORDIQUES
+INSTALLATION GITHUB SUR ANDROID — VERSION 5.2
 
-Remplacer uniquement les deux fichiers suivants à la racine du dépôt GitHub :
+Cette version ne nécessite AUCUN dossier assets et AUCUN fichier SVG séparé.
+Les six illustrations sont intégrées directement dans les six pages HTML :
+- tarot-78.html
+- belline.html
+- lenormand-54.html
+- portes-intuition.html
 - astrologie.html
 - runes.html
 
-Puis valider le commit. Ouvrir chaque page et actualiser deux fois pour laisser le service worker se mettre à jour. Si l'ancienne version persiste sur Android : paramètres du navigateur > paramètres des sites > stockage du site GitHub Pages > supprimer les données du site, puis rouvrir l'application.
+Décompressez le ZIP, puis téléversez les fichiers du dossier extrait à la racine
+du dépôt GitHub, comme des fichiers ordinaires. Vous n'avez aucun sous-dossier
+à sélectionner ni à créer.
 
-Le correctif déclare explicitement le type de paquet (la variable utilisée par l'affichage des dos de cartes était absente et interrompait le script avant le rendu du paquet). La lecture vocale est découpée en petits segments pour éviter les limites de longueur des synthèses vocales Android. Les boutons Lire, Pause/Reprise et Arrêter affichent aussi leur état.
+Important : téléverser/remplacer aussi sw.js et les autres fichiers de l'archive.
