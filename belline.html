@@ -7,15 +7,86 @@
 <meta name="description" content="Oracle de Belline — un espace symbolique de tirage et de réflexion.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
-<title>Oracle de Belline</title>
+<title>Oracle de Belline — Les 6 Oracles</title>
 <style>
 :root{--bg:#120e19;--panel:#21182c;--panel2:#2b2038;--gold:#d7b76b;--gold2:#f2dfaa;--ink:#f8f0dc;--muted:#c2b5ca;--line:#6e583d;--rose:#6f3c5c}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top,#35213f 0,#17111f 42%,#0d0b12 100%);color:var(--ink);font-family:Georgia,'Times New Roman',serif;min-height:100vh}button,input,select,textarea{font:inherit}button{cursor:pointer;touch-action:manipulation}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}.shell{max-width:1120px;margin:auto;padding:18px 16px 50px}.hero{text-align:center;padding:22px 12px 28px}.sigil{width:74px;height:74px;border:1px solid var(--gold);border-radius:50%;margin:0 auto 15px;display:grid;place-items:center;color:var(--gold2);font-size:34px;box-shadow:0 0 28px #d7b76b20,inset 0 0 18px #d7b76b10}.eyebrow{letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font:11px Arial,sans-serif}.hero h1{font-size:clamp(28px,5vw,47px);font-weight:normal;letter-spacing:.045em;margin:10px 0;color:var(--gold2)}.hero p{color:var(--muted);max-width:620px;margin:0 auto;line-height:1.6}.ornament{color:var(--gold);letter-spacing:.6em;margin:18px 0}.panel{border:1px solid #8b70484d;background:linear-gradient(145deg,#241a30f2,#17121f);border-radius:18px;padding:20px;margin:14px 0;box-shadow:0 15px 40px #0003}.panel h2{font-size:21px;font-weight:normal;color:var(--gold2);margin:0 0 15px}.gridform{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}label,.label{color:var(--gold2);font-size:14px}input,select,textarea{width:100%;background:#120e19;color:var(--ink);border:1px solid #745e47;border-radius:10px;padding:12px}textarea{min-height:88px;resize:vertical}.help{color:var(--muted);font:12px/1.5 Arial,sans-serif}.btn{border:1px solid var(--gold);background:linear-gradient(120deg,#8c6634,#c19c50);color:#1b1220;padding:11px 15px;border-radius:10px;font-weight:bold}.btn.secondary{background:#2a2035;color:var(--gold2);border-color:#6d583f}.btn.ghost{background:transparent;color:var(--gold2)}.btn:disabled{opacity:.35;cursor:not-allowed}.actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.stats{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;color:var(--muted);font:13px Arial,sans-serif;margin:12px 0}.progress{height:5px;background:#49364d;border-radius:8px;overflow:hidden;margin:12px 0}.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));width:0;transition:width .2s}.deck{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:9px;margin-top:15px}.cardback,.tarotface{position:relative;aspect-ratio:2/3;border-radius:8px;border:1px solid var(--gold);padding:5px;background:linear-gradient(150deg,#35203f,#17111f 70%);box-shadow:0 4px 12px #0005;display:flex;align-items:center;justify-content:center;min-width:0;overflow:hidden}.cardback:before,.tarotface:before{content:"";position:absolute;inset:5px;border:1px solid #b99755;border-radius:5px;pointer-events:none}.cardback:after{content:"✧  ☾  ✧";position:absolute;color:#d9bb75;letter-spacing:.08em;font-size:clamp(8px,1.4vw,14px)}.cardback .num{position:absolute;bottom:10px;color:#b99a60;font:9px Arial,sans-serif}.cardback.selected{background:linear-gradient(150deg,#73502f,#32203e);box-shadow:0 0 0 2px var(--gold2),0 0 20px #d7b76b38}.cardback:disabled{opacity:.36}.cardback .mini{display:none}.cardback .back-art{position:absolute;inset:8%;width:84%;height:84%;opacity:.92;pointer-events:none}.cardback:after{content:"";display:none}.cardback.selected .back-art{filter:drop-shadow(0 0 4px #f4d58b)}.tarotface{position:relative;isolation:isolate;background:radial-gradient(ellipse at 50% 28%,#fff2c9 0,#e5cc91 43%,#9c7948 100%);border:2px solid #e3c47d;box-shadow:0 8px 20px #0007,inset 0 0 0 3px #563b2a,inset 0 0 0 5px #e4c77d}.tarotface:before{inset:7px;border:1px solid #79502b;border-radius:4px}.tarotface .card-art{width:100%;height:60%;min-height:60px;max-height:190px;z-index:1;filter:drop-shadow(0 3px 2px #4b2b2528)}.tarotface .inner{gap:7px}.tarotface .cardname{font-family:Georgia,serif;font-size:clamp(11px,1.5vw,15px);font-weight:bold;letter-spacing:.025em;text-transform:uppercase}.tarotface .edition{font:8px Arial,sans-serif;letter-spacing:.18em;color:#79502b;z-index:1}.cardname{font-size:clamp(8px,1.2vw,12px);line-height:1.2;text-align:center;overflow-wrap:anywhere}.drawn{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}.drawnitem{min-width:0}.tarotface{background:linear-gradient(150deg,#f0dfb5,#bda16b 80%);color:#291b2e;flex-direction:column;gap:8px;text-align:center;padding:12px}.tarotface:before{border-color:#6c4b29}.tarotface .symbol{font-size:clamp(22px,4vw,38px);z-index:1}.tarotface .cardname{font-size:13px;z-index:1}.tarotface.reversed .inner{transform:rotate(180deg)}.tarotface .inner{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;z-index:1;width:100%;height:100%}.poslabel{text-align:center;color:var(--gold2);font-size:13px;margin:7px 0}.reading{border-top:1px solid #71593e;padding:14px 0}.reading h3{color:var(--gold2);font-weight:normal;margin:0 0 6px}.reading p{line-height:1.6;color:#e9dfeb;margin:7px 0}.reading .keywords{color:var(--gold);font:12px Arial,sans-serif}.reading .advice{border-left:2px solid var(--gold);padding-left:10px;color:var(--muted)}.notice{padding:12px;border:1px solid #6e583d;border-radius:10px;background:#21182c;color:var(--muted);font:13px/1.55 Arial,sans-serif}.footer{text-align:center;color:#8e8197;font:11px/1.6 Arial,sans-serif;margin-top:24px}.hidden{display:none!important}.pill{border:1px solid #735b3c;border-radius:999px;padding:5px 9px;color:var(--gold2);font:11px Arial,sans-serif}
 @media(max-width:700px){.shell{padding:10px 10px 35px}.panel{padding:15px}.gridform{grid-template-columns:1fr}.deck{grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}.hero{padding-top:18px}.drawn{grid-template-columns:repeat(auto-fit,minmax(105px,1fr))}.btn{padding:10px 12px;font-size:14px}}
 @media(max-width:390px){.deck{grid-template-columns:repeat(4,minmax(0,1fr))}.cardback:after{font-size:10px}}
 </style>
+
+<style id="oracles-professional-ui-v1">
+:root{
+ --ui-bg:#0b1020;--ui-surface:#121a2d;--ui-surface-2:#18233a;--ui-line:rgba(190,205,232,.16);
+ --ui-text:#eef2fb;--ui-muted:#aab6cc;--ui-accent:#d7b875;--ui-accent-2:#f0dba4;
+ --ui-radius:18px;--ui-shadow:0 16px 42px rgba(0,0,0,.24);
+}
+html{scroll-behavior:smooth}
+body{
+ font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;
+ color:var(--ui-text)!important;
+ background:radial-gradient(ellipse at 50% -15%,#263452 0%,#111a2d 38%,#090e1a 78%)!important;
+ line-height:1.58;letter-spacing:.005em
+}
+h1,h2,h3,h4,.hero-title{font-family:Inter,ui-sans-serif,system-ui,sans-serif!important;letter-spacing:-.025em;line-height:1.18}
+h1{font-size:clamp(1.75rem,4vw,2.55rem)!important;font-weight:750!important}
+h2{font-size:clamp(1.25rem,2.8vw,1.65rem)!important;font-weight:700!important}
+h3{font-weight:680!important}
+p,li,label,small{line-height:1.62}
+button,input,select,textarea{font:inherit!important}
+button{
+ border-radius:12px!important;border:1px solid rgba(215,184,117,.34)!important;
+ box-shadow:0 5px 16px rgba(0,0,0,.14);transition:transform .16s ease,filter .16s ease,box-shadow .16s ease
+}
+button:hover{filter:brightness(1.08);transform:translateY(-1px)}
+button:active{transform:translateY(0)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{
+ outline:3px solid rgba(215,184,117,.72)!important;outline-offset:3px
+}
+input,select,textarea{
+ background:#0d1628!important;color:var(--ui-text)!important;border:1px solid var(--ui-line)!important;
+ border-radius:11px!important;min-height:42px
+}
+textarea{min-height:100px}
+a{color:var(--ui-accent-2);text-underline-offset:3px}
+.panel,.card,.section,.box,.oracle-card,.result,.settings,.controls,.content-card{
+ border-color:var(--ui-line)!important;border-radius:var(--ui-radius)!important;
+ box-shadow:var(--ui-shadow)
+}
+header,.hero,.topbar{font-family:inherit}
+hr{border:0;border-top:1px solid var(--ui-line)}
+img{max-width:100%;height:auto}
+.oracles-global-nav{
+ max-width:1180px;margin:0 auto 16px;padding:10px 16px;
+ display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+ border:1px solid var(--ui-line);border-radius:15px;background:rgba(13,21,38,.78);
+ box-shadow:0 10px 28px rgba(0,0,0,.16);backdrop-filter:blur(14px)
+}
+.oracles-global-nav .brand{font-weight:800;letter-spacing:.02em;color:#f2dfb2;text-decoration:none}
+.oracles-global-nav .links{display:flex;gap:8px;flex-wrap:wrap}
+.oracles-global-nav .links a{
+ display:inline-flex;align-items:center;padding:7px 10px;border:1px solid var(--ui-line);
+ border-radius:10px;text-decoration:none;color:#dbe5f5;font-size:.88rem
+}
+.oracles-global-nav .links a:hover{background:rgba(215,184,117,.12);border-color:rgba(215,184,117,.4)}
+@media(max-width:600px){
+ .oracles-global-nav{margin:0 10px 12px;padding:9px 10px}
+ .oracles-global-nav .links{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
+ .oracles-global-nav .links a{white-space:nowrap;font-size:.8rem}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+
 </head>
 <body>
+<nav class="oracles-global-nav" aria-label="Navigation des oracles">
+<a class="brand" href="index.html">✦ LES 6 ORACLES</a>
+<div class="links">
+<a href="tarot-78.html">Tarot</a><a href="lenormand-54.html">Lenormand</a>
+<a href="belline.html">Belline</a><a href="portes-intuition.html">Portes</a>
+<a href="astrologie.html">Astrologie</a><a href="runes.html">Runes</a>
+<a href="analyse-croisee.html">Analyse croisée</a>
+</div></nav>
 <div id="oracle-appbar" style="position:sticky;top:0;z-index:9999;background:#101b2aee;backdrop-filter:blur(10px);padding:9px 12px;border-bottom:1px solid #b99a6044;display:flex;gap:8px;align-items:center;justify-content:space-between;font:13px Arial,sans-serif">
   <a href="index.html" style="color:#f2dfaa;text-decoration:none;font-weight:bold">✧ Les 4 Oracles</a>
   <span style="color:#c2b5ca">Application installable · historique local</span>
@@ -1256,8 +1327,7 @@ shuffleDeck();
  const pageKey=({ 'tarot-78.html':'tarot','lenormand-54.html':'lenormand','belline.html':'belline','portes-intuition.html':'portes','astrologie.html':'astrologie','runes.html':'runes','analyse-croisee.html':'analyse-croisee' })[file]||file;
  const KEY='oraclesGeminiModelByOracleV1';
  const KEY_API='oraclesSuiteGeminiApiKeyV1';
- const PAGE_API='oraclesGeminiApiKey_belline_V1';
- const getKey=()=>{try{return localStorage.getItem(PAGE_API)||localStorage.getItem(KEY_API)||localStorage.getItem('geminiApiKey')||''}catch(e){return ''}};
+ const getKey=()=>{try{return localStorage.getItem(KEY_API)||localStorage.getItem('geminiApiKey')||''}catch(e){return ''}};
  let choices={};try{choices=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
  let selected=choices[pageKey]||'gemini-2.5-flash';
  const legacy=document.getElementById('aiModel');
@@ -1329,14 +1399,4 @@ shuffleDeck();
 })();
 </script>
 
-<script>
-(()=>{const key='oraclesGeminiApiKey_belline_V1';const field=document.getElementById('aiKey');if(!field)return;
- try{const saved=localStorage.getItem(key)||localStorage.getItem('oraclesSuiteGeminiApiKeyV1')||localStorage.getItem('geminiApiKey')||'';if(saved)field.value=saved;}catch(e){}
- const save=()=>{try{localStorage.setItem(key,field.value.trim())}catch(e){}};
- field.addEventListener('input',save);field.addEventListener('change',save);
- const oldRefresh=document.getElementById('aiRefreshModels');if(oldRefresh)oldRefresh.addEventListener('click',save,true);
-})();
-</script>
-<script>if('serviceWorker'in navigator){navigator.serviceWorker.register('sw.js?v=20261113-r2').catch(()=>{});}</script>
-<script src="oracle-runtime.js?v=20261113-r2"></script>
 </body></html>

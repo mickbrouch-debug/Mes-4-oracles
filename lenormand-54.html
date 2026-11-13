@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#111827">
-<title>Grand Jeu de Mlle Lenormand — Oracle interactif</title>
+<title>Grand Lenormand — Les 6 Oracles</title>
 <style>
 :root{--bg:#0b1220;--panel:#151f31;--panel2:#1b2940;--gold:#e4c58a;--cream:#f6efdf;--muted:#b5c2d3;--teal:#8bd4c9;--line:#3d5068;--rose:#d7a2b0}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#263c54 0,#0b1220 58%,#080d16 100%);color:var(--cream);font-family:Georgia,serif}
@@ -13,8 +13,79 @@
 @media(max-width:430px){.deck{grid-template-columns:repeat(4,minmax(0,1fr))}.grand{grid-template-columns:repeat(4,minmax(0,1fr))}.spread{gap:5px}.face{min-height:80px}.face .nm{font-size:10px}}
 @media print{body{background:white;color:#111}.panel{background:white;border:1px solid #aaa;box-shadow:none}.deck,.actions,.btn{display:none!important}.face{break-inside:avoid}.reading{break-inside:avoid}}
 </style>
-<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#17111f"></head>
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#17111f">
+<style id="oracles-professional-ui-v1">
+:root{
+ --ui-bg:#0b1020;--ui-surface:#121a2d;--ui-surface-2:#18233a;--ui-line:rgba(190,205,232,.16);
+ --ui-text:#eef2fb;--ui-muted:#aab6cc;--ui-accent:#d7b875;--ui-accent-2:#f0dba4;
+ --ui-radius:18px;--ui-shadow:0 16px 42px rgba(0,0,0,.24);
+}
+html{scroll-behavior:smooth}
+body{
+ font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;
+ color:var(--ui-text)!important;
+ background:radial-gradient(ellipse at 50% -15%,#263452 0%,#111a2d 38%,#090e1a 78%)!important;
+ line-height:1.58;letter-spacing:.005em
+}
+h1,h2,h3,h4,.hero-title{font-family:Inter,ui-sans-serif,system-ui,sans-serif!important;letter-spacing:-.025em;line-height:1.18}
+h1{font-size:clamp(1.75rem,4vw,2.55rem)!important;font-weight:750!important}
+h2{font-size:clamp(1.25rem,2.8vw,1.65rem)!important;font-weight:700!important}
+h3{font-weight:680!important}
+p,li,label,small{line-height:1.62}
+button,input,select,textarea{font:inherit!important}
+button{
+ border-radius:12px!important;border:1px solid rgba(215,184,117,.34)!important;
+ box-shadow:0 5px 16px rgba(0,0,0,.14);transition:transform .16s ease,filter .16s ease,box-shadow .16s ease
+}
+button:hover{filter:brightness(1.08);transform:translateY(-1px)}
+button:active{transform:translateY(0)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{
+ outline:3px solid rgba(215,184,117,.72)!important;outline-offset:3px
+}
+input,select,textarea{
+ background:#0d1628!important;color:var(--ui-text)!important;border:1px solid var(--ui-line)!important;
+ border-radius:11px!important;min-height:42px
+}
+textarea{min-height:100px}
+a{color:var(--ui-accent-2);text-underline-offset:3px}
+.panel,.card,.section,.box,.oracle-card,.result,.settings,.controls,.content-card{
+ border-color:var(--ui-line)!important;border-radius:var(--ui-radius)!important;
+ box-shadow:var(--ui-shadow)
+}
+header,.hero,.topbar{font-family:inherit}
+hr{border:0;border-top:1px solid var(--ui-line)}
+img{max-width:100%;height:auto}
+.oracles-global-nav{
+ max-width:1180px;margin:0 auto 16px;padding:10px 16px;
+ display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+ border:1px solid var(--ui-line);border-radius:15px;background:rgba(13,21,38,.78);
+ box-shadow:0 10px 28px rgba(0,0,0,.16);backdrop-filter:blur(14px)
+}
+.oracles-global-nav .brand{font-weight:800;letter-spacing:.02em;color:#f2dfb2;text-decoration:none}
+.oracles-global-nav .links{display:flex;gap:8px;flex-wrap:wrap}
+.oracles-global-nav .links a{
+ display:inline-flex;align-items:center;padding:7px 10px;border:1px solid var(--ui-line);
+ border-radius:10px;text-decoration:none;color:#dbe5f5;font-size:.88rem
+}
+.oracles-global-nav .links a:hover{background:rgba(215,184,117,.12);border-color:rgba(215,184,117,.4)}
+@media(max-width:600px){
+ .oracles-global-nav{margin:0 10px 12px;padding:9px 10px}
+ .oracles-global-nav .links{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
+ .oracles-global-nav .links a{white-space:nowrap;font-size:.8rem}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+
+</head>
 <body>
+<nav class="oracles-global-nav" aria-label="Navigation des oracles">
+<a class="brand" href="index.html">✦ LES 6 ORACLES</a>
+<div class="links">
+<a href="tarot-78.html">Tarot</a><a href="lenormand-54.html">Lenormand</a>
+<a href="belline.html">Belline</a><a href="portes-intuition.html">Portes</a>
+<a href="astrologie.html">Astrologie</a><a href="runes.html">Runes</a>
+<a href="analyse-croisee.html">Analyse croisée</a>
+</div></nav>
 <div id="oracle-appbar" style="position:sticky;top:0;z-index:9999;background:#101b2aee;backdrop-filter:blur(10px);padding:9px 12px;border-bottom:1px solid #b99a6044;display:flex;gap:8px;align-items:center;justify-content:space-between;font:13px Arial,sans-serif">
   <a href="index.html" style="color:#f2dfaa;text-decoration:none;font-weight:bold">✧ Les 4 Oracles</a>
   <span style="color:#c2b5ca">Application installable · historique local</span>
@@ -26,7 +97,7 @@
   <button id="clearHistory" style="margin-top:12px">Effacer l’historique</button>
 </div>
 <div class="shell">
-<header class="hero"><div class="sigil">✧</div><div class="eyebrow">Lecture symbolique & combinaisons</div><h1>Le Grand Jeu de Mlle Lenormand</h1><p>54 cartes et une lecture symbolique approfondie : cartomancie, mythologie, astrologie, astronomie, alchimie, géomancie et langage des fleurs. Les interprétations restent des pistes à confronter au réel, jamais des certitudes sur l’avenir.</p></header>
+<header class="hero"><div class="sigil">✧</div><div class="eyebrow">Lecture symbolique & combinaisons</div><h1>Grand Lenormand</h1><p>54 cartes et une lecture symbolique approfondie : cartomancie, mythologie, astrologie, astronomie, alchimie, géomancie et langage des fleurs. Les interprétations restent des pistes à confronter au réel, jamais des certitudes sur l’avenir.</p></header>
 
 <section class="panel"><h2>Ⅰ · Préparer le tirage</h2><div class="gridform">
 <div class="field"><label for="domain">Thème</label><select id="domain"><option>Général</option><option>Amour et relations</option><option>Travail et projets</option><option>Finances et ressources</option><option>Famille et entourage</option><option>Choix et décisions</option></select></div>
@@ -264,8 +335,7 @@ $("countWrap").classList.add("hidden");reset();
  const pageKey=({ 'tarot-78.html':'tarot','lenormand-54.html':'lenormand','belline.html':'belline','portes-intuition.html':'portes','astrologie.html':'astrologie','runes.html':'runes','analyse-croisee.html':'analyse-croisee' })[file]||file;
  const KEY='oraclesGeminiModelByOracleV1';
  const KEY_API='oraclesSuiteGeminiApiKeyV1';
- const PAGE_API='oraclesGeminiApiKey_lenormand_V1';
- const getKey=()=>{try{return localStorage.getItem(PAGE_API)||localStorage.getItem(KEY_API)||localStorage.getItem('geminiApiKey')||''}catch(e){return ''}};
+ const getKey=()=>{try{return localStorage.getItem(KEY_API)||localStorage.getItem('geminiApiKey')||''}catch(e){return ''}};
  let choices={};try{choices=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
  let selected=choices[pageKey]||'gemini-2.5-flash';
  const legacy=document.getElementById('aiModel');
@@ -337,14 +407,4 @@ $("countWrap").classList.add("hidden");reset();
 })();
 </script>
 
-<script>
-(()=>{const key='oraclesGeminiApiKey_lenormand_V1';const field=document.getElementById('aiKey');if(!field)return;
- try{const saved=localStorage.getItem(key)||localStorage.getItem('oraclesSuiteGeminiApiKeyV1')||localStorage.getItem('geminiApiKey')||'';if(saved)field.value=saved;}catch(e){}
- const save=()=>{try{localStorage.setItem(key,field.value.trim())}catch(e){}};
- field.addEventListener('input',save);field.addEventListener('change',save);
- const oldRefresh=document.getElementById('aiRefreshModels');if(oldRefresh)oldRefresh.addEventListener('click',save,true);
-})();
-</script>
-<script>if('serviceWorker'in navigator){navigator.serviceWorker.register('sw.js?v=20261113-r2').catch(()=>{});}</script>
-<script src="oracle-runtime.js?v=20261113-r2"></script>
 </body></html>

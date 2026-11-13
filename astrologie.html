@@ -1,7 +1,79 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#17111f"><link rel="manifest" href="manifest.webmanifest"><title>Oracle astrologique</title><style>:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#35213f,#17111f 55%,#0d0b12);color:#f8f0dc;font-family:Georgia,serif}.wrap{max-width:900px;margin:auto;padding:22px 16px 50px}.panel{background:#21182b;border:1px solid #8b704866;border-radius:16px;padding:18px;margin:14px 0}.gold{color:#f2dfaa}button,select,input,textarea{font:inherit;border-radius:9px;padding:11px;border:1px solid #8b7048;background:#17111f;color:#fff;max-width:100%}button{background:#d7b76b;color:#17111f;font-weight:bold;cursor:pointer;margin:5px}textarea{width:100%;min-height:85px}a{color:#f2dfaa}.muted{color:#c2b5ca;font:14px/1.6 Arial}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}.card{background:linear-gradient(145deg,#40304d,#21182b);border:2px solid #c5a66b;border-radius:14px;padding:10px;text-align:center;min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;white-space:normal;touch-action:manipulation;user-select:none;-webkit-tap-highlight-color:transparent;box-shadow:0 5px 12px #0006;transition:transform .15s,border-color .15s}.card:active{transform:scale(.96)}.card.back{background:repeating-linear-gradient(45deg,#30213b,#30213b 8px,#3b2948 8px,#3b2948 16px);color:#f2dfaa}.card.front{background:linear-gradient(145deg,#59445f,#2b2035);border-color:#e4c77f}.card:disabled{opacity:1;cursor:default}.card .back-mark{font-size:38px;border:1px solid #c5a66b;border-radius:50%;width:62px;height:62px;display:grid;place-items:center}.card .front-mark{font-size:42px;color:#f2dfaa}.card small{font:12px Arial;color:#e4d5b8}.out{white-space:pre-wrap;line-height:1.7;font:15px/1.7 Arial;color:#f7edda}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.status{color:#d7b76b;font:13px Arial}.home{display:inline-block;margin-bottom:15px}</style></head><body><main class="wrap"><a class="home" href="index.html">← Retour aux six oracles</a><h1 class="gold">Oracle astrologique</h1><p class="muted">Symboles à visée réflexive. Tu choisis personnellement chaque carte ; aucune carte n’est tirée automatiquement.</p>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#17111f"><link rel="manifest" href="manifest.webmanifest"><title>Oracle astrologique — Les 6 Oracles</title><style>:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#35213f,#17111f 55%,#0d0b12);color:#f8f0dc;font-family:Georgia,serif}.wrap{max-width:900px;margin:auto;padding:22px 16px 50px}.panel{background:#21182b;border:1px solid #8b704866;border-radius:16px;padding:18px;margin:14px 0}.gold{color:#f2dfaa}button,select,input,textarea{font:inherit;border-radius:9px;padding:11px;border:1px solid #8b7048;background:#17111f;color:#fff;max-width:100%}button{background:#d7b76b;color:#17111f;font-weight:bold;cursor:pointer;margin:5px}textarea{width:100%;min-height:85px}a{color:#f2dfaa}.muted{color:#c2b5ca;font:14px/1.6 Arial}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}.card{background:linear-gradient(145deg,#40304d,#21182b);border:2px solid #c5a66b;border-radius:14px;padding:10px;text-align:center;min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;white-space:normal;touch-action:manipulation;user-select:none;-webkit-tap-highlight-color:transparent;box-shadow:0 5px 12px #0006;transition:transform .15s,border-color .15s}.card:active{transform:scale(.96)}.card.back{background:repeating-linear-gradient(45deg,#30213b,#30213b 8px,#3b2948 8px,#3b2948 16px);color:#f2dfaa}.card.front{background:linear-gradient(145deg,#59445f,#2b2035);border-color:#e4c77f}.card:disabled{opacity:1;cursor:default}.card .back-mark{font-size:38px;border:1px solid #c5a66b;border-radius:50%;width:62px;height:62px;display:grid;place-items:center}.card .front-mark{font-size:42px;color:#f2dfaa}.card small{font:12px Arial;color:#e4d5b8}.out{white-space:pre-wrap;line-height:1.7;font:15px/1.7 Arial;color:#f7edda}.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.status{color:#d7b76b;font:13px Arial}.home{display:inline-block;margin-bottom:15px}</style>
+<style id="oracles-professional-ui-v1">
+:root{
+ --ui-bg:#0b1020;--ui-surface:#121a2d;--ui-surface-2:#18233a;--ui-line:rgba(190,205,232,.16);
+ --ui-text:#eef2fb;--ui-muted:#aab6cc;--ui-accent:#d7b875;--ui-accent-2:#f0dba4;
+ --ui-radius:18px;--ui-shadow:0 16px 42px rgba(0,0,0,.24);
+}
+html{scroll-behavior:smooth}
+body{
+ font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;
+ color:var(--ui-text)!important;
+ background:radial-gradient(ellipse at 50% -15%,#263452 0%,#111a2d 38%,#090e1a 78%)!important;
+ line-height:1.58;letter-spacing:.005em
+}
+h1,h2,h3,h4,.hero-title{font-family:Inter,ui-sans-serif,system-ui,sans-serif!important;letter-spacing:-.025em;line-height:1.18}
+h1{font-size:clamp(1.75rem,4vw,2.55rem)!important;font-weight:750!important}
+h2{font-size:clamp(1.25rem,2.8vw,1.65rem)!important;font-weight:700!important}
+h3{font-weight:680!important}
+p,li,label,small{line-height:1.62}
+button,input,select,textarea{font:inherit!important}
+button{
+ border-radius:12px!important;border:1px solid rgba(215,184,117,.34)!important;
+ box-shadow:0 5px 16px rgba(0,0,0,.14);transition:transform .16s ease,filter .16s ease,box-shadow .16s ease
+}
+button:hover{filter:brightness(1.08);transform:translateY(-1px)}
+button:active{transform:translateY(0)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{
+ outline:3px solid rgba(215,184,117,.72)!important;outline-offset:3px
+}
+input,select,textarea{
+ background:#0d1628!important;color:var(--ui-text)!important;border:1px solid var(--ui-line)!important;
+ border-radius:11px!important;min-height:42px
+}
+textarea{min-height:100px}
+a{color:var(--ui-accent-2);text-underline-offset:3px}
+.panel,.card,.section,.box,.oracle-card,.result,.settings,.controls,.content-card{
+ border-color:var(--ui-line)!important;border-radius:var(--ui-radius)!important;
+ box-shadow:var(--ui-shadow)
+}
+header,.hero,.topbar{font-family:inherit}
+hr{border:0;border-top:1px solid var(--ui-line)}
+img{max-width:100%;height:auto}
+.oracles-global-nav{
+ max-width:1180px;margin:0 auto 16px;padding:10px 16px;
+ display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+ border:1px solid var(--ui-line);border-radius:15px;background:rgba(13,21,38,.78);
+ box-shadow:0 10px 28px rgba(0,0,0,.16);backdrop-filter:blur(14px)
+}
+.oracles-global-nav .brand{font-weight:800;letter-spacing:.02em;color:#f2dfb2;text-decoration:none}
+.oracles-global-nav .links{display:flex;gap:8px;flex-wrap:wrap}
+.oracles-global-nav .links a{
+ display:inline-flex;align-items:center;padding:7px 10px;border:1px solid var(--ui-line);
+ border-radius:10px;text-decoration:none;color:#dbe5f5;font-size:.88rem
+}
+.oracles-global-nav .links a:hover{background:rgba(215,184,117,.12);border-color:rgba(215,184,117,.4)}
+@media(max-width:600px){
+ .oracles-global-nav{margin:0 10px 12px;padding:9px 10px}
+ .oracles-global-nav .links{width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
+ .oracles-global-nav .links a{white-space:nowrap;font-size:.8rem}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+
+</head><body>
+<nav class="oracles-global-nav" aria-label="Navigation des oracles">
+<a class="brand" href="index.html">✦ LES 6 ORACLES</a>
+<div class="links">
+<a href="tarot-78.html">Tarot</a><a href="lenormand-54.html">Lenormand</a>
+<a href="belline.html">Belline</a><a href="portes-intuition.html">Portes</a>
+<a href="astrologie.html">Astrologie</a><a href="runes.html">Runes</a>
+<a href="analyse-croisee.html">Analyse croisée</a>
+</div></nav><main class="wrap"><a class="home" href="index.html">← Retour aux six oracles</a><h1 class="gold">Oracle astrologique</h1><p class="muted">Symboles à visée réflexive. Tu choisis personnellement chaque carte ; aucune carte n’est tirée automatiquement.</p>
 <section class="panel"><h2 class="gold">1 · Préparer ton tirage</h2><label for="question">Ta question</label><textarea id="question" placeholder="Dicte ou écris ta question…"></textarea><button id="mic">🎙️ Dicter</button><span id="voiceStatus" class="status"></span><p><label for="count">Nombre de cartes</label> <select id="count"><option value="1">1</option><option value="3" selected>3</option><option value="5">5</option><option value="7">7</option></select></p><button id="draw">Mélanger les cartes</button><button id="undo">Annuler la dernière carte</button><button id="reset">Recommencer le tirage</button><p class="muted">Le paquet est affiché face cachée. Touche une carte pour la retourner et la sélectionner toi-même. Aucune carte n’est choisie à ta place.</p><div id="countLabel" class="status"></div><div id="drawn" class="cards"></div></section>
-<section class="panel"><h2 class="gold">2 · Réglages Gemini pour cet oracle</h2><label for="apiKey">Clé API Gemini individuelle</label><input id="apiKey" type="password" autocomplete="off" placeholder="Colle ici la clé API de cet oracle" style="width:100%"><p class="muted">Cette clé est enregistrée uniquement sur cet appareil et séparément des autres oracles.</p><button id="loadModels">Charger les versions Gemini disponibles</button><p><label for="model">Version de Gemini pour l’analyse</label><select id="model" style="width:100%"><option value="">Charge les modèles avec ta clé</option></select></p><div id="modelStatus" class="status"></div><button id="testGemini" type="button">Tester l’interprétation Gemini</button><div id="testStatus" class="status" role="status" aria-live="polite"></div></section>
-<section class="panel"><h2 class="gold">3 · Interprétation IA</h2><button id="analyze">Analyser mes cartes choisies</button><button id="cancel">Interrompre</button><div id="status" class="status"></div><div id="output" class="out"></div><div class="row"><button id="speak">🔊 Lire</button><button id="pause">Pause / Reprise</button><button id="stop">Arrêter la voix</button></div></section><section class="panel"><h2 class="gold">Historique partagé</h2><div id="history" class="muted"></div></section></main><script>
+<section class="panel" id="localPanel"><h2 class="gold">2 · Analyse symbolique locale (sans IA)</h2><p class="muted">Cette lecture est construite directement à partir des symboles choisis et de leur position. Elle fonctionne sans clé API ni connexion Internet. Tu peux ensuite demander une interprétation IA plus développée.</p><button id="localAnalyze">Construire l’analyse locale</button><div id="localOutput" class="out" aria-live="polite"></div><div class="row"><button id="speakLocal">🔊 Lire l’analyse locale</button></div></section>
+<section class="panel"><h2 class="gold">3 · Réglages Gemini pour cet oracle</h2><label for="apiKey">Clé API Gemini individuelle</label><input id="apiKey" type="password" autocomplete="off" placeholder="Colle ici la clé API de cet oracle" style="width:100%"><p class="muted">Cette clé est enregistrée uniquement sur cet appareil et séparément des autres oracles.</p><button id="loadModels">Charger les versions Gemini disponibles</button><p><label for="model">Version de Gemini pour l’analyse</label><select id="model" style="width:100%"><option value="">Charge les modèles avec ta clé</option></select></p><div id="modelStatus" class="status"></div></section>
+<section class="panel"><h2 class="gold">4 · Interprétation IA (Gemini)</h2><button id="analyze">Analyser mes cartes choisies</button><button id="cancel">Interrompre</button><div id="status" class="status"></div><div id="output" class="out"></div><div class="row"><button id="speak">🔊 Lire</button><button id="pause">Pause / Reprise</button><button id="stop">Arrêter la voix</button></div></section><section class="panel"><h2 class="gold">Historique partagé</h2><div id="history" class="muted"></div></section></main><script>
 const DECK=[{"name": "Bélier", "meaning": "initiative, courage, impulsion"}, {"name": "Taureau", "meaning": "stabilité, ressources, sensualité"}, {"name": "Gémeaux", "meaning": "échanges, curiosité, dualité"}, {"name": "Cancer", "meaning": "protection, mémoire, intimité"}, {"name": "Lion", "meaning": "créativité, rayonnement, affirmation"}, {"name": "Vierge", "meaning": "discernement, méthode, amélioration"}, {"name": "Balance", "meaning": "équilibre, relation, choix"}, {"name": "Scorpion", "meaning": "transformation, intensité, vérité"}, {"name": "Sagittaire", "meaning": "expansion, quête, confiance"}, {"name": "Capricorne", "meaning": "structure, ambition, responsabilité"}, {"name": "Verseau", "meaning": "liberté, innovation, collectif"}, {"name": "Poissons", "meaning": "intuition, compassion, imaginaire"}, {"name": "Soleil", "meaning": "identité, vitalité, conscience"}, {"name": "Lune", "meaning": "émotions, besoins, sécurité"}, {"name": "Mercure", "meaning": "pensée, parole, apprentissage"}, {"name": "Vénus", "meaning": "affection, valeurs, harmonie"}, {"name": "Mars", "meaning": "action, désir, affirmation"}, {"name": "Jupiter", "meaning": "croissance, confiance, opportunité"}, {"name": "Saturne", "meaning": "limites, patience, construction"}, {"name": "Uranus", "meaning": "rupture, indépendance, nouveauté"}, {"name": "Neptune", "meaning": "inspiration, idéal, flou"}, {"name": "Pluton", "meaning": "mutation, pouvoir, régénération"}, {"name": "Maison 1", "meaning": "identité et commencement"}, {"name": "Maison 2", "meaning": "ressources et valeurs"}, {"name": "Maison 3", "meaning": "communication et entourage"}, {"name": "Maison 4", "meaning": "foyer et racines"}, {"name": "Maison 5", "meaning": "créativité et plaisir"}, {"name": "Maison 6", "meaning": "quotidien et service"}, {"name": "Maison 7", "meaning": "partenariats et contrats"}, {"name": "Maison 8", "meaning": "transformation et partage"}, {"name": "Maison 9", "meaning": "voyages et convictions"}, {"name": "Maison 10", "meaning": "carrière et vocation"}, {"name": "Maison 11", "meaning": "amis et projets collectifs"}, {"name": "Maison 12", "meaning": "retrait et monde intérieur"}];
 const kind='astro';
 const STORE='oraclesSuiteHistoryV2';
@@ -37,11 +109,52 @@ function renderDeck(){
 }
 function history(){let a=[];try{a=JSON.parse(localStorage.getItem(STORE)||'[]')}catch(e){}$('history').innerHTML='';a.filter(x=>x.game===document.title).slice(0,8).forEach(x=>{let d=document.createElement('details'),s=document.createElement('summary'),p=document.createElement('p');s.textContent=(x.date||'')+' — '+(x.question||'Tirage général');p.textContent=(x.cards||'')+'\n'+(x.interpretation||'');d.append(s,p);$('history').append(d);});}
 function save(interpretation){if(!pulled.length)return;let a=[];try{a=JSON.parse(localStorage.getItem(STORE)||'[]')}catch(e){}let q=$('question').value.trim()||'Tirage général';let sig=document.title+'|'+q+'|'+pulled.map(x=>x.name).join(',');let item=a.find(x=>x.signature===sig);if(!item){item={id:Date.now(),signature:sig,game:document.title,date:new Date().toLocaleString('fr-FR'),question:q,cards:pulled.map((x,i)=>(i+1)+'. '+pos(i)+' — '+x.name+' — '+x.meaning).join('\n'),interpretation:''};a.unshift(item)}if(interpretation&&interpretation!=='Tirage effectué')item.interpretation=interpretation;localStorage.setItem(STORE,JSON.stringify(a.slice(0,150)));history();}
-async function loadModels(){const key=$('apiKey').value.trim();if(key){try{localStorage.setItem(KEY_API,key)}catch(e){}}const sel=$('model');$('modelStatus').textContent='Récupération des modèles disponibles…';if(!key){$('modelStatus').textContent='Saisis ta clé API pour charger les modèles.';return;}try{const r=await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000',{headers:{'x-goog-api-key':key}});const j=await r.json();if(!r.ok)throw Error(j.error?.message||'Erreur API');const ms=(j.models||[]).filter(m=>(m.supportedGenerationMethods||[]).includes('generateContent')&&/^models\/gemini-/i.test(m.name||'')).map(m=>({id:m.name.replace(/^models\//,''),name:m.displayName||m.name}));if(!ms.length)throw Error('Aucun modèle Gemini compatible trouvé.');const old=localStorage.getItem(KEY_MODEL)||'gemini-2.5-flash';sel.innerHTML='';ms.forEach(m=>{const o=document.createElement('option');o.value=m.id;o.textContent=m.name+' ('+m.id+')';sel.append(o)});sel.value=ms.some(m=>m.id===old)?old:ms[0].id;localStorage.setItem(KEY_MODEL,sel.value);$('modelStatus').textContent=ms.length+' modèles disponibles. Sélection enregistrée pour cet oracle.';}catch(e){$('modelStatus').textContent='Impossible de charger les modèles : '+e.message;}}
-$('apiKey').value=localStorage.getItem(KEY_API)||'';$('apiKey').addEventListener('input',()=>{try{localStorage.setItem(KEY_API,$('apiKey').value.trim())}catch(e){}});$('apiKey').onchange=()=>{localStorage.setItem(KEY_API,$('apiKey').value.trim());loadModels();};$('loadModels').onclick=loadModels;$('model').onchange=()=>localStorage.setItem(KEY_MODEL,$('model').value);
+
+function buildLocalAnalysis(){
+ if(pulled.length!==+$('count').value){$('localOutput').textContent='Choisis d’abord '+$('count').value+' éléments dans le paquet.';return;}
+ const q=$('question').value.trim()||'Tirage général';
+ const items=pulled.map((c,i)=>({card:c,position:pos(i)}));
+ const lines=[];
+ lines.push('LECTURE SYMBOLIQUE LOCALE — '+document.title);
+ lines.push('Question : '+q);
+ lines.push('');
+ lines.push('SYNTHÈSE');
+ const themes=items.map(x=>x.card.meaning).filter(Boolean);
+ lines.push('Ce tirage met en avant les thèmes suivants : '+themes.join(' ; ')+'. Leur présence simultanée invite à regarder comment ces dimensions se complètent, se renforcent ou demandent un équilibre. Cette lecture est une piste de réflexion, pas une prédiction certaine.');
+ lines.push('');
+ lines.push('LECTURE DES POSITIONS');
+ items.forEach((x,i)=>{
+   lines.push((i+1)+'. '+x.position+' — '+x.card.name+(x.card.symbol?' ('+x.card.symbol+')':'')+'.');
+   lines.push('   Sens symbolique : '+(x.card.meaning||'thème à explorer')+'.');
+   lines.push('   Dans cette position, ce symbole invite à examiner concrètement la place de ce thème dans ta question : ce qui est déjà présent, ce qui demande attention et ce qui peut être mis en mouvement.');
+ });
+ lines.push('');
+ lines.push('LIENS ENTRE LES SYMBOLES');
+ if(items.length>1){
+   lines.push('La première position donne le point de départ ; les positions suivantes nuancent cette dynamique. Les thèmes de '+themes.slice(0,-1).join(', ')+' et '+themes[themes.length-1]+' peuvent être lus ensemble : cherche les convergences, mais aussi les tensions éventuelles entre action, ressources, relations et évolution.');
+ }else{
+   lines.push('Avec un seul symbole, l’accent porte sur son thème central. Observe où il se manifeste dans ta situation et ce qui pourrait le soutenir ou le freiner.');
+ }
+ lines.push('');
+ lines.push('PISTES CONCRÈTES');
+ lines.push('• Quel fait observable confirme ou nuance cette lecture ?');
+ lines.push('• Quelle petite action réaliste dépend de toi dans les prochains jours ?');
+ lines.push('• Quel aspect mérite patience, dialogue ou vérification avant de décider ?');
+ lines.push('');
+ lines.push('CONCLUSION');
+ lines.push('Utilise ce tirage comme un support de discernement. Garde ce qui résonne avec ton expérience, confronte le reste aux faits et conserve ta liberté de décision.');
+ const text=lines.join('\n');
+ $('localOutput').textContent=text;
+ save('Analyse locale :\n'+text);
+ $('status').textContent='Analyse locale terminée. Elle est disponible sans connexion.';
+}
+$('localAnalyze').addEventListener('click',buildLocalAnalysis);
+$('speakLocal').addEventListener('click',()=>{const t=$('localOutput').textContent.trim();if(!t){$('voiceStatus').textContent='Construis d’abord l’analyse locale.';return;}speakOracleText(t,$('voiceStatus'));});
+
+async function loadModels(){const key=$('apiKey').value.trim();const sel=$('model');$('modelStatus').textContent='Récupération des modèles disponibles…';if(!key){$('modelStatus').textContent='Saisis ta clé API pour charger les modèles.';return;}try{const r=await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000',{headers:{'x-goog-api-key':key}});const j=await r.json();if(!r.ok)throw Error(j.error?.message||'Erreur API');const ms=(j.models||[]).filter(m=>(m.supportedGenerationMethods||[]).includes('generateContent')&&/^models\/gemini-/i.test(m.name||'')).map(m=>({id:m.name.replace(/^models\//,''),name:m.displayName||m.name}));if(!ms.length)throw Error('Aucun modèle Gemini compatible trouvé.');const old=localStorage.getItem(KEY_MODEL)||'gemini-2.5-flash';sel.innerHTML='';ms.forEach(m=>{const o=document.createElement('option');o.value=m.id;o.textContent=m.name+' ('+m.id+')';sel.append(o)});sel.value=ms.some(m=>m.id===old)?old:ms[0].id;localStorage.setItem(KEY_MODEL,sel.value);$('modelStatus').textContent=ms.length+' modèles disponibles. Sélection enregistrée pour cet oracle.';}catch(e){$('modelStatus').textContent='Impossible de charger les modèles : '+e.message;}}
+$('apiKey').value=localStorage.getItem(KEY_API)||'';$('apiKey').addEventListener('input',()=>localStorage.setItem(KEY_API,$('apiKey').value.trim()));$('apiKey').onchange=()=>{localStorage.setItem(KEY_API,$('apiKey').value.trim());};$('loadModels').onclick=loadModels;$('model').onchange=()=>localStorage.setItem(KEY_MODEL,$('model').value);
 $('draw').onclick=shuffleLayout;$('undo').onclick=()=>{if(pulled.length){pulled.pop();renderDeck();$('status').textContent='Dernière carte retirée. Tu peux en choisir une autre.';}};$('reset').onclick=()=>{pulled=[];shuffleLayout();$('output').textContent='';$('status').textContent='Nouveau paquet mélangé. Choisis toi-même les cartes.';};
-$('analyze').onclick=async()=>{if(pulled.length!==+$('count').value){$('status').textContent='Choisis '+$('count').value+' cartes avant de lancer l’analyse.';return;}const key=$('apiKey').value.trim();if(!key){$('status').textContent='Saisis la clé API Gemini propre à cet oracle.';return;}const model=$('model').value;if(!model){$('status').textContent='Charge puis sélectionne un modèle Gemini.';return;}controller=new AbortController();$('status').textContent='Analyse en cours…';$('output').textContent='';const prompt=`Tu es un interprète expert de Oracle astrologique. Analyse en français avec profondeur et nuance. N’affirme jamais que le symbolisme est une certitude. Explique chaque symbole dans sa position, les liens, tensions, pistes possibles, conseils concrets et une synthèse. Question : ${$('question').value||'Tirage général'}. Tirage : ${JSON.stringify(pulled.map((c,i)=>({position:pos(i),...c})))}`;try{const r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(model)+':generateContent',{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':key},body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{temperature:0.75,maxOutputTokens:8192}}),signal:controller.signal});const j=await r.json();if(!r.ok)throw Error(j.error?.message||'Erreur Gemini');const t=j.candidates?.[0]?.content?.parts?.map(x=>x.text||'').join('\n')||j.promptFeedback?.blockReason||j.candidates?.[0]?.finishReason||'Réponse vide';$('output').textContent=t;save(t);$('status').textContent='Interprétation enregistrée dans l’historique.';}catch(e){$('status').textContent=e.name==='AbortError'?'Analyse interrompue.':e.message;}};
-$('testGemini').onclick=async()=>{const key=$('apiKey').value.trim()||localStorage.getItem(KEY_API)||'';const model=$('model').value;if(!key){$('testStatus').textContent='Clé absente : saisis-la puis actualise les modèles.';return;}if(!model){$('testStatus').textContent='Aucun modèle sélectionné.';return;}try{localStorage.setItem(KEY_API,key)}catch(e){}const b=$('testGemini');b.disabled=true;$('testStatus').textContent='Test POST generateContent en cours…';try{const r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(model)+':generateContent',{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':key},body:JSON.stringify({contents:[{parts:[{text:'Réponds uniquement par OK.'}]}],generationConfig:{maxOutputTokens:16,temperature:0}})});let j;try{j=await r.json()}catch(e){j={}}if(!r.ok)throw Error('HTTP '+r.status+' — '+(j.error?.message||JSON.stringify(j)));$('testStatus').textContent='TEST RÉUSSI — HTTP '+r.status+' — '+model;}catch(e){$('testStatus').textContent='TEST ÉCHOUÉ — '+e.message;}finally{b.disabled=false;}};
+$('analyze').onclick=async()=>{if(pulled.length!==+$('count').value){$('status').textContent='Choisis '+$('count').value+' cartes avant de lancer l’analyse.';return;}const key=$('apiKey').value.trim();if(!key){$('status').textContent='Saisis la clé API Gemini propre à cet oracle.';return;}const model=$('model').value;if(!model){$('status').textContent='Charge puis sélectionne un modèle Gemini.';return;}controller=new AbortController();$('status').textContent='Analyse en cours…';$('output').textContent='';const prompt=`Tu es un interprète expert de Oracle astrologique. Analyse en français avec profondeur et nuance. N’affirme jamais que le symbolisme est une certitude. Explique chaque symbole dans sa position, les liens, tensions, pistes possibles, conseils concrets et une synthèse. Question : ${$('question').value||'Tirage général'}. Tirage : ${JSON.stringify(pulled.map((c,i)=>({position:pos(i),...c})))}`;try{const r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(model)+':generateContent',{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':key},body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{temperature:0.75,maxOutputTokens:8192}}),signal:controller.signal});const j=await r.json();if(!r.ok)throw Error(j.error?.message||'Erreur Gemini');const t=j.candidates?.[0]?.content?.parts?.map(x=>x.text||'').join('\n')||'Réponse vide';$('output').textContent=t;save(t);$('status').textContent='Interprétation enregistrée dans l’historique.';}catch(e){$('status').textContent=e.name==='AbortError'?'Analyse interrompue.':e.message;}};
 $('cancel').onclick=()=>controller?.abort();
 // Lecture vocale robuste sur Android : découpage du texte en petites phrases.
 let speechChunks=[],speechIndex=0;
@@ -67,9 +180,8 @@ $('pause').onclick=()=>{if(!('speechSynthesis'in window))return;if(window.speech
 $('stop').onclick=stopVoice;
 const R=window.SpeechRecognition||window.webkitSpeechRecognition;
 if(R){$('mic').onclick=()=>{const r=new R();r.lang='fr-FR';r.interimResults=false;r.maxAlternatives=1;$('voiceStatus').textContent='Je t’écoute…';r.onresult=e=>{$('question').value=e.results[0][0].transcript;$('voiceStatus').textContent='Dictée terminée.';};r.onerror=e=>$('voiceStatus').textContent='Erreur de dictée : '+e.error;r.onend=()=>{if($('voiceStatus').textContent==='Je t’écoute…')$('voiceStatus').textContent='Dictée terminée.';};try{r.start();}catch(e){$('voiceStatus').textContent='Impossible de démarrer le micro : '+e.message;}};}else{$('mic').disabled=true;$('voiceStatus').textContent='Dictée non prise en charge par ce navigateur.';}
-$('count').onchange=()=>{pulled=[];renderDeck();$('status').textContent='Choisis '+$('count').value+' éléments dans le paquet.';};shuffleLayout();history();if($('apiKey').value)loadModels();if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js?v=20261113-r2').catch(()=>{});
+$('count').onchange=()=>{pulled=[];renderDeck();$('status').textContent='Choisis '+$('count').value+' éléments dans le paquet.';};shuffleLayout();history();if($('apiKey').value)loadModels();if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js?v=20261113-manual-voice-fix').catch(()=>{});
 </script>
 
 
-<script src="oracle-runtime.js?v=20261113-r2"></script>
 </body></html>
