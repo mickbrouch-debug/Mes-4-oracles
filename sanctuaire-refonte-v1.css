@@ -1,0 +1,27 @@
+
+/* SANCTUAIRE — refonte graphique transversale V1 */
+:root{--lux-bg:#080914;--lux-panel:rgba(23,19,43,.92);--lux-gold:#e7c47b;--lux-violet:#b99af0;--lux-line:rgba(231,196,123,.32);--lux-ink:#f8f0df}
+html,body{background:#080914!important;color:var(--lux-ink)!important}
+body{background:radial-gradient(ellipse at 50% -10%,#3b245a 0%,transparent 44%),radial-gradient(ellipse at 90% 80%,#172b4a 0%,transparent 35%),linear-gradient(145deg,#080914,#141027 55%,#080914)!important}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.35;background-image:radial-gradient(1px 1px at 12% 22%,#fff 98%,transparent),radial-gradient(2px 2px at 75% 15%,#e7c47b 98%,transparent),radial-gradient(1px 1px at 45% 70%,#fff 98%,transparent);background-size:190px 180px}
+h1,h2,h3,.brand,.hero,.section-head{color:#fff0d4!important}
+.hero,.panel,.tile,.card,.item,.reading,.out,.notice,.stats,.deck,.cross,.field,.statusline,.box,.result,.spread,.oracle-card{background:linear-gradient(145deg,rgba(38,29,62,.96),rgba(12,15,34,.96))!important;border:1px solid var(--lux-line)!important;box-shadow:0 14px 38px rgba(0,0,0,.32),inset 0 1px rgba(255,255,255,.055)!important}
+.hero{position:relative;overflow:hidden;border-radius:24px!important;padding:28px!important}
+.hero:after{content:"✦  ·  ☾  ·  ✧  ·  ☼  ·  ✦";position:absolute;right:16px;bottom:12px;color:#e7c47b;letter-spacing:.45em;opacity:.45}
+.eyebrow,.sigil,.ornament,.gold,.pill{color:var(--lux-gold)!important}
+button,.btn,.primary,.action{border-radius:13px!important;border:1px solid rgba(231,196,123,.55)!important;background:linear-gradient(135deg,#51366f,#251d43)!important;color:#fff2d6!important;box-shadow:0 5px 18px #0005!important}
+button:hover,.btn:hover{filter:brightness(1.18);transform:translateY(-1px)}
+input,select,textarea{background:#111326!important;color:#fff0d4!important;border:1px solid rgba(231,196,123,.35)!important}
+a{color:#e8cb8d}
+.oracle-art-banner{display:flex;gap:18px;align-items:center;margin:0 auto 16px;max-width:1180px;padding:10px 14px;border:1px solid var(--lux-line);border-radius:20px;background:linear-gradient(120deg,#1b1733,#0d1428);box-shadow:0 12px 35px #0005}
+.oracle-art-banner img{width:142px;max-width:32%;border-radius:13px;box-shadow:0 0 22px #d7b15b2b}
+.oracle-art-banner strong{display:block;color:#f3d99d;font:600 18px Georgia,serif}
+.oracle-art-banner span{display:block;color:#c8bdd7;font-size:12px;margin-top:4px}
+.oracle-art-banner .sigil-large{font:42px Georgia,serif;color:#e8c77f}
+.tile{overflow:hidden;position:relative;min-height:230px!important;padding:16px!important}
+.tile .oracle-art-thumb{width:100%;height:125px;object-fit:cover;border-radius:13px;border:1px solid #d8b96c66;margin-bottom:10px;box-shadow:0 8px 22px #0007}
+.tile h3{margin-top:4px!important;color:#f7e7c7!important}
+.tile p,.sub,.muted{color:#c3bad0!important}
+.go{color:#edcd83!important}
+a.tile:hover{border-color:#e9c77c!important;box-shadow:0 18px 42px #0009,0 0 22px #d9b66c22!important}
+@media(max-width:600px){.oracle-art-banner{margin:0 9px 12px}.oracle-art-banner img{width:112px}.oracle-art-banner strong{font-size:16px}}
