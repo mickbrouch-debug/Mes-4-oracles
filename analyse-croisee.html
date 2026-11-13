@@ -148,6 +148,122 @@ footer,.footer,.muted,.sub,.help,.tiny{color:var(--sanct-muted)!important}
 }
 </style>
 
+
+<style id="sanctuaire-lecture-haute-lisibilite">
+/* Contraste renforcé pour toutes les zones de lecture et d'interprétation */
+:root{
+ --lecture-main:#fffaf0;
+ --lecture-body:#f1edf8;
+ --lecture-muted:#d8d1e5;
+ --lecture-heading:#f2d89a;
+ --lecture-accent:#f0c978;
+}
+.reading,.out,.result,.interpretation,.analysis-result,
+#output,#localOutput,#result,#interpretation,#crossOutput,
+[id*="Output"],[id*="output"],[id*="Interpret"],[id*="interpret"]{
+ color:var(--lecture-body)!important;
+ background:linear-gradient(145deg,rgba(29,27,48,.97),rgba(17,19,37,.97))!important;
+ border:1px solid rgba(235,207,151,.34)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 12px 32px rgba(0,0,0,.22)!important;
+}
+.reading p,.reading li,.reading div,.reading span,
+.out p,.out li,.out div,.out span,
+.result p,.result li,.result div,.result span,
+.interpretation p,.interpretation li,.interpretation div,.interpretation span,
+.analysis-result p,.analysis-result li,.analysis-result div,.analysis-result span,
+#output p,#output li,#output div,#output span,
+#localOutput p,#localOutput li,#localOutput div,#localOutput span,
+#result p,#result li,#result div,#result span,
+#crossOutput p,#crossOutput li,#crossOutput div,#crossOutput span,
+[id*="Output"] p,[id*="Output"] li,[id*="Output"] div,[id*="Output"] span,
+[id*="output"] p,[id*="output"] li,[id*="output"] div,[id*="output"] span{
+ color:var(--lecture-body)!important;
+ opacity:1!important;
+}
+.reading h2,.reading h3,.reading h4,
+.out h2,.out h3,.out h4,
+.result h2,.result h3,.result h4,
+.interpretation h2,.interpretation h3,.interpretation h4,
+#output h2,#output h3,#output h4,
+#localOutput h2,#localOutput h3,#localOutput h4,
+[id*="Output"] h2,[id*="Output"] h3,[id*="Output"] h4,
+[id*="output"] h2,[id*="output"] h3,[id*="output"] h4{
+ color:var(--lecture-heading)!important;
+ font-weight:750!important;
+ text-shadow:0 1px 12px rgba(232,201,130,.12);
+}
+.reading strong,.out strong,.result strong,.interpretation strong,
+#output strong,#localOutput strong,[id*="Output"] strong,[id*="output"] strong{
+ color:#fff4d5!important;font-weight:800!important;
+}
+.reading .keywords,.reading .advice,
+.out .keywords,.out .advice{
+ color:#e9d7ad!important;
+}
+.reading a,.out a,.result a,.interpretation a,
+#output a,#localOutput a,[id*="Output"] a,[id*="output"] a{
+ color:#f3d58e!important;text-decoration:underline;text-underline-offset:3px;
+}
+.reading blockquote,.out blockquote,.result blockquote,
+#output blockquote,#localOutput blockquote{
+ color:#eee7f5!important;border-left:3px solid #d9b66d!important;
+ background:rgba(232,201,130,.07)!important;padding:10px 14px!important;border-radius:0 10px 10px 0;
+}
+.reading hr,.out hr,#output hr,#localOutput hr{border-color:rgba(235,207,151,.28)!important}
+.notice,.muted,.help,.sub,.tiny,.status,.stats{
+ color:var(--lecture-muted)!important;
+}
+.panel>p,.panel>div:not(.out):not(.reading),.panel li{color:#e9e3f1}
+@media(max-width:650px){
+ .reading,.out,.result,.interpretation,#output,#localOutput,[id*="Output"],[id*="output"]{
+  font-size:15px!important;line-height:1.78!important;
+ }
+}
+</style>
+
+
+<style id="sanctuaire-lecture-ciblage-complet">
+/* Ciblage explicite des zones de lecture locale et IA de chaque oracle */
+#interpretation,#localReading,#interpretations,#aiOutput,
+#localOutput,#output{
+ color:#f4effa!important;
+ background:linear-gradient(145deg,rgba(27,25,46,.98),rgba(13,16,33,.98))!important;
+ border:1px solid rgba(235,207,151,.34)!important;
+ border-radius:16px!important;
+ padding:16px!important;
+ line-height:1.78!important;
+ font-size:15px!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 12px 30px rgba(0,0,0,.22)!important;
+}
+#interpretation:empty,#localReading:empty,#interpretations:empty,#aiOutput:empty,
+#localOutput:empty,#output:empty{display:none}
+#interpretation p,#interpretation li,#interpretation div,#interpretation span,
+#localReading p,#localReading li,#localReading div,#localReading span,
+#interpretations p,#interpretations li,#interpretations div,#interpretations span,
+#aiOutput p,#aiOutput li,#aiOutput div,#aiOutput span,
+#localOutput p,#localOutput li,#localOutput div,#localOutput span,
+#output p,#output li,#output div,#output span{
+ color:#f4effa!important;opacity:1!important;line-height:1.78!important;
+}
+#interpretation h2,#interpretation h3,#interpretation h4,
+#localReading h2,#localReading h3,#localReading h4,
+#interpretations h2,#interpretations h3,#interpretations h4,
+#aiOutput h2,#aiOutput h3,#aiOutput h4,
+#localOutput h2,#localOutput h3,#localOutput h4,
+#output h2,#output h3,#output h4{
+ color:#f2d89a!important;font-weight:800!important;
+}
+#interpretation strong,#localReading strong,#interpretations strong,
+#aiOutput strong,#localOutput strong,#output strong{
+ color:#fff3d1!important;font-weight:800!important;
+}
+#interpretation blockquote,#localReading blockquote,#interpretations blockquote,
+#aiOutput blockquote,#localOutput blockquote,#output blockquote{
+ color:#f4effa!important;background:rgba(232,201,130,.075)!important;
+ border-left:3px solid #e8c982!important;padding:10px 14px!important;
+}
+</style>
+
 </head><body>
 <nav class="oracles-key-nav" aria-label="Navigation Oracles Studio">
 <a href="index.html" class="brand">ORACLES <span>/</span> STUDIO</a>
