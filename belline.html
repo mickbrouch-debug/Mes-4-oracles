@@ -16,9 +16,9 @@
 
 /* Belline V5 — peintures dédiées sur les faces révélées */
 .drawnitem .tarotface{position:relative;overflow:hidden;background:#171326!important;isolation:isolate}
-.drawnitem .belline-painting{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);object-fit:cover;border-radius:5px;z-index:-1;filter:saturate(1.05)}
-.drawnitem .tarotface:after{content:"";position:absolute;inset:8px;background:linear-gradient(180deg,rgba(5,8,20,.02) 30%,rgba(5,8,20,.82) 100%);z-index:0;pointer-events:none}
-.drawnitem .tarotface .inner{position:relative;z-index:1;color:#fff4d7;text-shadow:0 2px 5px #000}
+.drawnitem .belline-painting{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);object-fit:cover;border-radius:5px;z-index:0;filter:saturate(1.05)}
+.drawnitem .tarotface:after{content:"";position:absolute;inset:8px;background:linear-gradient(180deg,rgba(5,8,20,.02) 30%,rgba(5,8,20,.82) 100%);z-index:1;pointer-events:none}
+.drawnitem .tarotface .inner{position:relative;z-index:2;color:#fff4d7;text-shadow:0 2px 5px #000}
 .drawnitem .tarotface .edition{color:#f3d58b!important}
 .drawnitem .tarotface .cardname{color:#fff5df!important;font-size:clamp(12px,2vw,16px)!important}
 .drawnitem .tarotface .symbol{display:none!important}
@@ -1333,9 +1333,25 @@ function getSelected(){return selected.map(id=>({card:TAROT_CARDS.find(c=>c.id==
 function revealCards(){revealed=true;$("result").classList.remove("hidden");$("summary").textContent=`Thème : ${$("domain").value} · Question : ${$("question").value.trim()||"Tirage général"} · ${selected.length} cartes`;renderDrawn();$("interpretation").innerHTML="";$("aiStatus").classList.add("hidden");$("result").scrollIntoView({behavior:"smooth",block:"start"})}
 function bellinePainting(card){
  const files={
-  "Nativité":"belline-01-nativite.jpg",\n  "Réussite":"belline-02-reussite.jpg",\n  "Élévation":"belline-03-elevation.jpg",\n  "Honneurs":"belline-04-honneurs.jpg",\n  "Pensée-Amitié":"belline-05-pensee-amitie.jpg",\n  "Campagne-Santé":"belline-06-campagne-sante.jpg",\n  "Présents":"belline-07-presents.jpg",\n  "Trahison":"belline-08-trahison.jpg",\n  "Départ":"belline-09-depart.jpg",\n  "Inconstance":"belline-10-inconstance.jpg",\n  "Découverte":"belline-11-decouverte.jpg",\n  "Eau":"belline-12-eau.jpg",\n  "Pénates":"belline-13-penates.jpg",\n  "Maladie":"belline-14-maladie.jpg",\n  "Changement":"belline-15-changement.jpg",\n  "Argent":"belline-16-argent.jpg",\n };
+  "Nativité":"belline-01-nativite.jpg",
+  "Réussite":"belline-02-reussite.jpg",
+  "Élévation":"belline-03-elevation.jpg",
+  "Honneurs":"belline-04-honneurs.jpg",
+  "Pensée-Amitié":"belline-05-pensee-amitie.jpg",
+  "Campagne-Santé":"belline-06-campagne-sante.jpg",
+  "Présents":"belline-07-presents.jpg",
+  "Trahison":"belline-08-trahison.jpg",
+  "Départ":"belline-09-depart.jpg",
+  "Inconstance":"belline-10-inconstance.jpg",
+  "Découverte":"belline-11-decouverte.jpg",
+  "Eau":"belline-12-eau.jpg",
+  "Pénates":"belline-13-penates.jpg",
+  "Maladie":"belline-14-maladie.jpg",
+  "Changement":"belline-15-changement.jpg",
+  "Argent":"belline-16-argent.jpg",
+ };
  const file=files[card?.name];
- return file?`<img class="belline-painting" src="./${file}" alt="Illustration de ${String(card.name).replace(/[&<>"']/g,'')}">` : bellineArt(card);
+ return file?`<img class="belline-painting" src="./${file}" alt="Illustration de ${String(card.name).replace(/[&<>\"']/g, "")}">` : bellineArt(card);
 }
 function renderDrawn(){const root=$("drawn");root.innerHTML="";const n=selected.length;const pos=positionsFor(n);getSelected().forEach((item,i)=>{const name=pos[i*2]||`Carte ${i+1}`;const el=document.createElement("div");el.className="drawnitem";el.innerHTML=`<div class="tarotface ${item.reversed?"reversed":""}"><div class="inner">${bellinePainting(item.card)}<div class="edition">✦ ORACLE DE BELLINE ✦</div><div class="cardname"></div><div style="font:8px Arial,sans-serif;letter-spacing:.14em">${item.reversed?"RENversée":"DROITE"}</div></div></div><div class="poslabel"></div>`;const face=el.querySelector(".tarotface");face.style.backgroundImage=window.SanctuaireCardArt(item.card.name,item.card.suit||item.card.arcana||"Arcane","belline");el.querySelector(".cardname").textContent=item.card.name;el.querySelector(".poslabel").textContent=name;root.appendChild(el)})}
 function localAnalysis(){
