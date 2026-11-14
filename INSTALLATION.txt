@@ -1,13 +1,7 @@
-ORACLE DES PORTES DE L’INTUITION — V1 ILLUSTRÉE (SANS DOSSIER)
+ORACLE DES PORTES DE L’INTUITION — V5 RESTAURÉE
 
-IMPORTANT : aucun sous-dossier à téléverser. Tous les fichiers sont à la racine de cette archive.
+Cette version repart de l’interface V5 sauvegardée (thème ésotérique violet/or, navigation, panneaux, animations, historique et fonctions présentes dans ce fichier). Les illustrations sont appelées depuis la racine : porte-01.jpg à porte-46.jpg.
 
-À téléverser à la racine du dépôt GitHub :
-- remplacer portes-intuition.html par celui de cette archive ;
-- ajouter les fichiers porte-01.jpg à porte-46.jpg (46 images JPG).
+Sur GitHub : téléverser portes-intuition.html et tous les porte-XX.jpg directement à la racine du dépôt. Aucun dossier à créer.
 
-Le HTML a été adapté pour charger les images directement à la racine (sans assets/).
-La clé Gemini codée en dur est vide : saisir sa propre clé dans l’interface.
-Si une ancienne clé a été publiée dans un HTML public, la révoquer dans Google AI Studio.
-
-Ne pas créer de dossier assets.
+La clé Gemini n’est pas intégrée : saisir la clé dans le champ prévu à cet effet.
