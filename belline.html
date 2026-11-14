@@ -1332,7 +1332,23 @@ function flipOrientations(){orientations={};selected.forEach(id=>orientations[id
 function getSelected(){return selected.map(id=>({card:TAROT_CARDS.find(c=>c.id===id),reversed:!!orientations[id]}))}
 function revealCards(){revealed=true;$("result").classList.remove("hidden");$("summary").textContent=`Thème : ${$("domain").value} · Question : ${$("question").value.trim()||"Tirage général"} · ${selected.length} cartes`;renderDrawn();$("interpretation").innerHTML="";$("aiStatus").classList.add("hidden");$("result").scrollIntoView({behavior:"smooth",block:"start"})}
 function bellinePainting(card){
- const files={
+ const files={  "Intelligence":"belline-17-intelligence.jpg",
+  "Vol-Perte":"belline-18-vol-perte.jpg",
+  "Entreprises":"belline-19-entreprises.jpg",
+  "Trafic":"belline-20-trafic.jpg",
+  "Nouvelle":"belline-21-nouvelle.jpg",
+  "Plaisirs":"belline-22-plaisirs.jpg",
+  "Paix":"belline-23-paix.jpg",
+  "Union":"belline-24-union.jpg",
+  "Famille":"belline-25-famille.jpg",
+  "Amour":"belline-26-amour.jpg",
+  "Table":"belline-27-table.jpg",
+  "Passions":"belline-28-passions.jpg",
+  "Méchanceté":"belline-29-mechancete.jpg",
+  "Procès":"belline-30-proces.jpg",
+  "Despotisme":"belline-31-despotisme.jpg",
+  "Ennemis":"belline-32-ennemis.jpg",
+
   "Nativité":"belline-01-nativite.jpg",
   "Réussite":"belline-02-reussite.jpg",
   "Élévation":"belline-03-elevation.jpg",
