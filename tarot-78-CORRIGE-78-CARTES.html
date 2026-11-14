@@ -1,0 +1,2458 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#080914">
+<meta name="description" content="Tarot des 78 Arcanes — un espace symbolique de tirage et de réflexion.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>Tarot des 78 Arcanes — Oracles Studio — V10</title>
+<style>
+:root{--bg:#120e19;--panel:#21182c;--panel2:#2b2038;--gold:#d7b76b;--gold2:#f2dfaa;--ink:#f8f0dc;--muted:#c2b5ca;--line:#6e583d;--rose:#6f3c5c}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top,#35213f 0,#17111f 42%,#0d0b12 100%);color:var(--ink);font-family:Georgia,'Times New Roman',serif;min-height:100vh}button,input,select,textarea{font:inherit}button{cursor:pointer;touch-action:manipulation}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}.shell{max-width:1120px;margin:auto;padding:18px 16px 50px}.hero{text-align:center;padding:22px 12px 28px}.sigil{width:74px;height:74px;border:1px solid var(--gold);border-radius:50%;margin:0 auto 15px;display:grid;place-items:center;color:var(--gold2);font-size:34px;box-shadow:0 0 28px #d7b76b20,inset 0 0 18px #d7b76b10}.eyebrow{letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font:11px Arial,sans-serif}.hero h1{font-size:clamp(28px,5vw,47px);font-weight:normal;letter-spacing:.045em;margin:10px 0;color:var(--gold2)}.hero p{color:var(--muted);max-width:620px;margin:0 auto;line-height:1.6}.ornament{color:var(--gold);letter-spacing:.6em;margin:18px 0}.panel{border:1px solid #8b70484d;background:linear-gradient(145deg,#241a30f2,#17121f);border-radius:18px;padding:20px;margin:14px 0;box-shadow:0 15px 40px #0003}.panel h2{font-size:21px;font-weight:normal;color:var(--gold2);margin:0 0 15px}.gridform{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}label,.label{color:var(--gold2);font-size:14px}input,select,textarea{width:100%;background:#120e19;color:var(--ink);border:1px solid #745e47;border-radius:10px;padding:12px}textarea{min-height:88px;resize:vertical}.help{color:var(--muted);font:12px/1.5 Arial,sans-serif}.btn{border:1px solid var(--gold);background:linear-gradient(120deg,#8c6634,#c19c50);color:#1b1220;padding:11px 15px;border-radius:10px;font-weight:bold}.btn.secondary{background:#2a2035;color:var(--gold2);border-color:#6d583f}.btn.ghost{background:transparent;color:var(--gold2)}.btn:disabled{opacity:.35;cursor:not-allowed}.actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.stats{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;color:var(--muted);font:13px Arial,sans-serif;margin:12px 0}.progress{height:5px;background:#49364d;border-radius:8px;overflow:hidden;margin:12px 0}.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));width:0;transition:width .2s}.deck{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:9px;margin-top:15px}.cardback,.tarotface{position:relative;aspect-ratio:2/3;border-radius:8px;border:1px solid var(--gold);padding:5px;background:linear-gradient(150deg,#35203f,#17111f 70%);box-shadow:0 4px 12px #0005;display:flex;align-items:center;justify-content:center;min-width:0;overflow:hidden}.cardback:before,.tarotface:before{content:"";position:absolute;inset:5px;border:1px solid #b99755;border-radius:5px;pointer-events:none}.cardback:after{content:"✧  ☾  ✧";position:absolute;color:#d9bb75;letter-spacing:.08em;font-size:clamp(8px,1.4vw,14px)}.cardback .num{position:absolute;bottom:10px;color:#b99a60;font:9px Arial,sans-serif}.cardback.selected{background:linear-gradient(150deg,#73502f,#32203e);box-shadow:0 0 0 2px var(--gold2),0 0 20px #d7b76b38}.cardback:disabled{opacity:.36}.cardback .mini{display:none}.cardname{font-size:clamp(8px,1.2vw,12px);line-height:1.2;text-align:center;overflow-wrap:anywhere}.drawn{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}.drawnitem{min-width:0}.tarotface{background:linear-gradient(150deg,#f0dfb5,#bda16b 80%);color:#291b2e;flex-direction:column;gap:8px;text-align:center;padding:12px}.tarotface:before{border-color:#6c4b29}.tarotface .symbol{font-size:clamp(22px,4vw,38px);z-index:1}.tarotface .cardname{font-size:13px;z-index:1}.tarotface.reversed .inner{transform:rotate(180deg)}.tarotface .inner{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;z-index:1;width:100%;height:100%}.poslabel{text-align:center;color:var(--gold2);font-size:13px;margin:7px 0}.reading{border-top:1px solid #71593e;padding:14px 0}.reading h3{color:var(--gold2);font-weight:normal;margin:0 0 6px}.reading p{line-height:1.6;color:#e9dfeb;margin:7px 0}.reading .keywords{color:var(--gold);font:12px Arial,sans-serif}.reading .advice{border-left:2px solid var(--gold);padding-left:10px;color:var(--muted)}.notice{padding:12px;border:1px solid #6e583d;border-radius:10px;background:#21182c;color:var(--muted);font:13px/1.55 Arial,sans-serif}.footer{text-align:center;color:#8e8197;font:11px/1.6 Arial,sans-serif;margin-top:24px}.hidden{display:none!important}.pill{border:1px solid #735b3c;border-radius:999px;padding:5px 9px;color:var(--gold2);font:11px Arial,sans-serif}
+@media(max-width:700px){.shell{padding:10px 10px 35px}.panel{padding:15px}.gridform{grid-template-columns:1fr}.deck{grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}.hero{padding-top:18px}.drawn{grid-template-columns:repeat(auto-fit,minmax(105px,1fr))}.btn{padding:10px 12px;font-size:14px}}
+@media(max-width:390px){.deck{grid-template-columns:repeat(4,minmax(0,1fr))}.cardback:after{font-size:10px}}
+</style>
+
+<style id="oracles-modern-ui-v2">
+:root{color-scheme:light;--app-bg:#f3f6fb;--app-ink:#182338;--app-muted:#68758b;--app-panel:#fff;--app-line:#e3e9f2;--app-primary:#315efb;--app-cyan:#20b8c5;--app-shadow:0 12px 34px rgba(29,48,82,.08)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--app-bg)}
+body{margin:0!important;background:linear-gradient(180deg,#edf3fb 0,#f7f9fc 360px,#f3f6fb 100%)!important;color:var(--app-ink)!important;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important;line-height:1.55;min-height:100vh}
+.wrap,.shell{max-width:1160px!important;margin:0 auto!important;padding:26px 20px 64px!important}
+.hero{position:relative!important;text-align:left!important;padding:30px 30px 32px!important;margin:14px 0 24px!important;border:1px solid #e4eaf4!important;border-radius:24px!important;background:linear-gradient(120deg,#142746 0%,#1d3d69 55%,#246b85 100%)!important;box-shadow:0 18px 48px rgba(24,52,92,.16)!important;overflow:hidden}
+.hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid #ffffff20;border-radius:50%;right:-110px;top:-170px;box-shadow:0 0 0 38px #ffffff08,0 0 0 78px #ffffff06}
+.hero .sigil{display:none!important}
+.eyebrow{font:700 11px/1.4 Inter,system-ui,sans-serif!important;letter-spacing:.16em!important;color:#a9d9ee!important;text-transform:uppercase}
+.hero h1{font:750 clamp(30px,5vw,48px)/1.08 Inter,system-ui,sans-serif!important;letter-spacing:-.045em!important;color:#fff!important;margin:12px 0!important}
+.hero p{font-size:15px!important;max-width:650px!important;color:#d7e4f3!important;margin:0!important}
+h1,h2,h3,h4{font-family:Inter,system-ui,sans-serif!important;letter-spacing:-.025em!important;color:#1c2c45!important}
+h1{font-weight:750!important}h2{font-size:21px!important;font-weight:700!important}
+p,li,label,small{font-family:inherit}
+.panel,.game,.note,.card:not(.back):not(.front),.settings,.section,.result,.content-card{background:#fff!important;color:var(--app-ink)!important;border:1px solid var(--app-line)!important;border-radius:18px!important;box-shadow:var(--app-shadow)!important}
+.panel{padding:22px!important;margin:16px 0!important}
+.panel h2,.game h2{color:#1d3150!important;font-weight:700!important}
+.game{display:flex!important;flex-direction:column;min-height:190px!important;padding:22px!important;text-decoration:none!important;transition:transform .18s,box-shadow .18s,border-color .18s!important}
+.game:hover{transform:translateY(-4px)!important;box-shadow:0 18px 40px rgba(31,67,120,.13)!important;border-color:#b8c9f8!important}
+.game h2{font-size:19px!important;margin:10px 0 4px!important}
+.game p,.muted,.note{color:var(--app-muted)!important;font-size:13px!important}
+.symbol{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:#edf2ff;color:var(--app-primary)!important;font-size:23px!important}
+button{background:linear-gradient(135deg,#315efb,#4778ff)!important;color:#fff!important;border:1px solid #315efb!important;border-radius:11px!important;padding:11px 16px!important;font-weight:650!important;box-shadow:0 5px 14px rgba(49,94,251,.17)!important;transition:transform .15s,filter .15s!important}
+button:hover{filter:brightness(1.05);transform:translateY(-1px)}
+button:disabled{opacity:.5!important}
+input,select,textarea{background:#fff!important;color:#1b2a42!important;border:1px solid #dce4ef!important;border-radius:10px!important;padding:11px 13px!important;min-height:42px!important;max-width:100%}
+textarea{width:100%}
+a{color:#315efb!important;text-underline-offset:3px}
+hr{border:0;border-top:1px solid var(--app-line)}
+.out{color:#24334b!important;background:#f7f9fd!important;border:1px solid var(--app-line)!important;border-radius:14px!important;padding:18px!important}
+.cards{gap:12px!important}
+.card{background:#fff!important;color:#1e3150!important;border:1px solid #dce5f2!important;border-radius:14px!important;box-shadow:0 8px 20px rgba(34,55,90,.08)!important}
+.card.back{background:linear-gradient(145deg,#1a3153,#28547b)!important;color:#fff!important;border:1px solid #47729a!important}
+.card.back .back-mark{border-color:#8bb7d8!important;color:#d7f2ff!important}
+.card.front{background:linear-gradient(145deg,#f8fbff,#eaf1fa)!important;color:#1c3150!important;border:1px solid #b9cce3!important}
+.card .front-mark{color:#315efb!important}
+.row{gap:10px}
+.oracles-modern-nav{max-width:1160px;margin:0 auto 16px;padding:11px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#fff;border:1px solid #e4eaf2;border-radius:15px;box-shadow:0 6px 22px rgba(32,53,88,.05)}
+.oracles-modern-nav .brand{font-weight:800;letter-spacing:-.02em;color:#1c3150!important;text-decoration:none!important}
+.oracles-modern-nav .links{display:flex;gap:6px;flex-wrap:wrap}
+.oracles-modern-nav .links a{padding:7px 10px;border-radius:9px;color:#52627b!important;text-decoration:none!important;font-size:12px;font-weight:650}
+.oracles-modern-nav .links a:hover{background:#edf2ff;color:#315efb!important}
+:focus-visible{outline:3px solid #7aa0ff!important;outline-offset:3px}
+@media(max-width:650px){.wrap,.shell{padding:12px 12px 42px!important}.hero{padding:24px 20px!important;border-radius:19px!important}.oracles-modern-nav{margin:0 10px 12px;padding:10px}.oracles-modern-nav .links{width:100%;overflow-x:auto;flex-wrap:nowrap}.oracles-modern-nav .links a{white-space:nowrap}.panel{padding:16px!important}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+</style>
+
+
+<style id="sanctuaire-esoterique-theme">
+/* ORACLES STUDIO — Sanctuaire ésotérique */
+:root{
+ --sanct-bg:#080914;--sanct-panel:rgba(20,18,38,.82);--sanct-panel2:rgba(31,25,52,.82);
+ --sanct-gold:#e8c982;--sanct-gold2:#b99555;--sanct-violet:#a88be8;--sanct-blue:#7189d7;
+ --sanct-text:#f5efdf;--sanct-muted:#bcb4cf;--sanct-line:rgba(225,198,137,.22);
+}
+html{background:var(--sanct-bg)!important;scroll-behavior:smooth}
+body{
+ color:var(--sanct-text)!important;
+ background:
+  radial-gradient(ellipse at 50% -15%,rgba(117,82,170,.30),transparent 48%),
+  radial-gradient(ellipse at 8% 35%,rgba(51,76,137,.20),transparent 38%),
+  radial-gradient(ellipse at 92% 75%,rgba(128,82,155,.14),transparent 36%),
+  linear-gradient(160deg,#090a18 0%,#111026 48%,#080914 100%)!important;
+ position:relative;isolation:isolate;min-height:100vh;
+}
+body:before{
+ content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.42;
+ background-image:
+  radial-gradient(1px 1px at 7% 13%,#fff 98%,transparent),
+  radial-gradient(1px 1px at 19% 72%,#e8c982 98%,transparent),
+  radial-gradient(1.5px 1.5px at 38% 27%,#fff 98%,transparent),
+  radial-gradient(1px 1px at 64% 12%,#c9b5ff 98%,transparent),
+  radial-gradient(1px 1px at 83% 58%,#fff 98%,transparent),
+  radial-gradient(1px 1px at 92% 22%,#e8c982 98%,transparent),
+  radial-gradient(1px 1px at 51% 83%,#fff 98%,transparent),
+  radial-gradient(1px 1px at 28% 44%,#c9b5ff 98%,transparent);
+ background-size:310px 270px;animation:sanctStars 95s linear infinite;
+}
+body:after{
+ content:"";position:fixed;width:min(72vw,680px);height:min(72vw,680px);left:50%;top:48%;
+ transform:translate(-50%,-50%);z-index:-1;pointer-events:none;opacity:.075;
+ border:1px solid var(--sanct-gold);border-radius:50%;
+ box-shadow:0 0 0 24px rgba(232,201,130,.08),0 0 0 48px rgba(168,139,232,.06),0 0 90px rgba(168,139,232,.18);
+ background:repeating-conic-gradient(from 0deg,transparent 0deg 14deg,rgba(232,201,130,.22) 14.2deg 14.5deg,transparent 14.7deg 30deg);
+ animation:sanctMandala 180s linear infinite;
+}
+@keyframes sanctStars{to{background-position:0 540px,0 -400px,0 320px,0 -540px,0 460px,0 -320px,0 600px,0 -260px}}
+@keyframes sanctMandala{to{rotate:360deg}}
+@keyframes sanctGlow{0%,100%{box-shadow:0 0 0 rgba(232,201,130,0)}50%{box-shadow:0 0 28px rgba(232,201,130,.13)}}
+@keyframes sanctRise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+h1,h2,h3,.brand,.hero,.section-head{color:var(--sanct-text)}
+.brand{letter-spacing:.045em}
+.eyebrow,.pill,.sigil,.ornament{color:var(--sanct-gold)!important}
+.hero,.panel,.tile,.card,.item,.reading,.out,.notice,.stats,.deck,.cross,.field,.statusline{
+ background:linear-gradient(145deg,rgba(31,27,53,.88),rgba(13,16,34,.88))!important;
+ border-color:var(--sanct-line)!important;
+ box-shadow:0 16px 42px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.035)!important;
+ backdrop-filter:blur(12px);
+}
+.hero,.panel,.tile,.card,.item,.reading,.out,.notice,.stats,.deck,.cross{
+ border-radius:20px!important;animation:sanctRise .65s both;
+}
+.tile,.card,.item,.panel,.deck{transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease}
+.tile:hover,.card:hover,.item:hover,.deck:hover{
+ transform:translateY(-4px);border-color:rgba(232,201,130,.52)!important;
+ box-shadow:0 18px 46px rgba(0,0,0,.32),0 0 24px rgba(168,139,232,.12)!important;
+}
+button,.btn,.go,.primary,.secondary,a.go{
+ transition:transform .22s ease,filter .22s ease,box-shadow .22s ease!important;
+}
+button,.btn,.go,.primary{
+ border-color:rgba(232,201,130,.48)!important;
+ background:linear-gradient(135deg,#8e6c37,#d5b56f 52%,#9c7b45)!important;
+ color:#171323!important;font-weight:750!important;
+ box-shadow:0 6px 22px rgba(191,151,79,.18)!important;
+}
+button:hover,.btn:hover,.go:hover,.primary:hover{
+ transform:translateY(-2px);filter:brightness(1.12);
+ box-shadow:0 8px 28px rgba(211,178,107,.28),0 0 20px rgba(168,139,232,.12)!important;
+}
+.btn.ghost,.btn.secondary,.secondary,button.secondary{
+ background:rgba(168,139,232,.10)!important;color:var(--sanct-text)!important;
+ border:1px solid rgba(168,139,232,.35)!important;box-shadow:none!important;
+}
+a{color:#e8cd91}
+input,select,textarea{
+ color:var(--sanct-text)!important;background:rgba(8,10,25,.72)!important;
+ border-color:rgba(206,185,226,.24)!important;border-radius:12px!important;
+}
+input:focus,select:focus,textarea:focus{outline:none!important;border-color:var(--sanct-gold)!important;box-shadow:0 0 0 3px rgba(232,201,130,.12)!important}
+hr{border-color:var(--sanct-line)!important}
+.navlinks,.nav,.links{border-color:var(--sanct-line)!important}
+.navlinks a,.nav a,.links a{color:#e9d8ae!important}
+img{transition:filter .3s ease}
+.deck img,.drawn img{filter:drop-shadow(0 10px 16px rgba(0,0,0,.32))}
+.progress{background:rgba(168,139,232,.16)!important}
+.progress>*{background:linear-gradient(90deg,#9278d4,#e8c982)!important}
+footer,.footer,.muted,.sub,.help,.tiny{color:var(--sanct-muted)!important}
+::selection{background:rgba(168,139,232,.38);color:#fff}
+@media(max-width:650px){
+ body:after{width:88vw;height:88vw;opacity:.045}
+ .hero,.panel,.tile,.card,.item,.reading,.out{border-radius:16px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+}
+</style>
+
+
+<style id="sanctuaire-lecture-haute-lisibilite">
+/* Contraste renforcé pour toutes les zones de lecture et d'interprétation */
+:root{
+ --lecture-main:#fffaf0;
+ --lecture-body:#f1edf8;
+ --lecture-muted:#d8d1e5;
+ --lecture-heading:#f2d89a;
+ --lecture-accent:#f0c978;
+}
+.reading,.out,.result,.interpretation,.analysis-result,
+#output,#localOutput,#result,#interpretation,#crossOutput,
+[id*="Output"],[id*="output"],[id*="Interpret"],[id*="interpret"]{
+ color:var(--lecture-body)!important;
+ background:linear-gradient(145deg,rgba(29,27,48,.97),rgba(17,19,37,.97))!important;
+ border:1px solid rgba(235,207,151,.34)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 12px 32px rgba(0,0,0,.22)!important;
+}
+.reading p,.reading li,.reading div,.reading span,
+.out p,.out li,.out div,.out span,
+.result p,.result li,.result div,.result span,
+.interpretation p,.interpretation li,.interpretation div,.interpretation span,
+.analysis-result p,.analysis-result li,.analysis-result div,.analysis-result span,
+#output p,#output li,#output div,#output span,
+#localOutput p,#localOutput li,#localOutput div,#localOutput span,
+#result p,#result li,#result div,#result span,
+#crossOutput p,#crossOutput li,#crossOutput div,#crossOutput span,
+[id*="Output"] p,[id*="Output"] li,[id*="Output"] div,[id*="Output"] span,
+[id*="output"] p,[id*="output"] li,[id*="output"] div,[id*="output"] span{
+ color:var(--lecture-body)!important;
+ opacity:1!important;
+}
+.reading h2,.reading h3,.reading h4,
+.out h2,.out h3,.out h4,
+.result h2,.result h3,.result h4,
+.interpretation h2,.interpretation h3,.interpretation h4,
+#output h2,#output h3,#output h4,
+#localOutput h2,#localOutput h3,#localOutput h4,
+[id*="Output"] h2,[id*="Output"] h3,[id*="Output"] h4,
+[id*="output"] h2,[id*="output"] h3,[id*="output"] h4{
+ color:var(--lecture-heading)!important;
+ font-weight:750!important;
+ text-shadow:0 1px 12px rgba(232,201,130,.12);
+}
+.reading strong,.out strong,.result strong,.interpretation strong,
+#output strong,#localOutput strong,[id*="Output"] strong,[id*="output"] strong{
+ color:#fff4d5!important;font-weight:800!important;
+}
+.reading .keywords,.reading .advice,
+.out .keywords,.out .advice{
+ color:#e9d7ad!important;
+}
+.reading a,.out a,.result a,.interpretation a,
+#output a,#localOutput a,[id*="Output"] a,[id*="output"] a{
+ color:#f3d58e!important;text-decoration:underline;text-underline-offset:3px;
+}
+.reading blockquote,.out blockquote,.result blockquote,
+#output blockquote,#localOutput blockquote{
+ color:#eee7f5!important;border-left:3px solid #d9b66d!important;
+ background:rgba(232,201,130,.07)!important;padding:10px 14px!important;border-radius:0 10px 10px 0;
+}
+.reading hr,.out hr,#output hr,#localOutput hr{border-color:rgba(235,207,151,.28)!important}
+.notice,.muted,.help,.sub,.tiny,.status,.stats{
+ color:var(--lecture-muted)!important;
+}
+.panel>p,.panel>div:not(.out):not(.reading),.panel li{color:#e9e3f1}
+@media(max-width:650px){
+ .reading,.out,.result,.interpretation,#output,#localOutput,[id*="Output"],[id*="output"]{
+  font-size:15px!important;line-height:1.78!important;
+ }
+}
+</style>
+
+
+<style id="sanctuaire-lecture-ciblage-complet">
+/* Ciblage explicite des zones de lecture locale et IA de chaque oracle */
+#interpretation,#localReading,#interpretations,#aiOutput,
+#localOutput,#output{
+ color:#f4effa!important;
+ background:linear-gradient(145deg,rgba(27,25,46,.98),rgba(13,16,33,.98))!important;
+ border:1px solid rgba(235,207,151,.34)!important;
+ border-radius:16px!important;
+ padding:16px!important;
+ line-height:1.78!important;
+ font-size:15px!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 12px 30px rgba(0,0,0,.22)!important;
+}
+#interpretation:empty,#localReading:empty,#interpretations:empty,#aiOutput:empty,
+#localOutput:empty,#output:empty{display:none}
+#interpretation p,#interpretation li,#interpretation div,#interpretation span,
+#localReading p,#localReading li,#localReading div,#localReading span,
+#interpretations p,#interpretations li,#interpretations div,#interpretations span,
+#aiOutput p,#aiOutput li,#aiOutput div,#aiOutput span,
+#localOutput p,#localOutput li,#localOutput div,#localOutput span,
+#output p,#output li,#output div,#output span{
+ color:#f4effa!important;opacity:1!important;line-height:1.78!important;
+}
+#interpretation h2,#interpretation h3,#interpretation h4,
+#localReading h2,#localReading h3,#localReading h4,
+#interpretations h2,#interpretations h3,#interpretations h4,
+#aiOutput h2,#aiOutput h3,#aiOutput h4,
+#localOutput h2,#localOutput h3,#localOutput h4,
+#output h2,#output h3,#output h4{
+ color:#f2d89a!important;font-weight:800!important;
+}
+#interpretation strong,#localReading strong,#interpretations strong,
+#aiOutput strong,#localOutput strong,#output strong{
+ color:#fff3d1!important;font-weight:800!important;
+}
+#interpretation blockquote,#localReading blockquote,#interpretations blockquote,
+#aiOutput blockquote,#localOutput blockquote,#output blockquote{
+ color:#f4effa!important;background:rgba(232,201,130,.075)!important;
+ border-left:3px solid #e8c982!important;padding:10px 14px!important;
+}
+</style>
+
+
+<style id="oracle-art-direction">
+/* GRAND RITUEL DE RÉVÉLATION — TAROT */
+.deck .cardback{transform-style:preserve-3d;transition:transform .55s cubic-bezier(.2,.8,.2,1),box-shadow .35s;cursor:pointer;background:radial-gradient(ellipse at 50% 42%,#62418a 0,#241a3b 48%,#090b19 100%);border:1px solid #e5c77e;box-shadow:inset 0 0 0 3px #100d20,inset 0 0 0 5px #b58b4c,0 8px 18px #0009}
+.deck .cardback:before{inset:9px;border:1px solid #f0d996;box-shadow:inset 0 0 18px #d8b45a35;border-radius:5px}
+.deck .cardback:after{content:'✧  ☾  ✧';font-size:clamp(13px,2vw,21px);text-shadow:0 0 12px #f6d77d}
+.deck .cardback:hover{transform:translateY(-8px) rotateY(9deg) scale(1.035);box-shadow:0 0 24px #c69aff75,inset 0 0 20px #d8b45a35}
+.tarotface{transform-style:preserve-3d;backface-visibility:hidden;border:2px solid #f0d18a!important;border-radius:12px!important;background-color:#d6b778!important;box-shadow:0 0 0 4px #25172e,0 0 0 6px #d9b66b,0 14px 30px #0009!important;animation:oracleFlip .95s cubic-bezier(.2,.75,.25,1) both;}
+.tarotface:before{inset:8px!important;border:1px solid #79552f!important;box-shadow:inset 0 0 22px #8b622b35}
+
+@keyframes oracleFlip{0%{transform:perspective(1100px) rotateY(88deg) scale(.88);opacity:.15;filter:brightness(1.8) blur(1px)}48%{transform:perspective(1100px) rotateY(-12deg) scale(1.035);opacity:1;filter:brightness(1.22)}72%{transform:perspective(1100px) rotateY(5deg) scale(1.01);filter:brightness(1.08)}100%{transform:perspective(1100px) rotateY(0) scale(1);opacity:1;filter:none}}
+.drawn>*{perspective:1100px}.drawn>*:nth-child(1){animation-delay:.05s}.drawn>*:nth-child(2){animation-delay:.18s}.drawn>*:nth-child(3){animation-delay:.31s}.drawn>*:nth-child(4){animation-delay:.44s}.drawn>*:nth-child(5){animation-delay:.57s}.drawn>*:nth-child(6){animation-delay:.70s}
+@media(prefers-reduced-motion:reduce){.tarotface,.face,.card.front{animation:none!important;transform:none!important}}
+</style>
+
+<style id="sanctuaire-card-art-v6">
+.tarotface,.face,.card.front{position:relative!important;overflow:hidden!important;isolation:isolate!important;background-size:cover!important;background-position:center!important;border:2px solid #d9b66b!important;box-shadow:0 0 0 3px #21162d,0 0 0 5px #c5a05a,0 16px 30px #0009!important}
+.tarotface:after,.face:after,.card.front:after{content:"";position:absolute;inset:7px;border:1px solid #f3d98f;border-radius:8px;pointer-events:none;z-index:2}
+.tarotface .inner,.face>*,.card.front>*{position:relative;z-index:3}
+.tarotface .inner{background:linear-gradient(180deg,transparent 40%,#080b18d9 100%);padding:8px;color:#fff8e6;text-shadow:0 2px 5px #000}
+.tarotface .cardname,.face .nm,.face .name,.face .keyword,.face .sub,.card.front small{background:#100d1ddd;color:#fff0c8!important;border:1px solid #d6b66b;border-radius:999px;padding:5px 8px;text-shadow:0 1px 3px #000}
+.cardback,.back{background:radial-gradient(circle at center,#51356d,#15152c 70%)!important;border:2px solid #d7b76b!important;box-shadow:inset 0 0 0 5px #22152f,inset 0 0 0 7px #d7b76b,0 8px 18px #0008!important}
+.drawnitem .tarotface,.slot .face,.face{min-height:250px}
+.tarotface.reversed{transform:perspective(900px) rotateY(0deg)}
+.tarotface.reversed .inner{transform:rotate(180deg)}
+@keyframes sanctuaireCardReveal{0%{transform:perspective(900px) rotateY(90deg) scale(.94);filter:brightness(1.7)}100%{transform:perspective(900px) rotateY(0) scale(1);filter:brightness(1)}}
+.tarotface,.face{animation:sanctuaireCardReveal .75s cubic-bezier(.2,.75,.25,1) both}
+@media(prefers-reduced-motion:reduce){.tarotface,.face{animation:none!important}}
+</style>
+
+<style id="sanctuaire-card-art-v6">
+.tarotface,.face,.card.front{position:relative!important;overflow:hidden!important;isolation:isolate!important;background-size:cover!important;background-position:center!important;border:2px solid #d9b66b!important;box-shadow:0 0 0 3px #21162d,0 0 0 5px #c5a05a,0 16px 30px #0009!important}
+.tarotface:after,.face:after,.card.front:after{content:"";position:absolute;inset:7px;border:1px solid #f3d98f;border-radius:8px;pointer-events:none;z-index:2}
+.tarotface .inner,.face>*,.card.front>*{position:relative;z-index:3}
+.tarotface .inner{background:linear-gradient(180deg,transparent 40%,#080b18d9 100%);padding:8px;color:#fff8e6;text-shadow:0 2px 5px #000}
+.tarotface .cardname,.face .nm,.face .name,.face .keyword,.face .sub,.card.front small{background:#100d1ddd;color:#fff0c8!important;border:1px solid #d6b66b;border-radius:999px;padding:5px 8px;text-shadow:0 1px 3px #000}
+.cardback,.back{background:radial-gradient(circle at center,#51356d,#15152c 70%)!important;border:2px solid #d7b76b!important;box-shadow:inset 0 0 0 5px #22152f,inset 0 0 0 7px #d7b76b,0 8px 18px #0008!important}
+.drawnitem .tarotface,.slot .face,.face{min-height:250px}
+.tarotface.reversed{transform:perspective(900px) rotateY(0deg)}
+.tarotface.reversed .inner{transform:rotate(180deg)}
+@keyframes sanctuaireCardReveal{0%{transform:perspective(900px) rotateY(90deg) scale(.94);filter:brightness(1.7)}100%{transform:perspective(900px) rotateY(0) scale(1);filter:brightness(1)}}
+.tarotface,.face{animation:sanctuaireCardReveal .75s cubic-bezier(.2,.75,.25,1) both}
+@media(prefers-reduced-motion:reduce){.tarotface,.face{animation:none!important}}
+</style>
+
+<style id="sanctuaire-v10-design-system">
+:root{
+ --v10-bg:#070812;--v10-panel:rgba(18,20,39,.82);--v10-panel-hi:rgba(29,28,53,.88);
+ --v10-gold:#e9ca88;--v10-gold-soft:#b9955b;--v10-cream:#f8f2e6;
+ --v10-muted:#b8b4ca;--v10-line:rgba(232,205,147,.2);--v10-violet:#a58de8;
+ --v10-teal:#82c9c5;--v10-shadow:0 24px 70px rgba(0,0,0,.34);
+}
+html{scroll-padding-top:90px}
+body{
+ background:
+  radial-gradient(ellipse at 50% -20%,rgba(126,89,174,.32),transparent 44%),
+  radial-gradient(ellipse at 0% 45%,rgba(47,87,139,.17),transparent 38%),
+  radial-gradient(ellipse at 100% 70%,rgba(139,75,129,.14),transparent 38%),
+  linear-gradient(160deg,#080914 0%,#111126 50%,#080914 100%)!important;
+ color:var(--v10-cream)!important;
+ font-family:ui-serif,Georgia,"Times New Roman",serif;
+}
+body:before{
+ content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.26;
+ background-image:radial-gradient(1px 1px at 10% 18%,#fff 98%,transparent),
+ radial-gradient(1px 1px at 30% 74%,#e9ca88 98%,transparent),
+ radial-gradient(1.5px 1.5px at 70% 28%,#fff 98%,transparent),
+ radial-gradient(1px 1px at 90% 82%,#bda8f1 98%,transparent);
+ background-size:280px 240px;animation:v10Stars 100s linear infinite;
+}
+@keyframes v10Stars{to{background-position:0 480px,0 -360px,0 280px,0 -480px}}
+.shell,.wrap{max-width:1240px!important;padding-left:clamp(14px,3vw,34px)!important;padding-right:clamp(14px,3vw,34px)!important}
+.hero{
+ position:relative;isolation:isolate;overflow:hidden;
+ padding:clamp(28px,5vw,64px) 22px!important;
+ margin:10px 0 28px!important;
+ border:1px solid rgba(233,202,136,.28)!important;
+ border-radius:30px!important;
+ background:
+  radial-gradient(circle at 50% 0%,rgba(171,133,219,.22),transparent 48%),
+  linear-gradient(125deg,rgba(34,29,61,.97),rgba(13,21,40,.96) 55%,rgba(31,25,49,.97))!important;
+ box-shadow:var(--v10-shadow),inset 0 1px 0 rgba(255,255,255,.08)!important;
+}
+.hero:before{
+ content:"";position:absolute;z-index:-1;width:min(58vw,520px);aspect-ratio:1;
+ right:-8%;top:-65%;border:1px solid rgba(233,202,136,.22);border-radius:50%;
+ box-shadow:0 0 0 24px rgba(233,202,136,.035),0 0 0 54px rgba(165,141,232,.035),0 0 100px rgba(165,141,232,.15);
+}
+.hero:after{
+ content:"✧";position:absolute;right:clamp(18px,5vw,58px);bottom:12px;
+ font-size:clamp(54px,9vw,112px);line-height:1;color:rgba(233,202,136,.11);
+ text-shadow:0 0 45px rgba(233,202,136,.2);pointer-events:none;
+}
+.hero h1,h1{color:#f2dca8!important;text-shadow:0 5px 32px rgba(233,202,136,.12)}
+.hero p{max-width:760px;line-height:1.8}
+.eyebrow{letter-spacing:.28em!important;color:#d8bd85!important}
+.sigil{
+ width:88px!important;height:88px!important;border-radius:28px!important;
+ border:1px solid rgba(233,202,136,.5)!important;
+ background:linear-gradient(145deg,rgba(233,202,136,.13),rgba(165,141,232,.08))!important;
+ box-shadow:0 12px 35px rgba(0,0,0,.22),inset 0 0 24px rgba(233,202,136,.08)!important;
+ transform:rotate(-4deg);
+}
+.panel{
+ position:relative;overflow:hidden;
+ background:linear-gradient(145deg,rgba(28,29,54,.91),rgba(13,17,34,.94))!important;
+ border:1px solid var(--v10-line)!important;border-radius:24px!important;
+ padding:clamp(17px,2.5vw,28px)!important;margin:18px 0!important;
+ box-shadow:0 18px 48px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.045)!important;
+ backdrop-filter:blur(16px);
+}
+.panel h2{color:var(--v10-gold)!important;font-size:clamp(19px,2vw,24px)!important;letter-spacing:-.02em}
+.panel h2:after{content:"";display:block;width:46px;height:2px;margin-top:10px;background:linear-gradient(90deg,var(--v10-gold),transparent);opacity:.8}
+.gridform,.form{gap:16px!important}
+.field{gap:8px!important}
+label{font:600 12px/1.4 ui-sans-serif,system-ui,sans-serif!important;letter-spacing:.07em;text-transform:uppercase;color:#c9b9e7!important}
+input,select,textarea{
+ min-height:46px!important;padding:12px 14px!important;border-radius:13px!important;
+ border:1px solid rgba(184,176,213,.25)!important;
+ background:rgba(6,9,24,.78)!important;color:#fff8eb!important;
+ box-shadow:inset 0 1px 4px rgba(0,0,0,.22)!important;
+}
+textarea{line-height:1.65!important}
+button,.btn{
+ border-radius:13px!important;padding:12px 18px!important;
+ font:750 13px/1.25 ui-sans-serif,system-ui,sans-serif!important;
+ letter-spacing:.025em;min-height:44px;
+}
+button:not(.secondary),.btn:not(.secondary){
+ color:#1a1721!important;border:1px solid rgba(255,230,174,.65)!important;
+ background:linear-gradient(135deg,#9b7845,#e9ca88 52%,#b18b51)!important;
+ box-shadow:0 8px 22px rgba(188,145,72,.2),inset 0 1px 0 rgba(255,255,255,.35)!important;
+}
+button.secondary,.btn.secondary,.btn.ghost,.secondary{
+ color:#eee8fa!important;background:linear-gradient(135deg,rgba(165,141,232,.16),rgba(91,112,168,.12))!important;
+ border:1px solid rgba(165,141,232,.35)!important;box-shadow:none!important;
+}
+button:hover,.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.actions{gap:10px!important;flex-wrap:wrap}
+.nav,.navlinks,.links{
+ position:sticky!important;top:8px;z-index:20;
+ display:flex;flex-wrap:wrap;gap:8px!important;
+ padding:9px!important;margin:10px 0 22px!important;
+ border:1px solid rgba(233,202,136,.17)!important;border-radius:16px!important;
+ background:rgba(8,10,25,.78)!important;backdrop-filter:blur(18px);
+ box-shadow:0 12px 30px rgba(0,0,0,.22)!important;
+}
+.nav a,.navlinks a,.links a{
+ padding:8px 12px!important;border-radius:10px!important;
+ background:rgba(255,255,255,.035);text-decoration:none!important;
+ font:650 12px ui-sans-serif,system-ui,sans-serif!important;color:#e9d9b8!important;
+}
+.nav a:hover,.navlinks a:hover,.links a:hover{background:rgba(233,202,136,.13)!important}
+.cards,.drawn{gap:clamp(10px,2vw,18px)!important}
+.card,.tarotface,.face{
+ border-radius:18px!important;border:1px solid rgba(233,202,136,.65)!important;
+ box-shadow:0 18px 36px rgba(0,0,0,.4),inset 0 0 0 4px rgba(233,202,136,.08),inset 0 1px 0 rgba(255,255,255,.22)!important;
+ overflow:hidden;
+}
+.card.back{
+ background:
+  radial-gradient(circle at center,transparent 0 22%,rgba(233,202,136,.13) 22.5% 23%,transparent 23.5% 37%,rgba(233,202,136,.12) 37.5% 38%,transparent 38.5%),
+  repeating-conic-gradient(from 8deg,rgba(233,202,136,.10) 0 2deg,transparent 2deg 12deg),
+  linear-gradient(145deg,#262044,#10152a 60%,#302044)!important;
+}
+.reading,.out,.result,.interpretation,#output,#localOutput,#result,#crossOutput{
+ border-radius:20px!important;border:1px solid rgba(233,202,136,.24)!important;
+ background:linear-gradient(145deg,rgba(29,29,53,.97),rgba(12,17,34,.97))!important;
+ padding:clamp(16px,2.5vw,25px)!important;
+ box-shadow:0 16px 42px rgba(0,0,0,.24)!important;
+}
+.statusline,.notice,.stats{border-radius:14px!important}
+footer{padding:25px 8px;color:#a9a3ba!important}
+@media(max-width:680px){
+ .hero{border-radius:22px!important;padding:28px 18px!important}
+ .hero:after{opacity:.5}
+ .nav,.navlinks,.links{top:4px;overflow-x:auto;flex-wrap:nowrap;white-space:nowrap}
+ .nav a,.navlinks a,.links a{flex:0 0 auto}
+ .gridform,.form{grid-template-columns:1fr!important}
+ .full{grid-column:auto!important}
+ .panel{border-radius:18px!important}
+}
+@media(prefers-reduced-motion:reduce){body:before{animation:none!important}button,.btn{transition:none!important}}
+</style>
+
+<link rel="stylesheet" href="sanctuaire-v4.css"></head>
+<body><div class="sanctuaire-v4-banner"><div><b>✦ Le Sanctuaire des Oracles ✦</b><br><span>Six univers · Une expérience mystique</span></div><span>Guidance · Intuition · Connaissance</span></div>
+<nav class="oracles-key-nav" aria-label="Navigation Oracles Studio">
+<a href="index.html" class="brand">ORACLES <span>/</span> STUDIO</a>
+<div class="navlinks"><a href="index.html">Accueil</a><a href="cle-api.html">Clé API commune</a><a href="tarot-78.html">Tarot</a><a href="lenormand-54.html">Lenormand</a><a href="belline.html">Belline</a><a href="portes-intuition.html">Portes</a><a href="astrologie.html">Astrologie</a><a href="runes.html">Runes</a><a href="analyse-croisee.html">Analyse croisée</a></div></nav>
+<style id="oracles-key-nav-style">.oracles-key-nav{max-width:1180px;margin:0 auto 16px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:rgba(255,255,255,.94);border:1px solid #e2e8f1;border-radius:15px;box-shadow:0 8px 24px #1d30520c}.oracles-key-nav .brand{font-weight:850;letter-spacing:-.04em;color:#203553;text-decoration:none}.oracles-key-nav .brand span{color:#315efb}.oracles-key-nav .navlinks{display:flex;gap:5px;flex-wrap:wrap}.oracles-key-nav .navlinks a{font-size:12px;text-decoration:none;color:#43536d;padding:6px 8px;border-radius:8px;white-space:nowrap}.oracles-key-nav .navlinks a:hover{background:#edf2ff;color:#315efb}@media(max-width:650px){.oracles-key-nav{margin:0 8px 12px}.oracles-key-nav .navlinks{width:100%;overflow-x:auto;flex-wrap:nowrap}.oracles-key-nav .navlinks a{flex:0 0 auto}}</style>
+<div id="oracle-appbar" style="position:sticky;top:0;z-index:9999;background:#101b2aee;backdrop-filter:blur(10px);padding:9px 12px;border-bottom:1px solid #b99a6044;display:flex;gap:8px;align-items:center;justify-content:space-between;font:13px Arial,sans-serif">
+  <a href="index.html" style="color:#f2dfaa;text-decoration:none;font-weight:bold">✧ Les 4 Oracles</a>
+  <span style="color:#c2b5ca">Application installable · historique local</span>
+  <button id="showHistory" style="background:#2a2035;color:#f2dfaa;border:1px solid #8b7048;border-radius:8px;padding:7px 10px">Historique</button>
+</div>
+<div id="historyPanel" style="display:none;position:fixed;z-index:10000;inset:55px 10px auto 10px;max-height:70vh;overflow:auto;background:#17111f;color:#f8f0dc;border:1px solid #d7b76b;border-radius:14px;padding:16px;box-shadow:0 12px 40px #000b;font:14px Arial,sans-serif">
+  <div style="display:flex;justify-content:space-between;align-items:center"><b>Historique des tirages</b><button id="closeHistory">Fermer</button></div>
+  <div id="historyItems" style="margin-top:12px"></div>
+  <button id="clearHistory" style="margin-top:12px">Effacer l’historique</button>
+</div>
+
+<div class="shell">
+<header class="hero">
+  <div class="sigil">☾</div><div class="eyebrow">Un voyage symbolique</div>
+  <h1>Tarot des 78 Arcanes</h1>
+  <p>Écoute la question. Mélange les cartes. Choisis ton chemin à travers les symboles.</p>
+  <div class="ornament">✧ ━━━━━ ✦ ━━━━━ ✧</div>
+</header>
+<main>
+<section class="panel" id="setup">
+<h2>Ⅰ · Préparer le tirage</h2>
+<div class="gridform">
+  <div class="field"><label for="domain">Domaine</label><select id="domain"><option>Général</option><option>Amour et relations</option><option>Travail et projets</option><option>Finances et décisions matérielles</option><option>Famille et entourage</option><option>Évolution personnelle</option></select></div>
+  <div class="field"><label for="count">Nombre de cartes</label><select id="count"><option value="1">1 — éclairage rapide</option><option value="3" selected>3 — situation, conseil, évolution</option><option value="5">5 — analyse approfondie</option><option value="7">7 — tirage détaillé</option><option value="10">10 — croix celtique adaptée</option></select></div>
+  <div class="field full"><label for="question">Ta question</label><textarea id="question" placeholder="Ex. : Que dois-je comprendre de cette situation et quelle attitude serait la plus juste ?"></textarea><div class="help">Une question ouverte permet une lecture plus nuancée. Évite de traiter la lecture comme une certitude ou un substitut à un conseil professionnel.</div></div>
+</div>
+</section>
+<section class="panel" id="selection">
+<h2>Ⅱ · Mélanger et choisir</h2>
+<div class="actions"><button class="btn" id="shuffle">✧ Mélanger les 78 cartes</button><button class="btn secondary" id="clear">Recommencer</button></div>
+<div class="stats"><span id="countLabel">0 / 3 cartes sélectionnées</span><span class="pill">78 cartes · choix tactile</span></div>
+<div class="progress"><span id="progress"></span></div>
+<p class="help">Touchez les dos des cartes pour les sélectionner. Le sens droit ou renversé est tiré au sort au moment du mélange et reste figé ensuite. Mélanger efface la sélection actuelle.</p>
+<div class="deck" id="deck" aria-label="Paquet de tarot"></div>
+<div class="actions" style="margin-top:16px"><button class="btn" id="reveal" disabled>Révéler et interpréter</button><button class="btn secondary" id="resetOrientation">Re-tirer les orientations</button></div>
+</section>
+<section class="panel hidden" id="result">
+<h2>Ⅲ · Ton tirage</h2><p class="help" id="summary"></p><div class="drawn" id="drawn"></div>
+<div class="actions" style="margin-top:15px"><button class="btn" id="localAnalysis">Construire l’analyse locale</button><button class="btn secondary" id="aiAnalysis">Approfondir avec l’IA</button><button class="btn ghost" id="newReading">Nouveau tirage</button></div>
+<div class="panel" style="margin-top:14px;padding:14px;background:#191320">
+<h2 style="font-size:17px">IA générative (facultative)</h2>
+<p class="help">Pour une analyse rédigée en direct par une IA, colle ta clé API Gemini ci-dessous. Le quota gratuit dépend du modèle, du pays et des limites de Google. La clé est partagée entre les quatre oracles et enregistrée localement sur cet appareil uniquement. Ne publie pas ce fichier avec ta clé et ne l’utilise pas sur un appareil partagé.</p>
+<div class="field"><label for="aiKey">Clé API Gemini (gratuite selon quota)</label><input id="aiKey" type="password" autocomplete="off" placeholder="Colle ta clé Gemini ici"><div class="help">La clé est partagée entre les quatre oracles sur cet appareil. Internet est nécessaire.</div></div>
+<div class="field" style="margin-top:10px"><label for="aiModel">Modèle IA</label><select id="aiModel"><option value="gemini-3.8-flash" selected>Gemini 3.8 Flash (standard)</option><option value="gemini-3.7-flash">Gemini 3.7 Flash</option><option value="gemini-3.6-flash">Gemini 3.6 Flash</option><option value="gemini-3.5-flash">Gemini 3.5 Flash</option><option value="gemini-3-flash-preview">Gemini 3 Flash (aperçu)</option><option value="gemini-2.5-flash">Gemini 2.5 Flash (accès limité)</option><option value="gemini-3.5-flash-lite">Gemini 3.5 Flash-Lite (léger)</option></select><div class="help">Choisis un modèle Flash standard. Si un modèle renvoie une erreur d’accès, sélectionne une autre version disponible pour ta clé dans Google AI Studio. Gemini 2.5 Flash peut être réservé aux comptes qui l’utilisaient déjà.</div></div>
+</div>
+<div id="aiStatus" class="notice hidden" style="margin-top:12px" role="status" aria-live="polite"></div>
+<div id="aiProgressWrap" class="hidden" style="margin-top:10px"><div class="stats"><span id="aiProgressLabel">Préparation…</span><span id="aiElapsed">0 s</span></div><div class="progress" aria-label="Progression de la requête IA"><span id="aiProgressBar" style="width:8%"></span></div><div class="help">La progression indique l’étape de la requête ; Google ne fournit pas de pourcentage réel de génération dans ce mode.</div></div>
+<div class="actions" id="aiControls" style="margin-top:10px"><button class="btn secondary hidden" id="aiCancel" type="button">Interrompre</button><button class="btn ghost hidden" id="aiRetry" type="button">Réessayer</button></div>
+<div id="interpretation" style="margin-top:20px"></div>
+</section>
+<section class="panel">
+<h2>À propos de cette lecture</h2><div class="notice">Le tarot est présenté ici comme un support symbolique de réflexion personnelle. Les significations sont des pistes à confronter à ton vécu et aux faits, pas des prédictions garanties. Ce prototype ne sauvegarde pas les tirages de manière permanente.</div>
+</section>
+</main>
+<footer class="footer">TAROT DES 78 ARCANES · VERSION HYBRIDE GEMINI 0.9<br>Une lecture symbolique, libre et personnelle.</footer>
+</div>
+<script>
+/* Catalogue complet : 22 arcanes majeurs + 56 arcanes mineurs. */
+const TAROT_CARDS = [
+  {
+    "id": "M00",
+    "name": "Le Mat",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 0,
+    "upright": {
+      "keywords": "liberté, départ, spontanéité",
+      "meaning": "Le Mat évoque liberté, départ, spontanéité. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Oser avancer sans tout contrôler"
+    },
+    "reversed": {
+      "keywords": "imprudence, dispersion, fuite",
+      "meaning": "Renversée, Le Mat peut mettre en lumière imprudence, dispersion, fuite. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Vérifier les risques avant de partir"
+    }
+  },
+  {
+    "id": "M01",
+    "name": "Le Bateleur",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 1,
+    "upright": {
+      "keywords": "initiative, potentiel, habileté",
+      "meaning": "Le Bateleur évoque initiative, potentiel, habileté. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Utiliser les ressources déjà disponibles"
+    },
+    "reversed": {
+      "keywords": "manque de préparation, dispersion",
+      "meaning": "Renversée, Le Bateleur peut mettre en lumière manque de préparation, dispersion. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Clarifier l'intention et terminer ce qui est commencé"
+    }
+  },
+  {
+    "id": "M02",
+    "name": "La Papesse",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 2,
+    "upright": {
+      "keywords": "intuition, patience, connaissance intérieure",
+      "meaning": "La Papesse évoque intuition, patience, connaissance intérieure. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Écouter et observer avant d'agir"
+    },
+    "reversed": {
+      "keywords": "silence pesant, secrets, passivité",
+      "meaning": "Renversée, La Papesse peut mettre en lumière silence pesant, secrets, passivité. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Ne pas laisser le doute remplacer les faits"
+    }
+  },
+  {
+    "id": "M03",
+    "name": "L’Impératrice",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 3,
+    "upright": {
+      "keywords": "créativité, expression, croissance",
+      "meaning": "L’Impératrice évoque créativité, expression, croissance. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Exprimer clairement les idées"
+    },
+    "reversed": {
+      "keywords": "blocage créatif, vanité, surcharge",
+      "meaning": "Renversée, L’Impératrice peut mettre en lumière blocage créatif, vanité, surcharge. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Retrouver un rythme et une parole authentiques"
+    }
+  },
+  {
+    "id": "M04",
+    "name": "L’Empereur",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 4,
+    "upright": {
+      "keywords": "structure, stabilité, responsabilité",
+      "meaning": "L’Empereur évoque structure, stabilité, responsabilité. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Poser un cadre fiable"
+    },
+    "reversed": {
+      "keywords": "rigidité, contrôle, autoritarisme",
+      "meaning": "Renversée, L’Empereur peut mettre en lumière rigidité, contrôle, autoritarisme. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Assouplir les règles qui étouffent"
+    }
+  },
+  {
+    "id": "M05",
+    "name": "Le Pape",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 5,
+    "upright": {
+      "keywords": "conseil, transmission, valeurs",
+      "meaning": "Le Pape évoque conseil, transmission, valeurs. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Chercher un conseil digne de confiance"
+    },
+    "reversed": {
+      "keywords": "dogmatisme, dépendance à l’approbation",
+      "meaning": "Renversée, Le Pape peut mettre en lumière dogmatisme, dépendance à l’approbation. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Questionner les règles suivies par habitude"
+    }
+  },
+  {
+    "id": "M06",
+    "name": "L’Amoureux",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 6,
+    "upright": {
+      "keywords": "choix, relation, accord",
+      "meaning": "L’Amoureux évoque choix, relation, accord. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Choisir en accord avec ses valeurs"
+    },
+    "reversed": {
+      "keywords": "hésitation, conflit de valeurs",
+      "meaning": "Renversée, L’Amoureux peut mettre en lumière hésitation, conflit de valeurs. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Identifier ce qui empêche de décider"
+    }
+  },
+  {
+    "id": "M07",
+    "name": "Le Chariot",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 7,
+    "upright": {
+      "keywords": "élan, détermination, progression",
+      "meaning": "Le Chariot évoque élan, détermination, progression. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Canaliser l’énergie vers un objectif"
+    },
+    "reversed": {
+      "keywords": "précipitation, perte de direction",
+      "meaning": "Renversée, Le Chariot peut mettre en lumière précipitation, perte de direction. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Réajuster la trajectoire avant d’accélérer"
+    }
+  },
+  {
+    "id": "M08",
+    "name": "La Justice",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 8,
+    "upright": {
+      "keywords": "équilibre, lucidité, responsabilité",
+      "meaning": "La Justice évoque équilibre, lucidité, responsabilité. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Examiner les faits avec équité"
+    },
+    "reversed": {
+      "keywords": "partialité, déséquilibre, jugement hâtif",
+      "meaning": "Renversée, La Justice peut mettre en lumière partialité, déséquilibre, jugement hâtif. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Corriger ce qui n’est pas proportionné"
+    }
+  },
+  {
+    "id": "M09",
+    "name": "L’Hermite",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 9,
+    "upright": {
+      "keywords": "recul, recherche, sagesse",
+      "meaning": "L’Hermite évoque recul, recherche, sagesse. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Prendre le temps de comprendre"
+    },
+    "reversed": {
+      "keywords": "isolement, lenteur excessive, fermeture",
+      "meaning": "Renversée, L’Hermite peut mettre en lumière isolement, lenteur excessive, fermeture. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Ne pas confondre recul et évitement"
+    }
+  },
+  {
+    "id": "M10",
+    "name": "La Roue de Fortune",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 10,
+    "upright": {
+      "keywords": "cycle, changement, occasion",
+      "meaning": "La Roue de Fortune évoque cycle, changement, occasion. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "S’adapter à une évolution"
+    },
+    "reversed": {
+      "keywords": "instabilité, répétition, résistance",
+      "meaning": "Renversée, La Roue de Fortune peut mettre en lumière instabilité, répétition, résistance. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Repérer le schéma qui se répète"
+    }
+  },
+  {
+    "id": "M11",
+    "name": "La Force",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 11,
+    "upright": {
+      "keywords": "courage, maîtrise, douceur ferme",
+      "meaning": "La Force évoque courage, maîtrise, douceur ferme. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Agir avec constance et calme"
+    },
+    "reversed": {
+      "keywords": "épuisement, impulsivité, doute",
+      "meaning": "Renversée, La Force peut mettre en lumière épuisement, impulsivité, doute. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Économiser son énergie et apprivoiser la réaction"
+    }
+  },
+  {
+    "id": "M12",
+    "name": "Le Pendu",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 12,
+    "upright": {
+      "keywords": "pause, perspective nouvelle, lâcher-prise",
+      "meaning": "Le Pendu évoque pause, perspective nouvelle, lâcher-prise. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Changer de point de vue"
+    },
+    "reversed": {
+      "keywords": "stagnation, sacrifice inutile, blocage",
+      "meaning": "Renversée, Le Pendu peut mettre en lumière stagnation, sacrifice inutile, blocage. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Identifier ce qui peut être relâché"
+    }
+  },
+  {
+    "id": "M13",
+    "name": "L’Arcane sans nom",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 13,
+    "upright": {
+      "keywords": "transformation, fin utile, renouvellement",
+      "meaning": "L’Arcane sans nom évoque transformation, fin utile, renouvellement. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Faire de la place à une nouvelle étape"
+    },
+    "reversed": {
+      "keywords": "résistance au changement, attachement",
+      "meaning": "Renversée, L’Arcane sans nom peut mettre en lumière résistance au changement, attachement. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Accepter la transition sans la précipiter"
+    }
+  },
+  {
+    "id": "M14",
+    "name": "Tempérance",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 14,
+    "upright": {
+      "keywords": "mesure, dialogue, ajustement",
+      "meaning": "Tempérance évoque mesure, dialogue, ajustement. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Réconcilier les besoins et avancer progressivement"
+    },
+    "reversed": {
+      "keywords": "excès, impatience, désaccord",
+      "meaning": "Renversée, Tempérance peut mettre en lumière excès, impatience, désaccord. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Rétablir un rythme plus équilibré"
+    }
+  },
+  {
+    "id": "M15",
+    "name": "Le Diable",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 15,
+    "upright": {
+      "keywords": "désir, pouvoir, attachement",
+      "meaning": "Le Diable évoque désir, pouvoir, attachement. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Reconnaître honnêtement ce qui attire"
+    },
+    "reversed": {
+      "keywords": "dépendance, emprise, déni",
+      "meaning": "Renversée, Le Diable peut mettre en lumière dépendance, emprise, déni. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Reprendre du choix face à une habitude contraignante"
+    }
+  },
+  {
+    "id": "M16",
+    "name": "La Maison Dieu",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 16,
+    "upright": {
+      "keywords": "révélation, rupture libératrice, vérité",
+      "meaning": "La Maison Dieu évoque révélation, rupture libératrice, vérité. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Reconstruire sur des bases sincères"
+    },
+    "reversed": {
+      "keywords": "peur du bouleversement, tension contenue",
+      "meaning": "Renversée, La Maison Dieu peut mettre en lumière peur du bouleversement, tension contenue. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Préparer les changements nécessaires plutôt que les nier"
+    }
+  },
+  {
+    "id": "M17",
+    "name": "L’Étoile",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 17,
+    "upright": {
+      "keywords": "espoir, inspiration, confiance",
+      "meaning": "L’Étoile évoque espoir, inspiration, confiance. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Retrouver ce qui nourrit la confiance"
+    },
+    "reversed": {
+      "keywords": "découragement, vulnérabilité, attente",
+      "meaning": "Renversée, L’Étoile peut mettre en lumière découragement, vulnérabilité, attente. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Prendre soin de soi et revenir à des gestes simples"
+    }
+  },
+  {
+    "id": "M18",
+    "name": "La Lune",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 18,
+    "upright": {
+      "keywords": "sensibilité, imaginaire, incertitude",
+      "meaning": "La Lune évoque sensibilité, imaginaire, incertitude. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Accueillir les émotions sans conclure trop vite"
+    },
+    "reversed": {
+      "keywords": "confusion, anxiété, illusion qui se dissipe",
+      "meaning": "Renversée, La Lune peut mettre en lumière confusion, anxiété, illusion qui se dissipe. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Vérifier les suppositions et chercher de la clarté"
+    }
+  },
+  {
+    "id": "M19",
+    "name": "Le Soleil",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 19,
+    "upright": {
+      "keywords": "clarté, joie, coopération",
+      "meaning": "Le Soleil évoque clarté, joie, coopération. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Partager ouvertement et reconnaître les réussites"
+    },
+    "reversed": {
+      "keywords": "malentendu, ego, enthousiasme fragile",
+      "meaning": "Renversée, Le Soleil peut mettre en lumière malentendu, ego, enthousiasme fragile. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Clarifier les attentes et rétablir le dialogue"
+    }
+  },
+  {
+    "id": "M20",
+    "name": "Le Jugement",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 20,
+    "upright": {
+      "keywords": "prise de conscience, appel, renouveau",
+      "meaning": "Le Jugement évoque prise de conscience, appel, renouveau. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Répondre à ce qui devient évident"
+    },
+    "reversed": {
+      "keywords": "autocritique, hésitation, difficulté à tourner la page",
+      "meaning": "Renversée, Le Jugement peut mettre en lumière autocritique, hésitation, difficulté à tourner la page. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Écouter l’appel sans rester prisonnier du passé"
+    }
+  },
+  {
+    "id": "M21",
+    "name": "Le Monde",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 21,
+    "upright": {
+      "keywords": "accomplissement, intégration, ouverture",
+      "meaning": "Le Monde évoque accomplissement, intégration, ouverture. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Reconnaître le chemin parcouru et finaliser"
+    },
+    "reversed": {
+      "keywords": "inachèvement, dispersion, difficulté à conclure",
+      "meaning": "Renversée, Le Monde peut mettre en lumière inachèvement, dispersion, difficulté à conclure. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Définir ce qui manque pour boucler le cycle"
+    }
+  },
+  {
+    "id": "B00",
+    "name": "As de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 0,
+    "upright": {
+      "keywords": "occasion, germe, potentiel; élan, créativité, action",
+      "meaning": "As de Bâtons associe occasion, germe, potentiel aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "occasion ignorée, départ retardé; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, As de Bâtons peut signaler occasion ignorée, départ retardé, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B01",
+    "name": "Deux de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 1,
+    "upright": {
+      "keywords": "dualité, choix, coopération; élan, créativité, action",
+      "meaning": "Deux de Bâtons associe dualité, choix, coopération aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "indécision, déséquilibre; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Deux de Bâtons peut signaler indécision, déséquilibre, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B02",
+    "name": "Trois de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 2,
+    "upright": {
+      "keywords": "construction, collaboration, progression; élan, créativité, action",
+      "meaning": "Trois de Bâtons associe construction, collaboration, progression aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "coordination difficile, progrès dispersés; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Trois de Bâtons peut signaler coordination difficile, progrès dispersés, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B03",
+    "name": "Quatre de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 3,
+    "upright": {
+      "keywords": "stabilité, protection, structure; élan, créativité, action",
+      "meaning": "Quatre de Bâtons associe stabilité, protection, structure aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "rigidité, contrôle, sécurité excessive; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Quatre de Bâtons peut signaler rigidité, contrôle, sécurité excessive, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B04",
+    "name": "Cinq de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 4,
+    "upright": {
+      "keywords": "tension, défi, ajustement; élan, créativité, action",
+      "meaning": "Cinq de Bâtons associe tension, défi, ajustement aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "conflit qui s’apaise, évitement du problème; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Cinq de Bâtons peut signaler conflit qui s’apaise, évitement du problème, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B05",
+    "name": "Six de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 5,
+    "upright": {
+      "keywords": "soutien, échange, transition; élan, créativité, action",
+      "meaning": "Six de Bâtons associe soutien, échange, transition aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "attentes inégales, difficulté à recevoir; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Six de Bâtons peut signaler attentes inégales, difficulté à recevoir, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B06",
+    "name": "Sept de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 6,
+    "upright": {
+      "keywords": "évaluation, patience, stratégie; élan, créativité, action",
+      "meaning": "Sept de Bâtons associe évaluation, patience, stratégie aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "impatience, doute sur les efforts; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Sept de Bâtons peut signaler impatience, doute sur les efforts, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B07",
+    "name": "Huit de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 7,
+    "upright": {
+      "keywords": "apprentissage, pratique, mouvement; élan, créativité, action",
+      "meaning": "Huit de Bâtons associe apprentissage, pratique, mouvement aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "retard, routine inefficace, précipitation; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Huit de Bâtons peut signaler retard, routine inefficace, précipitation, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B08",
+    "name": "Neuf de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 8,
+    "upright": {
+      "keywords": "autonomie, maturité, résultat; élan, créativité, action",
+      "meaning": "Neuf de Bâtons associe autonomie, maturité, résultat aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "isolement, inquiétude, résultat fragile; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Neuf de Bâtons peut signaler isolement, inquiétude, résultat fragile, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B09",
+    "name": "Dix de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 9,
+    "upright": {
+      "keywords": "aboutissement, charge, cycle complet; élan, créativité, action",
+      "meaning": "Dix de Bâtons associe aboutissement, charge, cycle complet aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "surcharge, clôture difficile, responsabilité excessive; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Dix de Bâtons peut signaler surcharge, clôture difficile, responsabilité excessive, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B10",
+    "name": "Valet de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 10,
+    "upright": {
+      "keywords": "curiosité, message, apprentissage; élan, créativité, action",
+      "meaning": "Valet de Bâtons associe curiosité, message, apprentissage aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "immaturité, message mal compris; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Valet de Bâtons peut signaler immaturité, message mal compris, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B11",
+    "name": "Cavalier de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 11,
+    "upright": {
+      "keywords": "mouvement, initiative, exploration; élan, créativité, action",
+      "meaning": "Cavalier de Bâtons associe mouvement, initiative, exploration aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "hâte, instabilité, direction floue; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Cavalier de Bâtons peut signaler hâte, instabilité, direction floue, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B12",
+    "name": "Reine de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 12,
+    "upright": {
+      "keywords": "maturité, écoute, maîtrise; élan, créativité, action",
+      "meaning": "Reine de Bâtons associe maturité, écoute, maîtrise aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "sensibilité défensive, contrôle émotionnel; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Reine de Bâtons peut signaler sensibilité défensive, contrôle émotionnel, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B13",
+    "name": "Roi de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 13,
+    "upright": {
+      "keywords": "leadership, stabilité, maîtrise; élan, créativité, action",
+      "meaning": "Roi de Bâtons associe leadership, stabilité, maîtrise aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "autorité rigide, excès de contrôle; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Roi de Bâtons peut signaler autorité rigide, excès de contrôle, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "C00",
+    "name": "As de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 0,
+    "upright": {
+      "keywords": "occasion, germe, potentiel; émotions, lien, réceptivité",
+      "meaning": "As de Coupes associe occasion, germe, potentiel aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "occasion ignorée, départ retardé; émotions retenues, déception, débordement",
+      "meaning": "Renversé, As de Coupes peut signaler occasion ignorée, départ retardé, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C01",
+    "name": "Deux de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 1,
+    "upright": {
+      "keywords": "dualité, choix, coopération; émotions, lien, réceptivité",
+      "meaning": "Deux de Coupes associe dualité, choix, coopération aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "indécision, déséquilibre; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Deux de Coupes peut signaler indécision, déséquilibre, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C02",
+    "name": "Trois de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 2,
+    "upright": {
+      "keywords": "construction, collaboration, progression; émotions, lien, réceptivité",
+      "meaning": "Trois de Coupes associe construction, collaboration, progression aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "coordination difficile, progrès dispersés; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Trois de Coupes peut signaler coordination difficile, progrès dispersés, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C03",
+    "name": "Quatre de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 3,
+    "upright": {
+      "keywords": "stabilité, protection, structure; émotions, lien, réceptivité",
+      "meaning": "Quatre de Coupes associe stabilité, protection, structure aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "rigidité, contrôle, sécurité excessive; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Quatre de Coupes peut signaler rigidité, contrôle, sécurité excessive, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C04",
+    "name": "Cinq de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 4,
+    "upright": {
+      "keywords": "tension, défi, ajustement; émotions, lien, réceptivité",
+      "meaning": "Cinq de Coupes associe tension, défi, ajustement aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "conflit qui s’apaise, évitement du problème; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Cinq de Coupes peut signaler conflit qui s’apaise, évitement du problème, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C05",
+    "name": "Six de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 5,
+    "upright": {
+      "keywords": "soutien, échange, transition; émotions, lien, réceptivité",
+      "meaning": "Six de Coupes associe soutien, échange, transition aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "attentes inégales, difficulté à recevoir; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Six de Coupes peut signaler attentes inégales, difficulté à recevoir, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C06",
+    "name": "Sept de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 6,
+    "upright": {
+      "keywords": "évaluation, patience, stratégie; émotions, lien, réceptivité",
+      "meaning": "Sept de Coupes associe évaluation, patience, stratégie aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "impatience, doute sur les efforts; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Sept de Coupes peut signaler impatience, doute sur les efforts, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C07",
+    "name": "Huit de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 7,
+    "upright": {
+      "keywords": "apprentissage, pratique, mouvement; émotions, lien, réceptivité",
+      "meaning": "Huit de Coupes associe apprentissage, pratique, mouvement aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "retard, routine inefficace, précipitation; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Huit de Coupes peut signaler retard, routine inefficace, précipitation, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C08",
+    "name": "Neuf de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 8,
+    "upright": {
+      "keywords": "autonomie, maturité, résultat; émotions, lien, réceptivité",
+      "meaning": "Neuf de Coupes associe autonomie, maturité, résultat aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "isolement, inquiétude, résultat fragile; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Neuf de Coupes peut signaler isolement, inquiétude, résultat fragile, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C09",
+    "name": "Dix de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 9,
+    "upright": {
+      "keywords": "aboutissement, charge, cycle complet; émotions, lien, réceptivité",
+      "meaning": "Dix de Coupes associe aboutissement, charge, cycle complet aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "surcharge, clôture difficile, responsabilité excessive; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Dix de Coupes peut signaler surcharge, clôture difficile, responsabilité excessive, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C10",
+    "name": "Valet de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 10,
+    "upright": {
+      "keywords": "curiosité, message, apprentissage; émotions, lien, réceptivité",
+      "meaning": "Valet de Coupes associe curiosité, message, apprentissage aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "immaturité, message mal compris; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Valet de Coupes peut signaler immaturité, message mal compris, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C11",
+    "name": "Cavalier de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 11,
+    "upright": {
+      "keywords": "mouvement, initiative, exploration; émotions, lien, réceptivité",
+      "meaning": "Cavalier de Coupes associe mouvement, initiative, exploration aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "hâte, instabilité, direction floue; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Cavalier de Coupes peut signaler hâte, instabilité, direction floue, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C12",
+    "name": "Reine de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 12,
+    "upright": {
+      "keywords": "maturité, écoute, maîtrise; émotions, lien, réceptivité",
+      "meaning": "Reine de Coupes associe maturité, écoute, maîtrise aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "sensibilité défensive, contrôle émotionnel; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Reine de Coupes peut signaler sensibilité défensive, contrôle émotionnel, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C13",
+    "name": "Roi de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 13,
+    "upright": {
+      "keywords": "leadership, stabilité, maîtrise; émotions, lien, réceptivité",
+      "meaning": "Roi de Coupes associe leadership, stabilité, maîtrise aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "autorité rigide, excès de contrôle; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Roi de Coupes peut signaler autorité rigide, excès de contrôle, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "E00",
+    "name": "As de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 0,
+    "upright": {
+      "keywords": "occasion, germe, potentiel; pensée, vérité, décision",
+      "meaning": "As de Épées associe occasion, germe, potentiel aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "occasion ignorée, départ retardé; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, As de Épées peut signaler occasion ignorée, départ retardé, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E01",
+    "name": "Deux de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 1,
+    "upright": {
+      "keywords": "dualité, choix, coopération; pensée, vérité, décision",
+      "meaning": "Deux de Épées associe dualité, choix, coopération aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "indécision, déséquilibre; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Deux de Épées peut signaler indécision, déséquilibre, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E02",
+    "name": "Trois de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 2,
+    "upright": {
+      "keywords": "construction, collaboration, progression; pensée, vérité, décision",
+      "meaning": "Trois de Épées associe construction, collaboration, progression aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "coordination difficile, progrès dispersés; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Trois de Épées peut signaler coordination difficile, progrès dispersés, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E03",
+    "name": "Quatre de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 3,
+    "upright": {
+      "keywords": "stabilité, protection, structure; pensée, vérité, décision",
+      "meaning": "Quatre de Épées associe stabilité, protection, structure aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "rigidité, contrôle, sécurité excessive; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Quatre de Épées peut signaler rigidité, contrôle, sécurité excessive, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E04",
+    "name": "Cinq de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 4,
+    "upright": {
+      "keywords": "tension, défi, ajustement; pensée, vérité, décision",
+      "meaning": "Cinq de Épées associe tension, défi, ajustement aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "conflit qui s’apaise, évitement du problème; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Cinq de Épées peut signaler conflit qui s’apaise, évitement du problème, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E05",
+    "name": "Six de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 5,
+    "upright": {
+      "keywords": "soutien, échange, transition; pensée, vérité, décision",
+      "meaning": "Six de Épées associe soutien, échange, transition aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "attentes inégales, difficulté à recevoir; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Six de Épées peut signaler attentes inégales, difficulté à recevoir, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E06",
+    "name": "Sept de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 6,
+    "upright": {
+      "keywords": "évaluation, patience, stratégie; pensée, vérité, décision",
+      "meaning": "Sept de Épées associe évaluation, patience, stratégie aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "impatience, doute sur les efforts; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Sept de Épées peut signaler impatience, doute sur les efforts, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E07",
+    "name": "Huit de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 7,
+    "upright": {
+      "keywords": "apprentissage, pratique, mouvement; pensée, vérité, décision",
+      "meaning": "Huit de Épées associe apprentissage, pratique, mouvement aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "retard, routine inefficace, précipitation; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Huit de Épées peut signaler retard, routine inefficace, précipitation, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E08",
+    "name": "Neuf de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 8,
+    "upright": {
+      "keywords": "autonomie, maturité, résultat; pensée, vérité, décision",
+      "meaning": "Neuf de Épées associe autonomie, maturité, résultat aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "isolement, inquiétude, résultat fragile; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Neuf de Épées peut signaler isolement, inquiétude, résultat fragile, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E09",
+    "name": "Dix de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 9,
+    "upright": {
+      "keywords": "aboutissement, charge, cycle complet; pensée, vérité, décision",
+      "meaning": "Dix de Épées associe aboutissement, charge, cycle complet aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "surcharge, clôture difficile, responsabilité excessive; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Dix de Épées peut signaler surcharge, clôture difficile, responsabilité excessive, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E10",
+    "name": "Valet de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 10,
+    "upright": {
+      "keywords": "curiosité, message, apprentissage; pensée, vérité, décision",
+      "meaning": "Valet de Épées associe curiosité, message, apprentissage aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "immaturité, message mal compris; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Valet de Épées peut signaler immaturité, message mal compris, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E11",
+    "name": "Cavalier de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 11,
+    "upright": {
+      "keywords": "mouvement, initiative, exploration; pensée, vérité, décision",
+      "meaning": "Cavalier de Épées associe mouvement, initiative, exploration aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "hâte, instabilité, direction floue; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Cavalier de Épées peut signaler hâte, instabilité, direction floue, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E12",
+    "name": "Reine de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 12,
+    "upright": {
+      "keywords": "maturité, écoute, maîtrise; pensée, vérité, décision",
+      "meaning": "Reine de Épées associe maturité, écoute, maîtrise aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "sensibilité défensive, contrôle émotionnel; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Reine de Épées peut signaler sensibilité défensive, contrôle émotionnel, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E13",
+    "name": "Roi de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 13,
+    "upright": {
+      "keywords": "leadership, stabilité, maîtrise; pensée, vérité, décision",
+      "meaning": "Roi de Épées associe leadership, stabilité, maîtrise aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "autorité rigide, excès de contrôle; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Roi de Épées peut signaler autorité rigide, excès de contrôle, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "D00",
+    "name": "As de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 0,
+    "upright": {
+      "keywords": "occasion, germe, potentiel; ressources, corps, travail concret",
+      "meaning": "As de Deniers associe occasion, germe, potentiel aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "occasion ignorée, départ retardé; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, As de Deniers peut signaler occasion ignorée, départ retardé, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D01",
+    "name": "Deux de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 1,
+    "upright": {
+      "keywords": "dualité, choix, coopération; ressources, corps, travail concret",
+      "meaning": "Deux de Deniers associe dualité, choix, coopération aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "indécision, déséquilibre; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Deux de Deniers peut signaler indécision, déséquilibre, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D02",
+    "name": "Trois de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 2,
+    "upright": {
+      "keywords": "construction, collaboration, progression; ressources, corps, travail concret",
+      "meaning": "Trois de Deniers associe construction, collaboration, progression aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "coordination difficile, progrès dispersés; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Trois de Deniers peut signaler coordination difficile, progrès dispersés, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D03",
+    "name": "Quatre de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 3,
+    "upright": {
+      "keywords": "stabilité, protection, structure; ressources, corps, travail concret",
+      "meaning": "Quatre de Deniers associe stabilité, protection, structure aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "rigidité, contrôle, sécurité excessive; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Quatre de Deniers peut signaler rigidité, contrôle, sécurité excessive, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D04",
+    "name": "Cinq de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 4,
+    "upright": {
+      "keywords": "tension, défi, ajustement; ressources, corps, travail concret",
+      "meaning": "Cinq de Deniers associe tension, défi, ajustement aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "conflit qui s’apaise, évitement du problème; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Cinq de Deniers peut signaler conflit qui s’apaise, évitement du problème, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D05",
+    "name": "Six de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 5,
+    "upright": {
+      "keywords": "soutien, échange, transition; ressources, corps, travail concret",
+      "meaning": "Six de Deniers associe soutien, échange, transition aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "attentes inégales, difficulté à recevoir; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Six de Deniers peut signaler attentes inégales, difficulté à recevoir, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D06",
+    "name": "Sept de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 6,
+    "upright": {
+      "keywords": "évaluation, patience, stratégie; ressources, corps, travail concret",
+      "meaning": "Sept de Deniers associe évaluation, patience, stratégie aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "impatience, doute sur les efforts; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Sept de Deniers peut signaler impatience, doute sur les efforts, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D07",
+    "name": "Huit de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 7,
+    "upright": {
+      "keywords": "apprentissage, pratique, mouvement; ressources, corps, travail concret",
+      "meaning": "Huit de Deniers associe apprentissage, pratique, mouvement aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "retard, routine inefficace, précipitation; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Huit de Deniers peut signaler retard, routine inefficace, précipitation, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D08",
+    "name": "Neuf de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 8,
+    "upright": {
+      "keywords": "autonomie, maturité, résultat; ressources, corps, travail concret",
+      "meaning": "Neuf de Deniers associe autonomie, maturité, résultat aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "isolement, inquiétude, résultat fragile; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Neuf de Deniers peut signaler isolement, inquiétude, résultat fragile, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D09",
+    "name": "Dix de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 9,
+    "upright": {
+      "keywords": "aboutissement, charge, cycle complet; ressources, corps, travail concret",
+      "meaning": "Dix de Deniers associe aboutissement, charge, cycle complet aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "surcharge, clôture difficile, responsabilité excessive; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Dix de Deniers peut signaler surcharge, clôture difficile, responsabilité excessive, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D10",
+    "name": "Valet de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 10,
+    "upright": {
+      "keywords": "curiosité, message, apprentissage; ressources, corps, travail concret",
+      "meaning": "Valet de Deniers associe curiosité, message, apprentissage aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "immaturité, message mal compris; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Valet de Deniers peut signaler immaturité, message mal compris, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D11",
+    "name": "Cavalier de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 11,
+    "upright": {
+      "keywords": "mouvement, initiative, exploration; ressources, corps, travail concret",
+      "meaning": "Cavalier de Deniers associe mouvement, initiative, exploration aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "hâte, instabilité, direction floue; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Cavalier de Deniers peut signaler hâte, instabilité, direction floue, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D12",
+    "name": "Reine de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 12,
+    "upright": {
+      "keywords": "maturité, écoute, maîtrise; ressources, corps, travail concret",
+      "meaning": "Reine de Deniers associe maturité, écoute, maîtrise aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "sensibilité défensive, contrôle émotionnel; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Reine de Deniers peut signaler sensibilité défensive, contrôle émotionnel, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D13",
+    "name": "Roi de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 13,
+    "upright": {
+      "keywords": "leadership, stabilité, maîtrise; ressources, corps, travail concret",
+      "meaning": "Roi de Deniers associe leadership, stabilité, maîtrise aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "autorité rigide, excès de contrôle; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Roi de Deniers peut signaler autorité rigide, excès de contrôle, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  }
+];
+
+</script>
+<script>
+const $=id=>document.getElementById(id);
+let deck=[], selected=[], orientations={}, revealed=false;
+const positions={
+  1:["Éclairage","Le thème central à contempler dans ta question."],
+  3:["Situation actuelle","Ce qui semble au premier plan." ,"Conseil","Une attitude utile à explorer." ,"Évolution possible","Une direction symbolique, pas une prédiction."],
+  5:["Situation","Les forces présentes." ,"Défi","Ce qui demande attention." ,"Ressource","Ce qui peut aider." ,"Conseil","Une action ou posture à envisager." ,"Piste d’évolution","Une possibilité à examiner."],
+  7:["Contexte","Les circonstances à considérer." ,"Toi face à la situation","Ta posture, tes attentes ou tes ressources." ,"Influence extérieure","Ce qui vient de l’environnement." ,"Obstacle","Ce qui freine ou complique." ,"Ressource","Ce qui peut soutenir." ,"Conseil","Une posture à essayer." ,"Tendance possible","Une direction à explorer."],
+  10:["Situation présente","Le cœur du sujet." ,"Tension ou croisement","Les forces qui se rencontrent." ,"Fondation","Un élément sous-jacent à examiner." ,"Passé récent","Ce qui a conduit ici." ,"Conscience","Ce que tu identifies déjà." ,"Proche évolution","Une évolution possible." ,"Ta posture","Ta manière d’aborder la situation." ,"Environnement","Les influences extérieures." ,"Espoirs et craintes","Les attentes qui colorent la lecture." ,"Synthèse","Le fil conducteur du tirage."]
+};
+const fallbackPositions=n=>Array.from({length:n},(_,i)=>[`Carte ${i+1}`, "Un angle de réflexion pour la question."]).flat();
+function positionsFor(n){return positions[n]||fallbackPositions(n)}
+function shuffleArray(a){for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function shuffleDeck(){deck=shuffleArray([...TAROT_CARDS]);selected=[];orientations={};deck.forEach(card=>orientations[card.id]=Math.random()<.32);revealed=false;$("result").classList.add("hidden");renderDeck();updateProgress();$("interpretation").innerHTML=""}
+function renderDeck(){const root=$("deck");root.innerHTML="";deck.forEach((card,i)=>{const b=document.createElement("button");b.className="cardback"+(selected.includes(card.id)?" selected":"");b.type="button";b.setAttribute("aria-label",`Carte face cachée ${i+1}`);b.innerHTML=`<span class="num">${String(i+1).padStart(2,"0")}</span>`;b.disabled=selected.length>=Number($("count").value)&&!selected.includes(card.id);b.addEventListener("click",()=>toggleCard(card));root.appendChild(b)})}
+function toggleCard(card){if(revealed)return;const n=Number($("count").value);if(selected.includes(card.id)){selected=selected.filter(id=>id!==card.id)}else{if(selected.length>=n)return;selected.push(card.id)}renderDeck();updateProgress()}
+function updateProgress(){const n=Number($("count").value);$("countLabel").textContent=`${selected.length} / ${n} cartes sélectionnées`;$("progress").style.width=`${selected.length/n*100}%`;$("reveal").disabled=selected.length!==n}
+function flipOrientations(){selected.forEach(id=>orientations[id]=Math.random()<.32);renderDeck();if(revealed)renderDrawn()}
+function getSelected(){return selected.map(id=>({card:TAROT_CARDS.find(c=>c.id===id),reversed:!!orientations[id]}))}
+function revealCards(){revealed=true;$("result").classList.remove("hidden");$("summary").textContent=`Thème : ${$("domain").value} · Question : ${$("question").value.trim()||"Tirage général"} · ${selected.length} cartes`;renderDrawn();$("interpretation").innerHTML="";$("aiStatus").classList.add("hidden");$("result").scrollIntoView({behavior:"smooth",block:"start"})}
+function renderDrawn(){const root=$("drawn");root.innerHTML="";const n=selected.length;const pos=positionsFor(n);getSelected().forEach((item,i)=>{const name=pos[i*2]||`Carte ${i+1}`;const el=document.createElement("div");el.className="drawnitem";el.innerHTML=`<div class="tarotface ${item.reversed?"reversed":""}"><div class="inner"><div class="cardname"></div><div style="font-size:10px">${item.reversed?"RENversée":"DROITE"}</div></div></div><div class="poslabel"></div>`;const face=el.querySelector(".tarotface");face.style.backgroundImage=window.SanctuaireCardArt(item.card.name,item.card.suit||item.card.arcana||"Arcane","tarot");el.querySelector(".cardname").textContent=item.card.name;el.querySelector(".poslabel").textContent=name;root.appendChild(el)})}
+function localAnalysis(){
+ const items=getSelected(), n=items.length, pos=positionsFor(n), domain=$("domain").value, question=$("question").value.trim();
+ if(!items.length){$("interpretation").innerHTML='<div class="notice">Choisis d’abord tes cartes.</div>';return;}
+ const cardData=items.map((it,i)=>({it,i,side:it.reversed?"reversed":"upright",d:it.card[it.reversed?"reversed":"upright"],position:pos[i*2]||`Carte ${i+1}`}));
+ const allText=cardData.map(x=>`${x.it.card.name} ${x.d.keywords} ${x.d.meaning}`).join(" ").toLowerCase();
+ const majors=items.filter(x=>x.card.arcana==="majeur").length;
+ const reversals=items.filter(x=>x.reversed).length;
+ const suits={}; items.forEach(x=>{if(x.card.suit)suits[x.card.suit]=(suits[x.card.suit]||0)+1});
+ const suitMeanings={"Bâtons":"élan, désir, créativité et passage à l’action","Coupes":"émotions, liens, intuition et réceptivité","Épées":"pensées, communication, choix et tensions","Deniers":"corps, ressources, travail et stabilité concrète"};
+ const suitAdvice={"Bâtons":"Transforme l’envie en une action mesurée, sans confondre vitesse et progrès.","Coupes":"Accueille l’émotion, puis vérifie ce que l’autre exprime réellement par ses paroles et ses actes.","Épées":"Clarifie les faits, formule la question sans détour et évite de prendre une inquiétude pour une preuve.","Deniers":"Reviens au concret : temps, budget, disponibilité, habitudes et étapes vérifiables."};
+ const themes=[]; Object.entries(suits).sort((a,b)=>b[1]-a[1]).forEach(([suit,count])=>{if(count>=2)themes.push(`${count} cartes de ${suit} mettent l’accent sur ${suitMeanings[suit]||suit}.`)});
+ if(majors>=Math.ceil(n/2))themes.push(`La forte présence des arcanes majeurs (${majors}/${n}) donne à ce tirage une portée de fond : il peut s’agir d’un changement de perspective ou d’une étape importante plutôt que d’un simple détail.`);
+ if(reversals===0)themes.push("Toutes les cartes sont droites : la lecture privilégie ici l’expression visible des thèmes, sans que cela garantisse une issue facile.");
+ else if(reversals===n)themes.push("Toutes les cartes sont renversées : lis cela comme une invitation à ralentir, réexaminer les blocages ou regarder les choses de l’intérieur, et non comme un présage négatif.");
+ else if(reversals>=Math.ceil(n/2))themes.push(`La majorité des cartes est renversée (${reversals}/${n}) : l’attention se porte sur ce qui est retenu, mal ajusté, intériorisé ou demande à être revu.`);
+ else if(reversals>0)themes.push(`${reversals} carte(s) renversée(s) introduisent un contraste : certains aspects semblent prêts à avancer, tandis que d’autres demandent une révision ou davantage de recul.`);
+ const domainLens={"Amour et relations":"Dans les relations, distingue les sentiments, les besoins exprimés et les comportements réellement observables. Une carte ne peut pas confirmer à elle seule ce qu’une autre personne pense.","Travail et projets":"Pour le travail, traduis les symboles en questions de priorité, de coopération, de compétences, de délais et de marge de manœuvre.","Finances et décisions matérielles":"Pour les décisions matérielles, utilise ce tirage comme un outil de réflexion et vérifie chaque chiffre, risque et engagement à partir de données concrètes.","Famille et entourage":"Dans l’entourage, observe les rôles, les limites et la qualité du dialogue sans attribuer d’intentions certaines aux autres.","Évolution personnelle":"Pour le cheminement personnel, cherche ce que tu peux reconnaître, apprendre ou changer sans te juger sévèrement.","Général":"Garde ensemble le contexte, tes ressources et la prochaine étape possible ; le tirage n’impose pas une seule interprétation."};
+ const intro=question?`Ta question — « ${question} » — sert de fil conducteur. Le tirage ne donne pas une réponse certaine : il propose une lecture symbolique à confronter à ce que tu sais déjà et aux faits.`:"Sans question précise, ce tirage offre une vue d’ensemble. Tu peux le rendre plus pertinent en formulant ensuite une question ouverte.";
+ let out=`<div class="reading"><h3>Vue d’ensemble du tirage</h3><p><strong>Thème :</strong> ${escapeHtml(domain)}.</p><p>${escapeHtml(intro)}</p><p>${escapeHtml(domainLens[domain]||domainLens.Général)}</p><p><strong>Fil conducteur :</strong> ${escapeHtml(cardData.map(x=>x.it.card.name+(x.it.reversed?" (renversée)":"")).join(" → "))}.</p></div>`;
+ if(themes.length)out+=`<div class="reading"><h3>Motifs qui se dégagent</h3>${themes.map(t=>`<p>${escapeHtml(t)}</p>`).join("")}</div>`;
+ cardData.forEach((x,i)=>{const d=x.d, next=cardData[i+1];let relation="";
+   if(next){const sameSuit=x.it.card.suit&&x.it.card.suit===next.it.card.suit;const contrast=x.it.reversed!==next.it.reversed;if(sameSuit)relation+=` Cette carte répond à la suivante par le même domaine (${x.it.card.suit}) : le sujet semble se développer d’une position à l’autre.`;if(contrast)relation+=` Le contraste d’orientation avec ${next.it.card.name} invite à distinguer ce qui paraît plus disponible de ce qui nécessite un réajustement.`;}
+   out+=`<div class="reading"><h3>${i+1}. ${escapeHtml(x.position)} — ${escapeHtml(x.it.card.name)} ${x.it.reversed?"(renversée)":"(droite)"}</h3><div class="keywords">${escapeHtml(d.keywords||"")}</div><p>${escapeHtml(d.meaning||"")}</p><p><strong>Dans cette position :</strong> ${escapeHtml(x.position)} ${i===0?"sert de point de départ à la lecture.":i===n-1?"donne une piste de synthèse ou d’évolution, pas un futur inévitable.":"apporte un éclairage complémentaire au fil de la lecture."}</p><p class="advice"><strong>Piste concrète :</strong> ${escapeHtml(d.advice||"Prends le temps de vérifier ce qui est pertinent dans ta situation.")}${escapeHtml(relation)}</p></div>`;
+ });
+ const strongest=cardData.slice().sort((a,b)=>(b.it.card.arcana==="majeur")-(a.it.card.arcana==="majeur"))[0];
+ const topSuit=Object.entries(suits).sort((a,b)=>b[1]-a[1])[0];
+ const action=topSuit?suitAdvice[topSuit[0]]||"Choisis une prochaine étape modeste et vérifiable.":"Note le point qui t’a le plus marqué, puis choisis une action modeste et vérifiable.";
+ out+=`<div class="reading"><h3>Comment relier les cartes</h3><p>Ne lis pas chaque carte comme une réponse indépendante. La première pose le décor, les positions suivantes ajoutent des nuances, et la dernière invite à rassembler les éléments. Si deux messages semblent contradictoires, ils peuvent décrire deux besoins différents ou un décalage entre l’intention et la manière d’agir.</p><p><strong>Point à examiner :</strong> ${escapeHtml(strongest.it.card.name)} ${strongest.it.reversed?"renversée":"droite"} mérite une attention particulière comme symbole dominant de cette lecture ; cela ne signifie pas qu’elle annule les autres cartes.</p><p class="advice"><strong>Prochaine étape réaliste :</strong> ${escapeHtml(action)}</p><p><strong>Question de clôture :</strong> Quel élément de cette lecture correspond à un fait que tu peux vérifier, et quelle petite décision reste réellement sous ton contrôle ?</p></div>`;
+ $("interpretation").innerHTML=out;
+}
+
+function makeAiPrompt(){
+ const items=getSelected(), n=items.length, pos=positionsFor(n), domain=$("domain").value, question=$("question").value.trim()||"Aucune question précisée";
+ const cards=items.map((x,i)=>({position:pos[i*2]||`Carte ${i+1}`,name:x.card.name,arcana:x.card.arcana,suit:x.card.suit||null,orientation:x.reversed?"renversée":"droite",keywords:(x.card[x.reversed?"reversed":"upright"]||{}).keywords,meaning:(x.card[x.reversed?"reversed":"upright"]||{}).meaning,advice:(x.card[x.reversed?"reversed":"upright"]||{}).advice}));
+ return `Tu es un tarologue expérimenté, nuancé, responsable et très attentif aux combinaisons. Rédige en français une interprétation personnalisée et approfondie de ce tirage. Ne répète pas simplement les définitions : relie les cartes entre elles, leurs positions, orientations et éventuelles tensions. N'invente pas de faits sur la personne, ne prétends pas connaître les pensées d'autrui et ne présente jamais une prédiction comme une certitude. Pour les sujets médicaux, juridiques ou financiers, reste prudent et encourage à vérifier auprès de professionnels lorsque nécessaire. Évite le fatalisme. Donne des hypothèses symboliques et distingue-les des faits. Structure avec les titres : 1) réponse synthétique à la question, 2) dynamique globale et combinaisons, 3) lecture de chaque position, 4) tensions/ressources, 5) conseil concret et réaliste, 6) conclusion et question à se poser. Sois substantiel, précis, humain et évite les généralités vagues. Pour chaque carte, explique son rôle dans sa position et son lien avec au moins une autre carte. Appuie l’analyse sur les données du tirage, ne remplis pas avec des formules passe-partout. Vise environ 600 à 850 mots selon le nombre de cartes, sans répétitions. Privilégie une réponse claire et directe plutôt qu’un long raisonnement interne.\n\nDomaine : ${domain}\nQuestion : ${question}\nNombre de cartes : ${n}\nDonnées du tirage : ${JSON.stringify(cards,null,2)}`;
+}
+let aiController=null, aiStartedAt=0, aiElapsedTimer=null, aiRequestRunning=false;
+function setAiProgress(percent,label){
+ const wrap=$("aiProgressWrap");wrap.classList.remove("hidden");$("aiProgressBar").style.width=Math.max(4,Math.min(100,percent))+"%";$("aiProgressLabel").textContent=label;
+}
+function stopAiTimer(){if(aiElapsedTimer){clearInterval(aiElapsedTimer);aiElapsedTimer=null;}}
+function updateAiElapsed(){const seconds=Math.floor((Date.now()-aiStartedAt)/1000);$("aiElapsed").textContent=seconds+" s";if(seconds>15 && aiRequestRunning) $("aiProgressLabel").textContent="Toujours en attente de la réponse de Gemini…";}
+function cancelAiAnalysis(){if(aiController){aiController.abort();} }
+async function aiAnalysis(){
+ if(aiRequestRunning)return;
+ const box=$("aiStatus"), key=$("aiKey").value.trim(), model=$("aiModel").value;
+ box.classList.remove("hidden");$("aiRetry").classList.add("hidden");$("aiCancel").classList.add("hidden");
+ if(!getSelected().length){box.textContent="Choisis d’abord tes cartes, puis révèle le tirage.";return;}
+ if(!key){box.textContent="Ajoute une clé API Gemini créée dans Google AI Studio. Le moteur local reste disponible sans clé.";return;}
+ aiRequestRunning=true;aiController=new AbortController();aiStartedAt=Date.now();
+ $("aiAnalysis").disabled=true;$("aiCancel").classList.remove("hidden");
+ box.textContent="Connexion à Gemini…";setAiProgress(8,"Préparation du tirage et de la question…");
+ aiElapsedTimer=setInterval(updateAiElapsed,1000);updateAiElapsed();
+ const timeout=setTimeout(()=>{if(aiController && !aiController.signal.aborted) aiController.abort("timeout");},150000);
+ try{
+  const prompt=makeAiPrompt();setAiProgress(24,"Demande envoyée. Gemini prépare l’interprétation ; cette étape peut prendre quelques secondes…");
+  const response=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent`,{method:"POST",headers:{"Content-Type":"application/json","x-goog-api-key":key},signal:aiController.signal,body:JSON.stringify({contents:[{role:"user",parts:[{text:prompt}]}],generationConfig:{temperature:0.7,maxOutputTokens:4096,...(model.includes("flash-lite")?{}:{thinkingConfig:{thinkingLevel:"LOW"}})}})});
+  setAiProgress(72,"Réponse reçue : lecture du résultat…");
+  let data={};try{data=await response.json()}catch{}
+  if(!response.ok){const apiMessage=data?.error?.message||`Erreur HTTP ${response.status}`;let extra="";if(response.status===400)extra=" Vérifie le nom du modèle et la validité de la clé.";if(response.status===401||response.status===403)extra=" Vérifie la clé et ses autorisations.";if(response.status===429)extra=" Le quota gratuit est peut-être atteint : attends ou vérifie les limites dans Google AI Studio.";throw new Error(apiMessage+extra);}
+  const candidate=(data.candidates||[])[0];
+  const answer=(data.candidates||[]).flatMap(c=>c.content?.parts||[]).map(part=>part.text||"").join("\n").trim();
+  if(!answer){const reason=candidate?.finishReason;throw new Error("Gemini n’a renvoyé aucun texte"+(reason?" (motif : "+reason+")":"")+". Vérifie le quota et le modèle sélectionné.");}
+  setAiProgress(95,"Mise en forme de l’interprétation…");renderAiMarkdown($("interpretation"),answer);setAiProgress(100,"Analyse terminée");
+  box.textContent="Analyse terminée avec Gemini. Le texte est affiché ci-dessous ; il n’est pas sauvegardé automatiquement.";
+  $("aiRetry").classList.add("hidden");
+ }catch(err){
+  if(err?.name==="AbortError"||aiController?.signal.aborted){const timedOut=err?.message==="timeout" || (Date.now()-aiStartedAt)>=149000;box.textContent=timedOut?"Gemini n’a pas répondu en 45 secondes. Vérifie Internet et le quota Google AI Studio, puis réessaie. Ton tirage est conservé.":"Analyse interrompue. Ton tirage est conservé : tu peux relancer la demande.";$("aiProgressLabel").textContent=timedOut?"Délai dépassé — aucune réponse reçue":"Requête interrompue";}
+  else{box.textContent="Échec de l’analyse : "+(err?.message||String(err))+" ";$("aiProgressLabel").textContent="Une erreur est survenue";}
+  $("aiProgressBar").style.width="100%";$("aiRetry").classList.remove("hidden");
+ }finally{
+  clearTimeout(timeout);stopAiTimer();aiRequestRunning=false;aiController=null;$("aiAnalysis").disabled=false;$("aiCancel").classList.add("hidden");
+ }
+}
+
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+
+function renderAiMarkdown(root,text){
+ const lines=String(text).split(/\r?\n/);let html="",list=false;
+ for(const raw of lines){const s=raw.trim();if(!s){if(list){html+="</ul>";list=false;}continue;}
+ if(/^#{1,3}\s/.test(s)){if(list){html+="</ul>";list=false;}html+="<h4>"+escapeHtml(s.replace(/^#{1,3}\s*/,""))+"</h4>";}
+ else if(/^[-*]\s/.test(s)){if(!list){html+="<ul>";list=true;}html+="<li>"+escapeHtml(s.replace(/^[-*]\s*/,""))+"</li>";}
+ else{if(list){html+="</ul>";list=false;}html+="<p>"+escapeHtml(s)+"</p>";}}
+ if(list)html+="</ul>";root.innerHTML=html;
+}
+
+$("shuffle").addEventListener("click",shuffleDeck);$("clear").addEventListener("click",shuffleDeck);$("count").addEventListener("change",()=>{selected=[];orientations={};revealed=false;$("result").classList.add("hidden");renderDeck();updateProgress()});$("reveal").addEventListener("click",revealCards);$("resetOrientation").addEventListener("click",()=>{flipOrientations();$("aiStatus").classList.add("hidden")});$("localAnalysis").addEventListener("click",localAnalysis);$("newReading").addEventListener("click",()=>{$("result").classList.add("hidden");shuffleDeck();$("selection").scrollIntoView({behavior:"smooth"})});
+
+$("aiAnalysis").addEventListener("click",aiAnalysis);$("aiCancel").addEventListener("click",cancelAiAnalysis);$("aiRetry").addEventListener("click",aiAnalysis);
+if("serviceWorker" in navigator && location.protocol!=="file:"){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}
+shuffleDeck();
+</script>
+
+<script>
+/* Historique partagé et fiable : un enregistrement par tirage, enrichi après l'analyse IA */
+(function(){
+ const KEY='oraclesSuiteHistoryV2';
+ const OLD='oraclesSuiteHistoryV1';
+ const $=id=>document.getElementById(id);
+ const read=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return []}};
+ const write=a=>{try{localStorage.setItem(KEY,JSON.stringify(a.slice(0,150)));return true}catch(e){return false}};
+ // Migration douce de l'ancien historique, sans écraser les nouvelles données.
+ try{if(!localStorage.getItem(KEY)){const old=JSON.parse(localStorage.getItem(OLD)||'[]');if(Array.isArray(old)&&old.length)write(old.map(x=>({...x,question:x.question||'',interpretation:x.interpretation||''})));}}catch(e){}
+ const panel=$('historyPanel'),host=$('historyItems');
+ const game=(document.querySelector('h1')?.textContent||document.title||location.pathname).trim();
+ let lastSignature=''; let timer=null;
+ const visible=el=>!!el && !el.classList.contains('hidden') && el.hidden!==true && getComputedStyle(el).display!=='none';
+ const textOf=sel=>{const e=document.querySelector(sel);return e?(e.innerText||e.textContent||'').trim():''};
+ const getCards=()=>textOf('#drawn')||textOf('#spreadView')||textOf('#drawnCards');
+ const getInterpretation=()=>textOf('#interpretation')||textOf('#aiOutput')||textOf('#interpretations');
+ const getQuestion=()=>($('question')?.value||'').trim();
+ const getSummary=()=>textOf('#summary');
+ function capture(){
+   const result=$('result'); if(!visible(result))return;
+   const cards=getCards(), summary=getSummary(), question=getQuestion(), interpretation=getInterpretation();
+   if(!cards && !summary)return;
+   const signature=game+'|'+cards.slice(0,1800)+'|'+question;
+   if(signature.length<10)return;
+   const items=read();
+   let item=items.find(x=>x.signature===signature);
+   if(!item){item={id:signature.slice(0,120),signature,game,date:new Date().toLocaleString('fr-FR'),question,domain:$('domain')?.value||'',summary,cards,interpretation};items.unshift(item);}
+   else {item.question=question||item.question;item.domain=$('domain')?.value||item.domain;item.summary=summary||item.summary;item.cards=cards||item.cards;if(interpretation.length>20)item.interpretation=interpretation;item.updatedAt=new Date().toLocaleString('fr-FR');}
+   write(items);lastSignature=signature;
+ }
+ function schedule(){clearTimeout(timer);timer=setTimeout(capture,700)}
+ function render(){
+   if(!host)return;host.replaceChildren();const items=read();
+   if(!items.length){host.textContent='Aucun tirage enregistré sur cet appareil.';return;}
+   items.forEach((it,index)=>{
+     const card=document.createElement('article');card.style.cssText='padding:12px 0;border-bottom:1px solid #6e583d;white-space:pre-wrap';
+     const title=document.createElement('b');title.textContent=(it.game||'Oracle')+' · '+(it.date||'');card.append(title);
+     if(it.question){const q=document.createElement('p');q.textContent='Question : '+it.question;card.append(q)}
+     if(it.domain){const d=document.createElement('small');d.textContent='Domaine : '+it.domain;card.append(d)}
+     const details=document.createElement('details');details.style.marginTop='8px';const sum=document.createElement('summary');sum.textContent='Voir le tirage et l’interprétation';details.append(sum);
+     const body=document.createElement('div');body.style.cssText='margin-top:8px;white-space:pre-wrap';
+     if(it.summary){const p=document.createElement('p');p.textContent=it.summary;body.append(p)}
+     if(it.cards){const p=document.createElement('p');p.textContent=it.cards;body.append(p)}
+     if(it.interpretation){const p=document.createElement('p');p.textContent='Interprétation IA :\n'+it.interpretation;body.append(p)}
+     details.append(body);card.append(details);
+     if(it.interpretation){const b=document.createElement('button');b.type='button';b.textContent='🔊 Lire l’interprétation';b.style.marginTop='8px';b.addEventListener('click',()=>{if(!('speechSynthesis'in window)){alert('Lecture vocale indisponible dans ce navigateur.');return;}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(it.interpretation);u.lang='fr-FR';u.rate=0.95;speakOracleText(u.text)});card.append(b)}
+     host.append(card);
+   });
+ }
+ $('showHistory')?.addEventListener('click',()=>{render();panel.style.display='block'});
+ $('closeHistory')?.addEventListener('click',()=>panel.style.display='none');
+ $('clearHistory')?.addEventListener('click',()=>{if(confirm('Effacer tous les tirages enregistrés sur cet appareil ?')){write([]);render()}});
+ const result=$('result'); if(result){new MutationObserver(schedule).observe(result,{subtree:true,attributes:true,childList:true,characterData:true});}
+ document.addEventListener('click',e=>{if(e.target.closest('#reveal')||e.target.closest('#aiAnalysis')||e.target.closest('#aiStart')||e.target.closest('#aiRetry')){setTimeout(schedule,1200);setTimeout(schedule,4000)}});
+ document.addEventListener('change',e=>{if(e.target.id==='question'||e.target.id==='domain')schedule()});
+ // Capture également les changements de texte de la zone IA, parfois hors de #result.
+ ['#interpretation','#aiOutput','#interpretations'].forEach(sel=>{const el=document.querySelector(sel);if(el)new MutationObserver(schedule).observe(el,{subtree:true,childList:true,characterData:true})});
+ window.addEventListener('pagehide',capture);
+})();
+</script>
+<script>
+/* Dictée vocale française pour les champs de question */
+(function(){
+ const field=document.getElementById('question'); if(!field) return;
+ const Recognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+ const wrap=document.createElement('div'); wrap.className='voice-question-tools';
+ wrap.style.cssText='display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px';
+ const mic=document.createElement('button'); mic.type='button'; mic.className='btn secondary'; mic.textContent='🎙️ Dicter ma question';
+ mic.style.cssText='margin:0;min-height:42px';
+ const status=document.createElement('span'); status.className='help'; status.setAttribute('aria-live','polite');
+ wrap.append(mic,status); field.insertAdjacentElement('afterend',wrap);
+ if(!Recognition){mic.disabled=true;status.textContent='La dictée vocale n’est pas disponible dans ce navigateur. Essaie Chrome Android.';return;}
+ let rec=null,active=false,base='';
+ mic.addEventListener('click',()=>{
+   if(active){try{rec.stop()}catch(e){};return;}
+   rec=new Recognition();rec.lang='fr-FR';rec.continuous=true;rec.interimResults=true;active=true;base=field.value.trim();
+   mic.textContent='⏹ Arrêter la dictée';status.textContent='Je t’écoute…';
+   rec.onresult=e=>{let finalText='',interim='';for(let i=e.resultIndex;i<e.results.length;i++){const t=e.results[i][0].transcript;if(e.results[i].isFinal)finalText+=t+' ';else interim+=t;}
+     if(finalText){base=(base?base+' ':'')+finalText.trim();field.value=base;field.dispatchEvent(new Event('input',{bubbles:true}));}
+     status.textContent=interim?'En cours : '+interim:'Dictée retranscrite. Tu peux continuer à parler.';
+   };
+   rec.onerror=e=>{status.textContent=e.error==='not-allowed'?'Autorise le microphone dans Chrome.':'Dictée interrompue : '+e.error;};
+   rec.onend=()=>{active=false;mic.textContent='🎙️ Dicter ma question';if(status.textContent==='Je t’écoute…')status.textContent='Dictée terminée.';};
+   try{rec.start()}catch(e){active=false;mic.textContent='🎙️ Dicter ma question';status.textContent='Impossible de démarrer le microphone. Réessaie.';}
+ });
+})();
+</script>
+<script>
+/* Complète automatiquement les réponses Gemini arrêtées par la limite de sortie */
+(function(){
+ const nativeFetch=window.fetch.bind(window);
+ window.fetch=async function(input,init){
+   const url=typeof input==='string'?input:(input&&input.url)||'';
+   if(!/generateContent/.test(url)||!init||!init.body||!init.method||init.method.toUpperCase()!=='POST')return nativeFetch(input,init);
+   let request;try{request=JSON.parse(init.body)}catch(e){return nativeFetch(input,init)}
+   const first=await nativeFetch(input,init);if(!first.ok)return first;
+   let data;try{data=await first.clone().json()}catch(e){return first}
+   let candidate=data.candidates&&data.candidates[0];if(!candidate)return first;
+   let parts=(candidate.content&&candidate.content.parts)||[];let combined=parts.map(p=>p.text||'').join('');
+   let rounds=0;
+   while(candidate.finishReason==='MAX_TOKENS' && rounds<3){
+     rounds++;
+     const status=document.getElementById('aiStatus');if(status)status.textContent='Interprétation longue : récupération automatique de la suite ('+rounds+'/3)…';
+     const next=JSON.parse(JSON.stringify(request));
+     next.contents=(request.contents||[]).concat([{role:'model',parts:parts},{role:'user',parts:[{text:'Continue exactement à partir du dernier mot, sans répéter les passages précédents. Termine toutes les sections demandées et conclus complètement.'}]}]);
+     next.generationConfig=Object.assign({},request.generationConfig||{},{maxOutputTokens:4096});
+     const r=await nativeFetch(input,Object.assign({},init,{body:JSON.stringify(next)}));if(!r.ok)break;
+     let d;try{d=await r.json()}catch(e){break};let c=d.candidates&&d.candidates[0];if(!c)break;
+     const more=(c.content&&c.content.parts)||[];parts=parts.concat(more);combined=parts.map(p=>p.text||'').join('');candidate=c;
+     if(d.promptFeedback)data.promptFeedback=d.promptFeedback;
+   }
+   data.candidates=data.candidates||[];data.candidates[0]=Object.assign({},candidate,{content:Object.assign({},candidate.content||{},{parts}),finishReason:candidate.finishReason||'STOP'});
+   if(rounds && document.getElementById('aiStatus'))document.getElementById('aiStatus').textContent='Réponse Gemini complétée automatiquement.';
+   return new Response(JSON.stringify(data),{status:first.status,statusText:first.statusText,headers:{'Content-Type':'application/json'}});
+ };
+})();
+</script>
+<script>
+/* Lecture vocale de l'interprétation Gemini : lecture, pause/reprise et arrêt */
+(function(){
+ const output=document.getElementById('interpretation')||document.getElementById('aiOutput')||document.getElementById('interpretations');
+ if(!output)return;
+ const synth=window.speechSynthesis;
+ const bar=document.createElement('div');bar.style.cssText='display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;align-items:center';
+ const make=(label)=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.style.cssText='padding:9px 12px;border-radius:9px;cursor:pointer';return b};
+ const play=make('🔊 Écouter l’interprétation'),pause=make('⏸ Pause'),stop=make('⏹ Arrêter');
+ const status=document.createElement('span');status.className='help';status.setAttribute('aria-live','polite');
+ bar.append(play,pause,stop,status);output.insertAdjacentElement('afterend',bar);
+ let utterance=null;
+ function content(){return (output.innerText||output.textContent||'').trim()}
+ function voice(){const vs=synth.getVoices();return vs.find(v=>/^fr(-|_)/i.test(v.lang)&&/Google|Microsoft|français|French/i.test(v.name))||vs.find(v=>/^fr(-|_)/i.test(v.lang))||null}
+ play.addEventListener('click',()=>{const t=content();if(!t){status.textContent='Aucune interprétation à lire pour le moment.';return;}if(!('speechSynthesis'in window)){status.textContent='La lecture vocale n’est pas disponible dans ce navigateur.';return;}synth.cancel();utterance=new SpeechSynthesisUtterance(t);utterance.lang='fr-FR';utterance.rate=0.95;utterance.pitch=1;const v=voice();if(v)utterance.voice=v;utterance.onstart=()=>status.textContent='Lecture en cours…';utterance.onend=()=>status.textContent='Lecture terminée.';utterance.onerror=()=>status.textContent='La lecture a été interrompue.';synth.speak(utterance)});
+ pause.addEventListener('click',()=>{if(!('speechSynthesis'in window))return;if(synth.paused){synth.resume();status.textContent='Lecture reprise.'}else if(synth.speaking){synth.pause();status.textContent='Lecture en pause.'}});
+ stop.addEventListener('click',()=>{if('speechSynthesis'in window)synth.cancel();status.textContent='Lecture arrêtée.'});
+ document.addEventListener('visibilitychange',()=>{if(document.hidden&&synth.speaking)synth.pause()});
+})();
+</script>
+<script>
+// Clé individuelle prioritaire, clé commune en secours.
+(()=>{const COMMON='oraclesSuiteGeminiApiKeyV1',IND='oraclesGeminiApiKey_tarot_V1';const field=document.getElementById('aiKey');if(!field)return;try{field.value=localStorage.getItem(IND)||localStorage.getItem(COMMON)||'';}catch(e){}
+field.addEventListener('input',()=>{try{const v=field.value.trim();if(v)localStorage.setItem(IND,v);else localStorage.removeItem(IND);}catch(e){}});
+field.addEventListener('blur',()=>{if(!field.value.trim()){try{field.value=localStorage.getItem(COMMON)||'';}catch(e){}}});
+window.addEventListener('storage',e=>{if(e.key===COMMON&&!localStorage.getItem(IND))field.value=e.newValue||'';});
+})();
+</script>
+
+
+<script>
+(()=> {
+ 'use strict';
+ const file=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+ const pageKey=({ 'tarot-78.html':'tarot','lenormand-54.html':'lenormand','belline.html':'belline','portes-intuition.html':'portes','astrologie.html':'astrologie','runes.html':'runes','analyse-croisee.html':'analyse-croisee' })[file]||file;
+ const KEY='oraclesGeminiModelByOracleV1';
+ const KEY_API='oraclesSuiteGeminiApiKeyV1';
+ const INDIVIDUAL_KEY='oraclesGeminiApiKey_tarot_V1';
+ const getKey=()=>{try{return localStorage.getItem(INDIVIDUAL_KEY)||localStorage.getItem(KEY_API)||localStorage.getItem('geminiApiKey')||''}catch(e){return ''}};
+ let choices={};try{choices=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+ let selected=choices[pageKey]||'gemini-2.5-flash';
+ const legacy=document.getElementById('aiModel');
+ let panel=document.createElement('section');
+ panel.id='geminiModelSelectorFixed';
+ panel.style.cssText='margin:14px 0;padding:14px;border:1px solid #b99a62;border-radius:12px;background:#171827;color:#f8f2e6;font:14px system-ui;position:relative;z-index:5';
+ const label=document.createElement('label');label.textContent='Modèle Gemini utilisé pour cet oracle';label.style.cssText='display:block;font-weight:700;margin-bottom:8px';
+ let select=legacy||document.createElement('select');
+ if(!legacy) select.id='geminiModelSelectorFixedSelect';
+ select.style.cssText='display:block;width:100%;min-height:44px;padding:9px;border-radius:8px;background:#fff;color:#171827;border:1px solid #9a855d;font:16px system-ui';
+ const status=document.createElement('p');status.style.cssText='margin:8px 0 0;font-size:12px;line-height:1.4';status.textContent='Modèle mémorisé pour cet oracle. Actualise la liste pour afficher les modèles réellement proposés par Google avec ta clé.';
+ const actions=document.createElement('div');actions.style.cssText='display:flex;gap:8px;flex-wrap:wrap;margin-top:9px';
+ const refresh=document.createElement('button');refresh.type='button';refresh.textContent='Actualiser les modèles Google';
+ refresh.style.cssText='padding:9px 12px;border-radius:8px;border:1px solid #b99a62;background:#30283a;color:#fff';
+ const test=document.createElement('button');test.type='button';test.textContent='Tester ce modèle';
+ test.style.cssText=refresh.style.cssText;
+ if(!legacy){panel.append(label,select); } else { panel.append(label,select); }
+ actions.append(refresh,test);panel.append(actions,status);
+ // Place the selector at the start of the page, not buried inside a hidden modal.
+ const target=document.querySelector('main')||document.querySelector('.container')||document.body;
+ target.insertBefore(panel,target.firstChild);
+ const saveChoice=()=>{selected=select.value;choices[pageKey]=selected;try{localStorage.setItem(KEY,JSON.stringify(choices))}catch(e){}status.textContent='Choix enregistré pour '+pageKey+' : '+selected+'. Les prochaines interprétations utiliseront ce modèle.'};
+ // Keep a stable selection even if the current page's old select had only one hard-coded option.
+ if(![...select.options].some(o=>o.value===selected)){let o=document.createElement('option');o.value=selected;o.textContent=selected+' (sélection mémorisée)';select.append(o)}
+ select.value=selected;select.addEventListener('change',saveChoice);
+ async function refreshModels(){
+   const key=getKey();if(!key){status.textContent='Clé API absente. Enregistre la clé commune sur la page d’accueil, puis réessaie.';return}
+   refresh.disabled=true;status.textContent='Interrogation de Google pour obtenir les modèles compatibles…';
+   try{
+     const r=await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000',{headers:{'x-goog-api-key':key}});
+     const d=await r.json();if(!r.ok)throw new Error(d.error?.message||('HTTP '+r.status));
+     const models=(d.models||[]).filter(m=>(m.supportedGenerationMethods||[]).includes('generateContent')&&/^models\/gemini-/i.test(m.name||'')&&!/(embedding|image|tts|live|audio|video|transcrib)/i.test((m.name||'')+' '+(m.displayName||'')));
+     if(!models.length)throw new Error('Google ne renvoie aucun modèle compatible generateContent pour cette clé.');
+     const items=models.map(m=>({id:(m.name||'').replace(/^models\//,''),label:(m.displayName||m.name)+' — '+(m.name||'').replace(/^models\//,'')})).sort((a,b)=>a.id.localeCompare(b.id));
+     const old=selected;select.replaceChildren();
+     for(const m of items){const o=document.createElement('option');o.value=m.id;o.textContent=m.label;select.append(o)}
+     if(items.some(m=>m.id===old))select.value=old;else {select.value=items.some(m=>m.id==='gemini-2.5-flash')?'gemini-2.5-flash':items[0].id}
+     saveChoice();status.textContent=items.length+' modèles réellement proposés par Google et compatibles avec generateContent. Le modèle sélectionné est enregistré uniquement pour cet oracle.';
+   }catch(e){status.textContent='Échec de récupération : '+e.message+'. Vérifie la clé, la connexion et les droits de l’API Gemini.'}
+   finally{refresh.disabled=false}
+ }
+ async function testModel(){
+   const key=getKey();if(!key){status.textContent='Clé API absente : enregistre-la sur la page d’accueil.';return}
+   saveChoice();test.disabled=true;status.textContent='Test du modèle '+selected+'…';
+   try{
+     const r=await fetch('https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(selected)+':generateContent',{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':key},body:JSON.stringify({contents:[{parts:[{text:'Réponds uniquement par OK.'}]}],generationConfig:{maxOutputTokens:16,temperature:0}})});
+     const d=await r.json();if(!r.ok)throw new Error(d.error?.message||('HTTP '+r.status));
+     status.textContent='Test réussi : '+selected+' répond correctement.';
+   }catch(e){status.textContent='Test échoué pour '+selected+' : '+e.message}
+   finally{test.disabled=false}
+ }
+ refresh.addEventListener('click',refreshModels);test.addEventListener('click',testModel);
+ // Critical: every oracle previously called a hard-coded model. Rewrite ONLY the
+ // generateContent endpoint at request time using the per-oracle saved selection.
+ const nativeFetch=window.fetch.bind(window);
+ window.fetch=function(input,init){
+   let raw=typeof input==='string'?input:(input&&input.url)||'';
+   if(raw.includes('generativelanguage.googleapis.com')&&raw.includes(':generateContent')){
+     let current=selected;try{const c=JSON.parse(localStorage.getItem(KEY)||'{}');current=c[pageKey]||selected}catch(e){}
+     const u=new URL(raw,location.href);
+     u.pathname=u.pathname.replace(/\/models\/[^/]+:generateContent/, '/models/'+encodeURIComponent(current)+':generateContent');
+     if(typeof input==='string') input=u.toString();
+     else input=new Request(u.toString(),input);
+   }
+   return nativeFetch(input,init);
+ };
+ // If API key already exists, populate the list automatically once on page load.
+ if(getKey()) refreshModels();
+})();
+</script>
+
+
+<script id="sanctuaire-card-art-engine">
+(function(){
+const PALETTES={
+ tarot:['#07152f','#172d5b','#eac46e','#b7d9ff'],
+ belline:['#210d25','#5a1d3a','#e9bd70','#f3d5a0'],
+ lenormand:['#0c302e','#1d6151','#e7d29a','#b8e4c6'],
+ portes:['#21143d','#58346c','#e9c28c','#d7b7ff'],
+ astrologie:['#071a38','#174b77','#f0d17a','#a8d9ff'],
+ runes:['#102a25','#3c5c48','#d8c18b','#b7d4a7']
+};
+function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function art(name,detail,oracle){
+const TAROT_PAINTINGS={
+ "Le Mat": "tarot-01-le-mat.jpg",
+ "Le Bateleur": "tarot-02-bateleur.jpg",
+ "La Papesse": "tarot-03-papesse.jpg",
+ "L’Impératrice": "tarot-04-imperatrice.jpg",
+ "L’Empereur": "tarot-05-empereur.jpg",
+ "Le Pape": "tarot-06-pape.jpg",
+ "L’Amoureux": "tarot-07-amoureux.jpg",
+ "Le Chariot": "tarot-08-chariot.jpg",
+ "La Justice": "tarot-09-justice.jpg",
+ "L’Hermite": "tarot-10-ermite.jpg",
+ "La Roue de Fortune": "tarot-11-roue-fortune.jpg",
+ "La Force": "tarot-12-force.jpg",
+ "Le Pendu": "tarot-13-pendu.jpg",
+ "L’Arcane sans nom": "tarot-14-arcane-sans-nom.jpg",
+ "Tempérance": "tarot-15-temperance.jpg",
+ "Le Diable": "tarot-16-diable.jpg",
+ "La Maison Dieu": "tarot-17-maison-dieu.jpg",
+ "L’Étoile": "tarot-18-etoile.jpg",
+ "La Lune": "tarot-19-lune.jpg",
+ "Le Soleil": "tarot-20-soleil.jpg",
+ "Le Jugement": "tarot-21-jugement.jpg",
+ "Le Monde": "tarot-22-monde.jpg",
+ "As de Bâtons": "tarot-23-as-de-batons.jpg",
+ "Deux de Bâtons": "tarot-24-deux-de-batons.jpg",
+ "Trois de Bâtons": "tarot-25-trois-de-batons.jpg",
+ "Quatre de Bâtons": "tarot-26-quatre-de-batons.jpg",
+ "Cinq de Bâtons": "tarot-27-cinq-de-batons.jpg",
+ "Six de Bâtons": "tarot-28-six-de-batons.jpg",
+ "Sept de Bâtons": "tarot-29-sept-de-batons.jpg",
+ "Huit de Bâtons": "tarot-30-huit-de-batons.jpg",
+ "Neuf de Bâtons": "tarot-31-neuf-de-batons.jpg",
+ "Dix de Bâtons": "tarot-32-dix-de-batons.jpg",
+ "Valet de Bâtons": "tarot-33-valet-de-batons.jpg",
+ "Cavalier de Bâtons": "tarot-34-cavalier-de-batons.jpg",
+ "Reine de Bâtons": "tarot-35-reine-de-batons.jpg",
+ "Roi de Bâtons": "tarot-36-roi-de-batons.jpg",
+ "As de Coupes": "tarot-37-as-de-coupes.jpg",
+ "Deux de Coupes": "tarot-38-deux-de-coupes.jpg",
+ "Trois de Coupes": "tarot-39-trois-de-coupes.jpg",
+ "Quatre de Coupes": "tarot-40-quatre-de-coupes.jpg",
+ "Cinq de Coupes": "tarot-41-cinq-de-coupes.jpg",
+ "Six de Coupes": "tarot-42-six-de-coupes.jpg",
+ "Sept de Coupes": "tarot-43-sept-de-coupes.jpg",
+ "Huit de Coupes": "tarot-44-huit-de-coupes.jpg",
+ "Neuf de Coupes": "tarot-45-neuf-de-coupes.jpg",
+ "Dix de Coupes": "tarot-46-dix-de-coupes.jpg",
+ "Valet de Coupes": "tarot-47-valet-de-coupes.jpg",
+ "Cavalier de Coupes": "tarot-48-cavalier-de-coupes.jpg",
+ "Reine de Coupes": "tarot-49-reine-de-coupes.jpg",
+ "Roi de Coupes": "tarot-50-roi-de-coupes.jpg",
+ "As de Épées": "tarot-51-as-de-epees.jpg",
+ "Deux de Épées": "tarot-52-deux-de-epees.jpg",
+ "Trois de Épées": "tarot-53-trois-de-epees.jpg",
+ "Quatre de Épées": "tarot-54-quatre-de-epees.jpg",
+ "Cinq de Épées": "tarot-55-cinq-de-epees.jpg",
+ "Six de Épées": "tarot-56-six-de-epees.jpg",
+ "Sept de Épées": "tarot-57-sept-de-epees.jpg",
+ "Huit de Épées": "tarot-58-huit-de-epees.jpg",
+ "Neuf de Épées": "tarot-59-neuf-de-epees.jpg",
+ "Dix de Épées": "tarot-60-dix-de-epees.jpg",
+ "Valet de Épées": "tarot-61-valet-de-epees.jpg",
+ "Cavalier de Épées": "tarot-62-cavalier-de-epees.jpg",
+ "Reine de Épées": "tarot-63-reine-de-epees.jpg",
+ "Roi de Épées": "tarot-64-roi-de-epees.jpg",
+ "As de Deniers": "tarot-65-as-de-deniers.jpg",
+ "Deux de Deniers": "tarot-66-deux-de-deniers.jpg",
+ "Trois de Deniers": "tarot-67-trois-de-deniers.jpg",
+ "Quatre de Deniers": "tarot-68-quatre-de-deniers.jpg",
+ "Cinq de Deniers": "tarot-69-cinq-de-deniers.jpg",
+ "Six de Deniers": "tarot-70-six-de-deniers.jpg",
+ "Sept de Deniers": "tarot-71-sept-de-deniers.jpg",
+ "Huit de Deniers": "tarot-72-huit-de-deniers.jpg",
+ "Neuf de Deniers": "tarot-73-neuf-de-deniers.jpg",
+ "Dix de Deniers": "tarot-74-dix-de-deniers.jpg",
+ "Valet de Deniers": "tarot-75-valet-de-deniers.jpg",
+ "Cavalier de Deniers": "tarot-76-cavalier-de-deniers.jpg",
+ "Reine de Deniers": "tarot-77-reine-de-deniers.jpg",
+ "Roi de Deniers": "tarot-78-roi-de-deniers.jpg"
+};
+ if(oracle==='tarot' && TAROT_PAINTINGS[name]) return 'url("'+TAROT_PAINTINGS[name]+'")';
+ const p=PALETTES[oracle]||PALETTES.tarot, seed=hash(oracle+'|'+name), a=p[0],b=p[1],g=p[2],light=p[3];
+ const cx=300,cy=365, rot=seed%360, rays=Array.from({length:16},(_,i)=>{let an=(i*22.5+rot)*Math.PI/180;let x1=cx+Math.cos(an)*130,y1=cy+Math.sin(an)*130,x2=cx+Math.cos(an)*245,y2=cy+Math.sin(an)*245;return `<path d="M${x1.toFixed(1)} ${y1.toFixed(1)}L${x2.toFixed(1)} ${y2.toFixed(1)}" stroke="${g}" stroke-width="${i%2?2:4}" opacity=".65"/>`}).join('');
+ const stars=Array.from({length:38},(_,i)=>{let x=35+((seed*(i+3)+i*97)%530),y=50+((seed>>>((i%4)*5))+i*131)%690,r=1+(i%3);return `<circle cx="${x}" cy="${y}" r="${r}" fill="${light}" opacity=".8"/>`}).join('');
+ let icon='✦';
+ const n=name.toLowerCase();
+ if(/lune|moon|papesse|intuition|rêve/.test(n)) icon='☾';
+ else if(/soleil|sun|joie|succès|énergie/.test(n)) icon='☼';
+ else if(/amoureux|amour|cœur|coupes|coupe/.test(n)) icon='♡';
+ else if(/mort|transformation|fin|renaissance/.test(n)) icon='✧';
+ else if(/étoile|star|espoir/.test(n)) icon='✶';
+ else if(/tour|maison|ancrage|bouclier/.test(n)) icon='⌂';
+ else if(/roue|destin|cycle|fortune/.test(n)) icon='☸';
+ else if(/rune|fehu|uruz|thurisaz|ansuz|raidho|kenaz|gebo|wunjo|hagalaz|nauthiz|isa|jera|eihwaz|perthro|algiz|sowilo|tiwaz|berkano|ehwaz|mannaz|laguz|ingwaz|dagaz|othala/.test(n)) icon='ᚱ';
+ else if(/balance|justice|loi|contrat/.test(n)) icon='⚖';
+ else if(/oiseau|messager|lettre|communication/.test(n)) icon='♧';
+ else if(/arbre|nature|jardin|croissance/.test(n)) icon='❀';
+ else if(/éclair|orage|danger|conflit/.test(n)) icon='ϟ';
+ const scene=oracle==='runes'
+ ? `<path d="M300 165L440 300L390 610L300 760L210 610L160 300Z" fill="${b}" stroke="${g}" stroke-width="7"/><path d="M300 250V650 M220 350L380 540 M380 350L220 540" stroke="${light}" stroke-width="18" stroke-linecap="round"/><circle cx="300" cy="430" r="220" fill="none" stroke="${g}" stroke-width="3" stroke-dasharray="8 13"/>`
+ : oracle==='astrologie'
+ ? `<circle cx="300" cy="365" r="220" fill="none" stroke="${g}" stroke-width="5"/><circle cx="300" cy="365" r="168" fill="none" stroke="${light}" stroke-width="2"/><path d="M300 145V585M80 365H520M145 210L455 520M455 210L145 520" stroke="${g}" stroke-width="3"/><circle cx="300" cy="365" r="105" fill="url(#orb)" stroke="${g}" stroke-width="5"/>`
+ : oracle==='lenormand'
+ ? `<path d="M35 670Q140 520 255 670T565 650V860H35Z" fill="#102d2b"/><path d="M300 690V300M300 500Q175 425 140 300Q260 330 300 465M300 465Q425 330 470 240Q365 270 300 410" fill="#34765b" stroke="${g}" stroke-width="5"/><circle cx="300" cy="260" r="95" fill="url(#orb)" stroke="${g}" stroke-width="4"/>`
+ : oracle==='portes'
+ ? `<path d="M105 760V350Q105 135 300 135Q495 135 495 350V760" fill="none" stroke="${g}" stroke-width="18"/><path d="M155 760V360Q155 195 300 195Q445 195 445 360V760Z" fill="${b}" stroke="${light}" stroke-width="4"/><path d="M300 220L380 405L300 565L220 405Z" fill="url(#orb)" stroke="${g}" stroke-width="5"/>`
+ : `<path d="M40 690Q140 500 250 680T560 660V860H40Z" fill="#10152c"/><path d="M110 690L110 460L185 385L260 460V690M365 690Q405 520 490 690" fill="none" stroke="${g}" stroke-width="7"/><circle cx="300" cy="290" r="112" fill="url(#orb)" stroke="${g}" stroke-width="5"/>`;
+ const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900"><defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="${a}"/><stop offset=".58" stop-color="${b}"/><stop offset="1" stop-color="#080b18"/></linearGradient><radialGradient id="orb"><stop stop-color="#fff8d8"/><stop offset=".3" stop-color="${g}"/><stop offset="1" stop-color="${g}" stop-opacity="0"/></radialGradient><linearGradient id="gold"><stop stop-color="${g}"/><stop offset=".5" stop-color="#fff1c5"/><stop offset="1" stop-color="${g}"/></linearGradient></defs><rect width="600" height="900" fill="url(#bg)"/>${stars}${rays}${scene}<circle cx="300" cy="365" r="65" fill="url(#orb)" opacity=".6"/><text x="300" y="405" font-size="${icon.length>1?90:120}" text-anchor="middle" dominant-baseline="middle" fill="${light}" font-family="serif" opacity=".95">${icon}</text><rect x="22" y="22" width="556" height="856" rx="26" fill="none" stroke="url(#gold)" stroke-width="8"/><rect x="40" y="40" width="520" height="820" rx="18" fill="none" stroke="${g}" stroke-width="2"/><path d="M300 60l22 30-22 30-22-30Z M300 780l22 30-22 30-22-30Z" fill="${g}"/><path d="M75 95Q300 35 525 95M75 805Q300 865 525 805" fill="none" stroke="${g}" stroke-width="2"/><rect x="55" y="735" width="490" height="95" rx="14" fill="#090b18" fill-opacity=".82" stroke="${g}" stroke-width="2"/><text x="300" y="775" text-anchor="middle" fill="#fff1c9" font-family="Georgia,serif" font-size="25">${String(name).replace(/[<>&"]/g,'').slice(0,27)}</text><text x="300" y="808" text-anchor="middle" fill="${g}" font-family="Georgia,serif" font-size="13" letter-spacing="3">${String(detail||'').replace(/[<>&"]/g,'').slice(0,38)}</text></svg>`;
+ return 'url("data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg)+'")';
+}
+window.SanctuaireCardArt=art;
+window.SanctuaireCardBack=function(oracle){const p=PALETTES[oracle]||PALETTES.tarot;return 'radial-gradient(circle at 50% 42%, '+p[1]+', '+p[0]+' 72%)'};
+})();
+</script>
+
+<script id="sanctuaire-card-art-engine">
+(function(){
+const PALETTES={
+ tarot:['#07152f','#172d5b','#eac46e','#b7d9ff'],
+ belline:['#210d25','#5a1d3a','#e9bd70','#f3d5a0'],
+ lenormand:['#0c302e','#1d6151','#e7d29a','#b8e4c6'],
+ portes:['#21143d','#58346c','#e9c28c','#d7b7ff'],
+ astrologie:['#071a38','#174b77','#f0d17a','#a8d9ff'],
+ runes:['#102a25','#3c5c48','#d8c18b','#b7d4a7']
+};
+function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+function art(name,detail,oracle){
+const TAROT_PAINTINGS={
+ "Le Mat": "tarot-01-le-mat.jpg",
+ "Le Bateleur": "tarot-02-bateleur.jpg",
+ "La Papesse": "tarot-03-papesse.jpg",
+ "L’Impératrice": "tarot-04-imperatrice.jpg",
+ "L’Empereur": "tarot-05-empereur.jpg",
+ "Le Pape": "tarot-06-pape.jpg",
+ "L’Amoureux": "tarot-07-amoureux.jpg",
+ "Le Chariot": "tarot-08-chariot.jpg",
+ "La Justice": "tarot-09-justice.jpg",
+ "L’Hermite": "tarot-10-ermite.jpg",
+ "La Roue de Fortune": "tarot-11-roue-fortune.jpg",
+ "La Force": "tarot-12-force.jpg",
+ "Le Pendu": "tarot-13-pendu.jpg",
+ "L’Arcane sans nom": "tarot-14-arcane-sans-nom.jpg",
+ "Tempérance": "tarot-15-temperance.jpg",
+ "Le Diable": "tarot-16-diable.jpg",
+ "La Maison Dieu": "tarot-17-maison-dieu.jpg",
+ "L’Étoile": "tarot-18-etoile.jpg",
+ "La Lune": "tarot-19-lune.jpg",
+ "Le Soleil": "tarot-20-soleil.jpg",
+ "Le Jugement": "tarot-21-jugement.jpg",
+ "Le Monde": "tarot-22-monde.jpg",
+ "As de Bâtons": "tarot-23-as-de-batons.jpg",
+ "Deux de Bâtons": "tarot-24-deux-de-batons.jpg",
+ "Trois de Bâtons": "tarot-25-trois-de-batons.jpg",
+ "Quatre de Bâtons": "tarot-26-quatre-de-batons.jpg",
+ "Cinq de Bâtons": "tarot-27-cinq-de-batons.jpg",
+ "Six de Bâtons": "tarot-28-six-de-batons.jpg",
+ "Sept de Bâtons": "tarot-29-sept-de-batons.jpg",
+ "Huit de Bâtons": "tarot-30-huit-de-batons.jpg",
+ "Neuf de Bâtons": "tarot-31-neuf-de-batons.jpg",
+ "Dix de Bâtons": "tarot-32-dix-de-batons.jpg",
+ "Valet de Bâtons": "tarot-33-valet-de-batons.jpg",
+ "Cavalier de Bâtons": "tarot-34-cavalier-de-batons.jpg",
+ "Reine de Bâtons": "tarot-35-reine-de-batons.jpg",
+ "Roi de Bâtons": "tarot-36-roi-de-batons.jpg",
+ "As de Coupes": "tarot-37-as-de-coupes.jpg",
+ "Deux de Coupes": "tarot-38-deux-de-coupes.jpg",
+ "Trois de Coupes": "tarot-39-trois-de-coupes.jpg",
+ "Quatre de Coupes": "tarot-40-quatre-de-coupes.jpg",
+ "Cinq de Coupes": "tarot-41-cinq-de-coupes.jpg",
+ "Six de Coupes": "tarot-42-six-de-coupes.jpg",
+ "Sept de Coupes": "tarot-43-sept-de-coupes.jpg",
+ "Huit de Coupes": "tarot-44-huit-de-coupes.jpg",
+ "Neuf de Coupes": "tarot-45-neuf-de-coupes.jpg",
+ "Dix de Coupes": "tarot-46-dix-de-coupes.jpg",
+ "Valet de Coupes": "tarot-47-valet-de-coupes.jpg",
+ "Cavalier de Coupes": "tarot-48-cavalier-de-coupes.jpg",
+ "Reine de Coupes": "tarot-49-reine-de-coupes.jpg",
+ "Roi de Coupes": "tarot-50-roi-de-coupes.jpg",
+ "As de Épées": "tarot-51-as-de-epees.jpg",
+ "Deux de Épées": "tarot-52-deux-de-epees.jpg",
+ "Trois de Épées": "tarot-53-trois-de-epees.jpg",
+ "Quatre de Épées": "tarot-54-quatre-de-epees.jpg",
+ "Cinq de Épées": "tarot-55-cinq-de-epees.jpg",
+ "Six de Épées": "tarot-56-six-de-epees.jpg",
+ "Sept de Épées": "tarot-57-sept-de-epees.jpg",
+ "Huit de Épées": "tarot-58-huit-de-epees.jpg",
+ "Neuf de Épées": "tarot-59-neuf-de-epees.jpg",
+ "Dix de Épées": "tarot-60-dix-de-epees.jpg",
+ "Valet de Épées": "tarot-61-valet-de-epees.jpg",
+ "Cavalier de Épées": "tarot-62-cavalier-de-epees.jpg",
+ "Reine de Épées": "tarot-63-reine-de-epees.jpg",
+ "Roi de Épées": "tarot-64-roi-de-epees.jpg",
+ "As de Deniers": "tarot-65-as-de-deniers.jpg",
+ "Deux de Deniers": "tarot-66-deux-de-deniers.jpg",
+ "Trois de Deniers": "tarot-67-trois-de-deniers.jpg",
+ "Quatre de Deniers": "tarot-68-quatre-de-deniers.jpg",
+ "Cinq de Deniers": "tarot-69-cinq-de-deniers.jpg",
+ "Six de Deniers": "tarot-70-six-de-deniers.jpg",
+ "Sept de Deniers": "tarot-71-sept-de-deniers.jpg",
+ "Huit de Deniers": "tarot-72-huit-de-deniers.jpg",
+ "Neuf de Deniers": "tarot-73-neuf-de-deniers.jpg",
+ "Dix de Deniers": "tarot-74-dix-de-deniers.jpg",
+ "Valet de Deniers": "tarot-75-valet-de-deniers.jpg",
+ "Cavalier de Deniers": "tarot-76-cavalier-de-deniers.jpg",
+ "Reine de Deniers": "tarot-77-reine-de-deniers.jpg",
+ "Roi de Deniers": "tarot-78-roi-de-deniers.jpg"
+};
+ if(oracle==='tarot' && TAROT_PAINTINGS[name]) return 'url("'+TAROT_PAINTINGS[name]+'")';
+ const p=PALETTES[oracle]||PALETTES.tarot, seed=hash(oracle+'|'+name), a=p[0],b=p[1],g=p[2],light=p[3];
+ const cx=300,cy=365, rot=seed%360, rays=Array.from({length:16},(_,i)=>{let an=(i*22.5+rot)*Math.PI/180;let x1=cx+Math.cos(an)*130,y1=cy+Math.sin(an)*130,x2=cx+Math.cos(an)*245,y2=cy+Math.sin(an)*245;return `<path d="M${x1.toFixed(1)} ${y1.toFixed(1)}L${x2.toFixed(1)} ${y2.toFixed(1)}" stroke="${g}" stroke-width="${i%2?2:4}" opacity=".65"/>`}).join('');
+ const stars=Array.from({length:38},(_,i)=>{let x=35+((seed*(i+3)+i*97)%530),y=50+((seed>>>((i%4)*5))+i*131)%690,r=1+(i%3);return `<circle cx="${x}" cy="${y}" r="${r}" fill="${light}" opacity=".8"/>`}).join('');
+ let icon='✦';
+ const n=name.toLowerCase();
+ if(/lune|moon|papesse|intuition|rêve/.test(n)) icon='☾';
+ else if(/soleil|sun|joie|succès|énergie/.test(n)) icon='☼';
+ else if(/amoureux|amour|cœur|coupes|coupe/.test(n)) icon='♡';
+ else if(/mort|transformation|fin|renaissance/.test(n)) icon='✧';
+ else if(/étoile|star|espoir/.test(n)) icon='✶';
+ else if(/tour|maison|ancrage|bouclier/.test(n)) icon='⌂';
+ else if(/roue|destin|cycle|fortune/.test(n)) icon='☸';
+ else if(/rune|fehu|uruz|thurisaz|ansuz|raidho|kenaz|gebo|wunjo|hagalaz|nauthiz|isa|jera|eihwaz|perthro|algiz|sowilo|tiwaz|berkano|ehwaz|mannaz|laguz|ingwaz|dagaz|othala/.test(n)) icon='ᚱ';
+ else if(/balance|justice|loi|contrat/.test(n)) icon='⚖';
+ else if(/oiseau|messager|lettre|communication/.test(n)) icon='♧';
+ else if(/arbre|nature|jardin|croissance/.test(n)) icon='❀';
+ else if(/éclair|orage|danger|conflit/.test(n)) icon='ϟ';
+ const scene=oracle==='runes'
+ ? `<path d="M300 165L440 300L390 610L300 760L210 610L160 300Z" fill="${b}" stroke="${g}" stroke-width="7"/><path d="M300 250V650 M220 350L380 540 M380 350L220 540" stroke="${light}" stroke-width="18" stroke-linecap="round"/><circle cx="300" cy="430" r="220" fill="none" stroke="${g}" stroke-width="3" stroke-dasharray="8 13"/>`
+ : oracle==='astrologie'
+ ? `<circle cx="300" cy="365" r="220" fill="none" stroke="${g}" stroke-width="5"/><circle cx="300" cy="365" r="168" fill="none" stroke="${light}" stroke-width="2"/><path d="M300 145V585M80 365H520M145 210L455 520M455 210L145 520" stroke="${g}" stroke-width="3"/><circle cx="300" cy="365" r="105" fill="url(#orb)" stroke="${g}" stroke-width="5"/>`
+ : oracle==='lenormand'
+ ? `<path d="M35 670Q140 520 255 670T565 650V860H35Z" fill="#102d2b"/><path d="M300 690V300M300 500Q175 425 140 300Q260 330 300 465M300 465Q425 330 470 240Q365 270 300 410" fill="#34765b" stroke="${g}" stroke-width="5"/><circle cx="300" cy="260" r="95" fill="url(#orb)" stroke="${g}" stroke-width="4"/>`
+ : oracle==='portes'
+ ? `<path d="M105 760V350Q105 135 300 135Q495 135 495 350V760" fill="none" stroke="${g}" stroke-width="18"/><path d="M155 760V360Q155 195 300 195Q445 195 445 360V760Z" fill="${b}" stroke="${light}" stroke-width="4"/><path d="M300 220L380 405L300 565L220 405Z" fill="url(#orb)" stroke="${g}" stroke-width="5"/>`
+ : `<path d="M40 690Q140 500 250 680T560 660V860H40Z" fill="#10152c"/><path d="M110 690L110 460L185 385L260 460V690M365 690Q405 520 490 690" fill="none" stroke="${g}" stroke-width="7"/><circle cx="300" cy="290" r="112" fill="url(#orb)" stroke="${g}" stroke-width="5"/>`;
+ const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900"><defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="${a}"/><stop offset=".58" stop-color="${b}"/><stop offset="1" stop-color="#080b18"/></linearGradient><radialGradient id="orb"><stop stop-color="#fff8d8"/><stop offset=".3" stop-color="${g}"/><stop offset="1" stop-color="${g}" stop-opacity="0"/></radialGradient><linearGradient id="gold"><stop stop-color="${g}"/><stop offset=".5" stop-color="#fff1c5"/><stop offset="1" stop-color="${g}"/></linearGradient></defs><rect width="600" height="900" fill="url(#bg)"/>${stars}${rays}${scene}<circle cx="300" cy="365" r="65" fill="url(#orb)" opacity=".6"/><text x="300" y="405" font-size="${icon.length>1?90:120}" text-anchor="middle" dominant-baseline="middle" fill="${light}" font-family="serif" opacity=".95">${icon}</text><rect x="22" y="22" width="556" height="856" rx="26" fill="none" stroke="url(#gold)" stroke-width="8"/><rect x="40" y="40" width="520" height="820" rx="18" fill="none" stroke="${g}" stroke-width="2"/><path d="M300 60l22 30-22 30-22-30Z M300 780l22 30-22 30-22-30Z" fill="${g}"/><path d="M75 95Q300 35 525 95M75 805Q300 865 525 805" fill="none" stroke="${g}" stroke-width="2"/><rect x="55" y="735" width="490" height="95" rx="14" fill="#090b18" fill-opacity=".82" stroke="${g}" stroke-width="2"/><text x="300" y="775" text-anchor="middle" fill="#fff1c9" font-family="Georgia,serif" font-size="25">${String(name).replace(/[<>&"]/g,'').slice(0,27)}</text><text x="300" y="808" text-anchor="middle" fill="${g}" font-family="Georgia,serif" font-size="13" letter-spacing="3">${String(detail||'').replace(/[<>&"]/g,'').slice(0,38)}</text></svg>`;
+ return 'url("data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg)+'")';
+}
+window.SanctuaireCardArt=art;
+window.SanctuaireCardBack=function(oracle){const p=PALETTES[oracle]||PALETTES.tarot;return 'radial-gradient(circle at 50% 42%, '+p[1]+', '+p[0]+' 72%)'};
+})();
+</script>
+</body></html>
