@@ -73,3 +73,29 @@ Les identifiants des jeux JSON Tarot, Belline, Lenormand et Astrologie sont uniq
 ## Limites de ce premier passage
 
 Aucun fichier applicatif n'a été supprimé ou remplacé. Aucun test navigateur n'a été effectué. Le rapport documente des constats statiques à partir des fichiers GitHub ; il ne constitue pas une validation d'exécution.
+
+## Mise en œuvre V15 — refonte structurelle
+
+### Modifications réalisées
+- Les six pages d'oracles utilisent maintenant le même composant fonctionnel `SymbolicOraclePage`. Tarot et Belline ne conservent plus deux moteurs de tirage autonomes : leurs pages sont devenues de simples configurations qui injectent leur jeu de cartes, leur titre, leur description et leurs domaines.
+- Le moteur partagé gère désormais les six jeux : préparation, choix manuel, révélation, orientation, analyse locale, interprétation Gemini, historique, lecture vocale et réglages par oracle.
+- Les métadonnées de l'en-tête distinguent explicitement les six traditions, y compris Portes (sixième oracle, 46 portes).
+- Les résolveurs d'images Tarot et Belline ont été intégrés au composant partagé ; les autres résolveurs existants ont été conservés.
+- Les historiques Tarot et Belline continuent d'utiliser leurs anciennes clés locales `.history.v1` : les tirages enregistrés ne sont pas abandonnés par la migration.
+- Les réponses Gemini sont maintenant rendues comme texte React échappé dans le composant partagé ; suppression du rendu HTML injecté pour ce contenu.
+- La page d'accueil utilise des liens accessibles au clavier pour ouvrir les six oracles.
+- Le carnet intérieur agrège les historiques locaux des six oracles.
+- Le panneau de réglages de la page d'accueil renvoie vers les réglages individuels de chaque oracle, sans prétendre stocker une clé globale active.
+- Ajout de `.github/workflows/validate-v15.yml` : validation TypeScript/Vite sur la branche V15.0 sans publier GitHub Pages.
+- Suppression de 187 copies d'images à la racine du dépôt, dont les mêmes fichiers existent dans `public/assets/`. Les chemins réellement utilisés par l'application restent dans `public/assets/`.
+
+### Doublons volontairement conservés
+- 34 paires d'images Astrologie sous les noms descriptifs (`01-belier.png`, etc.) et sous les anciens alias (`carte-01.png`, etc.) restent identiques.
+- Les alias ne sont pas supprimés dans cette passe : l'ancien fichier HTML autonome Lenormand et les prototypes historiques n'ont pas pu être intégralement inspectés (le HTML autonome de 6,35 Mo n'est pas restitué par l'API de lecture). La suppression sans preuve de non-référence pourrait casser une ancienne version autonome.
+- Les 187 suppressions concernent uniquement des copies binaires de fichiers racine ; aucune ressource correspondante dans `public/assets/` n'a été supprimée.
+
+### Validation
+- Le workflow GitHub Actions `Validate V15.0` a réussi sur le commit `9ae9f22b9c1edcb8a640db79d762a6aa912cd7f6` : `npm install` et `npm run build` (TypeScript + Vite) terminés avec succès.
+- Un commit ultérieur a supprimé uniquement les copies d'images racine ; aucune source de l'application n'a changé depuis le build réussi.
+- Pas de test navigateur automatisé ni de test visuel réel effectué à ce stade.
+- Le workflow de validation ne déploie pas le site. Le workflow GitHub Pages existant reste limité à `refonte-zero`, afin de ne pas publier V15.0 avant validation visuelle et décision explicite.
