@@ -1,4 +1,4 @@
-name: Build and deploy Sanctuaire V17.1
+name: Build and deploy Sanctuaire V17.2
 on:
   push:
     branches: [V17.0]
@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: V17.1
+          ref: V17.2
       - uses: actions/setup-node@v4
         with:
           node-version: 22
