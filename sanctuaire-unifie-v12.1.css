@@ -1,120 +1,116 @@
-/* V12.1 — Design system commun du Sanctuaire des Oracles
-   Couche de finition chargée après les styles propres à chaque oracle.
-   Les illustrations, dimensions et animations des cartes sont volontairement préservées. */
+/* ORACLES STUDIO V13 — identité visuelle inspirée de l'accueil */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
 :root{
-  color-scheme:dark;
-  --sanct-bg:#080914;
-  --sanct-bg-2:#111027;
-  --sanct-panel:rgba(25,21,43,.92);
-  --sanct-panel-2:rgba(35,27,55,.94);
-  --sanct-gold:#e8c982;
-  --sanct-gold-bright:#ffe6ad;
-  --sanct-violet:#a88be8;
-  --sanct-text:#f7f0e3;
-  --sanct-muted:#c9bfd5;
-  --sanct-line:rgba(232,201,130,.28);
-  --sanct-shadow:0 16px 42px rgba(0,0,0,.32);
+ --v13-night:#080817;--v13-night2:#100d27;--v13-panel:#141126;--v13-panel2:#201535;
+ --v13-gold:#f1ce83;--v13-gold2:#b98b48;--v13-cream:#fff1d6;--v13-muted:#c5bad0;
+ --v13-line:rgba(214,181,107,.32);--v13-shadow:0 18px 48px rgba(0,0,0,.42);
+ color-scheme:dark;
 }
-html{background:var(--sanct-bg)!important;scroll-behavior:smooth}
+*{box-sizing:border-box}
+html{width:100%;max-width:100%;background:var(--v13-night)!important;scroll-behavior:smooth;overflow-x:hidden}
 body{
-  color:var(--sanct-text)!important;
-  background:
-    radial-gradient(ellipse at 50% -12%,rgba(112,72,153,.30),transparent 46%),
-    radial-gradient(ellipse at 8% 42%,rgba(48,68,132,.19),transparent 38%),
-    radial-gradient(ellipse at 94% 72%,rgba(113,67,145,.15),transparent 35%),
-    linear-gradient(160deg,#090a18 0%,#111026 52%,#080914 100%)!important;
-  min-height:100vh;
+ width:100%;min-width:0!important;max-width:100%;margin:0!important;overflow-x:hidden;
+ color:var(--v13-cream)!important;
+ background:radial-gradient(ellipse at 5% -10%,#43215e 0,transparent 43%),radial-gradient(ellipse at 95% 35%,#162b5a 0,transparent 34%),#080817!important;
+ font:15px/1.6 'DM Sans',Arial,sans-serif!important;min-height:100vh;
 }
-body:before{
-  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.32;
-  background-image:
-    radial-gradient(1px 1px at 8% 14%,#fff 98%,transparent),
-    radial-gradient(1.5px 1.5px at 31% 72%,#e8c982 98%,transparent),
-    radial-gradient(1px 1px at 67% 22%,#fff 98%,transparent),
-    radial-gradient(1px 1px at 88% 61%,#c9b5ff 98%,transparent);
-  background-size:290px 260px;
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.3;background-image:radial-gradient(1px 1px at 14% 19%,#fff 98%,transparent),radial-gradient(2px 2px at 73% 13%,#f3d38c 98%,transparent),radial-gradient(1px 1px at 44% 79%,#fff 98%,transparent);background-size:170px 160px}
+body>.sanctuaire-v4-banner,body>nav.oracles-key-nav{
+ width:calc(100% - 32px)!important;max-width:1440px!important;margin:14px auto!important;
 }
-.wrap,.shell,.container,.app{position:relative;max-width:1200px;margin-left:auto;margin-right:auto}
-h1,h2,h3,h4{color:var(--sanct-gold-bright)!important;text-wrap:balance}
-p,li,label,.help,.muted,.sub,.tiny,.note{color:var(--sanct-muted)}
-a{color:#f0d49a}
-a:hover{color:#fff0c9}
 .sanctuaire-v4-banner{
-  max-width:1200px;min-height:76px;margin:12px auto 14px;padding:14px 20px;
-  display:flex;align-items:center;justify-content:space-between;gap:14px;
-  border:1px solid var(--sanct-gold)!important;border-radius:18px;
-  background:linear-gradient(105deg,rgba(15,12,34,.96),rgba(42,23,65,.92),rgba(13,17,40,.96))!important;
-  box-shadow:0 10px 32px rgba(0,0,0,.32),0 0 22px rgba(232,201,130,.10);
+ min-height:76px!important;padding:14px 22px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:16px!important;
+ border:1px solid var(--v13-gold)!important;border-radius:20px!important;
+ background:linear-gradient(90deg,#090a1def 0%,#100d27e8 46%,#100b23d9 100%)!important;
+ box-shadow:var(--v13-shadow),inset 0 0 35px #9b56ff18!important;
 }
-.sanctuaire-v4-banner b{font:600 clamp(18px,3vw,27px) Georgia,serif;color:var(--sanct-gold-bright)}
-.sanctuaire-v4-banner span{font-size:11px;letter-spacing:.12em;color:#d9c9a5;text-transform:uppercase}
-nav.oracles-key-nav,nav.nav,nav.navlinks,nav.links,.oracles-key-nav{
-  max-width:1200px;margin:0 auto 18px;padding:11px 15px!important;
-  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
-  color:var(--sanct-text)!important;background:linear-gradient(110deg,rgba(16,13,35,.96),rgba(34,24,55,.96))!important;
-  border:1px solid var(--sanct-line)!important;border-radius:15px!important;
-  box-shadow:0 10px 28px rgba(0,0,0,.25)!important;
+.sanctuaire-v4-banner b{font:600 clamp(17px,2.4vw,25px) Cinzel,Georgia,serif!important;letter-spacing:.08em;color:var(--v13-gold)!important}
+.sanctuaire-v4-banner span{font:500 10px 'DM Sans',sans-serif!important;letter-spacing:.13em;color:#d9c7e3!important;text-transform:uppercase}
+nav.oracles-key-nav{
+ display:flex!important;align-items:center!important;justify-content:space-between!important;gap:12px!important;flex-wrap:wrap!important;
+ padding:12px 16px!important;border:1px solid var(--v13-line)!important;border-radius:15px!important;
+ background:linear-gradient(120deg,#17132deF,#0d1023f2)!important;box-shadow:0 12px 32px #0008!important;
 }
-nav .brand,.oracles-key-nav .brand,.nav .brand{
-  color:var(--sanct-gold-bright)!important;font-family:Georgia,serif!important;
-  font-weight:700;letter-spacing:.12em;text-decoration:none;white-space:nowrap
+.oracles-key-nav .brand{font:600 14px Cinzel,Georgia,serif!important;letter-spacing:.14em!important;color:var(--v13-gold)!important;text-decoration:none!important}
+.oracles-key-nav .brand span{color:#f1ce83!important}
+.oracles-key-nav .navlinks{display:flex!important;align-items:center!important;gap:6px!important;flex-wrap:wrap!important}
+.oracles-key-nav .navlinks a{display:inline-flex!important;align-items:center!important;padding:8px 10px!important;border:1px solid transparent!important;border-radius:9px!important;background:transparent!important;color:#e8d9bd!important;font:600 11px 'DM Sans',sans-serif!important;text-decoration:none!important;white-space:nowrap}
+.oracles-key-nav .navlinks a:hover,.oracles-key-nav .navlinks a:focus{background:#e8c98218!important;border-color:#e8c98255!important;color:#fff0c9!important}
+main.wrap,main.shell,main.container,main.app,.wrap,.shell,.container,.app{
+ width:calc(100% - 44px)!important;max-width:1440px!important;min-width:0!important;
+ margin:0 auto!important;padding:16px 0 72px!important;float:none!important;transform:none!important;
 }
-nav .navlinks,nav .links,.oracles-key-nav .navlinks,.nav .links{
-  display:flex;align-items:center;justify-content:flex-end;gap:6px;flex-wrap:wrap
-}
-nav .navlinks a,nav .links a,.oracles-key-nav a,.nav a{
-  display:inline-flex;align-items:center;min-height:34px;padding:7px 10px;
-  color:#eadbb8!important;border-radius:9px;text-decoration:none;
-  font:600 12px/1.2 system-ui,sans-serif;transition:background .18s,color .18s
-}
-nav .navlinks a:hover,nav .links a:hover,.oracles-key-nav a:hover,.nav a:hover{
-  color:#fff1c9!important;background:rgba(232,201,130,.12)
-}
+.home{display:inline-flex!important;margin:8px 0 16px!important;color:var(--v13-gold)!important;font:600 12px 'DM Sans',sans-serif!important;text-decoration:none!important}
+h1,h2,h3,h4{font-family:Cinzel,Georgia,serif!important;letter-spacing:.015em!important}
+h1,.hero h1{color:#ffe5ad!important;font-weight:600!important;text-shadow:0 3px 18px #000!important}
+h1{font-size:clamp(30px,4vw,48px)!important;line-height:1.15!important;margin:14px 0!important}
+h2{color:var(--v13-gold)!important;font-size:clamp(19px,2.2vw,25px)!important}
+h3{color:#ffe6b5!important;font-size:17px!important}
+p,li,label,.muted,.help,.sub,.tiny,.note{font-family:'DM Sans',Arial,sans-serif!important}
+p,.muted,.help,.sub,.tiny,.note{color:var(--v13-muted)!important}
 .hero{
-  border:1px solid rgba(232,201,130,.42)!important;border-radius:22px!important;
-  box-shadow:var(--sanct-shadow),inset 0 1px rgba(255,255,255,.05)!important;
+ position:relative!important;overflow:hidden!important;isolation:isolate!important;
+ margin:18px 0 24px!important;padding:clamp(30px,5vw,58px)!important;
+ min-height:220px!important;text-align:left!important;
+ border:1px solid #e2b65e!important;border-radius:24px!important;
+ background:linear-gradient(90deg,#090a1def 0%,#100d27e8 55%,#100b23c9 100%)!important;
+ box-shadow:var(--v13-shadow),inset 0 0 55px #9b56ff22!important;
 }
-.hero h1{color:var(--sanct-gold-bright)!important}
-.eyebrow,.gold,.pill,.ornament,.sigil{color:var(--sanct-gold)!important}
-.panel,.settings,.settings-card,.section,.content-card,.tool,.tile,.game,.cross,.notice,.reading,.out,.result,.history-item{
-  color:var(--sanct-text)!important;
-  background:linear-gradient(145deg,var(--sanct-panel-2),var(--sanct-panel))!important;
-  border:1px solid var(--sanct-line)!important;border-radius:17px!important;
-  box-shadow:var(--sanct-shadow),inset 0 1px rgba(255,255,255,.035)!important;
+.hero:after{content:"";position:absolute!important;inset:10px!important;border:1px solid #f2cf8055!important;border-radius:17px!important;pointer-events:none!important;opacity:1!important}
+.hero p{max-width:760px!important;color:#e1d6e7!important;font-size:15px!important;line-height:1.8!important}
+.eyebrow{font:700 10px 'DM Sans',sans-serif!important;letter-spacing:.22em!important;color:var(--v13-gold)!important;text-transform:uppercase}
+.panel,.section,.settings,.settings-card,.content-card,.tool,.tile,.game,.cross,.notice,.reading,.out,.result,.history-item,.card-panel{
+ color:var(--v13-cream)!important;background:linear-gradient(145deg,#201535f5,#0d1023f5)!important;
+ border:1px solid var(--v13-line)!important;border-radius:18px!important;
+ box-shadow:0 12px 32px #0008,inset 0 1px #ffffff0b!important;
 }
-.panel h2,.panel h3,.reading h2,.reading h3,.out h2,.out h3{color:var(--sanct-gold-bright)!important}
+.panel,.section,.settings,.settings-card,.content-card{padding:clamp(16px,2.5vw,26px)!important;margin:16px 0!important}
+.panel h2,.section h2,.settings h2{color:var(--v13-gold)!important}
 button,.btn,.primary,.action,input[type=button],input[type=submit]{
-  border:1px solid rgba(232,201,130,.65)!important;border-radius:11px!important;
-  background:linear-gradient(135deg,#8d6a36,#d7b66f 56%,#987442)!important;
-  color:#171323!important;font-weight:750!important;box-shadow:0 6px 20px rgba(191,151,79,.16)!important;
+ display:inline-flex;align-items:center;justify-content:center;gap:8px;
+ min-height:44px!important;padding:12px 18px!important;border:1px solid #edc66f!important;border-radius:12px!important;
+ background:linear-gradient(135deg,#d9b16b,#80532e)!important;color:#1b1420!important;
+ font:700 13px 'DM Sans',sans-serif!important;box-shadow:0 7px 22px #e8b95833!important;cursor:pointer;
 }
-button:hover,.btn:hover,.primary:hover{filter:brightness(1.1);transform:translateY(-1px)}
-button.secondary,.btn.secondary,.btn.ghost,.secondary{
-  background:rgba(168,139,232,.12)!important;color:var(--sanct-text)!important;
-  border:1px solid rgba(168,139,232,.38)!important;box-shadow:none!important
-}
+button:hover,.btn:hover,.primary:hover{filter:brightness(1.08)!important;transform:translateY(-1px)}
+button.secondary,.btn.secondary,.btn.ghost,.secondary{background:#17142de8!important;color:#f6dfac!important;border-color:#b89b6c!important;box-shadow:none!important}
 input,select,textarea{
-  color:var(--sanct-text)!important;background:rgba(8,10,25,.82)!important;
-  border:1px solid rgba(206,185,226,.30)!important;border-radius:10px!important
+ max-width:100%!important;min-height:42px!important;padding:11px 13px!important;
+ border:1px solid #8d784f99!important;border-radius:10px!important;background:#100d20!important;color:#fff1d6!important;
+ font:14px 'DM Sans',sans-serif!important;
 }
-input:focus,select:focus,textarea:focus{outline:2px solid rgba(232,201,130,.38)!important;outline-offset:2px}
-.reading,.out,.result,.interpretation,#output,#localOutput,#interpretation,#aiOutput{
-  color:#f4effa!important;line-height:1.72
+textarea{width:100%!important;line-height:1.6!important}
+input::placeholder,textarea::placeholder{color:#a99bb8!important}
+a{color:#f0cd82}
+.cards,.drawn{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(145px,100%),1fr))!important;gap:14px!important;min-width:0!important}
+.card,.tarotface,.face{
+ border:1px solid #c59b5b!important;border-radius:15px!important;
+ box-shadow:0 12px 28px #0009!important;
 }
-.reading p,.out p,.result p,.interpretation p,#output p,#localOutput p{color:#eee8f4!important}
-.reading strong,.out strong,.result strong{color:#fff0c9!important}
-.footer,footer{color:#aaa0b8!important}
-hr{border-color:var(--sanct-line)!important}
-:focus-visible{outline-color:var(--sanct-gold-bright)!important}
-@media(max-width:760px){
-  .wrap,.shell,.container,.app{padding-left:11px!important;padding-right:11px!important}
-  .sanctuaire-v4-banner{margin:8px 8px 12px;padding:12px;min-height:64px}
-  .sanctuaire-v4-banner span{font-size:9px;letter-spacing:.07em}
-  nav.oracles-key-nav,nav.nav,.oracles-key-nav{padding:9px!important;gap:7px}
-  nav .navlinks,nav .links,.oracles-key-nav .navlinks,.nav .links{width:100%;justify-content:flex-start;gap:3px}
-  nav .navlinks a,nav .links a,.oracles-key-nav a,.nav a{font-size:11px;padding:7px 8px}
-  .hero{border-radius:16px!important}
+.card.back{background:linear-gradient(145deg,#201535,#0d1023)!important}
+.out,.reading,.result,.interpretation{color:#f4effa!important;line-height:1.75!important}
+.status,.statusline{color:var(--v13-gold)!important}
+hr{border-color:var(--v13-line)!important}
+footer,.footer{margin-top:32px!important;padding:20px!important;text-align:center!important;border-top:1px solid var(--v13-line)!important;color:#9f96ac!important}
+@media(max-width:900px){
+ body>.sanctuaire-v4-banner,body>nav.oracles-key-nav{width:calc(100% - 24px)!important}
+ main.wrap,main.shell,main.container,main.app,.wrap,.shell,.container,.app{width:calc(100% - 24px)!important;padding:12px 0 48px!important}
+ .oracles-key-nav .navlinks{width:100%!important;overflow-x:auto!important;flex-wrap:nowrap!important;justify-content:flex-start!important}
+ .oracles-key-nav .navlinks a{flex:0 0 auto!important}
+ .hero{min-height:0!important;padding:30px 22px!important}
+ .cards,.drawn{grid-template-columns:repeat(auto-fit,minmax(min(125px,100%),1fr))!important}
 }
-@media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+@media(max-width:600px){
+ body>.sanctuaire-v4-banner{margin:8px auto 10px!important;padding:12px 14px!important;min-height:62px!important}
+ .sanctuaire-v4-banner span{font-size:8px!important;letter-spacing:.06em!important}
+ body>nav.oracles-key-nav{margin:8px auto 12px!important;padding:9px 10px!important}
+ .oracles-key-nav .brand{font-size:12px!important}
+ .oracles-key-nav .navlinks a{font-size:10px!important;padding:7px 8px!important}
+ main.wrap,main.shell,main.container,main.app,.wrap,.shell,.container,.app{width:calc(100% - 22px)!important;padding:10px 0 42px!important}
+ h1{font-size:clamp(27px,8vw,38px)!important}
+ .hero{border-radius:18px!important;padding:28px 18px!important}
+ .panel,.section,.settings,.settings-card,.content-card{padding:15px!important;border-radius:15px!important}
+ .cards,.drawn{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+ button,.btn{max-width:100%;white-space:normal!important}
 }
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
