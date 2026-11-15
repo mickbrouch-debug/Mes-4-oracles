@@ -288,19 +288,7 @@ footer,.footer,.muted,.sub,.help,.tiny{color:var(--sanct-muted)!important}
 .cardback:after,.back:after{color:#f3d98f!important;text-shadow:0 0 12px #f7d477}
 
 .card.front{background-image:linear-gradient(180deg,#090b1810,#090b1850),url("assets/runes-illustration.svg")!important;background-size:cover!important;background-position:center!important}
-</style><style id="oracle-card-display-repair">
-/* Correctif d'affichage commun : le symbole, le nom et l'indication restent toujours visibles. */
-#drawn.oracle-card-grid{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(132px,1fr))!important;gap:12px!important}
-#drawn .oracle-card{position:relative!important;isolation:isolate!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:9px!important;min-height:164px!important;padding:14px 10px!important;overflow:hidden!important;white-space:normal!important;visibility:visible!important;opacity:1!important;transform:none}
-#drawn .oracle-card .oracle-card-mark{position:relative!important;z-index:2!important;display:grid!important;place-items:center!important;flex:0 0 auto!important;width:58px!important;height:58px!important;min-width:58px!important;border-radius:50%!important;font-size:32px!important;line-height:1!important;visibility:visible!important;opacity:1!important}
-#drawn .oracle-card .oracle-card-title{position:relative!important;z-index:2!important;display:block!important;max-width:100%!important;font:700 15px/1.3 system-ui,Arial,sans-serif!important;color:#fff4dc!important;text-align:center!important;visibility:visible!important;opacity:1!important;text-shadow:0 1px 4px #000!important}
-#drawn .oracle-card .oracle-card-detail{position:relative!important;z-index:2!important;display:block!important;max-width:100%!important;font:12px/1.4 system-ui,Arial,sans-serif!important;color:#f0dfbd!important;text-align:center!important;visibility:visible!important;opacity:1!important}
-#drawn .oracle-card.front{background-image:none!important;background:radial-gradient(circle at 50% 25%,#51405d,#21182f 78%)!important;color:#fff4dc!important}
-#drawn .oracle-card.back{color:#fff4dc!important}
-#drawn .oracle-card:after{z-index:0!important;pointer-events:none!important}
-#drawn .oracle-card:disabled{opacity:1!important;cursor:default!important}
-</style>
-</head><body>
+</style></head><body>
 <nav class="oracles-key-nav" aria-label="Navigation Oracles Studio">
 <a href="index.html" class="brand">ORACLES <span>/</span> STUDIO</a>
 <div class="navlinks"><a href="index.html">Accueil</a><a href="cle-api.html">Clé API commune</a><a href="tarot-78.html">Tarot</a><a href="lenormand-54.html">Lenormand</a><a href="belline.html">Belline</a><a href="portes-intuition.html">Portes</a><a href="astrologie.html">Astrologie</a><a href="runes.html">Runes</a><a href="analyse-croisee.html">Analyse croisée</a></div></nav>
@@ -320,31 +308,21 @@ const positions={1:['Éclairage'],3:['Situation actuelle','Conseil','Évolution 
 function pos(i){return (positions[+$('count').value]||[])[i]||('Position '+(i+1));}
 function shuffleLayout(){layout=[...DECK];for(let i=layout.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[layout[i],layout[j]]=[layout[j],layout[i]];}pulled=[];revealed=false;renderDeck();$('output').textContent='';$('status').textContent='Cartes mélangées. Choisis toi-même les cartes face cachée.';}
 function renderDeck(){
- const root=$('drawn');
- root.className='cards oracle-card-grid';
- root.replaceChildren();
+ const root=$('drawn');root.className='cards';root.innerHTML='';
  layout.forEach((c,i)=>{
   const chosenIndex=pulled.findIndex(x=>x.name===c.name);
   const chosen=chosenIndex!==-1;
-  const d=document.createElement('button');
-  d.type='button';
-  d.className='card '+(chosen?'front':'back')+' oracle-card';
-  d.setAttribute('aria-label',chosen?'Carte '+c.name+' sélectionnée':'Retourner '+c.name+' pour la sélectionner');
+  const d=document.createElement('button');d.type='button';d.className='card '+(chosen?'front':'back');
+  d.setAttribute('aria-label',chosen?'Carte '+c.name+' sélectionnée':'Retourner cette carte pour la sélectionner');
   d.disabled=chosen||pulled.length>=+$('count').value;
-  const mark=document.createElement('span');
-  mark.className=chosen?'front-mark oracle-card-mark':'back-mark oracle-card-mark';
-  mark.textContent=chosen?(c.symbol||'✧'):(kind==='runes'?'ᚱ':'✧');
-  const title=document.createElement('strong');
-  title.className='oracle-card-title';
-  title.textContent=chosen?c.name:'Carte cachée';
-  const detail=document.createElement('small');
-  detail.className='oracle-card-detail';
-  detail.textContent=chosen?pos(chosenIndex)+' · Choisie '+(chosenIndex+1):'Toucher pour retourner';
-  d.append(mark,title,detail);
+  if(chosen){
+   d.innerHTML='<span class="front-mark">'+(c.symbol||'✧')+'</span><b>'+c.name+'</b><small>'+pos(chosenIndex)+'</small><small>Choisie · '+(chosenIndex+1)+'</small>';
+  }else{
+   d.innerHTML='<span class="back-mark">'+(kind==='runes'?'ᚱ':'✧')+'</span><b>Carte cachée</b><small>Toucher pour retourner</small>';
+  }
   d.addEventListener('click',()=>{
    if(pulled.length>=+$('count').value||pulled.some(x=>x.name===c.name))return;
-   pulled.push(c);
-   renderDeck();
+   pulled.push(c);renderDeck();
    $('status').textContent=pulled.length+' / '+$('count').value+' cartes choisies.'+(pulled.length===+$('count').value?' Tu peux maintenant lancer l’analyse.':'');
    if(pulled.length===+$('count').value)save('Tirage effectué');
   });
