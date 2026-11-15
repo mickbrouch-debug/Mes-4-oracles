@@ -1,9 +1,9 @@
-import {useEffect,useRef,useState,type ComponentType} from 'react';
+import {useCallback,useEffect,useRef,useState,type ComponentType} from 'react';
 import type {OracleId} from './oracles/types';
 import {gsap} from 'gsap';
 import Scene from './Scene';
 
-type Oracle={id:string;roman:string;name:string;description:string;image:string;tag:string};
+type Oracle={id:OracleId;roman:string;name:string;description:string;image:string;tag:string};
 type JournalEntry={oracle:string;date:string;domain?:string;cards?:string;question?:string;local?:string;ai?:string};
 const ORACLES:Oracle[]=[
   {id:'tarot',roman:'I',name:'Le Tarot',description:'Les 78 arcanes · Archétypes & cheminement',image:'oracle-tarot.jpg',tag:'Le grand voyage'},
