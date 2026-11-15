@@ -334,151 +334,52 @@ footer,.footer,.muted,.sub,.help,.tiny{color:var(--sanct-muted)!important}
 @media(prefers-reduced-motion:reduce){.tarotface,.face{animation:none!important}}
 </style>
 
-<!-- ORACLES STUDIO — THEME COMMUN PREMIUM, BASE TAROT V5 -->
-<style id="oracles-tarot-master-theme">
+<style id="oracles-tarot-v5-background-final">
+/* Fond maître commun — repris du Tarot V5, priorité absolue sur les anciens thèmes */
 :root{
- --sanct-bg:#080914;--sanct-bg2:#111025;
- --sanct-panel:rgba(20,18,38,.88);--sanct-panel2:rgba(31,25,52,.86);
- --sanct-gold:#e8c982;--sanct-gold2:#b99555;--sanct-violet:#a88be8;
- --sanct-blue:#7189d7;--sanct-teal:#82c9c5;
- --sanct-text:#f5efdf;--sanct-muted:#c9bfd5;
- --sanct-line:rgba(232,201,130,.30);
- --sanct-shadow:0 18px 55px rgba(0,0,0,.42);
- --sanct-radius:20px;
- color-scheme:dark;
+ --sanct-bg:#080914;--sanct-bg2:#111025;--sanct-gold:#e8c982;--sanct-violet:#a88be8;
+ --sanct-text:#f5efdf;--sanct-muted:#c9bfd5;--sanct-panel:rgba(20,18,38,.88);
+ --sanct-panel2:rgba(31,25,52,.86);--sanct-line:rgba(232,201,130,.30);
+ color-scheme:dark!important;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;background:var(--sanct-bg)}
-body{
- color:var(--sanct-text)!important;
- background:
-  radial-gradient(ellipse at 50% -15%,rgba(111,73,143,.42),transparent 48%),
-  radial-gradient(ellipse at 8% 38%,rgba(67,65,128,.16),transparent 36%),
-  radial-gradient(ellipse at 92% 72%,rgba(151,112,63,.13),transparent 34%),
-  linear-gradient(155deg,#080914 0%,#111025 48%,#090b18 100%)!important;
- background-attachment:fixed!important;
- font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif!important;
-}
-body:before{
- content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.48;
+html,html:root{background:#080914!important;background-color:#080914!important;color-scheme:dark!important;}
+html body,body{
+ min-height:100vh!important;margin:0!important;color:#f5efdf!important;
+ background-color:#080914!important;
  background-image:
- radial-gradient(1px 1px at 8% 14%,#f5e8c6 99%,transparent),
- radial-gradient(1px 1px at 23% 72%,#d8c6ff 99%,transparent),
- radial-gradient(1.5px 1.5px at 44% 28%,#f5e8c6 99%,transparent),
- radial-gradient(1px 1px at 67% 82%,#d8c6ff 99%,transparent),
- radial-gradient(1px 1px at 84% 19%,#f5e8c6 99%,transparent),
- radial-gradient(1px 1px at 93% 57%,#d8c6ff 99%,transparent);
- background-size:310px 260px;
+  radial-gradient(ellipse at 50% -15%,rgba(111,73,143,.42) 0%,transparent 48%),
+  radial-gradient(ellipse at 8% 38%,rgba(67,65,128,.16) 0%,transparent 36%),
+  radial-gradient(ellipse at 92% 72%,rgba(151,112,63,.13) 0%,transparent 34%),
+  linear-gradient(155deg,#080914 0%,#111025 48%,#090b18 100%)!important;
+ background-repeat:no-repeat!important;background-size:cover!important;background-attachment:fixed!important;
+ isolation:isolate!important;position:relative!important;
 }
-a{color:var(--sanct-gold)!important}
-h1,h2,h3,h4,.hero h1,.brand{
- color:var(--sanct-gold)!important;
- font-family:ui-serif,Georgia,"Times New Roman",serif!important;
- letter-spacing:.025em;
- text-shadow:0 2px 18px rgba(232,201,130,.14);
+body::before{
+ content:""!important;display:block!important;position:fixed!important;inset:0!important;
+ z-index:-1!important;pointer-events:none!important;opacity:.48!important;
+ background-color:transparent!important;
+ background-image:
+  radial-gradient(1px 1px at 8% 14%,#f5e8c6 99%,transparent 100%),
+  radial-gradient(1px 1px at 23% 72%,#d8c6ff 99%,transparent 100%),
+  radial-gradient(1.5px 1.5px at 44% 28%,#f5e8c6 99%,transparent 100%),
+  radial-gradient(1px 1px at 67% 82%,#d8c6ff 99%,transparent 100%),
+  radial-gradient(1px 1px at 84% 19%,#f5e8c6 99%,transparent 100%),
+  radial-gradient(1px 1px at 92% 53%,#d8c6ff 99%,transparent 100%)!important;
+ background-size:280px 240px!important;background-repeat:repeat!important;
 }
-p,label,.help,.muted,.eyebrow,.statusline,.field small{color:var(--sanct-muted)}
-.shell,.wrap,.container,.app,.app-shell{
- max-width:1440px!important;
+body::after{
+ content:""!important;display:block!important;position:fixed!important;
+ width:min(72vw,680px)!important;height:min(72vw,680px)!important;left:50%!important;top:48%!important;
+ transform:translate(-50%,-50%)!important;z-index:-1!important;pointer-events:none!important;opacity:.075!important;
+ border:1px solid #e8c982!important;border-radius:50%!important;
+ box-shadow:0 0 0 24px rgba(232,201,130,.08),0 0 0 48px rgba(168,139,232,.06),0 0 90px rgba(168,139,232,.18)!important;
+ background:repeating-conic-gradient(from 0deg,transparent 0deg 14deg,rgba(232,201,130,.10) 14.2deg 14.5deg,transparent 14.7deg 28deg)!important;
 }
-.hero,.panel,.card-panel,.section,.box,.v5-sidebar,.sidebar,.result,
-.out,.reading,.interpretation,.drawn,.modal-content,.modal-card{
- color:var(--sanct-text)!important;
- background:linear-gradient(145deg,rgba(29,25,49,.94),rgba(13,15,31,.94))!important;
- border:1px solid var(--sanct-line)!important;
- border-radius:var(--sanct-radius)!important;
- box-shadow:var(--sanct-shadow),inset 0 1px 0 rgba(255,255,255,.045)!important;
- backdrop-filter:blur(14px);
-}
-.hero{
- position:relative;overflow:hidden;
- padding:clamp(22px,3vw,38px)!important;
-}
-.hero:after{
- content:"";position:absolute;right:-70px;top:-100px;width:280px;height:280px;
- border:1px solid rgba(232,201,130,.14);border-radius:50%;
- box-shadow:0 0 0 22px rgba(232,201,130,.025),0 0 0 48px rgba(168,139,232,.025);
- pointer-events:none;
-}
-.eyebrow,.side-title,.section-kicker{
- color:var(--sanct-gold)!important;text-transform:uppercase;
- letter-spacing:.16em;font-size:.72rem;font-weight:800;
-}
-.oracles-key-nav{
- color:var(--sanct-text)!important;
- background:linear-gradient(100deg,rgba(18,17,36,.96),rgba(34,26,53,.96))!important;
- border:1px solid var(--sanct-line)!important;border-radius:16px!important;
- box-shadow:0 12px 34px rgba(0,0,0,.35)!important;
- backdrop-filter:blur(16px);
-}
-.oracles-key-nav .brand,.oracles-key-nav a,.oracles-key-nav button{
- color:var(--sanct-gold)!important;
-}
-button,.btn,.action,.tab,.navlinks a,.sidebar a{
- transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,background .2s ease;
-}
-button,.btn{
- color:#171323!important;
- background:linear-gradient(135deg,#f0d99e,#c19a58)!important;
- border:1px solid rgba(255,235,183,.62)!important;
- border-radius:12px!important;font-weight:800!important;
- box-shadow:0 7px 20px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.38)!important;
-}
-button:hover,.btn:hover{
- transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.34),0 0 18px rgba(232,201,130,.14)!important;
-}
-button.secondary,.btn.secondary,.secondary{
- color:var(--sanct-gold)!important;
- background:linear-gradient(135deg,rgba(63,48,81,.9),rgba(24,23,46,.96))!important;
- border:1px solid var(--sanct-line)!important;
-}
-input,select,textarea{
- color:var(--sanct-text)!important;
- background:rgba(7,9,22,.78)!important;
- border:1px solid rgba(202,177,128,.34)!important;
- border-radius:11px!important;
-}
-input::placeholder,textarea::placeholder{color:#9f96ad!important}
-input:focus,select:focus,textarea:focus{
- outline:none!important;border-color:var(--sanct-gold)!important;
- box-shadow:0 0 0 3px rgba(232,201,130,.13)!important;
-}
-.field,.gridform,.form,.actions,.stats,.status,.statusline{
- color:var(--sanct-text)!important;
-}
-.deck,.cards,.gallery,.card-grid{
- gap:clamp(12px,1.6vw,22px)!important;
-}
-.deck .card,.deck button,.cards .card,.card-item,.drawn .card{
- border:1px solid rgba(232,201,130,.58)!important;
- border-radius:14px!important;
- box-shadow:0 12px 30px rgba(0,0,0,.42),0 0 0 3px rgba(22,17,38,.8)!important;
-}
-.cardback,.card-back,.back{
- background:
-  radial-gradient(ellipse at 50% 42%,rgba(111,75,146,.96),rgba(37,27,59,.98) 52%,#090b18 100%)!important;
- border:2px solid var(--sanct-gold)!important;
- box-shadow:inset 0 0 0 5px rgba(232,201,130,.10),0 12px 28px rgba(0,0,0,.4)!important;
-}
-.progress,.progressbar{background:rgba(255,255,255,.10)!important;border-radius:99px;overflow:hidden}
-.progress>*,.progressbar>*{background:linear-gradient(90deg,#8e72c8,#e8c982)!important}
-.hidden{color:var(--sanct-text)}
-hr{border:0;border-top:1px solid var(--sanct-line)!important}
-table{color:var(--sanct-text)!important}
-th{color:var(--sanct-gold)!important}
-td,th{border-color:var(--sanct-line)!important}
-.modal,.overlay{backdrop-filter:blur(10px)}
-@media(max-width:760px){
- body{background-attachment:scroll!important}
- .shell,.wrap,.container{padding-left:12px!important;padding-right:12px!important}
- .hero,.panel{border-radius:16px!important}
- .oracles-key-nav{border-radius:13px!important}
-}
-@media(prefers-reduced-motion:reduce){
- *,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+/* Empêche les anciens thèmes clairs de repeindre les grandes zones de page. */
+body>.app,body>.container,body>.shell,body>.page,body>main,body>.main,body>.wrap{
+ background-color:transparent!important;
 }
 </style>
-
 </head>
 <body>
 <nav class="oracles-key-nav" aria-label="Navigation Oracles Studio">
