@@ -1,7 +1,0 @@
-ORACLE DES PORTES DE L’INTUITION — V5 RESTAURÉE
-
-Cette version repart de l’interface V5 sauvegardée (thème ésotérique violet/or, navigation, panneaux, animations, historique et fonctions présentes dans ce fichier). Les illustrations sont appelées depuis la racine : porte-01.jpg à porte-46.jpg.
-
-Sur GitHub : téléverser portes-intuition.html et tous les porte-XX.jpg directement à la racine du dépôt. Aucun dossier à créer.
-
-La clé Gemini n’est pas intégrée : saisir la clé dans le champ prévu à cet effet.
