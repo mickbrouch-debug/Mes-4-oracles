@@ -38,7 +38,6 @@ function FloatingRelics(){
 }
 function Constellations(){
  const points=useMemo(()=>Array.from({length:9},(_,i)=>new THREE.Vector3(Math.sin(i*1.7)*5.8,Math.cos(i*2.1)*3.2,-5)),[]);
- const geom=useMemo(()=>new THREE.BufferGeometry().setFromPoints(points),[points]);
  return <group><lineSegments geometry={new THREE.BufferGeometry().setFromPoints(points.flatMap((p,i)=>i<points.length-1?[p,points[i+1]]:[]))}><lineBasicMaterial color="#d7c08f" transparent opacity={.22}/></lineSegments>{points.map((p,i)=><mesh key={i} position={p}><sphereGeometry args={[.035,10,10]}/><meshBasicMaterial color="#f4dfb0"/></mesh>)}</group>
 }
 function World(){return <>
