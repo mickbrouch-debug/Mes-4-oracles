@@ -1,7 +1,7 @@
 name: Build and deploy Sanctuaire
 on:
   push:
-    branches: [V17.0]
+    branches: [V17.1]
   workflow_dispatch:
 permissions:
   contents: read
