@@ -381,157 +381,149 @@ body>.app,body>.container,body>.shell,body>.page,body>main,body>.main,body>.wrap
 }
 </style>
 
-<style id="sanctuaire-tarot-v5-master">
 
-/* === CHARTE MAÎTRESSE : TAROT V5 — HARMONISATION COMPLÈTE === */
+<style id="sanctuaire-v10-design-system">
 :root{
-  color-scheme:dark!important;
-  --master-night:#080914;
-  --master-ink:#f5efdf;
-  --master-muted:#c8bfd8;
-  --master-gold:#e8c982;
-  --master-violet:#a88be8;
-  --master-panel:rgba(24,21,42,.88);
-  --master-line:rgba(232,201,130,.30);
+ --v10-bg:#070812;--v10-panel:rgba(18,20,39,.82);--v10-panel-hi:rgba(29,28,53,.88);
+ --v10-gold:#e9ca88;--v10-gold-soft:#b9955b;--v10-cream:#f8f2e6;
+ --v10-muted:#b8b4ca;--v10-line:rgba(232,205,147,.2);--v10-violet:#a58de8;
+ --v10-teal:#82c9c5;--v10-shadow:0 24px 70px rgba(0,0,0,.34);
 }
-html,html:root{
-  min-height:100%!important;
-  background:#080914!important;
-  background-color:#080914!important;
-  color-scheme:dark!important;
-}
+html{scroll-padding-top:90px}
 body{
-  min-height:100vh!important;
-  margin:0!important;
-  color:var(--master-ink)!important;
-  background-color:#080914!important;
-  background-image:
-    radial-gradient(ellipse at 50% -15%,rgba(117,82,170,.34),transparent 48%),
-    radial-gradient(ellipse at 8% 38%,rgba(51,76,137,.20),transparent 38%),
-    radial-gradient(ellipse at 92% 72%,rgba(128,82,155,.16),transparent 38%),
-    linear-gradient(160deg,#090a18 0%,#111026 48%,#080914 100%)!important;
-  background-attachment:fixed!important;
-  font-family:Georgia,"Times New Roman",serif!important;
-  isolation:isolate!important;
+ background:
+  radial-gradient(ellipse at 50% -20%,rgba(126,89,174,.32),transparent 44%),
+  radial-gradient(ellipse at 0% 45%,rgba(47,87,139,.17),transparent 38%),
+  radial-gradient(ellipse at 100% 70%,rgba(139,75,129,.14),transparent 38%),
+  linear-gradient(160deg,#080914 0%,#111126 50%,#080914 100%)!important;
+ color:var(--v10-cream)!important;
+ font-family:ui-serif,Georgia,"Times New Roman",serif;
 }
-body::before{
-  content:""!important;
-  display:block!important;
-  position:fixed!important;
-  inset:0!important;
-  z-index:-1!important;
-  pointer-events:none!important;
-  opacity:.42!important;
-  background-color:transparent!important;
-  background-image:
-    radial-gradient(1px 1px at 7% 13%,#fff 98%,transparent),
-    radial-gradient(1px 1px at 19% 72%,#e8c982 98%,transparent),
-    radial-gradient(1.5px 1.5px at 38% 27%,#fff 98%,transparent),
-    radial-gradient(1px 1px at 64% 12%,#c9b5ff 98%,transparent),
-    radial-gradient(1px 1px at 83% 58%,#fff 98%,transparent),
-    radial-gradient(1px 1px at 92% 22%,#e8c982 98%,transparent);
-  background-size:280px 240px!important;
+body:before{
+ content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.26;
+ background-image:radial-gradient(1px 1px at 10% 18%,#fff 98%,transparent),
+ radial-gradient(1px 1px at 30% 74%,#e9ca88 98%,transparent),
+ radial-gradient(1.5px 1.5px at 70% 28%,#fff 98%,transparent),
+ radial-gradient(1px 1px at 90% 82%,#bda8f1 98%,transparent);
+ background-size:280px 240px;animation:v10Stars 100s linear infinite;
 }
-body::after{
-  content:""!important;
-  display:block!important;
-  position:fixed!important;
-  width:min(72vw,680px)!important;
-  height:min(72vw,680px)!important;
-  left:50%!important;
-  top:48%!important;
-  transform:translate(-50%,-50%)!important;
-  z-index:-1!important;
-  pointer-events:none!important;
-  opacity:.075!important;
-  border:1px solid var(--master-gold)!important;
-  border-radius:50%!important;
-  box-shadow:0 0 0 24px rgba(232,201,130,.08),
-             0 0 0 48px rgba(168,139,232,.06),
-             0 0 90px rgba(168,139,232,.18)!important;
-  background:repeating-conic-gradient(
-    from 0deg,transparent 0deg 14deg,
-    rgba(232,201,130,.22) 14.2deg 14.5deg,
-    transparent 14.7deg 30deg
-  )!important;
+@keyframes v10Stars{to{background-position:0 480px,0 -360px,0 280px,0 -480px}}
+.shell,.wrap{max-width:1240px!important;padding-left:clamp(14px,3vw,34px)!important;padding-right:clamp(14px,3vw,34px)!important}
+.hero{
+ position:relative;isolation:isolate;overflow:hidden;
+ padding:clamp(28px,5vw,64px) 22px!important;
+ margin:10px 0 28px!important;
+ border:1px solid rgba(233,202,136,.28)!important;
+ border-radius:30px!important;
+ background:
+  radial-gradient(circle at 50% 0%,rgba(171,133,219,.22),transparent 48%),
+  linear-gradient(125deg,rgba(34,29,61,.97),rgba(13,21,40,.96) 55%,rgba(31,25,49,.97))!important;
+ box-shadow:var(--v10-shadow),inset 0 1px 0 rgba(255,255,255,.08)!important;
 }
-body>.app,body>.container,body>.shell,body>.page,body>main,
-body>.main,body>.wrap,.shell,.wrap,.container,.app,.page,
-.main,.content,.layout,main{
-  background-color:transparent!important;
+.hero:before{
+ content:"";position:absolute;z-index:-1;width:min(58vw,520px);aspect-ratio:1;
+ right:-8%;top:-65%;border:1px solid rgba(233,202,136,.22);border-radius:50%;
+ box-shadow:0 0 0 24px rgba(233,202,136,.035),0 0 0 54px rgba(165,141,232,.035),0 0 100px rgba(165,141,232,.15);
 }
-header,.hero,.topbar,.oracles-key-nav{
-  color:var(--master-ink)!important;
-  background:linear-gradient(180deg,rgba(18,16,34,.78),rgba(18,16,34,.24))!important;
-  border-color:var(--master-line)!important;
+.hero:after{
+ content:"✧";position:absolute;right:clamp(18px,5vw,58px);bottom:12px;
+ font-size:clamp(54px,9vw,112px);line-height:1;color:rgba(233,202,136,.11);
+ text-shadow:0 0 45px rgba(233,202,136,.2);pointer-events:none;
 }
-h1,h2,h3,h4,.hero h1,.panel h2,.section-title{
-  color:var(--master-gold)!important;
-  text-shadow:0 0 22px rgba(168,139,232,.20);
+.hero h1,h1{color:#f2dca8!important;text-shadow:0 5px 32px rgba(233,202,136,.12)}
+.hero p{max-width:760px;line-height:1.8}
+.eyebrow{letter-spacing:.28em!important;color:#d8bd85!important}
+.sigil{
+ width:88px!important;height:88px!important;border-radius:28px!important;
+ border:1px solid rgba(233,202,136,.5)!important;
+ background:linear-gradient(145deg,rgba(233,202,136,.13),rgba(165,141,232,.08))!important;
+ box-shadow:0 12px 35px rgba(0,0,0,.22),inset 0 0 24px rgba(233,202,136,.08)!important;
+ transform:rotate(-4deg);
 }
-p,label,.muted,.description,.subtitle,.help,.hint{
-  color:var(--master-muted);
+.panel{
+ position:relative;overflow:hidden;
+ background:linear-gradient(145deg,rgba(28,29,54,.91),rgba(13,17,34,.94))!important;
+ border:1px solid var(--v10-line)!important;border-radius:24px!important;
+ padding:clamp(17px,2.5vw,28px)!important;margin:18px 0!important;
+ box-shadow:0 18px 48px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.045)!important;
+ backdrop-filter:blur(16px);
 }
-.panel,.card-panel,.section,.box,.result,.reading,.output,
-.interpretation,.analysis-result,.settings,.controls,.form-card,
-.oracle-card,.content-card,.glass,.zone,
-#output,#localOutput,#result,#interpretation,#crossOutput{
-  color:var(--master-ink)!important;
-  background:linear-gradient(145deg,rgba(29,27,48,.90),rgba(17,19,37,.90))!important;
-  border:1px solid var(--master-line)!important;
-  border-radius:18px!important;
-  box-shadow:0 16px 42px rgba(0,0,0,.30),
-             inset 0 1px 0 rgba(255,255,255,.045)!important;
-  backdrop-filter:blur(12px);
+.panel h2{color:var(--v10-gold)!important;font-size:clamp(19px,2vw,24px)!important;letter-spacing:-.02em}
+.panel h2:after{content:"";display:block;width:46px;height:2px;margin-top:10px;background:linear-gradient(90deg,var(--v10-gold),transparent);opacity:.8}
+.gridform,.form{gap:16px!important}
+.field{gap:8px!important}
+label{font:600 12px/1.4 ui-sans-serif,system-ui,sans-serif!important;letter-spacing:.07em;text-transform:uppercase;color:#c9b9e7!important}
+input,select,textarea{
+ min-height:46px!important;padding:12px 14px!important;border-radius:13px!important;
+ border:1px solid rgba(184,176,213,.25)!important;
+ background:rgba(6,9,24,.78)!important;color:#fff8eb!important;
+ box-shadow:inset 0 1px 4px rgba(0,0,0,.22)!important;
 }
-button,.btn,input[type=button],input[type=submit],.button{
-  border:1px solid rgba(232,201,130,.62)!important;
-  border-radius:12px!important;
-  background:linear-gradient(135deg,#e8c982,#b88c4a)!important;
-  color:#171321!important;
-  box-shadow:0 5px 18px rgba(0,0,0,.24),
-             inset 0 1px 0 rgba(255,255,255,.35)!important;
-  font-weight:700!important;
-  transition:transform .18s ease,filter .18s ease,box-shadow .18s ease;
+textarea{line-height:1.65!important}
+button,.btn{
+ border-radius:13px!important;padding:12px 18px!important;
+ font:750 13px/1.25 ui-sans-serif,system-ui,sans-serif!important;
+ letter-spacing:.025em;min-height:44px;
 }
-button:hover,.btn:hover,input[type=button]:hover,
-input[type=submit]:hover,.button:hover{
-  filter:brightness(1.08);
-  transform:translateY(-1px);
-  box-shadow:0 8px 24px rgba(0,0,0,.32),
-             0 0 18px rgba(232,201,130,.16)!important;
+button:not(.secondary),.btn:not(.secondary){
+ color:#1a1721!important;border:1px solid rgba(255,230,174,.65)!important;
+ background:linear-gradient(135deg,#9b7845,#e9ca88 52%,#b18b51)!important;
+ box-shadow:0 8px 22px rgba(188,145,72,.2),inset 0 1px 0 rgba(255,255,255,.35)!important;
 }
-button:disabled,.btn:disabled{
-  opacity:.48;filter:saturate(.5);transform:none;
+button.secondary,.btn.secondary,.btn.ghost,.secondary{
+ color:#eee8fa!important;background:linear-gradient(135deg,rgba(165,141,232,.16),rgba(91,112,168,.12))!important;
+ border:1px solid rgba(165,141,232,.35)!important;box-shadow:none!important;
 }
-input:not([type=button]):not([type=submit]):not([type=checkbox]):not([type=radio]),
-select,textarea{
-  color:#f5efdf!important;
-  background:rgba(10,10,24,.88)!important;
-  border:1px solid rgba(168,139,232,.38)!important;
-  border-radius:11px!important;
+button:hover,.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.actions{gap:10px!important;flex-wrap:wrap}
+.nav,.navlinks,.links{
+ position:sticky!important;top:8px;z-index:20;
+ display:flex;flex-wrap:wrap;gap:8px!important;
+ padding:9px!important;margin:10px 0 22px!important;
+ border:1px solid rgba(233,202,136,.17)!important;border-radius:16px!important;
+ background:rgba(8,10,25,.78)!important;backdrop-filter:blur(18px);
+ box-shadow:0 12px 30px rgba(0,0,0,.22)!important;
 }
-input::placeholder,textarea::placeholder{color:#9d94b0!important}
-a{color:#e8c982}
-hr{border-color:rgba(232,201,130,.20)!important}
-table{color:var(--master-ink)!important}
-th{color:var(--master-gold)!important}
-tr,td,th{border-color:rgba(232,201,130,.16)!important}
-@media(max-width:700px){
-  .shell,.wrap,.container,.app,.page,main{
-    padding-left:12px!important;padding-right:12px!important;
-  }
-  .panel,.card-panel,.section,.box,.result,.reading,.output,
-  .interpretation,.analysis-result,.settings,.controls,
-  .form-card,.oracle-card,.content-card,.glass,.zone{
-    border-radius:15px!important;
-  }
+.nav a,.navlinks a,.links a{
+ padding:8px 12px!important;border-radius:10px!important;
+ background:rgba(255,255,255,.035);text-decoration:none!important;
+ font:650 12px ui-sans-serif,system-ui,sans-serif!important;color:#e9d9b8!important;
 }
-
+.nav a:hover,.navlinks a:hover,.links a:hover{background:rgba(233,202,136,.13)!important}
+.cards,.drawn{gap:clamp(10px,2vw,18px)!important}
+.card,.tarotface,.face{
+ border-radius:18px!important;border:1px solid rgba(233,202,136,.65)!important;
+ box-shadow:0 18px 36px rgba(0,0,0,.4),inset 0 0 0 4px rgba(233,202,136,.08),inset 0 1px 0 rgba(255,255,255,.22)!important;
+ overflow:hidden;
+}
+.card.back{
+ background:
+  radial-gradient(circle at center,transparent 0 22%,rgba(233,202,136,.13) 22.5% 23%,transparent 23.5% 37%,rgba(233,202,136,.12) 37.5% 38%,transparent 38.5%),
+  repeating-conic-gradient(from 8deg,rgba(233,202,136,.10) 0 2deg,transparent 2deg 12deg),
+  linear-gradient(145deg,#262044,#10152a 60%,#302044)!important;
+}
+.reading,.out,.result,.interpretation,#output,#localOutput,#result,#crossOutput{
+ border-radius:20px!important;border:1px solid rgba(233,202,136,.24)!important;
+ background:linear-gradient(145deg,rgba(29,29,53,.97),rgba(12,17,34,.97))!important;
+ padding:clamp(16px,2.5vw,25px)!important;
+ box-shadow:0 16px 42px rgba(0,0,0,.24)!important;
+}
+.statusline,.notice,.stats{border-radius:14px!important}
+footer{padding:25px 8px;color:#a9a3ba!important}
+@media(max-width:680px){
+ .hero{border-radius:22px!important;padding:28px 18px!important}
+ .hero:after{opacity:.5}
+ .nav,.navlinks,.links{top:4px;overflow-x:auto;flex-wrap:nowrap;white-space:nowrap}
+ .nav a,.navlinks a,.links a{flex:0 0 auto}
+ .gridform,.form{grid-template-columns:1fr!important}
+ .full{grid-column:auto!important}
+ .panel{border-radius:18px!important}
+}
+@media(prefers-reduced-motion:reduce){body:before{animation:none!important}button,.btn{transition:none!important}}
 </style>
 </head>
 <body>
-<nav class="oracles-key-nav" aria-label="Navigation Oracles Studio">
+<div class="sanctuaire-v4-banner"><div><b>✦ Le Sanctuaire des Oracles ✦</b><br><span>Six univers · Une expérience mystique</span></div>\1 aria-label="Navigation Oracles Studio">
 <a href="index.html" class="brand">ORACLES <span>/</span> STUDIO</a>
 <div class="navlinks"><a href="index.html">Accueil</a><a href="cle-api.html">Clé API commune</a><a href="tarot-78.html">Tarot</a><a href="lenormand-54.html">Lenormand</a><a href="belline.html">Belline</a><a href="portes-intuition.html">Portes</a><a href="astrologie.html">Astrologie</a><a href="runes.html">Runes</a><a href="analyse-croisee.html">Analyse croisée</a></div></nav>
 <style id="oracles-key-nav-style">.oracles-key-nav{max-width:1180px;margin:0 auto 16px;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:rgba(255,255,255,.94);border:1px solid #e2e8f1;border-radius:15px;box-shadow:0 8px 24px #1d30520c}.oracles-key-nav .brand{font-weight:850;letter-spacing:-.04em;color:#203553;text-decoration:none}.oracles-key-nav .brand span{color:#315efb}.oracles-key-nav .navlinks{display:flex;gap:5px;flex-wrap:wrap}.oracles-key-nav .navlinks a{font-size:12px;text-decoration:none;color:#43536d;padding:6px 8px;border-radius:8px;white-space:nowrap}.oracles-key-nav .navlinks a:hover{background:#edf2ff;color:#315efb}@media(max-width:650px){.oracles-key-nav{margin:0 8px 12px}.oracles-key-nav .navlinks{width:100%;overflow-x:auto;flex-wrap:nowrap}.oracles-key-nav .navlinks a{flex:0 0 auto}}</style>

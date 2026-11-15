@@ -1,25 +1,16 @@
-HARMONISATION VISUELLE — RÉFÉRENCE TAROT V5
+CORRECTION STRUCTURELLE — ALIGNEMENT SUR LE TAROT V5
 
-Cette livraison applique une couche de thème commune aux six interfaces oracle :
-- Portes de l’Intuition
-- Belline
-- Astrologie
-- Grand Lenormand 54
-- Grand Jeu de Mlle Lenormand
-- Runes
+Cette version remplace la précédente tentative de simple recoloration.
 
-Le Tarot V5 est inclus comme référence et laissé inchangé.
-Les modifications portent sur l’habillage CSS : arrière-plan nocturne multicouche,
-halos violets/bleus, étoiles, motif circulaire doré, panneaux translucides,
-titres, boutons et champs de formulaire.
+Changements appliqués aux six autres interfaces :
+- reprise du véritable bloc CSS « sanctuaire-v10-design-system » du Tarot V5 ;
+- ajout du bandeau supérieur « Le Sanctuaire des Oracles » manquant ;
+- reprise des règles de navigation du Tarot ;
+- suppression de la couche CSS générique précédente.
 
-Les moteurs de tirage, données des cartes et fonctions JavaScript ne sont pas
-volontairement modifiés.
+Les noms, cartes, moteurs de tirage, réglages et fonctions JavaScript ne sont pas
+volontairement modifiés. Le fichier Tarot est conservé comme référence inchangée.
 
-IMPORTANT — traçabilité des sources :
-Les pages Portes, Belline, Astrologie, Lenormand et Grand Jeu proviennent des
-fichiers locaux d’audit disponibles dans cette session. La page Runes provient
-de la copie locale Sanctuaire V10, car la récupération directe du fichier V5
-depuis GitHub n’a pas pu être matérialisée ici.
-Cette archive n’est donc pas présentée comme un miroir certifié exact du dépôt
-GitHub V5. Elle n’a pas été publiée sur GitHub ni testée dans un navigateur réel.
+À vérifier sur téléphone : rendu exact de chaque oracle, menus déroulants,
+tirages et affichage des cartes. Cette archive locale n'est pas encore publiée
+sur GitHub Pages.
