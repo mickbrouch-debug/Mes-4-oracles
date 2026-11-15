@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sanctuaire-v17-shell';
+const CACHE_NAME = 'sanctuaire-v17-1-shell';
 const APP_SCOPE = '/Mes-4-oracles/';
 const APP_SHELL = [APP_SCOPE, APP_SCOPE + 'index.html', APP_SCOPE + 'manifest.webmanifest'];
 
