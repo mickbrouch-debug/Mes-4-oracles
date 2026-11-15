@@ -1,0 +1,21 @@
+{
+  "id": "/Mes-4-oracles/",
+  "name": "Le Sanctuaire — Au-delà des symboles",
+  "short_name": "Le Sanctuaire",
+  "description": "Six chemins symboliques, un univers immersif.",
+  "lang": "fr-FR",
+  "start_url": "/Mes-4-oracles/index.html",
+  "scope": "/Mes-4-oracles/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#090813",
+  "theme_color": "#090813",
+  "icons": [
+    {
+      "src": "/Mes-4-oracles/icons/sanctuaire.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
