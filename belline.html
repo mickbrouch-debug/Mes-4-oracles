@@ -16,9 +16,9 @@
 
 /* Belline V5 — peintures dédiées sur les faces révélées */
 .drawnitem .tarotface{position:relative;overflow:hidden;background:#171326!important;isolation:isolate}
-.drawnitem .belline-painting{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);object-fit:cover;border-radius:5px;z-index:0;filter:saturate(1.05)}
-.drawnitem .tarotface:after{content:"";position:absolute;inset:8px;background:linear-gradient(180deg,rgba(5,8,20,.02) 30%,rgba(5,8,20,.82) 100%);z-index:1;pointer-events:none}
-.drawnitem .tarotface .inner{position:relative;z-index:2;color:#fff4d7;text-shadow:0 2px 5px #000}
+.drawnitem .belline-painting{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);object-fit:cover;border-radius:5px;z-index:-1;filter:saturate(1.05)}
+.drawnitem .tarotface:after{content:"";position:absolute;inset:8px;background:linear-gradient(180deg,rgba(5,8,20,.02) 30%,rgba(5,8,20,.82) 100%);z-index:0;pointer-events:none}
+.drawnitem .tarotface .inner{position:relative;z-index:1;color:#fff4d7;text-shadow:0 2px 5px #000}
 .drawnitem .tarotface .edition{color:#f3d58b!important}
 .drawnitem .tarotface .cardname{color:#fff5df!important;font-size:clamp(12px,2vw,16px)!important}
 .drawnitem .tarotface .symbol{display:none!important}
@@ -333,6 +333,152 @@ footer,.footer,.muted,.sub,.help,.tiny{color:var(--sanct-muted)!important}
 .tarotface,.face{animation:sanctuaireCardReveal .75s cubic-bezier(.2,.75,.25,1) both}
 @media(prefers-reduced-motion:reduce){.tarotface,.face{animation:none!important}}
 </style>
+
+<!-- ORACLES STUDIO — THEME COMMUN PREMIUM, BASE TAROT V5 -->
+<style id="oracles-tarot-master-theme">
+:root{
+ --sanct-bg:#080914;--sanct-bg2:#111025;
+ --sanct-panel:rgba(20,18,38,.88);--sanct-panel2:rgba(31,25,52,.86);
+ --sanct-gold:#e8c982;--sanct-gold2:#b99555;--sanct-violet:#a88be8;
+ --sanct-blue:#7189d7;--sanct-teal:#82c9c5;
+ --sanct-text:#f5efdf;--sanct-muted:#c9bfd5;
+ --sanct-line:rgba(232,201,130,.30);
+ --sanct-shadow:0 18px 55px rgba(0,0,0,.42);
+ --sanct-radius:20px;
+ color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--sanct-bg)}
+body{
+ color:var(--sanct-text)!important;
+ background:
+  radial-gradient(ellipse at 50% -15%,rgba(111,73,143,.42),transparent 48%),
+  radial-gradient(ellipse at 8% 38%,rgba(67,65,128,.16),transparent 36%),
+  radial-gradient(ellipse at 92% 72%,rgba(151,112,63,.13),transparent 34%),
+  linear-gradient(155deg,#080914 0%,#111025 48%,#090b18 100%)!important;
+ background-attachment:fixed!important;
+ font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif!important;
+}
+body:before{
+ content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:.48;
+ background-image:
+ radial-gradient(1px 1px at 8% 14%,#f5e8c6 99%,transparent),
+ radial-gradient(1px 1px at 23% 72%,#d8c6ff 99%,transparent),
+ radial-gradient(1.5px 1.5px at 44% 28%,#f5e8c6 99%,transparent),
+ radial-gradient(1px 1px at 67% 82%,#d8c6ff 99%,transparent),
+ radial-gradient(1px 1px at 84% 19%,#f5e8c6 99%,transparent),
+ radial-gradient(1px 1px at 93% 57%,#d8c6ff 99%,transparent);
+ background-size:310px 260px;
+}
+a{color:var(--sanct-gold)!important}
+h1,h2,h3,h4,.hero h1,.brand{
+ color:var(--sanct-gold)!important;
+ font-family:ui-serif,Georgia,"Times New Roman",serif!important;
+ letter-spacing:.025em;
+ text-shadow:0 2px 18px rgba(232,201,130,.14);
+}
+p,label,.help,.muted,.eyebrow,.statusline,.field small{color:var(--sanct-muted)}
+.shell,.wrap,.container,.app,.app-shell{
+ max-width:1440px!important;
+}
+.hero,.panel,.card-panel,.section,.box,.v5-sidebar,.sidebar,.result,
+.out,.reading,.interpretation,.drawn,.modal-content,.modal-card{
+ color:var(--sanct-text)!important;
+ background:linear-gradient(145deg,rgba(29,25,49,.94),rgba(13,15,31,.94))!important;
+ border:1px solid var(--sanct-line)!important;
+ border-radius:var(--sanct-radius)!important;
+ box-shadow:var(--sanct-shadow),inset 0 1px 0 rgba(255,255,255,.045)!important;
+ backdrop-filter:blur(14px);
+}
+.hero{
+ position:relative;overflow:hidden;
+ padding:clamp(22px,3vw,38px)!important;
+}
+.hero:after{
+ content:"";position:absolute;right:-70px;top:-100px;width:280px;height:280px;
+ border:1px solid rgba(232,201,130,.14);border-radius:50%;
+ box-shadow:0 0 0 22px rgba(232,201,130,.025),0 0 0 48px rgba(168,139,232,.025);
+ pointer-events:none;
+}
+.eyebrow,.side-title,.section-kicker{
+ color:var(--sanct-gold)!important;text-transform:uppercase;
+ letter-spacing:.16em;font-size:.72rem;font-weight:800;
+}
+.oracles-key-nav{
+ color:var(--sanct-text)!important;
+ background:linear-gradient(100deg,rgba(18,17,36,.96),rgba(34,26,53,.96))!important;
+ border:1px solid var(--sanct-line)!important;border-radius:16px!important;
+ box-shadow:0 12px 34px rgba(0,0,0,.35)!important;
+ backdrop-filter:blur(16px);
+}
+.oracles-key-nav .brand,.oracles-key-nav a,.oracles-key-nav button{
+ color:var(--sanct-gold)!important;
+}
+button,.btn,.action,.tab,.navlinks a,.sidebar a{
+ transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,background .2s ease;
+}
+button,.btn{
+ color:#171323!important;
+ background:linear-gradient(135deg,#f0d99e,#c19a58)!important;
+ border:1px solid rgba(255,235,183,.62)!important;
+ border-radius:12px!important;font-weight:800!important;
+ box-shadow:0 7px 20px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.38)!important;
+}
+button:hover,.btn:hover{
+ transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.34),0 0 18px rgba(232,201,130,.14)!important;
+}
+button.secondary,.btn.secondary,.secondary{
+ color:var(--sanct-gold)!important;
+ background:linear-gradient(135deg,rgba(63,48,81,.9),rgba(24,23,46,.96))!important;
+ border:1px solid var(--sanct-line)!important;
+}
+input,select,textarea{
+ color:var(--sanct-text)!important;
+ background:rgba(7,9,22,.78)!important;
+ border:1px solid rgba(202,177,128,.34)!important;
+ border-radius:11px!important;
+}
+input::placeholder,textarea::placeholder{color:#9f96ad!important}
+input:focus,select:focus,textarea:focus{
+ outline:none!important;border-color:var(--sanct-gold)!important;
+ box-shadow:0 0 0 3px rgba(232,201,130,.13)!important;
+}
+.field,.gridform,.form,.actions,.stats,.status,.statusline{
+ color:var(--sanct-text)!important;
+}
+.deck,.cards,.gallery,.card-grid{
+ gap:clamp(12px,1.6vw,22px)!important;
+}
+.deck .card,.deck button,.cards .card,.card-item,.drawn .card{
+ border:1px solid rgba(232,201,130,.58)!important;
+ border-radius:14px!important;
+ box-shadow:0 12px 30px rgba(0,0,0,.42),0 0 0 3px rgba(22,17,38,.8)!important;
+}
+.cardback,.card-back,.back{
+ background:
+  radial-gradient(ellipse at 50% 42%,rgba(111,75,146,.96),rgba(37,27,59,.98) 52%,#090b18 100%)!important;
+ border:2px solid var(--sanct-gold)!important;
+ box-shadow:inset 0 0 0 5px rgba(232,201,130,.10),0 12px 28px rgba(0,0,0,.4)!important;
+}
+.progress,.progressbar{background:rgba(255,255,255,.10)!important;border-radius:99px;overflow:hidden}
+.progress>*,.progressbar>*{background:linear-gradient(90deg,#8e72c8,#e8c982)!important}
+.hidden{color:var(--sanct-text)}
+hr{border:0;border-top:1px solid var(--sanct-line)!important}
+table{color:var(--sanct-text)!important}
+th{color:var(--sanct-gold)!important}
+td,th{border-color:var(--sanct-line)!important}
+.modal,.overlay{backdrop-filter:blur(10px)}
+@media(max-width:760px){
+ body{background-attachment:scroll!important}
+ .shell,.wrap,.container{padding-left:12px!important;padding-right:12px!important}
+ .hero,.panel{border-radius:16px!important}
+ .oracles-key-nav{border-radius:13px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
+</style>
+
 </head>
 <body>
 <nav class="oracles-key-nav" aria-label="Navigation Oracles Studio">
@@ -1332,63 +1478,10 @@ function flipOrientations(){orientations={};selected.forEach(id=>orientations[id
 function getSelected(){return selected.map(id=>({card:TAROT_CARDS.find(c=>c.id===id),reversed:!!orientations[id]}))}
 function revealCards(){revealed=true;$("result").classList.remove("hidden");$("summary").textContent=`Thème : ${$("domain").value} · Question : ${$("question").value.trim()||"Tirage général"} · ${selected.length} cartes`;renderDrawn();$("interpretation").innerHTML="";$("aiStatus").classList.add("hidden");$("result").scrollIntoView({behavior:"smooth",block:"start"})}
 function bellinePainting(card){
- const files={  "Pourparlers":"belline-33-pourparlers.jpg",
-  "Feu":"belline-34-feu.jpg",
-  "Accident":"belline-35-accident.jpg",
-  "Appui":"belline-36-appui.jpg",
-  "Beauté":"belline-37-beaute.jpg",
-  "Héritage":"belline-38-heritage.jpg",
-  "Sagesse":"belline-39-sagesse.jpg",
-  "Renommée":"belline-40-renommee.jpg",
-  "Hasard":"belline-41-hasard.jpg",
-  "Bonheur":"belline-42-bonheur.jpg",
-  "Ruine":"belline-43-ruine.jpg",
-  "Fatalité":"belline-44-fatalite.jpg",
-  "Grâce":"belline-45-grace.jpg",
-  "Cloître":"belline-46-cloitre.jpg",
-  "Retard":"belline-47-retard.jpg",
-  "Obstacles":"belline-48-obstacles.jpg",
-  "Épreuves":"belline-49-epreuves.jpg",
-  "Étoile de l’Homme":"belline-50-etoile-homme.jpg",
-  "Étoile de la Femme":"belline-51-etoile-femme.jpg",
-  "Destinée":"belline-52-destinee.jpg",
-  "Carte Bleue":"belline-53-carte-bleue.jpg",
-  "Intelligence":"belline-17-intelligence.jpg",
-  "Vol-Perte":"belline-18-vol-perte.jpg",
-  "Entreprises":"belline-19-entreprises.jpg",
-  "Trafic":"belline-20-trafic.jpg",
-  "Nouvelle":"belline-21-nouvelle.jpg",
-  "Plaisirs":"belline-22-plaisirs.jpg",
-  "Paix":"belline-23-paix.jpg",
-  "Union":"belline-24-union.jpg",
-  "Famille":"belline-25-famille.jpg",
-  "Amour":"belline-26-amour.jpg",
-  "Table":"belline-27-table.jpg",
-  "Passions":"belline-28-passions.jpg",
-  "Méchanceté":"belline-29-mechancete.jpg",
-  "Procès":"belline-30-proces.jpg",
-  "Despotisme":"belline-31-despotisme.jpg",
-  "Ennemis":"belline-32-ennemis.jpg",
-
-  "Nativité":"belline-01-nativite.jpg",
-  "Réussite":"belline-02-reussite.jpg",
-  "Élévation":"belline-03-elevation.jpg",
-  "Honneurs":"belline-04-honneurs.jpg",
-  "Pensée-Amitié":"belline-05-pensee-amitie.jpg",
-  "Campagne-Santé":"belline-06-campagne-sante.jpg",
-  "Présents":"belline-07-presents.jpg",
-  "Trahison":"belline-08-trahison.jpg",
-  "Départ":"belline-09-depart.jpg",
-  "Inconstance":"belline-10-inconstance.jpg",
-  "Découverte":"belline-11-decouverte.jpg",
-  "Eau":"belline-12-eau.jpg",
-  "Pénates":"belline-13-penates.jpg",
-  "Maladie":"belline-14-maladie.jpg",
-  "Changement":"belline-15-changement.jpg",
-  "Argent":"belline-16-argent.jpg",
- };
+ const files={
+  "Nativité":"belline-01-nativite.jpg",\n  "Réussite":"belline-02-reussite.jpg",\n  "Élévation":"belline-03-elevation.jpg",\n  "Honneurs":"belline-04-honneurs.jpg",\n  "Pensée-Amitié":"belline-05-pensee-amitie.jpg",\n  "Campagne-Santé":"belline-06-campagne-sante.jpg",\n  "Présents":"belline-07-presents.jpg",\n  "Trahison":"belline-08-trahison.jpg",\n  "Départ":"belline-09-depart.jpg",\n  "Inconstance":"belline-10-inconstance.jpg",\n  "Découverte":"belline-11-decouverte.jpg",\n  "Eau":"belline-12-eau.jpg",\n  "Pénates":"belline-13-penates.jpg",\n  "Maladie":"belline-14-maladie.jpg",\n  "Changement":"belline-15-changement.jpg",\n  "Argent":"belline-16-argent.jpg",\n };
  const file=files[card?.name];
- return file?`<img class="belline-painting" src="./${file}" alt="Illustration de ${String(card.name).replace(/[&<>\"']/g, "")}">` : bellineArt(card);
+ return file?`<img class="belline-painting" src="./${file}" alt="Illustration de ${String(card.name).replace(/[&<>"']/g,'')}">` : bellineArt(card);
 }
 function renderDrawn(){const root=$("drawn");root.innerHTML="";const n=selected.length;const pos=positionsFor(n);getSelected().forEach((item,i)=>{const name=pos[i*2]||`Carte ${i+1}`;const el=document.createElement("div");el.className="drawnitem";el.innerHTML=`<div class="tarotface ${item.reversed?"reversed":""}"><div class="inner">${bellinePainting(item.card)}<div class="edition">✦ ORACLE DE BELLINE ✦</div><div class="cardname"></div><div style="font:8px Arial,sans-serif;letter-spacing:.14em">${item.reversed?"RENversée":"DROITE"}</div></div></div><div class="poslabel"></div>`;const face=el.querySelector(".tarotface");face.style.backgroundImage=window.SanctuaireCardArt(item.card.name,item.card.suit||item.card.arcana||"Arcane","belline");el.querySelector(".cardname").textContent=item.card.name;el.querySelector(".poslabel").textContent=name;root.appendChild(el)})}
 function localAnalysis(){

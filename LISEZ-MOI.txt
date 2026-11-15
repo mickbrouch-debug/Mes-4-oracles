@@ -1,12 +1,22 @@
-SANCTUAIRE DES ORACLES — V10.0
+ORACLES STUDIO — HARMONISATION GRAPHIQUE SUR LA BASE DU TAROT
 
-INSTALLATION COMPLÈTE
-1. Décompresse cette archive.
-2. Dans GitHub, ouvre le dépôt Mes-4-oracles et la branche V5.2.
-3. Remplace les fichiers du site par TOUS les fichiers de cette archive.
-4. Laisse index.html à la racine (ne place pas les fichiers dans un sous-dossier).
-5. Attends la fin de GitHub Pages.
-6. Ouvre le site avec un rechargement forcé ou en navigation privée.
+Fichiers HTML inclus :
+- tarot-78-V5-CORRIGE.html : référence maître, conservée sans modification.
+- portes-intuition.html
+- belline.html
+- astrologie.html
+- lenormand-54.html
+- Grand_Jeu_Mlle_Lenormand_54.html
 
-Garde la branche principale comme sauvegarde.
-L'archive ne nécessite aucun dossier d'images externe.
+La couche graphique commune est ajoutée en fin de cascade dans les pages cibles.
+Les scripts métier, les données de cartes, les tirages, les appels IA, l'historique et les réglages n'ont pas été réécrits.
+Les illustrations et autres ressources externes ne sont pas incluses dans cette archive : conserver les dossiers/ressources déjà présents dans le dépôt GitHub.
+
+Constat de l'audit :
+- Le Tarot dispose de plusieurs couches visuelles sombres, premium et spécialisées.
+- Belline et Lenormand partagent déjà certains composants, mais conservent des couches CSS héritées claires.
+- Astrologie présente également des styles hérités clairs et une interface plus simple.
+- Les deux fichiers nommés Petit_Lenormand... et Grand_Jeu_Mlle_Lenormand... retrouvés dans la bibliothèque sont strictement identiques octet pour octet.
+- Aucun fichier source identifiable pour les Runes n'a été retrouvé parmi les HTML accessibles pendant cet audit : il n'est donc pas inclus ni modifié.
+
+Cette harmonisation est une première passe CSS. Vérifier chaque page dans le navigateur avec ses ressources habituelles avant publication.
