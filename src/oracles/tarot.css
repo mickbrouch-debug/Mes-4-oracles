@@ -36,3 +36,71 @@
 .tarot-drawn{min-width:0;position:relative}
 .tarot-face img{display:block;position:relative;z-index:1}
 @media(max-width:600px){.tarot-drawn-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px}.tarot-face{height:clamp(190px,58vw,245px);width:100%;max-width:190px}.tarot-card-name{overflow-wrap:anywhere;font-size:17px}.tarot-drawn .quiet-action{max-width:100%;white-space:normal}}
+
+
+/* V15 — Portes de l’Intuition : grille régulière et illustrations intégralement cadrées */
+.oracle-app-portes .tarot-deck{
+  grid-template-columns:repeat(8,minmax(0,1fr));
+  align-items:start;
+  justify-items:stretch;
+  gap:14px;
+  max-width:1120px;
+  margin:24px auto;
+}
+.oracle-app-portes .tarot-back{
+  width:100%;
+  aspect-ratio:2/3;
+  min-width:0;
+  max-width:132px;
+  justify-self:center;
+  overflow:hidden;
+}
+.oracle-app-portes .tarot-drawn-grid{
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  justify-items:center;
+  align-items:start;
+  gap:24px 18px;
+}
+.oracle-app-portes .tarot-drawn{
+  width:100%;
+  max-width:230px;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.oracle-app-portes .tarot-face{
+  width:min(100%,190px);
+  height:auto;
+  aspect-ratio:2/3;
+  padding:6px;
+  display:grid;
+  place-items:center;
+  background:#090812;
+  overflow:hidden;
+}
+.oracle-app-portes .tarot-face img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center center;
+  border-radius:3px;
+}
+.oracle-app-portes .tarot-position,
+.oracle-app-portes .tarot-card-name,
+.oracle-app-portes .tarot-orientation{
+  width:100%;
+  text-align:center;
+}
+@media(max-width:850px){
+  .oracle-app-portes .tarot-deck{grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+  .oracle-app-portes .tarot-drawn-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:600px){
+  .oracle-app-portes .tarot-deck{grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+  .oracle-app-portes .tarot-back{max-width:116px}
+  .oracle-app-portes .tarot-drawn-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px}
+  .oracle-app-portes .tarot-drawn{max-width:190px}
+  .oracle-app-portes .tarot-face{width:100%;max-width:170px}
+}
