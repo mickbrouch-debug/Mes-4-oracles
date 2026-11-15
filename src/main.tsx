@@ -22,4 +22,10 @@ class AppErrorBoundary extends Component<{children:ReactNode},{error:Error|null}
 }
 window.addEventListener('error',e=>console.error('Window error:',e.message,e.filename,e.lineno));
 window.addEventListener('unhandledrejection',e=>console.error('Unhandled promise:',e.reason));
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/Mes-4-oracles/sw.js', {scope: '/Mes-4-oracles/'}).catch(error => console.error('Service worker registration failed:', error));
+  });
+}
+
 ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><AppErrorBoundary><App/></AppErrorBoundary></React.StrictMode>);
