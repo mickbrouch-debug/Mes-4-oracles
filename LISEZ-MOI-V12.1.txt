@@ -1,0 +1,20 @@
+V12.1 — FICHIERS À REMPLACER DANS LA BRANCHE V12.0
+
+Ce paquet contient les neuf pages HTML de l'application, la feuille de style commune et le service worker actualisé.
+Les fichiers sont directement à la racine de l'archive : ne les place pas dans un sous-dossier sur GitHub.
+
+Procédure :
+1. Décompresse l'archive sur ton appareil.
+2. Dans GitHub, ouvre le dépôt Mes-4-oracles puis sélectionne la branche V12.0 (ou la branche de test que tu souhaites).
+3. Téléverse les 11 fichiers à la racine du dépôt en remplaçant les fichiers de même nom.
+4. Valide le commit sur la branche de test.
+5. Recharge le site avec ?v=12.1-test à la fin de l'URL.
+
+Corrections intégrées :
+- thème commun nuit / violet / or chargé après les styles propres à chaque page ;
+- navigation réparée dans les quatre pages dont la balise d'ouverture était corrompue ;
+- navigation, panneaux, formulaires et titres harmonisés ;
+- cache PWA renouvelé et feuille commune ajoutée au pré-cache.
+
+Les images JPEG/SVG et les scripts métiers des tirages/interprétations ne sont pas modifiés par ce correctif.
+Les pages fournies proviennent du CORE V12.0 préparé précédemment ; les autres fichiers du dépôt ne sont pas supprimés.
