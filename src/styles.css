@@ -12,3 +12,29 @@
 .atelier-grid button{background:linear-gradient(145deg,#3a2c452e,#100d1dba);box-shadow:inset 0 1px #e7d1a21c,0 15px 38px #0004}
 footer{background:radial-gradient(ellipse at center,#21172b,#090813 68%)}
 @media(max-width:600px){.hero:after{right:5%;top:20%;font-size:20px;opacity:.65}.hero:before{inset:3% -35%;opacity:.18}.oracle-section:before,.atelier:before{background-size:24px 24px}}
+
+/* Refonte visuelle franche : les illustrations deviennent de vrais décors */
+.hero{isolation:isolate;overflow:hidden;background:#100b1b}
+.hero-backdrop{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.hero-backdrop img{width:100%;height:100%;object-fit:cover;object-position:center 46%;opacity:.62;filter:saturate(.82) contrast(1.08) brightness(.78);transform:scale(1.035)}
+.hero:before{content:"";position:absolute;inset:0;z-index:-1;opacity:1;background:linear-gradient(90deg,#090813f2 0%,#090813d9 32%,#09081358 66%,#09081335 100%),linear-gradient(0deg,#090813 0%,transparent 27%,#09081345 100%)}
+.hero:after{content:"";position:absolute;z-index:0;right:4%;top:8%;width:min(47vw,590px);aspect-ratio:1;border:1px solid #e2c58a55;border-radius:50%;box-shadow:0 0 0 18px #d4b77b0a,0 0 0 40px #d4b77b08,0 0 90px #b38bcb24;pointer-events:none}
+.hero-copy{z-index:3}
+.hero-relics{position:absolute;z-index:2;right:9%;top:18%;width:min(42vw,520px);height:58%;pointer-events:none;perspective:1000px}
+.relic{position:absolute;width:clamp(95px,11vw,154px);aspect-ratio:2/3;padding:7px;background:linear-gradient(145deg,#e7d5a7,#8e6d45 48%,#2c2034);border:1px solid #f1dca9a8;box-shadow:0 18px 55px #000b,0 0 30px #d2b77b35;border-radius:5px;transform-style:preserve-3d}
+.relic img{width:100%;height:100%;object-fit:cover;border:1px solid #2c2034;filter:brightness(.9) saturate(.82)}
+.relic span{position:absolute;left:0;right:0;bottom:12px;text-align:center;font:9px Cinzel,serif;letter-spacing:.24em;color:#f4e4bd;text-shadow:0 2px 8px #000}
+.relic-tarot{left:6%;top:15%;transform:rotate(-13deg) rotateY(13deg);animation:relicFloatA 7s ease-in-out infinite}
+.relic-belline{left:39%;top:2%;transform:rotate(5deg) rotateY(-12deg);animation:relicFloatB 8s ease-in-out infinite}
+.relic-zodiac{right:2%;top:25%;transform:rotate(14deg) rotateY(-16deg);animation:relicFloatC 7.5s ease-in-out infinite}
+@keyframes relicFloatA{0%,100%{translate:0 0}50%{translate:0 -15px}}
+@keyframes relicFloatB{0%,100%{translate:0 0}50%{translate:0 13px}}
+@keyframes relicFloatC{0%,100%{translate:0 0}50%{translate:0 -11px}}
+.oracle-section{background-image:linear-gradient(180deg,#100b1af0,#130d20ed),url('/Mes-4-oracles/assets/sanctuaire-banniere.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+.oracle-card{border:1px solid #d9bd82a8;box-shadow:0 18px 60px #000a,0 0 28px #a884bd1c}
+.oracle-card>img{filter:brightness(.72) saturate(.9);transition:transform .9s,filter .6s}
+.oracle-card:hover>img{filter:brightness(.92) saturate(1.12)}
+.atelier{background-image:linear-gradient(180deg,#100b1af2,#090813f5),url('/Mes-4-oracles/assets/sanctuaire-banniere.jpg');background-size:cover;background-position:center 70%}
+.atelier-grid button{border-color:#d9bd8270;backdrop-filter:blur(12px)}
+@media(max-width:700px){.hero{min-height:780px}.hero-backdrop img{object-position:63% center;opacity:.52}.hero-relics{right:0;top:auto;bottom:16%;width:58vw;height:32%;opacity:.95}.relic{width:clamp(72px,19vw,110px);padding:4px}.relic-tarot{left:0;top:5%}.relic-belline{left:34%;top:-8%}.relic-zodiac{right:0;top:12%}.hero:after{right:-12%;top:29%;width:78vw;opacity:.75}.hero-copy{max-width:90%;}.hero-art-caption{z-index:3;bottom:7%;right:5%}.oracle-section{background-attachment:scroll}}
+@media(prefers-reduced-motion:reduce){.relic{animation:none}}
