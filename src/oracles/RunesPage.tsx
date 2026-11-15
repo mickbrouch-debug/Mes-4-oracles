@@ -1,0 +1,3 @@
+import SymbolicOraclePage from './SymbolicOraclePage';
+import {RUNES_CARDS} from '../data/runesCards';
+export default function RunesPage({onHome}:{onHome:()=>void}){return <SymbolicOraclePage onHome={onHome} oracle="runes" title="Oracle des Runes nordiques" subtitle="Les 24 runes du Futhark ancien pour explorer les forces, les cycles et les choix de votre chemin." cards={RUNES_CARDS} domains={['Général','Amour et relations','Travail et vocation','Ressources et finances','Famille et héritage','Protection et équilibre','Spiritualité et évolution']}/>}
