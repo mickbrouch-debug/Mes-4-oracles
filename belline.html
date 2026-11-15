@@ -380,6 +380,155 @@ body>.app,body>.container,body>.shell,body>.page,body>main,body>.main,body>.wrap
  background-color:transparent!important;
 }
 </style>
+
+<style id="sanctuaire-tarot-v5-master">
+
+/* === CHARTE MAÎTRESSE : TAROT V5 — HARMONISATION COMPLÈTE === */
+:root{
+  color-scheme:dark!important;
+  --master-night:#080914;
+  --master-ink:#f5efdf;
+  --master-muted:#c8bfd8;
+  --master-gold:#e8c982;
+  --master-violet:#a88be8;
+  --master-panel:rgba(24,21,42,.88);
+  --master-line:rgba(232,201,130,.30);
+}
+html,html:root{
+  min-height:100%!important;
+  background:#080914!important;
+  background-color:#080914!important;
+  color-scheme:dark!important;
+}
+body{
+  min-height:100vh!important;
+  margin:0!important;
+  color:var(--master-ink)!important;
+  background-color:#080914!important;
+  background-image:
+    radial-gradient(ellipse at 50% -15%,rgba(117,82,170,.34),transparent 48%),
+    radial-gradient(ellipse at 8% 38%,rgba(51,76,137,.20),transparent 38%),
+    radial-gradient(ellipse at 92% 72%,rgba(128,82,155,.16),transparent 38%),
+    linear-gradient(160deg,#090a18 0%,#111026 48%,#080914 100%)!important;
+  background-attachment:fixed!important;
+  font-family:Georgia,"Times New Roman",serif!important;
+  isolation:isolate!important;
+}
+body::before{
+  content:""!important;
+  display:block!important;
+  position:fixed!important;
+  inset:0!important;
+  z-index:-1!important;
+  pointer-events:none!important;
+  opacity:.42!important;
+  background-color:transparent!important;
+  background-image:
+    radial-gradient(1px 1px at 7% 13%,#fff 98%,transparent),
+    radial-gradient(1px 1px at 19% 72%,#e8c982 98%,transparent),
+    radial-gradient(1.5px 1.5px at 38% 27%,#fff 98%,transparent),
+    radial-gradient(1px 1px at 64% 12%,#c9b5ff 98%,transparent),
+    radial-gradient(1px 1px at 83% 58%,#fff 98%,transparent),
+    radial-gradient(1px 1px at 92% 22%,#e8c982 98%,transparent);
+  background-size:280px 240px!important;
+}
+body::after{
+  content:""!important;
+  display:block!important;
+  position:fixed!important;
+  width:min(72vw,680px)!important;
+  height:min(72vw,680px)!important;
+  left:50%!important;
+  top:48%!important;
+  transform:translate(-50%,-50%)!important;
+  z-index:-1!important;
+  pointer-events:none!important;
+  opacity:.075!important;
+  border:1px solid var(--master-gold)!important;
+  border-radius:50%!important;
+  box-shadow:0 0 0 24px rgba(232,201,130,.08),
+             0 0 0 48px rgba(168,139,232,.06),
+             0 0 90px rgba(168,139,232,.18)!important;
+  background:repeating-conic-gradient(
+    from 0deg,transparent 0deg 14deg,
+    rgba(232,201,130,.22) 14.2deg 14.5deg,
+    transparent 14.7deg 30deg
+  )!important;
+}
+body>.app,body>.container,body>.shell,body>.page,body>main,
+body>.main,body>.wrap,.shell,.wrap,.container,.app,.page,
+.main,.content,.layout,main{
+  background-color:transparent!important;
+}
+header,.hero,.topbar,.oracles-key-nav{
+  color:var(--master-ink)!important;
+  background:linear-gradient(180deg,rgba(18,16,34,.78),rgba(18,16,34,.24))!important;
+  border-color:var(--master-line)!important;
+}
+h1,h2,h3,h4,.hero h1,.panel h2,.section-title{
+  color:var(--master-gold)!important;
+  text-shadow:0 0 22px rgba(168,139,232,.20);
+}
+p,label,.muted,.description,.subtitle,.help,.hint{
+  color:var(--master-muted);
+}
+.panel,.card-panel,.section,.box,.result,.reading,.output,
+.interpretation,.analysis-result,.settings,.controls,.form-card,
+.oracle-card,.content-card,.glass,.zone,
+#output,#localOutput,#result,#interpretation,#crossOutput{
+  color:var(--master-ink)!important;
+  background:linear-gradient(145deg,rgba(29,27,48,.90),rgba(17,19,37,.90))!important;
+  border:1px solid var(--master-line)!important;
+  border-radius:18px!important;
+  box-shadow:0 16px 42px rgba(0,0,0,.30),
+             inset 0 1px 0 rgba(255,255,255,.045)!important;
+  backdrop-filter:blur(12px);
+}
+button,.btn,input[type=button],input[type=submit],.button{
+  border:1px solid rgba(232,201,130,.62)!important;
+  border-radius:12px!important;
+  background:linear-gradient(135deg,#e8c982,#b88c4a)!important;
+  color:#171321!important;
+  box-shadow:0 5px 18px rgba(0,0,0,.24),
+             inset 0 1px 0 rgba(255,255,255,.35)!important;
+  font-weight:700!important;
+  transition:transform .18s ease,filter .18s ease,box-shadow .18s ease;
+}
+button:hover,.btn:hover,input[type=button]:hover,
+input[type=submit]:hover,.button:hover{
+  filter:brightness(1.08);
+  transform:translateY(-1px);
+  box-shadow:0 8px 24px rgba(0,0,0,.32),
+             0 0 18px rgba(232,201,130,.16)!important;
+}
+button:disabled,.btn:disabled{
+  opacity:.48;filter:saturate(.5);transform:none;
+}
+input:not([type=button]):not([type=submit]):not([type=checkbox]):not([type=radio]),
+select,textarea{
+  color:#f5efdf!important;
+  background:rgba(10,10,24,.88)!important;
+  border:1px solid rgba(168,139,232,.38)!important;
+  border-radius:11px!important;
+}
+input::placeholder,textarea::placeholder{color:#9d94b0!important}
+a{color:#e8c982}
+hr{border-color:rgba(232,201,130,.20)!important}
+table{color:var(--master-ink)!important}
+th{color:var(--master-gold)!important}
+tr,td,th{border-color:rgba(232,201,130,.16)!important}
+@media(max-width:700px){
+  .shell,.wrap,.container,.app,.page,main{
+    padding-left:12px!important;padding-right:12px!important;
+  }
+  .panel,.card-panel,.section,.box,.result,.reading,.output,
+  .interpretation,.analysis-result,.settings,.controls,
+  .form-card,.oracle-card,.content-card,.glass,.zone{
+    border-radius:15px!important;
+  }
+}
+
+</style>
 </head>
 <body>
 <nav class="oracles-key-nav" aria-label="Navigation Oracles Studio">

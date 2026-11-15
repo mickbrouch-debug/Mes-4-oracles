@@ -1,5 +1,25 @@
-VERSION CORRIGEE — harmonisation des fonds sur le fond maître du Tarot V5.
+HARMONISATION VISUELLE — RÉFÉRENCE TAROT V5
 
-Les cinq pages ont reçu une couche CSS commune placée en dernier dans le HEAD pour neutraliser les anciens fonds contradictoires (notamment les body blancs). Les moteurs JavaScript, tirages, cartes et interprétations ne sont pas modifiés. Le Tarot V5 est fourni inchangé comme référence.
+Cette livraison applique une couche de thème commune aux six interfaces oracle :
+- Portes de l’Intuition
+- Belline
+- Astrologie
+- Grand Lenormand 54
+- Grand Jeu de Mlle Lenormand
+- Runes
 
-Cette correction porte sur le fond global, les étoiles et le motif circulaire. Elle ne prétend pas harmoniser tous les composants internes ou les décors spécifiques des cartes.
+Le Tarot V5 est inclus comme référence et laissé inchangé.
+Les modifications portent sur l’habillage CSS : arrière-plan nocturne multicouche,
+halos violets/bleus, étoiles, motif circulaire doré, panneaux translucides,
+titres, boutons et champs de formulaire.
+
+Les moteurs de tirage, données des cartes et fonctions JavaScript ne sont pas
+volontairement modifiés.
+
+IMPORTANT — traçabilité des sources :
+Les pages Portes, Belline, Astrologie, Lenormand et Grand Jeu proviennent des
+fichiers locaux d’audit disponibles dans cette session. La page Runes provient
+de la copie locale Sanctuaire V10, car la récupération directe du fichier V5
+depuis GitHub n’a pas pu être matérialisée ici.
+Cette archive n’est donc pas présentée comme un miroir certifié exact du dépôt
+GitHub V5. Elle n’a pas été publiée sur GitHub ni testée dans un navigateur réel.
