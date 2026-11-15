@@ -1,0 +1,1330 @@
+export type TarotSide={keywords:string;meaning:string;advice:string};
+export type TarotCard={id:string;name:string;arcana:'majeur'|'mineur';suit:string;number:number;upright:TarotSide;reversed:TarotSide};
+export const TAROT_CARDS:TarotCard[]=[
+  {
+    "id": "M00",
+    "name": "Le Mat",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 0,
+    "upright": {
+      "keywords": "liberté, départ, spontanéité",
+      "meaning": "Le Mat évoque liberté, départ, spontanéité. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Oser avancer sans tout contrôler"
+    },
+    "reversed": {
+      "keywords": "imprudence, dispersion, fuite",
+      "meaning": "Renversée, Le Mat peut mettre en lumière imprudence, dispersion, fuite. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Vérifier les risques avant de partir"
+    }
+  },
+  {
+    "id": "M01",
+    "name": "Le Bateleur",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 1,
+    "upright": {
+      "keywords": "initiative, potentiel, habileté",
+      "meaning": "Le Bateleur évoque initiative, potentiel, habileté. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Utiliser les ressources déjà disponibles"
+    },
+    "reversed": {
+      "keywords": "manque de préparation, dispersion",
+      "meaning": "Renversée, Le Bateleur peut mettre en lumière manque de préparation, dispersion. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Clarifier l'intention et terminer ce qui est commencé"
+    }
+  },
+  {
+    "id": "M02",
+    "name": "La Papesse",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 2,
+    "upright": {
+      "keywords": "intuition, patience, connaissance intérieure",
+      "meaning": "La Papesse évoque intuition, patience, connaissance intérieure. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Écouter et observer avant d'agir"
+    },
+    "reversed": {
+      "keywords": "silence pesant, secrets, passivité",
+      "meaning": "Renversée, La Papesse peut mettre en lumière silence pesant, secrets, passivité. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Ne pas laisser le doute remplacer les faits"
+    }
+  },
+  {
+    "id": "M03",
+    "name": "L’Impératrice",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 3,
+    "upright": {
+      "keywords": "créativité, expression, croissance",
+      "meaning": "L’Impératrice évoque créativité, expression, croissance. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Exprimer clairement les idées"
+    },
+    "reversed": {
+      "keywords": "blocage créatif, vanité, surcharge",
+      "meaning": "Renversée, L’Impératrice peut mettre en lumière blocage créatif, vanité, surcharge. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Retrouver un rythme et une parole authentiques"
+    }
+  },
+  {
+    "id": "M04",
+    "name": "L’Empereur",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 4,
+    "upright": {
+      "keywords": "structure, stabilité, responsabilité",
+      "meaning": "L’Empereur évoque structure, stabilité, responsabilité. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Poser un cadre fiable"
+    },
+    "reversed": {
+      "keywords": "rigidité, contrôle, autoritarisme",
+      "meaning": "Renversée, L’Empereur peut mettre en lumière rigidité, contrôle, autoritarisme. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Assouplir les règles qui étouffent"
+    }
+  },
+  {
+    "id": "M05",
+    "name": "Le Pape",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 5,
+    "upright": {
+      "keywords": "conseil, transmission, valeurs",
+      "meaning": "Le Pape évoque conseil, transmission, valeurs. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Chercher un conseil digne de confiance"
+    },
+    "reversed": {
+      "keywords": "dogmatisme, dépendance à l’approbation",
+      "meaning": "Renversée, Le Pape peut mettre en lumière dogmatisme, dépendance à l’approbation. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Questionner les règles suivies par habitude"
+    }
+  },
+  {
+    "id": "M06",
+    "name": "L’Amoureux",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 6,
+    "upright": {
+      "keywords": "choix, relation, accord",
+      "meaning": "L’Amoureux évoque choix, relation, accord. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Choisir en accord avec ses valeurs"
+    },
+    "reversed": {
+      "keywords": "hésitation, conflit de valeurs",
+      "meaning": "Renversée, L’Amoureux peut mettre en lumière hésitation, conflit de valeurs. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Identifier ce qui empêche de décider"
+    }
+  },
+  {
+    "id": "M07",
+    "name": "Le Chariot",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 7,
+    "upright": {
+      "keywords": "élan, détermination, progression",
+      "meaning": "Le Chariot évoque élan, détermination, progression. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Canaliser l’énergie vers un objectif"
+    },
+    "reversed": {
+      "keywords": "précipitation, perte de direction",
+      "meaning": "Renversée, Le Chariot peut mettre en lumière précipitation, perte de direction. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Réajuster la trajectoire avant d’accélérer"
+    }
+  },
+  {
+    "id": "M08",
+    "name": "La Justice",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 8,
+    "upright": {
+      "keywords": "équilibre, lucidité, responsabilité",
+      "meaning": "La Justice évoque équilibre, lucidité, responsabilité. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Examiner les faits avec équité"
+    },
+    "reversed": {
+      "keywords": "partialité, déséquilibre, jugement hâtif",
+      "meaning": "Renversée, La Justice peut mettre en lumière partialité, déséquilibre, jugement hâtif. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Corriger ce qui n’est pas proportionné"
+    }
+  },
+  {
+    "id": "M09",
+    "name": "L’Hermite",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 9,
+    "upright": {
+      "keywords": "recul, recherche, sagesse",
+      "meaning": "L’Hermite évoque recul, recherche, sagesse. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Prendre le temps de comprendre"
+    },
+    "reversed": {
+      "keywords": "isolement, lenteur excessive, fermeture",
+      "meaning": "Renversée, L’Hermite peut mettre en lumière isolement, lenteur excessive, fermeture. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Ne pas confondre recul et évitement"
+    }
+  },
+  {
+    "id": "M10",
+    "name": "La Roue de Fortune",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 10,
+    "upright": {
+      "keywords": "cycle, changement, occasion",
+      "meaning": "La Roue de Fortune évoque cycle, changement, occasion. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "S’adapter à une évolution"
+    },
+    "reversed": {
+      "keywords": "instabilité, répétition, résistance",
+      "meaning": "Renversée, La Roue de Fortune peut mettre en lumière instabilité, répétition, résistance. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Repérer le schéma qui se répète"
+    }
+  },
+  {
+    "id": "M11",
+    "name": "La Force",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 11,
+    "upright": {
+      "keywords": "courage, maîtrise, douceur ferme",
+      "meaning": "La Force évoque courage, maîtrise, douceur ferme. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Agir avec constance et calme"
+    },
+    "reversed": {
+      "keywords": "épuisement, impulsivité, doute",
+      "meaning": "Renversée, La Force peut mettre en lumière épuisement, impulsivité, doute. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Économiser son énergie et apprivoiser la réaction"
+    }
+  },
+  {
+    "id": "M12",
+    "name": "Le Pendu",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 12,
+    "upright": {
+      "keywords": "pause, perspective nouvelle, lâcher-prise",
+      "meaning": "Le Pendu évoque pause, perspective nouvelle, lâcher-prise. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Changer de point de vue"
+    },
+    "reversed": {
+      "keywords": "stagnation, sacrifice inutile, blocage",
+      "meaning": "Renversée, Le Pendu peut mettre en lumière stagnation, sacrifice inutile, blocage. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Identifier ce qui peut être relâché"
+    }
+  },
+  {
+    "id": "M13",
+    "name": "L’Arcane sans nom",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 13,
+    "upright": {
+      "keywords": "transformation, fin utile, renouvellement",
+      "meaning": "L’Arcane sans nom évoque transformation, fin utile, renouvellement. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Faire de la place à une nouvelle étape"
+    },
+    "reversed": {
+      "keywords": "résistance au changement, attachement",
+      "meaning": "Renversée, L’Arcane sans nom peut mettre en lumière résistance au changement, attachement. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Accepter la transition sans la précipiter"
+    }
+  },
+  {
+    "id": "M14",
+    "name": "Tempérance",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 14,
+    "upright": {
+      "keywords": "mesure, dialogue, ajustement",
+      "meaning": "Tempérance évoque mesure, dialogue, ajustement. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Réconcilier les besoins et avancer progressivement"
+    },
+    "reversed": {
+      "keywords": "excès, impatience, désaccord",
+      "meaning": "Renversée, Tempérance peut mettre en lumière excès, impatience, désaccord. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Rétablir un rythme plus équilibré"
+    }
+  },
+  {
+    "id": "M15",
+    "name": "Le Diable",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 15,
+    "upright": {
+      "keywords": "désir, pouvoir, attachement",
+      "meaning": "Le Diable évoque désir, pouvoir, attachement. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Reconnaître honnêtement ce qui attire"
+    },
+    "reversed": {
+      "keywords": "dépendance, emprise, déni",
+      "meaning": "Renversée, Le Diable peut mettre en lumière dépendance, emprise, déni. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Reprendre du choix face à une habitude contraignante"
+    }
+  },
+  {
+    "id": "M16",
+    "name": "La Maison Dieu",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 16,
+    "upright": {
+      "keywords": "révélation, rupture libératrice, vérité",
+      "meaning": "La Maison Dieu évoque révélation, rupture libératrice, vérité. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Reconstruire sur des bases sincères"
+    },
+    "reversed": {
+      "keywords": "peur du bouleversement, tension contenue",
+      "meaning": "Renversée, La Maison Dieu peut mettre en lumière peur du bouleversement, tension contenue. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Préparer les changements nécessaires plutôt que les nier"
+    }
+  },
+  {
+    "id": "M17",
+    "name": "L’Étoile",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 17,
+    "upright": {
+      "keywords": "espoir, inspiration, confiance",
+      "meaning": "L’Étoile évoque espoir, inspiration, confiance. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Retrouver ce qui nourrit la confiance"
+    },
+    "reversed": {
+      "keywords": "découragement, vulnérabilité, attente",
+      "meaning": "Renversée, L’Étoile peut mettre en lumière découragement, vulnérabilité, attente. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Prendre soin de soi et revenir à des gestes simples"
+    }
+  },
+  {
+    "id": "M18",
+    "name": "La Lune",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 18,
+    "upright": {
+      "keywords": "sensibilité, imaginaire, incertitude",
+      "meaning": "La Lune évoque sensibilité, imaginaire, incertitude. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Accueillir les émotions sans conclure trop vite"
+    },
+    "reversed": {
+      "keywords": "confusion, anxiété, illusion qui se dissipe",
+      "meaning": "Renversée, La Lune peut mettre en lumière confusion, anxiété, illusion qui se dissipe. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Vérifier les suppositions et chercher de la clarté"
+    }
+  },
+  {
+    "id": "M19",
+    "name": "Le Soleil",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 19,
+    "upright": {
+      "keywords": "clarté, joie, coopération",
+      "meaning": "Le Soleil évoque clarté, joie, coopération. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Partager ouvertement et reconnaître les réussites"
+    },
+    "reversed": {
+      "keywords": "malentendu, ego, enthousiasme fragile",
+      "meaning": "Renversée, Le Soleil peut mettre en lumière malentendu, ego, enthousiasme fragile. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Clarifier les attentes et rétablir le dialogue"
+    }
+  },
+  {
+    "id": "M20",
+    "name": "Le Jugement",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 20,
+    "upright": {
+      "keywords": "prise de conscience, appel, renouveau",
+      "meaning": "Le Jugement évoque prise de conscience, appel, renouveau. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Répondre à ce qui devient évident"
+    },
+    "reversed": {
+      "keywords": "autocritique, hésitation, difficulté à tourner la page",
+      "meaning": "Renversée, Le Jugement peut mettre en lumière autocritique, hésitation, difficulté à tourner la page. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Écouter l’appel sans rester prisonnier du passé"
+    }
+  },
+  {
+    "id": "M21",
+    "name": "Le Monde",
+    "arcana": "majeur",
+    "suit": "Majeurs",
+    "number": 21,
+    "upright": {
+      "keywords": "accomplissement, intégration, ouverture",
+      "meaning": "Le Monde évoque accomplissement, intégration, ouverture. Dans cette position, la carte invite à examiner ce thème dans la situation posée, sans en faire une certitude.",
+      "advice": "Reconnaître le chemin parcouru et finaliser"
+    },
+    "reversed": {
+      "keywords": "inachèvement, dispersion, difficulté à conclure",
+      "meaning": "Renversée, Le Monde peut mettre en lumière inachèvement, dispersion, difficulté à conclure. Il s’agit d’une piste de réflexion à confronter aux faits et au contexte.",
+      "advice": "Définir ce qui manque pour boucler le cycle"
+    }
+  },
+  {
+    "id": "B00",
+    "name": "As de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 0,
+    "upright": {
+      "keywords": "occasion, germe, potentiel; élan, créativité, action",
+      "meaning": "As de Bâtons associe occasion, germe, potentiel aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "occasion ignorée, départ retardé; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, As de Bâtons peut signaler occasion ignorée, départ retardé, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B01",
+    "name": "Deux de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 1,
+    "upright": {
+      "keywords": "dualité, choix, coopération; élan, créativité, action",
+      "meaning": "Deux de Bâtons associe dualité, choix, coopération aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "indécision, déséquilibre; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Deux de Bâtons peut signaler indécision, déséquilibre, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B02",
+    "name": "Trois de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 2,
+    "upright": {
+      "keywords": "construction, collaboration, progression; élan, créativité, action",
+      "meaning": "Trois de Bâtons associe construction, collaboration, progression aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "coordination difficile, progrès dispersés; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Trois de Bâtons peut signaler coordination difficile, progrès dispersés, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B03",
+    "name": "Quatre de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 3,
+    "upright": {
+      "keywords": "stabilité, protection, structure; élan, créativité, action",
+      "meaning": "Quatre de Bâtons associe stabilité, protection, structure aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "rigidité, contrôle, sécurité excessive; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Quatre de Bâtons peut signaler rigidité, contrôle, sécurité excessive, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B04",
+    "name": "Cinq de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 4,
+    "upright": {
+      "keywords": "tension, défi, ajustement; élan, créativité, action",
+      "meaning": "Cinq de Bâtons associe tension, défi, ajustement aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "conflit qui s’apaise, évitement du problème; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Cinq de Bâtons peut signaler conflit qui s’apaise, évitement du problème, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B05",
+    "name": "Six de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 5,
+    "upright": {
+      "keywords": "soutien, échange, transition; élan, créativité, action",
+      "meaning": "Six de Bâtons associe soutien, échange, transition aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "attentes inégales, difficulté à recevoir; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Six de Bâtons peut signaler attentes inégales, difficulté à recevoir, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B06",
+    "name": "Sept de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 6,
+    "upright": {
+      "keywords": "évaluation, patience, stratégie; élan, créativité, action",
+      "meaning": "Sept de Bâtons associe évaluation, patience, stratégie aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "impatience, doute sur les efforts; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Sept de Bâtons peut signaler impatience, doute sur les efforts, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B07",
+    "name": "Huit de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 7,
+    "upright": {
+      "keywords": "apprentissage, pratique, mouvement; élan, créativité, action",
+      "meaning": "Huit de Bâtons associe apprentissage, pratique, mouvement aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "retard, routine inefficace, précipitation; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Huit de Bâtons peut signaler retard, routine inefficace, précipitation, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B08",
+    "name": "Neuf de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 8,
+    "upright": {
+      "keywords": "autonomie, maturité, résultat; élan, créativité, action",
+      "meaning": "Neuf de Bâtons associe autonomie, maturité, résultat aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "isolement, inquiétude, résultat fragile; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Neuf de Bâtons peut signaler isolement, inquiétude, résultat fragile, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B09",
+    "name": "Dix de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 9,
+    "upright": {
+      "keywords": "aboutissement, charge, cycle complet; élan, créativité, action",
+      "meaning": "Dix de Bâtons associe aboutissement, charge, cycle complet aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "surcharge, clôture difficile, responsabilité excessive; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Dix de Bâtons peut signaler surcharge, clôture difficile, responsabilité excessive, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B10",
+    "name": "Valet de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 10,
+    "upright": {
+      "keywords": "curiosité, message, apprentissage; élan, créativité, action",
+      "meaning": "Valet de Bâtons associe curiosité, message, apprentissage aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "immaturité, message mal compris; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Valet de Bâtons peut signaler immaturité, message mal compris, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B11",
+    "name": "Cavalier de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 11,
+    "upright": {
+      "keywords": "mouvement, initiative, exploration; élan, créativité, action",
+      "meaning": "Cavalier de Bâtons associe mouvement, initiative, exploration aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "hâte, instabilité, direction floue; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Cavalier de Bâtons peut signaler hâte, instabilité, direction floue, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B12",
+    "name": "Reine de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 12,
+    "upright": {
+      "keywords": "maturité, écoute, maîtrise; élan, créativité, action",
+      "meaning": "Reine de Bâtons associe maturité, écoute, maîtrise aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "sensibilité défensive, contrôle émotionnel; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Reine de Bâtons peut signaler sensibilité défensive, contrôle émotionnel, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "B13",
+    "name": "Roi de Bâtons",
+    "arcana": "mineur",
+    "suit": "Bâtons",
+    "number": 13,
+    "upright": {
+      "keywords": "leadership, stabilité, maîtrise; élan, créativité, action",
+      "meaning": "Roi de Bâtons associe leadership, stabilité, maîtrise aux thèmes de élan, créativité, action. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Faire un premier pas concret"
+    },
+    "reversed": {
+      "keywords": "autorité rigide, excès de contrôle; perte d’élan, impatience, énergie dispersée",
+      "meaning": "Renversé, Roi de Bâtons peut signaler autorité rigide, excès de contrôle, avec une attention particulière à perte d’élan, impatience, énergie dispersée. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réduire la dispersion et retrouver un rythme"
+    }
+  },
+  {
+    "id": "C00",
+    "name": "As de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 0,
+    "upright": {
+      "keywords": "occasion, germe, potentiel; émotions, lien, réceptivité",
+      "meaning": "As de Coupes associe occasion, germe, potentiel aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "occasion ignorée, départ retardé; émotions retenues, déception, débordement",
+      "meaning": "Renversé, As de Coupes peut signaler occasion ignorée, départ retardé, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C01",
+    "name": "Deux de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 1,
+    "upright": {
+      "keywords": "dualité, choix, coopération; émotions, lien, réceptivité",
+      "meaning": "Deux de Coupes associe dualité, choix, coopération aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "indécision, déséquilibre; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Deux de Coupes peut signaler indécision, déséquilibre, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C02",
+    "name": "Trois de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 2,
+    "upright": {
+      "keywords": "construction, collaboration, progression; émotions, lien, réceptivité",
+      "meaning": "Trois de Coupes associe construction, collaboration, progression aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "coordination difficile, progrès dispersés; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Trois de Coupes peut signaler coordination difficile, progrès dispersés, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C03",
+    "name": "Quatre de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 3,
+    "upright": {
+      "keywords": "stabilité, protection, structure; émotions, lien, réceptivité",
+      "meaning": "Quatre de Coupes associe stabilité, protection, structure aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "rigidité, contrôle, sécurité excessive; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Quatre de Coupes peut signaler rigidité, contrôle, sécurité excessive, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C04",
+    "name": "Cinq de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 4,
+    "upright": {
+      "keywords": "tension, défi, ajustement; émotions, lien, réceptivité",
+      "meaning": "Cinq de Coupes associe tension, défi, ajustement aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "conflit qui s’apaise, évitement du problème; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Cinq de Coupes peut signaler conflit qui s’apaise, évitement du problème, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C05",
+    "name": "Six de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 5,
+    "upright": {
+      "keywords": "soutien, échange, transition; émotions, lien, réceptivité",
+      "meaning": "Six de Coupes associe soutien, échange, transition aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "attentes inégales, difficulté à recevoir; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Six de Coupes peut signaler attentes inégales, difficulté à recevoir, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C06",
+    "name": "Sept de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 6,
+    "upright": {
+      "keywords": "évaluation, patience, stratégie; émotions, lien, réceptivité",
+      "meaning": "Sept de Coupes associe évaluation, patience, stratégie aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "impatience, doute sur les efforts; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Sept de Coupes peut signaler impatience, doute sur les efforts, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C07",
+    "name": "Huit de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 7,
+    "upright": {
+      "keywords": "apprentissage, pratique, mouvement; émotions, lien, réceptivité",
+      "meaning": "Huit de Coupes associe apprentissage, pratique, mouvement aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "retard, routine inefficace, précipitation; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Huit de Coupes peut signaler retard, routine inefficace, précipitation, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C08",
+    "name": "Neuf de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 8,
+    "upright": {
+      "keywords": "autonomie, maturité, résultat; émotions, lien, réceptivité",
+      "meaning": "Neuf de Coupes associe autonomie, maturité, résultat aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "isolement, inquiétude, résultat fragile; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Neuf de Coupes peut signaler isolement, inquiétude, résultat fragile, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C09",
+    "name": "Dix de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 9,
+    "upright": {
+      "keywords": "aboutissement, charge, cycle complet; émotions, lien, réceptivité",
+      "meaning": "Dix de Coupes associe aboutissement, charge, cycle complet aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "surcharge, clôture difficile, responsabilité excessive; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Dix de Coupes peut signaler surcharge, clôture difficile, responsabilité excessive, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C10",
+    "name": "Valet de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 10,
+    "upright": {
+      "keywords": "curiosité, message, apprentissage; émotions, lien, réceptivité",
+      "meaning": "Valet de Coupes associe curiosité, message, apprentissage aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "immaturité, message mal compris; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Valet de Coupes peut signaler immaturité, message mal compris, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C11",
+    "name": "Cavalier de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 11,
+    "upright": {
+      "keywords": "mouvement, initiative, exploration; émotions, lien, réceptivité",
+      "meaning": "Cavalier de Coupes associe mouvement, initiative, exploration aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "hâte, instabilité, direction floue; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Cavalier de Coupes peut signaler hâte, instabilité, direction floue, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C12",
+    "name": "Reine de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 12,
+    "upright": {
+      "keywords": "maturité, écoute, maîtrise; émotions, lien, réceptivité",
+      "meaning": "Reine de Coupes associe maturité, écoute, maîtrise aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "sensibilité défensive, contrôle émotionnel; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Reine de Coupes peut signaler sensibilité défensive, contrôle émotionnel, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "C13",
+    "name": "Roi de Coupes",
+    "arcana": "mineur",
+    "suit": "Coupes",
+    "number": 13,
+    "upright": {
+      "keywords": "leadership, stabilité, maîtrise; émotions, lien, réceptivité",
+      "meaning": "Roi de Coupes associe leadership, stabilité, maîtrise aux thèmes de émotions, lien, réceptivité. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Accueillir les ressentis et communiquer"
+    },
+    "reversed": {
+      "keywords": "autorité rigide, excès de contrôle; émotions retenues, déception, débordement",
+      "meaning": "Renversé, Roi de Coupes peut signaler autorité rigide, excès de contrôle, avec une attention particulière à émotions retenues, déception, débordement. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Nommer le besoin sans supposer la réponse de l’autre"
+    }
+  },
+  {
+    "id": "E00",
+    "name": "As de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 0,
+    "upright": {
+      "keywords": "occasion, germe, potentiel; pensée, vérité, décision",
+      "meaning": "As de Épées associe occasion, germe, potentiel aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "occasion ignorée, départ retardé; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, As de Épées peut signaler occasion ignorée, départ retardé, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E01",
+    "name": "Deux de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 1,
+    "upright": {
+      "keywords": "dualité, choix, coopération; pensée, vérité, décision",
+      "meaning": "Deux de Épées associe dualité, choix, coopération aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "indécision, déséquilibre; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Deux de Épées peut signaler indécision, déséquilibre, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E02",
+    "name": "Trois de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 2,
+    "upright": {
+      "keywords": "construction, collaboration, progression; pensée, vérité, décision",
+      "meaning": "Trois de Épées associe construction, collaboration, progression aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "coordination difficile, progrès dispersés; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Trois de Épées peut signaler coordination difficile, progrès dispersés, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E03",
+    "name": "Quatre de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 3,
+    "upright": {
+      "keywords": "stabilité, protection, structure; pensée, vérité, décision",
+      "meaning": "Quatre de Épées associe stabilité, protection, structure aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "rigidité, contrôle, sécurité excessive; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Quatre de Épées peut signaler rigidité, contrôle, sécurité excessive, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E04",
+    "name": "Cinq de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 4,
+    "upright": {
+      "keywords": "tension, défi, ajustement; pensée, vérité, décision",
+      "meaning": "Cinq de Épées associe tension, défi, ajustement aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "conflit qui s’apaise, évitement du problème; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Cinq de Épées peut signaler conflit qui s’apaise, évitement du problème, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E05",
+    "name": "Six de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 5,
+    "upright": {
+      "keywords": "soutien, échange, transition; pensée, vérité, décision",
+      "meaning": "Six de Épées associe soutien, échange, transition aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "attentes inégales, difficulté à recevoir; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Six de Épées peut signaler attentes inégales, difficulté à recevoir, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E06",
+    "name": "Sept de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 6,
+    "upright": {
+      "keywords": "évaluation, patience, stratégie; pensée, vérité, décision",
+      "meaning": "Sept de Épées associe évaluation, patience, stratégie aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "impatience, doute sur les efforts; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Sept de Épées peut signaler impatience, doute sur les efforts, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E07",
+    "name": "Huit de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 7,
+    "upright": {
+      "keywords": "apprentissage, pratique, mouvement; pensée, vérité, décision",
+      "meaning": "Huit de Épées associe apprentissage, pratique, mouvement aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "retard, routine inefficace, précipitation; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Huit de Épées peut signaler retard, routine inefficace, précipitation, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E08",
+    "name": "Neuf de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 8,
+    "upright": {
+      "keywords": "autonomie, maturité, résultat; pensée, vérité, décision",
+      "meaning": "Neuf de Épées associe autonomie, maturité, résultat aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "isolement, inquiétude, résultat fragile; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Neuf de Épées peut signaler isolement, inquiétude, résultat fragile, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E09",
+    "name": "Dix de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 9,
+    "upright": {
+      "keywords": "aboutissement, charge, cycle complet; pensée, vérité, décision",
+      "meaning": "Dix de Épées associe aboutissement, charge, cycle complet aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "surcharge, clôture difficile, responsabilité excessive; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Dix de Épées peut signaler surcharge, clôture difficile, responsabilité excessive, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E10",
+    "name": "Valet de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 10,
+    "upright": {
+      "keywords": "curiosité, message, apprentissage; pensée, vérité, décision",
+      "meaning": "Valet de Épées associe curiosité, message, apprentissage aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "immaturité, message mal compris; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Valet de Épées peut signaler immaturité, message mal compris, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E11",
+    "name": "Cavalier de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 11,
+    "upright": {
+      "keywords": "mouvement, initiative, exploration; pensée, vérité, décision",
+      "meaning": "Cavalier de Épées associe mouvement, initiative, exploration aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "hâte, instabilité, direction floue; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Cavalier de Épées peut signaler hâte, instabilité, direction floue, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E12",
+    "name": "Reine de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 12,
+    "upright": {
+      "keywords": "maturité, écoute, maîtrise; pensée, vérité, décision",
+      "meaning": "Reine de Épées associe maturité, écoute, maîtrise aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "sensibilité défensive, contrôle émotionnel; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Reine de Épées peut signaler sensibilité défensive, contrôle émotionnel, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "E13",
+    "name": "Roi de Épées",
+    "arcana": "mineur",
+    "suit": "Épées",
+    "number": 13,
+    "upright": {
+      "keywords": "leadership, stabilité, maîtrise; pensée, vérité, décision",
+      "meaning": "Roi de Épées associe leadership, stabilité, maîtrise aux thèmes de pensée, vérité, décision. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Distinguer les faits des interprétations"
+    },
+    "reversed": {
+      "keywords": "autorité rigide, excès de contrôle; confusion, rumination, paroles blessantes",
+      "meaning": "Renversé, Roi de Épées peut signaler autorité rigide, excès de contrôle, avec une attention particulière à confusion, rumination, paroles blessantes. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Faire une pause avant de conclure ou de répondre"
+    }
+  },
+  {
+    "id": "D00",
+    "name": "As de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 0,
+    "upright": {
+      "keywords": "occasion, germe, potentiel; ressources, corps, travail concret",
+      "meaning": "As de Deniers associe occasion, germe, potentiel aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "occasion ignorée, départ retardé; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, As de Deniers peut signaler occasion ignorée, départ retardé, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D01",
+    "name": "Deux de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 1,
+    "upright": {
+      "keywords": "dualité, choix, coopération; ressources, corps, travail concret",
+      "meaning": "Deux de Deniers associe dualité, choix, coopération aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "indécision, déséquilibre; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Deux de Deniers peut signaler indécision, déséquilibre, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D02",
+    "name": "Trois de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 2,
+    "upright": {
+      "keywords": "construction, collaboration, progression; ressources, corps, travail concret",
+      "meaning": "Trois de Deniers associe construction, collaboration, progression aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "coordination difficile, progrès dispersés; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Trois de Deniers peut signaler coordination difficile, progrès dispersés, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D03",
+    "name": "Quatre de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 3,
+    "upright": {
+      "keywords": "stabilité, protection, structure; ressources, corps, travail concret",
+      "meaning": "Quatre de Deniers associe stabilité, protection, structure aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "rigidité, contrôle, sécurité excessive; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Quatre de Deniers peut signaler rigidité, contrôle, sécurité excessive, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D04",
+    "name": "Cinq de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 4,
+    "upright": {
+      "keywords": "tension, défi, ajustement; ressources, corps, travail concret",
+      "meaning": "Cinq de Deniers associe tension, défi, ajustement aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "conflit qui s’apaise, évitement du problème; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Cinq de Deniers peut signaler conflit qui s’apaise, évitement du problème, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D05",
+    "name": "Six de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 5,
+    "upright": {
+      "keywords": "soutien, échange, transition; ressources, corps, travail concret",
+      "meaning": "Six de Deniers associe soutien, échange, transition aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "attentes inégales, difficulté à recevoir; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Six de Deniers peut signaler attentes inégales, difficulté à recevoir, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D06",
+    "name": "Sept de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 6,
+    "upright": {
+      "keywords": "évaluation, patience, stratégie; ressources, corps, travail concret",
+      "meaning": "Sept de Deniers associe évaluation, patience, stratégie aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "impatience, doute sur les efforts; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Sept de Deniers peut signaler impatience, doute sur les efforts, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D07",
+    "name": "Huit de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 7,
+    "upright": {
+      "keywords": "apprentissage, pratique, mouvement; ressources, corps, travail concret",
+      "meaning": "Huit de Deniers associe apprentissage, pratique, mouvement aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "retard, routine inefficace, précipitation; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Huit de Deniers peut signaler retard, routine inefficace, précipitation, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D08",
+    "name": "Neuf de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 8,
+    "upright": {
+      "keywords": "autonomie, maturité, résultat; ressources, corps, travail concret",
+      "meaning": "Neuf de Deniers associe autonomie, maturité, résultat aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "isolement, inquiétude, résultat fragile; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Neuf de Deniers peut signaler isolement, inquiétude, résultat fragile, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D09",
+    "name": "Dix de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 9,
+    "upright": {
+      "keywords": "aboutissement, charge, cycle complet; ressources, corps, travail concret",
+      "meaning": "Dix de Deniers associe aboutissement, charge, cycle complet aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "surcharge, clôture difficile, responsabilité excessive; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Dix de Deniers peut signaler surcharge, clôture difficile, responsabilité excessive, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D10",
+    "name": "Valet de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 10,
+    "upright": {
+      "keywords": "curiosité, message, apprentissage; ressources, corps, travail concret",
+      "meaning": "Valet de Deniers associe curiosité, message, apprentissage aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "immaturité, message mal compris; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Valet de Deniers peut signaler immaturité, message mal compris, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D11",
+    "name": "Cavalier de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 11,
+    "upright": {
+      "keywords": "mouvement, initiative, exploration; ressources, corps, travail concret",
+      "meaning": "Cavalier de Deniers associe mouvement, initiative, exploration aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "hâte, instabilité, direction floue; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Cavalier de Deniers peut signaler hâte, instabilité, direction floue, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D12",
+    "name": "Reine de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 12,
+    "upright": {
+      "keywords": "maturité, écoute, maîtrise; ressources, corps, travail concret",
+      "meaning": "Reine de Deniers associe maturité, écoute, maîtrise aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "sensibilité défensive, contrôle émotionnel; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Reine de Deniers peut signaler sensibilité défensive, contrôle émotionnel, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  },
+  {
+    "id": "D13",
+    "name": "Roi de Deniers",
+    "arcana": "mineur",
+    "suit": "Deniers",
+    "number": 13,
+    "upright": {
+      "keywords": "leadership, stabilité, maîtrise; ressources, corps, travail concret",
+      "meaning": "Roi de Deniers associe leadership, stabilité, maîtrise aux thèmes de ressources, corps, travail concret. Il invite à lire la situation à travers ce domaine concret ou relationnel.",
+      "advice": "Construire pas à pas et vérifier les moyens"
+    },
+    "reversed": {
+      "keywords": "autorité rigide, excès de contrôle; insécurité, rigidité matérielle, manque de suivi",
+      "meaning": "Renversé, Roi de Deniers peut signaler autorité rigide, excès de contrôle, avec une attention particulière à insécurité, rigidité matérielle, manque de suivi. Ce n’est pas une fatalité mais un angle à examiner.",
+      "advice": "Réévaluer les priorités et les habitudes concrètes"
+    }
+  }
+];
