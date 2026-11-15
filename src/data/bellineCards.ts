@@ -1,5 +1,5 @@
 export type BellineSide={keywords:string;meaning:string;advice:string};
-export type BellineCard={id:string;name:string;arcana:'belline';suit:string;number:number;upright:BellineSide;reversed:BellineSide};
+export type BellineCard={id:string;name:string;arcana:'belline'|'speciale';suit:string;number:number;upright:BellineSide;reversed:BellineSide};
 export const BELLINE_CARDS:BellineCard[]=[
   {
     "id": "B01",
