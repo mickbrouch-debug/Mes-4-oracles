@@ -1,4 +1,4 @@
-const CACHE='oracles-sanctuaire-esoterique-v6.0-20261113';
+const CACHE='oracles-studio-v6.0-clean-20261115';
 const FILES=['./','./index.html','./tarot-78.html','./lenormand-54.html','./portes-intuition.html','./belline.html','./astrologie.html','./runes.html','./analyse-croisee.html','./cle-api.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./icon.svg',];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
@@ -7,7 +7,7 @@ self.addEventListener('fetch',event=>{
   if(request.method!=='GET') return;
   const url=new URL(request.url);
   if(url.origin!==self.location.origin) return;
-  const isHTML=request.mode==='navigate'||request.destination==='document'||/\\.html?$/i.test(url.pathname);
+  const isHTML=request.mode==='navigate'||request.destination==='document'||/\.html?$/i.test(url.pathname);
   if(isHTML){
     event.respondWith(fetch(request).then(response=>{
       if(response&&response.ok){const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(request,copy));}
