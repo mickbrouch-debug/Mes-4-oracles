@@ -4,14 +4,14 @@
 .oracle-app{background:transparent!important;isolation:isolate;overflow:clip}
 .oracle-app>.scene-wrap{z-index:1!important;opacity:.72}
 .tarot-atmosphere{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#080712}
-.tarot-atmosphere-image{position:absolute;inset:-4%;background-image:linear-gradient(90deg,#080712d9 0%,#100b1b9c 46%,#080712a8 100%),linear-gradient(0deg,#080712 0%,transparent 40%,#08071265 100%),url('/Mes-4-oracles/assets/sanctuaire-banniere.jpg');background-size:cover;background-position:center 42%;filter:saturate(.82) contrast(1.08);opacity:.74;transform:scale(1.04);animation:tarot-wall-drift 42s ease-in-out infinite alternate}
+.tarot-atmosphere-image{position:absolute;inset:-4%;background-image:linear-gradient(90deg,#080712d9 0%,#100b1b9c 46%,#080712a8 100%),linear-gradient(0deg,#080712 0%,transparent 40%,#08071265 100%),url('../assets/sanctuaire-banniere.jpg');background-size:cover;background-position:center 42%;filter:saturate(.82) contrast(1.08);opacity:.74;transform:scale(1.04);animation:tarot-wall-drift 42s ease-in-out infinite alternate}
 .tarot-atmosphere-glow{position:absolute;inset:-20%;background:radial-gradient(ellipse at 68% 32%,#b68cdb2b 0%,transparent 34%),radial-gradient(ellipse at 22% 72%,#d7ae6b20 0%,transparent 38%),conic-gradient(from 40deg at 68% 45%,transparent 0deg,#d5b77c0b 38deg,transparent 85deg,#a986c20c 150deg,transparent 220deg);mix-blend-mode:screen;animation:tarot-aura-drift 30s linear infinite}
 .tarot-atmosphere-stars{position:absolute;inset:0;opacity:.24;background-image:radial-gradient(1px 1px at 12% 24%,#fff 99%,transparent),radial-gradient(1px 1px at 78% 19%,#f1d9a5 99%,transparent),radial-gradient(2px 2px at 62% 74%,#fff 99%,transparent),radial-gradient(1px 1px at 34% 82%,#e5c58c 99%,transparent),radial-gradient(1px 1px at 90% 54%,#fff 99%,transparent);background-size:310px 270px,390px 330px,470px 390px,350px 310px,520px 440px;animation:tarot-stars-drift 90s linear infinite}
 .oracle-app>.oracle-topbar,.oracle-app>.oracle-nav,.oracle-app>.oracle-content{position:relative;z-index:2}
 .oracle-app>.oracle-topbar{background:#090813a8}
 .oracle-app>.oracle-nav{background:#100c1bc2;backdrop-filter:blur(18px)}
 .oracle-panel{background:linear-gradient(135deg,#21192dd9,#100e1dcc)!important;backdrop-filter:blur(14px);box-shadow:0 18px 55px #0007,inset 0 1px #f3dfba0b}
-.oracle-hero{background:linear-gradient(110deg,#21172dcc,#101426b8),url('/Mes-4-oracles/assets/sanctuaire-banniere.jpg') center 42%/cover!important;box-shadow:0 24px 70px #0009,inset 0 0 70px #d6b77b0c}
+.oracle-hero{background:linear-gradient(110deg,#21172dcc,#101426b8),url('../assets/sanctuaire-banniere.jpg') center 42%/cover!important;box-shadow:0 24px 70px #0009,inset 0 0 70px #d6b77b0c}
 .oracle-footer{background:#0908139c;backdrop-filter:blur(12px)}
 @keyframes tarot-wall-drift{0%{transform:scale(1.04) translate3d(-.6%,0,0)}100%{transform:scale(1.13) translate3d(.8%,-1.2%,0)}}
 @keyframes tarot-aura-drift{0%{transform:rotate(0deg) scale(1)}100%{transform:rotate(360deg) scale(1.08)}}
