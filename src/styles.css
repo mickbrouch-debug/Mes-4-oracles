@@ -78,3 +78,13 @@ footer{background:radial-gradient(ellipse at center,#21172b,#090813 68%)}
 .build-version small{font:9px 'DM Sans',sans-serif;color:#a69aab;letter-spacing:.04em}
 .build-version .build-commit{opacity:.7}
 @media(max-width:600px){.build-version{padding:16px 12px 22px}.build-version strong{font-size:16px}}
+
+/* Indicateur de version visible immédiatement dans le menu principal */
+.topbar{gap:14px}
+.build-version-top{display:flex;align-items:center;gap:8px;flex:0 0 auto;padding:7px 10px;border:1px solid #d5b77c55;border-radius:24px;background:#090813d9;color:#f0dfb9}
+.build-version-top>span:last-child{display:grid;gap:2px}
+.build-version-top b{font:600 9px Cinzel,serif;letter-spacing:.08em;color:#f1dca9}
+.build-version-top small{font:8px 'DM Sans',sans-serif;color:#c9bda7;letter-spacing:.06em}
+.build-version-top .build-version-dot{width:7px;height:7px;flex:0 0 7px}
+@media(max-width:700px){.topbar{gap:7px}.build-version-top{padding:6px 8px;gap:6px}.build-version-top b{font-size:8px}.build-version-top small{font-size:7px}.topbar nav{gap:8px}.topbar nav button{padding:9px 10px}}
+@media(max-width:390px){.brand small{display:none}.build-version-top{padding:5px 6px}.build-version-top small{display:none}}
