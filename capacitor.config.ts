@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'fr.lesanctuaire.oracles.v2',
+  appId: 'fr.lesanctuaire.oracles.v3',
   appName: 'Le Sanctuaire',
   webDir: 'dist',
   bundledWebRuntime: false,
