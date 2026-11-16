@@ -1,1 +1,1 @@
-import {defineConfig} from 'vite';import react from '@vitejs/plugin-react';export default defineConfig({base:'/Mes-4-oracles/',plugins:[react()]})
+import {defineConfig} from 'vite';import react from '@vitejs/plugin-react';export default defineConfig({base:process.env.CAPACITOR_BUILD==='1'?'./':'/Mes-4-oracles/',plugins:[react()]})
