@@ -30,11 +30,11 @@ footer{background:radial-gradient(ellipse at center,#21172b,#090813 68%)}
 @keyframes relicFloatA{0%,100%{translate:0 0}50%{translate:0 -15px}}
 @keyframes relicFloatB{0%,100%{translate:0 0}50%{translate:0 13px}}
 @keyframes relicFloatC{0%,100%{translate:0 0}50%{translate:0 -11px}}
-.oracle-section{background-image:linear-gradient(180deg,#100b1af0,#130d20ed),url('/Mes-4-oracles/assets/sanctuaire-banniere.jpg');background-size:cover;background-position:center;background-attachment:fixed}
+.oracle-section{background-image:linear-gradient(180deg,#100b1af0,#130d20ed),url('../assets/sanctuaire-banniere.jpg');background-size:cover;background-position:center;background-attachment:fixed}
 .oracle-card{border:1px solid #d9bd82a8;box-shadow:0 18px 60px #000a,0 0 28px #a884bd1c}
 .oracle-card>img{filter:brightness(.72) saturate(.9);transition:transform .9s,filter .6s}
 .oracle-card:hover>img{filter:brightness(.92) saturate(1.12)}
-.atelier{background-image:linear-gradient(180deg,#100b1af2,#090813f5),url('/Mes-4-oracles/assets/sanctuaire-banniere.jpg');background-size:cover;background-position:center 70%}
+.atelier{background-image:linear-gradient(180deg,#100b1af2,#090813f5),url('../assets/sanctuaire-banniere.jpg');background-size:cover;background-position:center 70%}
 .atelier-grid button{border-color:#d9bd8270;backdrop-filter:blur(12px)}
 @media(max-width:700px){.hero{min-height:780px}.hero-backdrop img{object-position:63% center;opacity:.52}.hero-relics{right:0;top:auto;bottom:16%;width:58vw;height:32%;opacity:.95}.relic{width:clamp(72px,19vw,110px);padding:4px}.relic-tarot{left:0;top:5%}.relic-belline{left:34%;top:-8%}.relic-zodiac{right:0;top:12%}.hero:after{right:-12%;top:29%;width:78vw;opacity:.75}.hero-copy{max-width:90%;}.hero-art-caption{z-index:3;bottom:7%;right:5%}.oracle-section{background-attachment:scroll}}
 @media(prefers-reduced-motion:reduce){.relic{animation:none}}
