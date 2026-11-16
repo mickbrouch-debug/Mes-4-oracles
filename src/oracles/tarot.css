@@ -104,3 +104,55 @@
   .oracle-app-portes .tarot-drawn{max-width:190px}
   .oracle-app-portes .tarot-face{width:100%;max-width:170px}
 }
+
+
+/* V17.3 — Dos strictement identiques sur les six oracles.
+   Aucun numéro, symbole propre à la carte, nom ou indice visuel au verso. */
+.oracle-app .tarot-back,
+.oracle-app .tarot-back.belline-back{
+  position:relative!important;
+  isolation:isolate;
+  overflow:hidden;
+  border:1px solid #d8bd82!important;
+  border-radius:7px!important;
+  color:#f0dcae!important;
+  background:
+    radial-gradient(ellipse at 50% 50%,#4a365d 0%,#251b38 48%,#100d20 100%)!important;
+  box-shadow:
+    inset 0 0 0 3px #100d20,
+    inset 0 0 0 5px #b99458,
+    inset 0 0 22px #d8b97822,
+    0 5px 14px #0009!important;
+}
+.oracle-app .tarot-back:before{
+  content:""!important;
+  position:absolute;
+  inset:7px!important;
+  display:block!important;
+  border:1px solid #e0c78e!important;
+  background:
+    repeating-linear-gradient(45deg,transparent 0 8px,#d9bd7b12 8px 9px,transparent 9px 16px),
+    repeating-linear-gradient(-45deg,transparent 0 8px,#d9bd7b12 8px 9px,transparent 9px 16px),
+    radial-gradient(circle at center,transparent 0 27%,#d9bd7b18 27.5% 28%,transparent 28.5% 42%,#d9bd7b18 42.5% 43%,transparent 43.5%)!important;
+  box-shadow:inset 0 0 18px #d8b45a22!important;
+  pointer-events:none;
+}
+.oracle-app .tarot-back:after{
+  content:"✧"!important;
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  color:#f0d996!important;
+  font-family:Georgia,serif;
+  font-size:clamp(22px,3vw,34px)!important;
+  text-shadow:0 0 12px #f6d77d77;
+  pointer-events:none;
+}
+.oracle-app .tarot-back span,
+.oracle-app .tarot-back small{display:none!important}
+.oracle-app .tarot-back.selected{
+  transform:translateY(-6px);
+  box-shadow:0 0 0 2px #f2d99b,0 12px 22px #d6b36a55!important;
+}
+@media(prefers-reduced-motion:reduce){.oracle-app .tarot-back{transition:none!important}}
