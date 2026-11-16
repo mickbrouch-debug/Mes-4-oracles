@@ -1,6 +1,7 @@
 import {useEffect,useRef,useState} from 'react';
 import { Capacitor } from '@capacitor/core';
 import { SpeechRecognition } from '@capacitor-community/speech-recognition';
+import { TextToSpeech } from '@capacitor-community/text-to-speech';
 import { readPersistentValue, writePersistentValue } from '../nativeStorage';
 import {OracleHeader,FeatureNav,Section,type FeatureId,type OracleId} from './shared';
 type Side={keywords:string;meaning:string;advice:string};
@@ -57,8 +58,8 @@ const modelsKey='sanctuaire.'+oracle+'.gemini.models';
 const defaultModels=['gemini-2.5-flash','gemini-2.5-pro','gemini-2.0-flash'];
 const [active,setActive]=useState<FeatureId>('preparation'),[domain,setDomain]=useState('Général'),[question,setQuestion]=useState(''),[count,setCount]=useState(oracle==='lenormand'?9:3),[picked,setPicked]=useState<{card:SymbolicCard;reversed:boolean}[]>([]),[revealed,setRevealed]=useState(false),[local,setLocal]=useState(''),[ai,setAi]=useState(''),[key,setKey]=useState(()=>localStorage.getItem('sanctuaire.'+oracle+'.gemini.key')||''),[model,setModel]=useState(()=>localStorage.getItem('sanctuaire.'+oracle+'.gemini.model')||'gemini-2.5-flash'),[models,setModels]=useState<string[]>(()=>{try{const saved=JSON.parse(localStorage.getItem(modelsKey)||'null');return Array.isArray(saved)&&saved.length?saved.filter((x:any)=>typeof x==='string'):defaultModels}catch{return defaultModels}}),[status,setStatus]=useState(''),[busy,setBusy]=useState(false),[progress,setProgress]=useState(0),[history,setHistory]=useState<Hist[]>(()=>{try{return JSON.parse(localStorage.getItem(historyKey)||'[]')}catch{return []}}),[voiceStatus,setVoiceStatus]=useState(''),[dictating,setDictating]=useState(false);
 useEffect(()=>{let active=true;Promise.all([readPersistentValue('sanctuaire.'+oracle+'.gemini.key'),readPersistentValue(globalApiKeyKey)]).then(([individual,global])=>{if(active){const stored=individual||global||'';if(stored){setKey(stored);localStorage.setItem('sanctuaire.'+oracle+'.gemini.key',stored)}}}).catch(()=>{});return()=>{active=false}},[oracle]);
-const abort=useRef<AbortController|null>(null),recognition=useRef<any>(null),currentHistoryId=useRef<string|null>(null),voiceSession=useRef<{text:string;parts:string[];index:number;active:boolean}|null>(null);const effectiveKey=key.trim()||localStorage.getItem(globalApiKeyKey)||'';const positions=POS[count]||Array.from({length:count},(_,i)=>'Carte '+(i+1));const names=picked.map(p=>p.card.name+(p.reversed?' (renversée)':' (droite)')).join(' · ');
-useEffect(()=>{const saved=localStorage.getItem('sanctuaire.'+oracle+'.voice.session');if(saved){try{voiceSession.current=JSON.parse(saved);setVoiceStatus('Lecture interrompue précédemment. Appuyez sur « Pause / Reprendre » pour continuer à la phrase sauvegardée.')}catch{localStorage.removeItem('sanctuaire.'+oracle+'.voice.session')}}const onVisibility=()=>{const session=voiceSession.current;const synth=window.speechSynthesis;if(!session?.active||!synth)return;if(document.visibilityState==='hidden'){if(synth.speaking&&!synth.paused)synth.pause();setVoiceStatus('Lecture mise en pause pour préserver la progression. Elle reprendra au retour sur l’application.')}else{window.setTimeout(()=>{if(!voiceSession.current?.active)return;const current=window.speechSynthesis;if(current.paused)current.resume();else if(!current.speaking)playVoicePart()},250)}};document.addEventListener('visibilitychange',onVisibility);const onPageShow=()=>{if(voiceSession.current?.active&&!window.speechSynthesis.speaking){window.setTimeout(()=>playVoicePart(),250)}};window.addEventListener('pageshow',onPageShow);return()=>{document.removeEventListener('visibilitychange',onVisibility);window.removeEventListener('pageshow',onPageShow);abort.current?.abort();const session=voiceSession.current;if(session)localStorage.setItem('sanctuaire.'+oracle+'.voice.session',JSON.stringify({...session,active:false}));window.speechSynthesis?.cancel();recognition.current?.stop()}},[]);
+const abort=useRef<AbortController|null>(null),recognition=useRef<any>(null),currentHistoryId=useRef<string|null>(null),voiceSession=useRef<{text:string;parts:string[];index:number;active:boolean}|null>(null),nativeVoiceBusy=useRef(false),voiceRunId=useRef(0);const effectiveKey=key.trim()||localStorage.getItem(globalApiKeyKey)||'';const positions=POS[count]||Array.from({length:count},(_,i)=>'Carte '+(i+1));const names=picked.map(p=>p.card.name+(p.reversed?' (renversée)':' (droite)')).join(' · ');
+useEffect(()=>{const saved=localStorage.getItem('sanctuaire.'+oracle+'.voice.session');if(saved){try{voiceSession.current=JSON.parse(saved);setVoiceStatus('Lecture interrompue précédemment. Appuyez sur « Pause / Reprendre » pour continuer à la phrase sauvegardée.')}catch{localStorage.removeItem('sanctuaire.'+oracle+'.voice.session')}}const onVisibility=()=>{const session=voiceSession.current;const synth=window.speechSynthesis;if(!session?.active||!synth)return;if(document.visibilityState==='hidden'){if(synth.speaking&&!synth.paused)synth.pause();setVoiceStatus('Lecture mise en pause pour préserver la progression. Elle reprendra au retour sur l’application.')}else{window.setTimeout(()=>{if(!voiceSession.current?.active)return;const current=window.speechSynthesis;if(current.paused)current.resume();else if(!current.speaking)playVoicePart()},250)}};document.addEventListener('visibilitychange',onVisibility);const onPageShow=()=>{if(voiceSession.current?.active&&!window.speechSynthesis.speaking){window.setTimeout(()=>playVoicePart(),250)}};window.addEventListener('pageshow',onPageShow);return()=>{document.removeEventListener('visibilitychange',onVisibility);window.removeEventListener('pageshow',onPageShow);abort.current?.abort();const session=voiceSession.current;if(session)localStorage.setItem('sanctuaire.'+oracle+'.voice.session',JSON.stringify({...session,active:false}));window.speechSynthesis?.cancel();if(Capacitor.isNativePlatform())void TextToSpeech.stop().catch(()=>{});recognition.current?.stop()}},[]);
 const go=(id:FeatureId)=>{setActive(id);document.getElementById('feature-'+id)?.scrollIntoView({behavior:'smooth',block:'start'})};
 const toggle=(card:SymbolicCard)=>{if(revealed)return;setPicked(old=>old.some(p=>p.card.id===card.id)?old.filter(p=>p.card.id!==card.id):old.length<count?[...old,{card,reversed:false}]:old)};
 const reveal=()=>{if(picked.length!==count)return;const randomOrientation=['tarot','belline','lenormand'].includes(oracle);const revealedCards=picked.map(p=>({...p,reversed:randomOrientation?Math.random()<0.5:false}));setPicked(revealedCards);currentHistoryId.current=String(Date.now())+'-'+Math.random().toString(36).slice(2,8);setRevealed(true);setActive('revelation');setStatus(randomOrientation?'Cartes révélées : orientation droite ou renversée tirée au hasard pour chaque carte.':'Cartes révélées et enregistrées dans l’historique.');save({cards:revealedCards.map(p=>p.card.name+(p.reversed?' (renversée)':' (droite)')).join(' · '),local:'',ai:''})};
@@ -92,9 +93,77 @@ const dictate=async()=>{
  r.onresult=(e:any)=>{let v='';for(let i=e.resultIndex;i<e.results.length;i++)if(e.results[i].isFinal)v+=e.results[i][0].transcript+' ';if(v)setQuestion(x=>(x+' '+v).trim())};
  r.onend=()=>setDictating(false);r.onerror=()=>setDictating(false);r.start();setDictating(true)
 };
-const playVoicePart=()=>{const session=voiceSession.current;const synth=window.speechSynthesis;if(!session||!session.active||!synth||synth.speaking||synth.paused)return;if(session.index>=session.parts.length){voiceSession.current=null;localStorage.removeItem('sanctuaire.'+oracle+'.voice.session');setVoiceStatus('Lecture terminée.');return}const utterance=new SpeechSynthesisUtterance(session.parts[session.index]);utterance.lang='fr-FR';utterance.rate=.94;utterance.onend=()=>{const current=voiceSession.current;if(!current)return;current.index++;localStorage.setItem('sanctuaire.'+oracle+'.voice.session',JSON.stringify(current));if(current.active)playVoicePart()};utterance.onerror=(event:any)=>{if(event.error==='interrupted'||event.error==='canceled'){setVoiceStatus('Lecture interrompue. La reprise est mémorisée à la phrase en cours.');return}setVoiceStatus('Erreur de synthèse vocale. La progression est conservée.');};synth.speak(utterance)};
-const resumeVoice=()=>{const session=voiceSession.current;if(!session||session.index>=session.parts.length){setVoiceStatus('Aucune lecture à reprendre. Appuyez sur « Lire l’analyse » pour recommencer.');return}session.active=true;localStorage.setItem('sanctuaire.'+oracle+'.voice.session',JSON.stringify(session));const synth=window.speechSynthesis;synth.cancel();setVoiceStatus('Reprise à la phrase '+(session.index+1)+'…');window.setTimeout(()=>{if(voiceSession.current?.active)playVoicePart()},180)};
-const speak=(mode:'play'|'pause'|'stop')=>{const synth=window.speechSynthesis;const session=voiceSession.current;if(mode==='stop'){synth.cancel();voiceSession.current=null;localStorage.removeItem('sanctuaire.'+oracle+'.voice.session');setVoiceStatus('Lecture arrêtée et progression effacée.');return}if(mode==='pause'){if(session&&session.active&&(synth.speaking||synth.paused)){synth.pause();session.active=false;localStorage.setItem('sanctuaire.'+oracle+'.voice.session',JSON.stringify(session));setVoiceStatus('Lecture en pause. La reprise redémarrera à la phrase en cours.')}else if(session){resumeVoice()}else{setVoiceStatus('Aucune lecture en cours.')}return}const rawText=ai||local;const text=cleanSpeechText(rawText);if(!text){setVoiceStatus('Aucun texte lisible à lire.');return}if(session&&session.text===text&&session.index<session.parts.length){resumeVoice();return}synth.cancel();const parts=text.match(/[^.!?;]+[.!?;]+|[^.!?;]+$/g)||[text];voiceSession.current={text,parts,index:0,active:true};localStorage.setItem('sanctuaire.'+oracle+'.voice.session',JSON.stringify(voiceSession.current));setVoiceStatus('Lecture en cours… progression enregistrée.');window.setTimeout(()=>playVoicePart(),120)};
+const playVoicePart=async()=>{
+ const session=voiceSession.current;
+ if(!session||!session.active)return;
+ if(session.index>=session.parts.length){voiceSession.current=null;localStorage.removeItem('sanctuaire.'+oracle+'.voice.session');setVoiceStatus('Lecture terminée.');return}
+ if(Capacitor.isNativePlatform()){
+  if(nativeVoiceBusy.current)return;
+  nativeVoiceBusy.current=true;
+  const run=voiceRunId.current;
+  try{
+   await TextToSpeech.speak({text:session.parts[session.index],lang:'fr-FR',rate:.94,pitch:1,volume:1,queueStrategy:0});
+   const current=voiceSession.current;
+   if(current&&current.active&&voiceRunId.current===run){
+    current.index++;
+    localStorage.setItem('sanctuaire.'+oracle+'.voice.session',JSON.stringify(current));
+   }
+  }catch(error:any){
+   if(voiceRunId.current===run)setVoiceStatus('Erreur de lecture vocale Android : '+(error?.message||'vérifiez le moteur vocal français du téléphone.'));
+  }finally{
+   nativeVoiceBusy.current=false;
+  }
+  if(voiceSession.current?.active&&voiceRunId.current===run)void playVoicePart();
+  return;
+ }
+ const synth=window.speechSynthesis;
+ if(!synth||synth.speaking||synth.paused)return;
+ const utterance=new SpeechSynthesisUtterance(session.parts[session.index]);
+ utterance.lang='fr-FR';utterance.rate=.94;
+ utterance.onend=()=>{const current=voiceSession.current;if(!current)return;current.index++;localStorage.setItem('sanctuaire.'+oracle+'.voice.session',JSON.stringify(current));if(current.active)void playVoicePart()};
+ utterance.onerror=(event:any)=>{if(event.error==='interrupted'||event.error==='canceled'){setVoiceStatus('Lecture interrompue. La reprise est mémorisée à la phrase en cours.');return}setVoiceStatus('Erreur de synthèse vocale. La progression est conservée.');};
+ synth.speak(utterance)
+};
+const resumeVoice=()=>{
+ const session=voiceSession.current;
+ if(!session||session.index>=session.parts.length){setVoiceStatus('Aucune lecture à reprendre. Appuyez sur « Lire l’analyse » pour recommencer.');return}
+ session.active=true;localStorage.setItem('sanctuaire.'+oracle+'.voice.session',JSON.stringify(session));
+ setVoiceStatus('Reprise à la phrase '+(session.index+1)+'…');
+ if(Capacitor.isNativePlatform()){
+  voiceRunId.current++;
+  void TextToSpeech.stop().catch(()=>{}).finally(()=>{nativeVoiceBusy.current=false;void playVoicePart()});
+ }else{
+  const synth=window.speechSynthesis;synth.cancel();
+  window.setTimeout(()=>{if(voiceSession.current?.active)void playVoicePart()},180)
+ }
+};
+const speak=(mode:'play'|'pause'|'stop')=>{
+ const session=voiceSession.current;
+ if(mode==='stop'){
+  voiceRunId.current++;voiceSession.current=null;localStorage.removeItem('sanctuaire.'+oracle+'.voice.session');
+  if(Capacitor.isNativePlatform()){nativeVoiceBusy.current=false;void TextToSpeech.stop().catch(()=>{})}else window.speechSynthesis?.cancel();
+  setVoiceStatus('Lecture arrêtée et progression effacée.');return
+ }
+ if(mode==='pause'){
+  if(session&&session.active){
+   session.active=false;localStorage.setItem('sanctuaire.'+oracle+'.voice.session',JSON.stringify(session));
+   if(Capacitor.isNativePlatform()){voiceRunId.current++;void TextToSpeech.stop().catch(()=>{}).finally(()=>{nativeVoiceBusy.current=false})}
+   else window.speechSynthesis?.pause();
+   setVoiceStatus('Lecture en pause. La reprise redémarrera au début de la phrase en cours.');
+  }else if(session){resumeVoice()}else setVoiceStatus('Aucune lecture en cours.');
+  return
+ }
+ const rawText=ai||local;const text=cleanSpeechText(rawText);
+ if(!text){setVoiceStatus('Aucun texte lisible à lire.');return}
+ if(session&&session.text===text&&session.index<session.parts.length){resumeVoice();return}
+ if(Capacitor.isNativePlatform()){voiceRunId.current++;nativeVoiceBusy.current=false;void TextToSpeech.stop().catch(()=>{})}
+ else window.speechSynthesis?.cancel();
+ const parts=text.match(/[^.!?;]+[.!?;]+|[^.!?;]+$/g)||[text];
+ voiceSession.current={text,parts,index:0,active:true};
+ localStorage.setItem('sanctuaire.'+oracle+'.voice.session',JSON.stringify(voiceSession.current));
+ setVoiceStatus('Lecture en cours… progression enregistrée.');
+ window.setTimeout(()=>void playVoicePart(),120)
+};
 const reset=()=>{abort.current?.abort();currentHistoryId.current=null;setPicked([]);setRevealed(false);setLocal('');setAi('');setProgress(0);setStatus('Tirage réinitialisé.')};
 const removeHistory=(index:number)=>{const item=history[index];if(!item)return;if(!window.confirm('Supprimer définitivement ce tirage de l’historique de '+title+' ?'))return;setHistory(old=>{const next=old.filter((_,i)=>i!==index);localStorage.setItem(historyKey,JSON.stringify(next));return next});setStatus('Tirage supprimé de l’historique.')};
 const clearHistory=()=>{if(!history.length)return;if(!window.confirm('Supprimer tous les tirages de l’historique de '+title+' ? Cette action est irréversible.'))return;setHistory([]);localStorage.setItem(historyKey,'[]');setStatus('Tout l’historique de cet oracle a été supprimé.')};
