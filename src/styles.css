@@ -68,3 +68,13 @@ footer{background:radial-gradient(ellipse at center,#21172b,#090813 68%)}
 .cross-result-title{font:400 26px Italiana,serif;color:var(--gold2);margin:22px 0 10px}
 .cross-result{white-space:pre-wrap;overflow-wrap:anywhere;max-height:48vh;overflow:auto;padding:16px;background:#080712;border:1px solid #d5b77c35;color:#eee4d4;font:12px/1.8 'DM Sans',sans-serif}
 @media(max-width:600px){.cross-toolbar{align-items:flex-start;flex-direction:column}.cross-list{max-height:38vh}.cross-result{font-size:11px}}
+
+/* V17.3 — indicateur de version réellement embarquée dans la page publiée */
+.build-version{display:flex;justify-content:center;align-items:center;gap:12px;padding:18px 16px 26px;background:#090813;color:#c9bda7;text-align:left;border-top:1px solid #d5b77c18}
+.build-version-dot{width:8px;height:8px;flex:0 0 8px;border-radius:50%;background:#8fc99b;box-shadow:0 0 12px #8fc99b88}
+.build-version>div{display:grid;gap:4px}
+.build-version b{font:9px Cinzel,serif;letter-spacing:.18em;color:#d9bd82}
+.build-version strong{font:18px Italiana,serif;color:#f0dfb9}
+.build-version small{font:9px 'DM Sans',sans-serif;color:#a69aab;letter-spacing:.04em}
+.build-version .build-commit{opacity:.7}
+@media(max-width:600px){.build-version{padding:16px 12px 22px}.build-version strong{font-size:16px}}
