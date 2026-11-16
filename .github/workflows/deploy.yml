@@ -1,7 +1,7 @@
-name: Build and deploy Sanctuaire V17.2
+name: Build and deploy Sanctuaire V17.3
 on:
   push:
-    branches: [V17.2]
+    branches: [V17.3]
   workflow_dispatch:
 permissions:
   contents: read
@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: V17.2
+          ref: V17.3
       - uses: actions/setup-node@v4
         with:
           node-version: 22
