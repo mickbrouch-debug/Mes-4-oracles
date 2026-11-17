@@ -7,6 +7,9 @@ const config: CapacitorConfig = {
   bundledWebRuntime: false,
   android: {
     backgroundColor: '#090813'
+  },
+  plugins: {
+    CapacitorHttp: { enabled: true }
   }
 };
 
