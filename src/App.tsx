@@ -7,6 +7,23 @@ import { Capacitor, CapacitorHttp } from '@capacitor/core';
 import { TextToSpeech } from '@capacitor-community/text-to-speech';
 
 type Oracle={id:OracleId;roman:string;name:string;description:string;image:string;tag:string};
+function cleanCrossSpeechText(input:string){
+ const plain=input
+  .replace(/\\[([^\\]]+)\\]\\((?:https?:\\/\\/)?[^)]+\\)/g,'$1')
+  .replace(/^\\s{0,3}#{1,6}\\s*/gm,'')
+  .replace(/^\\s{0,3}>\\s?/gm,'')
+  .replace(/^\\s*[-*+]\\s+/gm,'')
+  .replace(/^\\s*\\d+[.)]\\s+/gm,'')
+  .replace(/^\\s*\\|.*\\|\\s*$/gm,'')
+  .replace(/^\\s*[-:| ]{3,}\\s*$/gm,'')
+  .replace(/\\*\\*(.*?)\\*\\*/gs,'$1').replace(/__(.*?)__/gs,'$1')
+  .replace(/\\*(.*?)\\*/gs,'$1').replace(/_(.*?)_/gs,'$1')
+  .replace(/~~(.*?)~~/gs,'$1').replace(/`{1,3}/g,'')
+  .replace(/[#*_~|>]/g,' ').replace(/https?:\\/\\/\\S+/g,'')
+  .replace(/[ \\t]+/g,' ').replace(/\\n+/g,' ').replace(/\\s+/g,' ').trim();
+ const sentences=plain.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[plain];
+ return sentences.slice(0,6).join(' ').slice(0,900).trim();
+}
 type JournalEntry={key:string;oracleId:OracleId;oracle:string;date:string;domain?:string;cards?:string;question?:string;local?:string;ai?:string};
 const ORACLES:Oracle[]=[
   {id:'tarot',roman:'I',name:'Le Tarot',description:'Les 78 arcanes · Archétypes & cheminement',image:'oracle-tarot.jpg',tag:'Le grand voyage'},
@@ -67,7 +84,7 @@ export default function App(){
     utterance.onend=()=>{const current=crossVoice.current;if(!current||!current.active||crossVoiceRun.current!==run)return;current.index++;void playCrossVoicePart()};
     utterance.onerror=()=>{if(crossVoiceRun.current===run)setCrossVoiceStatus('La lecture vocale a rencontré une erreur.')};synth.speak(utterance);
   };
-  const startCrossVoice=()=>{const text=crossResult.trim();if(!text){setCrossVoiceStatus('Aucune analyse croisée à lire.');return}crossVoiceRun.current++;if(Capacitor.isNativePlatform()){void TextToSpeech.stop().catch(()=>{});crossVoiceBusy.current=false}else window.speechSynthesis?.cancel();const parts=text.match(/[^.!?;]+[.!?;]+|[^.!?;]+$/g)||[text];crossVoice.current={parts,index:0,active:true};setCrossVoiceStatus('Lecture de l’analyse croisée…');void playCrossVoicePart()};
+  const startCrossVoice=()=>{const text=cleanCrossSpeechText(crossResult);if(!text){setCrossVoiceStatus('Aucune analyse croisée à lire.');return}crossVoiceRun.current++;if(Capacitor.isNativePlatform()){void TextToSpeech.stop().catch(()=>{});crossVoiceBusy.current=false}else window.speechSynthesis?.cancel();const parts=text.match(/[^.!?;]+[.!?;]+|[^.!?;]+$/g)||[text];crossVoice.current={parts,index:0,active:true};setCrossVoiceStatus('Lecture de l’analyse croisée…');void playCrossVoicePart()};
   const pauseCrossVoice=()=>{const session=crossVoice.current;if(!session){setCrossVoiceStatus('Aucune lecture vocale en cours.');return}if(session.active){session.active=false;crossVoiceRun.current++;if(Capacitor.isNativePlatform()){void TextToSpeech.stop().catch(()=>{}).finally(()=>{crossVoiceBusy.current=false})}else window.speechSynthesis?.cancel();setCrossVoiceStatus('Lecture en pause. La reprise repart au début de la phrase en cours.')}else{session.active=true;setCrossVoiceStatus('Reprise de la lecture…');if(Capacitor.isNativePlatform()){void TextToSpeech.stop().catch(()=>{}).finally(()=>{crossVoiceBusy.current=false;void playCrossVoicePart()})}else void playCrossVoicePart()}};
   const stopCrossVoice=()=>{crossVoiceRun.current++;crossVoice.current=null;if(Capacitor.isNativePlatform()){crossVoiceBusy.current=false;void TextToSpeech.stop().catch(()=>{})}else window.speechSynthesis?.cancel();setCrossVoiceStatus('Lecture vocale arrêtée.')};
   const refreshCrossModels=async()=>{
