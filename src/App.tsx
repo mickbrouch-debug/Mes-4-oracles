@@ -3,6 +3,7 @@ import type {OracleId} from './oracles/types';
 import {gsap} from 'gsap';
 import Scene from './Scene';
 import { readPersistentValue, writePersistentValue, removePersistentValue } from './nativeStorage';
+import { Capacitor, CapacitorHttp } from '@capacitor/core';
 
 type Oracle={id:OracleId;roman:string;name:string;description:string;image:string;tag:string};
 type JournalEntry={key:string;oracleId:OracleId;oracle:string;date:string;domain?:string;cards?:string;question?:string;local?:string;ai?:string};
@@ -37,22 +38,20 @@ export default function App(){
   const runCrossReading=async()=>{
     const chosen=journal.filter(entry=>crossSelected.includes(entry.key));
     if(chosen.length<2){setCrossStatus('Sélectionnez au moins deux tirages pour les comparer.');return}
-    const key=globalApiKey.trim()||chosen.map(entry=>localStorage.getItem('sanctuaire.'+entry.oracleId+'.gemini.key')||'').find(value=>value.trim())||'';
+    const persistedGlobal=await readPersistentValue('sanctuaire.gemini.key').catch(()=>null);const individualKeys=await Promise.all(chosen.map(entry=>readPersistentValue('sanctuaire.'+entry.oracleId+'.gemini.key').catch(()=>null)));const key=globalApiKey.trim()||persistedGlobal?.trim()||individualKeys.find(value=>value?.trim())?.trim()||'';
     if(!key){setCrossStatus('Aucune clé Gemini disponible. Ajoutez une clé universelle ou une clé individuelle dans un oracle.');return}
     const model=crossModel;
     setCrossBusy(true);setCrossStatus('Analyse croisée des '+chosen.length+' tirages…');setCrossResult('');
     const source=chosen.map((entry,index)=>'TIRAGE '+(index+1)+' — '+entry.oracle+'\nDate : '+entry.date+'\nDomaine : '+(entry.domain||'Général')+'\nQuestion : '+(entry.question||'Tirage général')+'\nCartes : '+(entry.cards||'Non renseignées')+'\nAnalyse locale : '+(entry.local||'Non disponible')+'\nInterprétation IA : '+(entry.ai||'Non disponible')).join('\n\n--------------------\n\n');
     const prompt='Tu es le moteur de lecture croisée du Sanctuaire. Compare les tirages issus de plusieurs traditions symboliques, sans les confondre. Produis une synthèse globale structurée en français. Commence par rappeler les tirages pris en compte. Analyse ensuite : 1) les thèmes et messages communs, 2) les correspondances entre cartes, symboles et traditions, 3) les divergences ou tensions apparentes, 4) les éclairages complémentaires propres à chaque oracle, 5) les répétitions et évolutions éventuelles, 6) une synthèse transversale et des pistes concrètes de réflexion. Distingue clairement les éléments réellement présents dans les tirages de tes rapprochements interprétatifs. Ne présente jamais les symboles comme des prédictions certaines ni comme des faits sur autrui. Si les questions des tirages diffèrent, signale-le et ne force pas artificiellement une cohérence.\n\nDONNÉES DES TIRAGES :\n'+source;
-    try{const response=await fetch('https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(model)+':generateContent',{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':key},body:JSON.stringify({contents:[{role:'user',parts:[{text:prompt}]}],generationConfig:{temperature:.65,maxOutputTokens:6000}})});const data=await response.json();if(!response.ok)throw new Error(data.error?.message||'Erreur Gemini '+response.status);const answer=data.candidates?.[0]?.content?.parts?.map((part:any)=>part.text||'').join('\n')||'Aucune synthèse reçue.';setCrossResult(answer);setCrossStatus('Synthèse terminée à partir de '+chosen.length+' tirages.');}catch(error:any){setCrossStatus('Erreur de lecture croisée : '+(error?.message||'échec de la requête'))}finally{setCrossBusy(false)}
+    try{const url='https://generativelanguage.googleapis.com/v1beta/models/'+encodeURIComponent(model)+':generateContent';const body={contents:[{role:'user',parts:[{text:prompt}]}],generationConfig:{temperature:.65,maxOutputTokens:6000}};let data:any;if(Capacitor.isNativePlatform()){const response=await CapacitorHttp.post({url,headers:{'Content-Type':'application/json','x-goog-api-key':key},data:body});data=response.data;if(response.status<200||response.status>=300)throw new Error(data?.error?.message||'Erreur Gemini HTTP '+response.status)}else{const response=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json','x-goog-api-key':key},body:JSON.stringify(body)});data=await response.json();if(!response.ok)throw new Error(data.error?.message||'Erreur Gemini HTTP '+response.status)}const answer=data.candidates?.[0]?.content?.parts?.map((part:any)=>part.text||'').join('\n')||'Aucune synthèse reçue.';setCrossResult(answer);setCrossStatus('Synthèse terminée à partir de '+chosen.length+' tirages.');}catch(error:any){const message=error?.message||String(error)||'échec de la requête';setCrossStatus('Erreur de lecture croisée : '+message+(message==='Failed to fetch'?' — vérifiez la connexion Internet et la disponibilité du service Gemini.':' mais la requête a bien atteint le service si un code HTTP est indiqué.'))}finally{setCrossBusy(false)}
   };
   const refreshCrossModels=async()=>{
     const key=globalApiKey.trim()||journal.map(entry=>localStorage.getItem('sanctuaire.'+entry.oracleId+'.gemini.key')||'').find(value=>value.trim())||'';
     if(!key){setCrossStatus('Ajoutez une clé API Gemini pour actualiser la liste des modèles.');return}
     setCrossStatus('Actualisation des modèles Gemini…');
     try{
-      const response=await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000',{headers:{'x-goog-api-key':key}});
-      const data=await response.json();
-      if(!response.ok)throw new Error(data.error?.message||'Erreur API '+response.status);
+      let data:any;if(Capacitor.isNativePlatform()){const response=await CapacitorHttp.get({url:'https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000',headers:{'x-goog-api-key':key}});data=response.data;if(response.status<200||response.status>=300)throw new Error(data?.error?.message||'Erreur API HTTP '+response.status)}else{const response=await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000',{headers:{'x-goog-api-key':key}});data=await response.json();if(!response.ok)throw new Error(data.error?.message||'Erreur API HTTP '+response.status)}
       const available=(data.models||[]).filter((m:any)=>(m.supportedGenerationMethods||[]).includes('generateContent')&&m.name.startsWith('models/gemini-')&&!/(embedding|image|tts|live|audio|video)/i.test(m.name)).map((m:any)=>m.name.replace('models/',''));
       if(!available.length)throw new Error('Aucun modèle compatible');
       const list=[...new Set(['gemini-3.5-flash-lite',...available])];
