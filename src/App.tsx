@@ -9,20 +9,24 @@ import { TextToSpeech } from '@capacitor-community/text-to-speech';
 type Oracle={id:OracleId;roman:string;name:string;description:string;image:string;tag:string};
 function cleanCrossSpeechText(input:string){
  const plain=input
-  .replace(/\\[([^\\]]+)\\]\\((?:https?:\\/\\/)?[^)]+\\)/g,'$1')
-  .replace(/^\\s{0,3}#{1,6}\\s*/gm,'')
-  .replace(/^\\s{0,3}>\\s?/gm,'')
-  .replace(/^\\s*[-*+]\\s+/gm,'')
-  .replace(/^\\s*\\d+[.)]\\s+/gm,'')
-  .replace(/^\\s*\\|.*\\|\\s*$/gm,'')
-  .replace(/^\\s*[-:| ]{3,}\\s*$/gm,'')
-  .replace(/\\*\\*(.*?)\\*\\*/gs,'$1').replace(/__(.*?)__/gs,'$1')
-  .replace(/\\*(.*?)\\*/gs,'$1').replace(/_(.*?)_/gs,'$1')
-  .replace(/~~(.*?)~~/gs,'$1').replace(/`{1,3}/g,'')
-  .replace(/[#*_~|>]/g,' ').replace(/https?:\\/\\/\\S+/g,'')
-  .replace(/[ \\t]+/g,' ').replace(/\\n+/g,' ').replace(/\\s+/g,' ').trim();
- const sentences=plain.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[plain];
- return sentences.slice(0,6).join(' ').slice(0,900).trim();
+  .replace(/\[([^\]]+)\]\((?:https?:\/\/)?[^)]+\)/g,'$1')
+  .replace(/^\s{0,3}#{1,6}\s*/gm,'')
+  .replace(/^\s{0,3}>\s?/gm,'')
+  .replace(/^\s*[-*+]\s+/gm,'')
+  .replace(/^\s*\d+[.)]\s+/gm,'')
+  .replace(/^\s*\|.*\|\s*$/gm,'')
+  .replace(/^\s*[-:| ]{3,}\s*$/gm,'')
+  .replace(/\*\*(.*?)\*\*/gs,'$1').replace(/__(.*?)__/gs,'$1')
+  .replace(/\*(.*?)\*/gs,'$1').replace(/_(.*?)_/gs,'$1')
+  .replace(/~~(.*?)~~/gs,'$1')
+  .replace(new RegExp(String.fromCharCode(96)+'{1,3}','g'),'')
+  .replace(/[#*_~|>]/g,' ')
+  .replace(/https?:\/\/\S+/g,'')
+  .replace(/[ \t]+/g,' ')
+  .replace(/\n{3,}/g,'\n\n')
+  .replace(/[ \t]*\n[ \t]*/g,'\n')
+  .trim();
+ return plain;
 }
 type JournalEntry={key:string;oracleId:OracleId;oracle:string;date:string;domain?:string;cards?:string;question?:string;local?:string;ai?:string};
 const ORACLES:Oracle[]=[
