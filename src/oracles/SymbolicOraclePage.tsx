@@ -8,28 +8,24 @@ type Side={keywords:string;meaning:string;advice:string};
 export type SymbolicCard={id:string;name:string;arcana:string;suit:string;number:number;icon?:string;keywords?:string;upright:Side;reversed:Side};
 type Hist={id?:string;date:string;question:string;domain:string;cards:string;local:string;ai:string};
 function cleanSpeechText(input:string){
- const plain=input
-  .replace(/\\[([^\\]]+)\\]\\((?:https?:\\/\\/)?[^)]+\\)/g,'$1')
-  .replace(/^\\s{0,3}#{1,6}\\s*/gm,'')
-  .replace(/^\\s{0,3}>\\s?/gm,'')
-  .replace(/^\\s*[-*+]\\s+/gm,'')
-  .replace(/^\\s*\\d+[.)]\\s+/gm,'')
-  .replace(/^\\s*\\|.*\\|\\s*$/gm,'')
-  .replace(/^\\s*[-:| ]{3,}\\s*$/gm,'')
-  .replace(/\\*\\*(.*?)\\*\\*/gs,'$1')
-  .replace(/__(.*?)__/gs,'$1')
-  .replace(/\\*(.*?)\\*/gs,'$1')
-  .replace(/_(.*?)_/gs,'$1')
+ return input
+  .replace(/\[([^\]]+)\]\((?:https?:\/\/)?[^)]+\)/g,'$1')
+  .replace(/^\s{0,3}#{1,6}\s*/gm,'')
+  .replace(/^\s{0,3}>\s?/gm,'')
+  .replace(/^\s*[-*+]\s+/gm,'')
+  .replace(/^\s*\d+[.)]\s+/gm,'')
+  .replace(/^\s*\|.*\|\s*$/gm,'')
+  .replace(/^\s*[-:| ]{3,}\s*$/gm,'')
+  .replace(/\*\*(.*?)\*\*/gs,'$1').replace(/__(.*?)__/gs,'$1')
+  .replace(/\*(.*?)\*/gs,'$1').replace(/_(.*?)_/gs,'$1')
   .replace(/~~(.*?)~~/gs,'$1')
-  .replace(/`{1,3}/g,'')
+  .replace(new RegExp(String.fromCharCode(96)+'{1,3}','g'),'')
   .replace(/[#*_~|>]/g,' ')
-  .replace(/https?:\\/\\/\\S+/g,'')
-  .replace(/[ \\t]+/g,' ')
-  .replace(/\\n+/g,' ')
-  .replace(/\\s+/g,' ')
+  .replace(/https?:\/\/\S+/g,'')
+  .replace(/[ \t]+/g,' ')
+  .replace(/\n{3,}/g,'\n\n')
+  .replace(/[ \t]*\n[ \t]*/g,'\n')
   .trim();
- const sentences=plain.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[plain];
- return sentences.slice(0,6).join(' ').slice(0,900).trim();
 }
 const POS:Record<number,string[]>={1:['Éclairage'],3:['Situation actuelle','Conseil','Évolution possible'],5:['Situation','Défi','Ressource','Conseil','Piste d’évolution'],7:['Contexte','Votre posture','Influence extérieure','Obstacle','Ressource','Conseil','Tendance possible'],9:['Contexte','Influence proche','Tendance','Ce qui est visible','Cœur de la situation','Arrière-plan','Base / passé','À intégrer','Prochain pas'],10:['Situation présente','Tension','Fondation','Passé récent','Conscience','Proche évolution','Votre posture','Environnement','Espoirs et craintes','Synthèse']};
 function tarotArt(c:SymbolicCard){
