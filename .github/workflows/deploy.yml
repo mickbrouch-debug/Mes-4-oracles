@@ -1,4 +1,4 @@
-name: Build and deploy Sanctuaire V17.4 (Pages allowed branch V17.3)
+name: Build and deploy Sanctuaire V17.3
 on:
   push:
     branches: [V17.3]
@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: V17.4
+          ref: V17.3
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -25,9 +25,10 @@ jobs:
         run: |
           echo "VITE_BUILD_DATE=$(date -u '+%Y-%m-%d %H:%M UTC')" >> "$GITHUB_ENV"
           echo "VITE_BUILD_COMMIT=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
-      - run: npm run build
+      - name: Build production application
+        run: npm run build
         env:
-          VITE_BUILD_VERSION: V17.4
+          VITE_BUILD_VERSION: V17.3
           VITE_BUILD_RUN: ${{ github.run_number }}
       - name: Verify production entry point
         run: |
