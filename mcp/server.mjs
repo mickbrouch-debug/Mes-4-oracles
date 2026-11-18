@@ -39,7 +39,8 @@ function configure(server){
   title:"Afficher les cartes d'un oracle",
   description:"Renvoie le jeu complet afin que l'utilisateur choisisse lui-même ses cartes. Aucun tirage aléatoire.",
   inputSchema:{oracle:z.enum(["tarot","belline","lenormand","astrologie","runes","portes"])},
-  outputSchema:{oracle:z.string(),name:z.string(),cards:z.array(z.object({id:z.string(),name:z.string(),number:z.number(),suit:z.string(),icon:z.string(),keywords:z.string()}))}
+  outputSchema:{oracle:z.string(),name:z.string(),cards:z.array(z.object({id:z.string(),name:z.string(),number:z.number(),suit:z.string(),icon:z.string(),keywords:z.string()}))},
+  _meta:{}
  },async({oracle})=>{const d=decks[oracle];return reply(d.label+" : "+d.cards.length+" cartes disponibles. Sélection manuelle.",{oracle,name:d.label,cards:d.cards.map(cardSummary)});});
  registerAppTool(server,"sanctuaire_preparer_tirage",{
   title:"Préparer un tirage manuel",
