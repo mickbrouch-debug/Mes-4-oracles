@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: le-sanctuaire-chatgpt
+    runtime: docker
+    plan: starter
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "8787"
