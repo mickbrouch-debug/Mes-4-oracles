@@ -1,0 +1,54 @@
+name: MCP protocol smoke test
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [V17.5]
+    paths:
+      - "mcp/**"
+      - ".github/workflows/mcp-protocol-test.yml"
+
+jobs:
+  protocol:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check MCP initialize and tools/list
+        env:
+          MCP_URL: https://le-sanctuaire-chatgpt.onrender.com/mcp
+        run: |
+          node --input-type=module <<'NODE'
+          const url = process.env.MCP_URL;
+          const headers = { "content-type": "application/json", "accept": "application/json, text/event-stream" };
+          const init = await fetch(url, {
+            method: "POST", headers,
+            body: JSON.stringify({
+              jsonrpc: "2.0", id: 1, method: "initialize",
+              params: {
+                protocolVersion: "2025-03-26",
+                capabilities: {},
+                clientInfo: { name: "sanctuaire-smoke-test", version: "1.0.0" }
+              }
+            })
+          });
+          const initText = await init.text();
+          if (!init.ok) throw new Error("initialize HTTP " + init.status + ": " + initText);
+          let initJson;
+          try { initJson = JSON.parse(initText); } catch { throw new Error("initialize did not return JSON: " + initText); }
+          if (!initJson.result?.serverInfo?.name) throw new Error("initialize response missing serverInfo: " + initText);
+          console.log("initialize OK:", initJson.result.serverInfo);
+          const protocolVersion = initJson.result.protocolVersion || "2025-03-26";
+          const list = await fetch(url, {
+            method: "POST",
+            headers: { ...headers, "mcp-protocol-version": protocolVersion },
+            body: JSON.stringify({ jsonrpc: "2.0", id: 2, method: "tools/list", params: {} })
+          });
+          const listText = await list.text();
+          if (!list.ok) throw new Error("tools/list HTTP " + list.status + ": " + listText);
+          let listJson;
+          try { listJson = JSON.parse(listText); } catch { throw new Error("tools/list did not return JSON: " + listText); }
+          const names = (listJson.result?.tools || []).map(t => t.name);
+          for (const expected of ["sanctuaire_catalogue", "sanctuaire_lister_cartes", "sanctuaire_preparer_tirage"]) {
+            if (!names.includes(expected)) throw new Error("Missing tool " + expected + "; got: " + names.join(", "));
+          }
+          console.log("tools/list OK:", names.join(", "));
+          NODE
