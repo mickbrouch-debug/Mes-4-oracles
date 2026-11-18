@@ -1,0 +1,36 @@
+name: Validate ChatGPT App — Le Sanctuaire V17.5
+on:
+  push:
+    branches: [V17.5]
+    paths:
+      - 'mcp/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/chatgpt-app.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate-mcp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: V17.5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: npm install
+      - name: Check MCP server syntax
+        run: node --check mcp/server.mjs
+      - name: Check oracle data modules
+        run: |
+          for file in mcp/data/*.js; do node --check "$file"; done
+      - name: Verify widget and deployment files
+        run: |
+          test -s mcp/widget.html
+          test -s Dockerfile
+          test -s render.yaml
+          grep -q 'sanctuaire_preparer_tirage' mcp/server.mjs
+          grep -q 'ui/initialize' mcp/widget.html
