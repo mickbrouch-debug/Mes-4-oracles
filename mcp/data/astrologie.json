@@ -1,0 +1,648 @@
+[
+  {
+    "id": "AS01",
+    "name": "Bélier",
+    "arcana": "signe",
+    "suit": "Zodiaque",
+    "number": 1,
+    "icon": "♈",
+    "keywords": "initiative, courage, impulsion",
+    "upright": {
+      "keywords": "initiative, courage, impulsion",
+      "meaning": "Bélier met l’accent sur initiative, courage, impulsion. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de initiative, courage, impulsion",
+      "meaning": "Renversée, Bélier peut signaler un déséquilibre, un excès ou une difficulté à intégrer initiative, courage, impulsion. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS02",
+    "name": "Taureau",
+    "arcana": "signe",
+    "suit": "Zodiaque",
+    "number": 2,
+    "icon": "♉",
+    "keywords": "stabilité, ressources, sensualité",
+    "upright": {
+      "keywords": "stabilité, ressources, sensualité",
+      "meaning": "Taureau met l’accent sur stabilité, ressources, sensualité. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de stabilité, ressources, sensualité",
+      "meaning": "Renversée, Taureau peut signaler un déséquilibre, un excès ou une difficulté à intégrer stabilité, ressources, sensualité. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS03",
+    "name": "Gémeaux",
+    "arcana": "signe",
+    "suit": "Zodiaque",
+    "number": 3,
+    "icon": "♊",
+    "keywords": "échanges, curiosité, dualité",
+    "upright": {
+      "keywords": "échanges, curiosité, dualité",
+      "meaning": "Gémeaux met l’accent sur échanges, curiosité, dualité. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de échanges, curiosité, dualité",
+      "meaning": "Renversée, Gémeaux peut signaler un déséquilibre, un excès ou une difficulté à intégrer échanges, curiosité, dualité. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS04",
+    "name": "Cancer",
+    "arcana": "signe",
+    "suit": "Zodiaque",
+    "number": 4,
+    "icon": "♋",
+    "keywords": "protection, mémoire, intimité",
+    "upright": {
+      "keywords": "protection, mémoire, intimité",
+      "meaning": "Cancer met l’accent sur protection, mémoire, intimité. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de protection, mémoire, intimité",
+      "meaning": "Renversée, Cancer peut signaler un déséquilibre, un excès ou une difficulté à intégrer protection, mémoire, intimité. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS05",
+    "name": "Lion",
+    "arcana": "signe",
+    "suit": "Zodiaque",
+    "number": 5,
+    "icon": "♌",
+    "keywords": "créativité, rayonnement, affirmation",
+    "upright": {
+      "keywords": "créativité, rayonnement, affirmation",
+      "meaning": "Lion met l’accent sur créativité, rayonnement, affirmation. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de créativité, rayonnement, affirmation",
+      "meaning": "Renversée, Lion peut signaler un déséquilibre, un excès ou une difficulté à intégrer créativité, rayonnement, affirmation. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS06",
+    "name": "Vierge",
+    "arcana": "signe",
+    "suit": "Zodiaque",
+    "number": 6,
+    "icon": "♍",
+    "keywords": "discernement, méthode, amélioration",
+    "upright": {
+      "keywords": "discernement, méthode, amélioration",
+      "meaning": "Vierge met l’accent sur discernement, méthode, amélioration. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de discernement, méthode, amélioration",
+      "meaning": "Renversée, Vierge peut signaler un déséquilibre, un excès ou une difficulté à intégrer discernement, méthode, amélioration. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS07",
+    "name": "Balance",
+    "arcana": "signe",
+    "suit": "Zodiaque",
+    "number": 7,
+    "icon": "♎",
+    "keywords": "équilibre, relation, choix",
+    "upright": {
+      "keywords": "équilibre, relation, choix",
+      "meaning": "Balance met l’accent sur équilibre, relation, choix. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de équilibre, relation, choix",
+      "meaning": "Renversée, Balance peut signaler un déséquilibre, un excès ou une difficulté à intégrer équilibre, relation, choix. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS08",
+    "name": "Scorpion",
+    "arcana": "signe",
+    "suit": "Zodiaque",
+    "number": 8,
+    "icon": "♏",
+    "keywords": "transformation, intensité, vérité",
+    "upright": {
+      "keywords": "transformation, intensité, vérité",
+      "meaning": "Scorpion met l’accent sur transformation, intensité, vérité. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de transformation, intensité, vérité",
+      "meaning": "Renversée, Scorpion peut signaler un déséquilibre, un excès ou une difficulté à intégrer transformation, intensité, vérité. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS09",
+    "name": "Sagittaire",
+    "arcana": "signe",
+    "suit": "Zodiaque",
+    "number": 9,
+    "icon": "♐",
+    "keywords": "expansion, quête, confiance",
+    "upright": {
+      "keywords": "expansion, quête, confiance",
+      "meaning": "Sagittaire met l’accent sur expansion, quête, confiance. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de expansion, quête, confiance",
+      "meaning": "Renversée, Sagittaire peut signaler un déséquilibre, un excès ou une difficulté à intégrer expansion, quête, confiance. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS10",
+    "name": "Capricorne",
+    "arcana": "signe",
+    "suit": "Zodiaque",
+    "number": 10,
+    "icon": "♑",
+    "keywords": "structure, ambition, responsabilité",
+    "upright": {
+      "keywords": "structure, ambition, responsabilité",
+      "meaning": "Capricorne met l’accent sur structure, ambition, responsabilité. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de structure, ambition, responsabilité",
+      "meaning": "Renversée, Capricorne peut signaler un déséquilibre, un excès ou une difficulté à intégrer structure, ambition, responsabilité. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS11",
+    "name": "Verseau",
+    "arcana": "signe",
+    "suit": "Zodiaque",
+    "number": 11,
+    "icon": "♒",
+    "keywords": "liberté, innovation, collectif",
+    "upright": {
+      "keywords": "liberté, innovation, collectif",
+      "meaning": "Verseau met l’accent sur liberté, innovation, collectif. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de liberté, innovation, collectif",
+      "meaning": "Renversée, Verseau peut signaler un déséquilibre, un excès ou une difficulté à intégrer liberté, innovation, collectif. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS12",
+    "name": "Poissons",
+    "arcana": "signe",
+    "suit": "Zodiaque",
+    "number": 12,
+    "icon": "♓",
+    "keywords": "intuition, compassion, imaginaire",
+    "upright": {
+      "keywords": "intuition, compassion, imaginaire",
+      "meaning": "Poissons met l’accent sur intuition, compassion, imaginaire. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de intuition, compassion, imaginaire",
+      "meaning": "Renversée, Poissons peut signaler un déséquilibre, un excès ou une difficulté à intégrer intuition, compassion, imaginaire. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS13",
+    "name": "Soleil",
+    "arcana": "planete",
+    "suit": "Planètes",
+    "number": 13,
+    "icon": "☉",
+    "keywords": "identité, vitalité, conscience",
+    "upright": {
+      "keywords": "identité, vitalité, conscience",
+      "meaning": "Soleil met l’accent sur identité, vitalité, conscience. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de identité, vitalité, conscience",
+      "meaning": "Renversée, Soleil peut signaler un déséquilibre, un excès ou une difficulté à intégrer identité, vitalité, conscience. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS14",
+    "name": "Lune",
+    "arcana": "planete",
+    "suit": "Planètes",
+    "number": 14,
+    "icon": "☾",
+    "keywords": "émotions, besoins, sécurité",
+    "upright": {
+      "keywords": "émotions, besoins, sécurité",
+      "meaning": "Lune met l’accent sur émotions, besoins, sécurité. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de émotions, besoins, sécurité",
+      "meaning": "Renversée, Lune peut signaler un déséquilibre, un excès ou une difficulté à intégrer émotions, besoins, sécurité. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS15",
+    "name": "Mercure",
+    "arcana": "planete",
+    "suit": "Planètes",
+    "number": 15,
+    "icon": "☿",
+    "keywords": "pensée, parole, apprentissage",
+    "upright": {
+      "keywords": "pensée, parole, apprentissage",
+      "meaning": "Mercure met l’accent sur pensée, parole, apprentissage. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de pensée, parole, apprentissage",
+      "meaning": "Renversée, Mercure peut signaler un déséquilibre, un excès ou une difficulté à intégrer pensée, parole, apprentissage. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS16",
+    "name": "Vénus",
+    "arcana": "planete",
+    "suit": "Planètes",
+    "number": 16,
+    "icon": "♀",
+    "keywords": "affection, valeurs, harmonie",
+    "upright": {
+      "keywords": "affection, valeurs, harmonie",
+      "meaning": "Vénus met l’accent sur affection, valeurs, harmonie. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de affection, valeurs, harmonie",
+      "meaning": "Renversée, Vénus peut signaler un déséquilibre, un excès ou une difficulté à intégrer affection, valeurs, harmonie. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS17",
+    "name": "Mars",
+    "arcana": "planete",
+    "suit": "Planètes",
+    "number": 17,
+    "icon": "♂",
+    "keywords": "action, désir, affirmation",
+    "upright": {
+      "keywords": "action, désir, affirmation",
+      "meaning": "Mars met l’accent sur action, désir, affirmation. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de action, désir, affirmation",
+      "meaning": "Renversée, Mars peut signaler un déséquilibre, un excès ou une difficulté à intégrer action, désir, affirmation. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS18",
+    "name": "Jupiter",
+    "arcana": "planete",
+    "suit": "Planètes",
+    "number": 18,
+    "icon": "♃",
+    "keywords": "croissance, confiance, opportunité",
+    "upright": {
+      "keywords": "croissance, confiance, opportunité",
+      "meaning": "Jupiter met l’accent sur croissance, confiance, opportunité. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de croissance, confiance, opportunité",
+      "meaning": "Renversée, Jupiter peut signaler un déséquilibre, un excès ou une difficulté à intégrer croissance, confiance, opportunité. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS19",
+    "name": "Saturne",
+    "arcana": "planete",
+    "suit": "Planètes",
+    "number": 19,
+    "icon": "♄",
+    "keywords": "limites, patience, construction",
+    "upright": {
+      "keywords": "limites, patience, construction",
+      "meaning": "Saturne met l’accent sur limites, patience, construction. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de limites, patience, construction",
+      "meaning": "Renversée, Saturne peut signaler un déséquilibre, un excès ou une difficulté à intégrer limites, patience, construction. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS20",
+    "name": "Uranus",
+    "arcana": "planete",
+    "suit": "Planètes",
+    "number": 20,
+    "icon": "♅",
+    "keywords": "rupture, indépendance, nouveauté",
+    "upright": {
+      "keywords": "rupture, indépendance, nouveauté",
+      "meaning": "Uranus met l’accent sur rupture, indépendance, nouveauté. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de rupture, indépendance, nouveauté",
+      "meaning": "Renversée, Uranus peut signaler un déséquilibre, un excès ou une difficulté à intégrer rupture, indépendance, nouveauté. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS21",
+    "name": "Neptune",
+    "arcana": "planete",
+    "suit": "Planètes",
+    "number": 21,
+    "icon": "♆",
+    "keywords": "inspiration, idéal, flou",
+    "upright": {
+      "keywords": "inspiration, idéal, flou",
+      "meaning": "Neptune met l’accent sur inspiration, idéal, flou. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de inspiration, idéal, flou",
+      "meaning": "Renversée, Neptune peut signaler un déséquilibre, un excès ou une difficulté à intégrer inspiration, idéal, flou. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS22",
+    "name": "Pluton",
+    "arcana": "planete",
+    "suit": "Planètes",
+    "number": 22,
+    "icon": "♇",
+    "keywords": "mutation, pouvoir, régénération",
+    "upright": {
+      "keywords": "mutation, pouvoir, régénération",
+      "meaning": "Pluton met l’accent sur mutation, pouvoir, régénération. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de mutation, pouvoir, régénération",
+      "meaning": "Renversée, Pluton peut signaler un déséquilibre, un excès ou une difficulté à intégrer mutation, pouvoir, régénération. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS23",
+    "name": "Maison 1",
+    "arcana": "maison",
+    "suit": "Maisons",
+    "number": 23,
+    "icon": "⌂",
+    "keywords": "identité et commencement",
+    "upright": {
+      "keywords": "identité et commencement",
+      "meaning": "Maison 1 met l’accent sur identité et commencement. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de identité et commencement",
+      "meaning": "Renversée, Maison 1 peut signaler un déséquilibre, un excès ou une difficulté à intégrer identité et commencement. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS24",
+    "name": "Maison 2",
+    "arcana": "maison",
+    "suit": "Maisons",
+    "number": 24,
+    "icon": "⌂",
+    "keywords": "ressources et valeurs",
+    "upright": {
+      "keywords": "ressources et valeurs",
+      "meaning": "Maison 2 met l’accent sur ressources et valeurs. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de ressources et valeurs",
+      "meaning": "Renversée, Maison 2 peut signaler un déséquilibre, un excès ou une difficulté à intégrer ressources et valeurs. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS25",
+    "name": "Maison 3",
+    "arcana": "maison",
+    "suit": "Maisons",
+    "number": 25,
+    "icon": "⌂",
+    "keywords": "communication et entourage",
+    "upright": {
+      "keywords": "communication et entourage",
+      "meaning": "Maison 3 met l’accent sur communication et entourage. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de communication et entourage",
+      "meaning": "Renversée, Maison 3 peut signaler un déséquilibre, un excès ou une difficulté à intégrer communication et entourage. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS26",
+    "name": "Maison 4",
+    "arcana": "maison",
+    "suit": "Maisons",
+    "number": 26,
+    "icon": "⌂",
+    "keywords": "foyer et racines",
+    "upright": {
+      "keywords": "foyer et racines",
+      "meaning": "Maison 4 met l’accent sur foyer et racines. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de foyer et racines",
+      "meaning": "Renversée, Maison 4 peut signaler un déséquilibre, un excès ou une difficulté à intégrer foyer et racines. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS27",
+    "name": "Maison 5",
+    "arcana": "maison",
+    "suit": "Maisons",
+    "number": 27,
+    "icon": "⌂",
+    "keywords": "créativité et plaisir",
+    "upright": {
+      "keywords": "créativité et plaisir",
+      "meaning": "Maison 5 met l’accent sur créativité et plaisir. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de créativité et plaisir",
+      "meaning": "Renversée, Maison 5 peut signaler un déséquilibre, un excès ou une difficulté à intégrer créativité et plaisir. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS28",
+    "name": "Maison 6",
+    "arcana": "maison",
+    "suit": "Maisons",
+    "number": 28,
+    "icon": "⌂",
+    "keywords": "quotidien et service",
+    "upright": {
+      "keywords": "quotidien et service",
+      "meaning": "Maison 6 met l’accent sur quotidien et service. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de quotidien et service",
+      "meaning": "Renversée, Maison 6 peut signaler un déséquilibre, un excès ou une difficulté à intégrer quotidien et service. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS29",
+    "name": "Maison 7",
+    "arcana": "maison",
+    "suit": "Maisons",
+    "number": 29,
+    "icon": "⌂",
+    "keywords": "partenariats et contrats",
+    "upright": {
+      "keywords": "partenariats et contrats",
+      "meaning": "Maison 7 met l’accent sur partenariats et contrats. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de partenariats et contrats",
+      "meaning": "Renversée, Maison 7 peut signaler un déséquilibre, un excès ou une difficulté à intégrer partenariats et contrats. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS30",
+    "name": "Maison 8",
+    "arcana": "maison",
+    "suit": "Maisons",
+    "number": 30,
+    "icon": "⌂",
+    "keywords": "transformation et partage",
+    "upright": {
+      "keywords": "transformation et partage",
+      "meaning": "Maison 8 met l’accent sur transformation et partage. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de transformation et partage",
+      "meaning": "Renversée, Maison 8 peut signaler un déséquilibre, un excès ou une difficulté à intégrer transformation et partage. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS31",
+    "name": "Maison 9",
+    "arcana": "maison",
+    "suit": "Maisons",
+    "number": 31,
+    "icon": "⌂",
+    "keywords": "voyages et convictions",
+    "upright": {
+      "keywords": "voyages et convictions",
+      "meaning": "Maison 9 met l’accent sur voyages et convictions. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de voyages et convictions",
+      "meaning": "Renversée, Maison 9 peut signaler un déséquilibre, un excès ou une difficulté à intégrer voyages et convictions. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS32",
+    "name": "Maison 10",
+    "arcana": "maison",
+    "suit": "Maisons",
+    "number": 32,
+    "icon": "⌂",
+    "keywords": "carrière et vocation",
+    "upright": {
+      "keywords": "carrière et vocation",
+      "meaning": "Maison 10 met l’accent sur carrière et vocation. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de carrière et vocation",
+      "meaning": "Renversée, Maison 10 peut signaler un déséquilibre, un excès ou une difficulté à intégrer carrière et vocation. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS33",
+    "name": "Maison 11",
+    "arcana": "maison",
+    "suit": "Maisons",
+    "number": 33,
+    "icon": "⌂",
+    "keywords": "amis et projets collectifs",
+    "upright": {
+      "keywords": "amis et projets collectifs",
+      "meaning": "Maison 11 met l’accent sur amis et projets collectifs. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de amis et projets collectifs",
+      "meaning": "Renversée, Maison 11 peut signaler un déséquilibre, un excès ou une difficulté à intégrer amis et projets collectifs. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  },
+  {
+    "id": "AS34",
+    "name": "Maison 12",
+    "arcana": "maison",
+    "suit": "Maisons",
+    "number": 34,
+    "icon": "⌂",
+    "keywords": "retrait et monde intérieur",
+    "upright": {
+      "keywords": "retrait et monde intérieur",
+      "meaning": "Maison 12 met l’accent sur retrait et monde intérieur. Dans ce tirage, cette carte invite à observer comment cette dynamique intervient dans le domaine demandé, sans la considérer comme un événement certain.",
+      "advice": "Identifier où cette dynamique se manifeste concrètement."
+    },
+    "reversed": {
+      "keywords": "déséquilibre, excès ou difficulté autour de retrait et monde intérieur",
+      "meaning": "Renversée, Maison 12 peut signaler un déséquilibre, un excès ou une difficulté à intégrer retrait et monde intérieur. Cette lecture reste une piste de réflexion à confronter au contexte.",
+      "advice": "Rechercher un ajustement mesuré plutôt qu'une réaction précipitée."
+    }
+  }
+]
