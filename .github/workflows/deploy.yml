@@ -32,7 +32,7 @@ jobs:
       - name: Verify production entry point
         run: |
           test -s dist/index.html
-          grep -Eq 'src="/Mes-4-oracles/assets/[^"]+\\.js"' dist/index.html
+          grep -Eq 'src="/Mes-4-oracles/assets/[^"]+[.]js"' dist/index.html
           find dist/assets -maxdepth 1 -type f -name '*.js' -size +0c | grep -q .
           echo "Production HTML and JavaScript bundles are present."
       - uses: actions/upload-pages-artifact@v3
