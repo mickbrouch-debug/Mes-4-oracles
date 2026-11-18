@@ -64,6 +64,33 @@ function configure(server){
   const payload={oracle,oracleName:d.label,question:question||"Tirage général",domaine,cartes:selected,consigneInterpretation:"Interprète en français avec nuance et fluidité. Relie les cartes entre elles, respecte les positions et orientations, distingue symboles et faits vérifiables. Donne une synthèse, la lecture de chaque position, les associations et tensions, puis un conseil concret. Ne présente jamais le tirage comme une certitude sur l'avenir, les pensées ou les intentions d'autrui."};
   return reply("Tirage manuel préparé pour "+d.label+". "+selected.length+" carte(s) choisie(s) par l'utilisateur.",payload);
  });
+
+ registerAppTool(server,"sanctuaire_recuperer_tirage",{
+  title:"Récupérer le tirage sélectionné",
+  description:"Reçoit les cartes explicitement sélectionnées dans le widget, avec leurs orientations et positions exactes. Aucun tirage aléatoire.",
+  inputSchema:{
+   oracle:z.enum(["tarot","belline","lenormand","astrologie","runes","portes"]),
+   question:z.string().max(1200).default(""),
+   domaine:z.string().max(120).default("Général"),
+   cartes:z.array(z.object({id:z.string(),orientation:z.enum(["droite","renversee"]).default("droite"),position:z.string().max(100).default("")})).min(1).max(78)
+  },
+  outputSchema:{
+   oracle:z.string(),oracleName:z.string(),question:z.string(),domaine:z.string(),
+   cartes:z.array(z.object({id:z.string(),name:z.string(),position:z.string(),orientation:z.string(),keywords:z.string(),meaning:z.string(),advice:z.string()})),
+   consigneInterpretation:z.string()
+  },
+  _meta:{ui:{resourceUri:uiUri}}
+ },async({oracle,question,domaine,cartes})=>{
+  const d=decks[oracle];
+  const selected=cartes.map((pick,i)=>{
+   const card=d.cards.find(c=>c.id===pick.id);
+   if(!card)throw new Error("Carte inconnue pour "+d.label+": "+pick.id);
+   const side=pick.orientation==="renversee"?(card.reversed||card.upright):card.upright;
+   return{id:card.id,name:card.name,position:pick.position||("Carte "+(i+1)),orientation:pick.orientation,keywords:side?.keywords||card.keywords||"",meaning:side?.meaning||"",advice:side?.advice||""};
+  });
+  const payload={oracle,oracleName:d.label,question:question||"Tirage général",domaine,cartes:selected,consigneInterpretation:"Interprète en français avec nuance et fluidité. Relie les cartes entre elles, respecte les positions et orientations, distingue symboles et faits vérifiables. Donne une synthèse, la lecture de chaque position, les associations et tensions, puis un conseil concret. Ne présente jamais le tirage comme une certitude sur l'avenir, les pensées ou les intentions d'autrui."};
+  return reply("Tirage manuel récupéré : "+selected.length+" carte(s) choisie(s) par l'utilisateur.",payload);
+ });
 }
 const port=Number(process.env.PORT||8787),path="/mcp";
 const httpServer=createServer(async(req,res)=>{
