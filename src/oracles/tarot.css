@@ -166,3 +166,8 @@
 .oracle-app>.oracle-nav{background:#100c1b9c!important}
 .oracle-panel{background:linear-gradient(135deg,#21192dd9,#100e1dcc)!important;backdrop-filter:blur(16px)}
 @media(max-width:600px){.oracle-app>.scene-wrap{opacity:.72!important}.oracle-panel{backdrop-filter:blur(11px)}}
+
+/* V17.7 — neutraliser les anciens fonds fixes qui masquaient le nouveau décor 3D */
+.oracle-app .tarot-atmosphere{display:none!important}
+.oracle-app.oracle-app-tarot,.oracle-app.oracle-app-belline,.oracle-app.oracle-app-lenormand,.oracle-app.oracle-app-astrologie,.oracle-app.oracle-app-runes,.oracle-app.oracle-app-portes{background:transparent!important}
+.oracle-app .oracle-hero{background-color:#171225b8!important}
