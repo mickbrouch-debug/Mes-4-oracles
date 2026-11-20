@@ -20,7 +20,7 @@ jobs:
   build-apk:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout approved deployment branch V17.3
+      - name: Checkout V18 release candidate
         uses: actions/checkout@v4
         with:
           ref: V18
