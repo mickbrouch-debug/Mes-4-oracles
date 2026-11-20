@@ -81,3 +81,5 @@ jobs:
           retention-days: 30
 
 # V17.7 — relance après correction du calque d'ambiance des six oracles
+
+# Rebuild après correction de la visibilité de la scène 3D sur l'accueil
