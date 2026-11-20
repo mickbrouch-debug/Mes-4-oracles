@@ -1,5 +1,5 @@
-import {Suspense,useMemo,useRef} from 'react';
-import {Canvas,useFrame} from '@react-three/fiber';
+import {Suspense,useEffect,useMemo,useRef} from 'react';
+import {Canvas,useFrame,useThree} from '@react-three/fiber';
 import {Sparkles,Stars,Float,Environment,MeshDistortMaterial} from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -25,7 +25,7 @@ function AstralPortal(){
    </group>)}
   </group>
   <group ref={inner} position={[0,.35,-4.6]} scale={.66}>
-   <mesh><icosahedronGeometry args={[1.02,2]}/><MeshDistortMaterial color="#211a39" emissive="#5b347e" emissiveIntensity={1.35} roughness={.18} metalness={.72} distort={.32} speed={.7}/></mesh>
+   <mesh><icosahedronGeometry args={[1.02,2]}/><MeshDistortMaterial color="#211a39" emissive="#5b347e" emissiveIntensity={1.8} roughness={.18} metalness={.72} distort={.32} speed={.7}/></mesh>
    <mesh scale={.72}><sphereGeometry args={[1,40,40]}/><meshBasicMaterial color="#bca0e6" transparent opacity={.12}/></mesh>
    <mesh rotation={[Math.PI/2,.25,0]}><torusGeometry args={[1.38,.018,8,120]}/><meshBasicMaterial color="#d9bd83" transparent opacity={.72}/></mesh>
    <pointLight color="#a77bd4" intensity={18} distance={9}/>
@@ -60,7 +60,7 @@ function Nebula(){
  useFrame((s,d)=>{cloud.current.rotation.z+=d*.002;cloud.current.position.x=Math.sin(s.clock.elapsedTime*.035)*.18});
  return <group ref={cloud} position={[0,0,-8]}>
   {Array.from({length:10},(_,i)=><mesh key={i} position={[Math.sin(i*1.7)*4.2,Math.cos(i*1.2)*2.9,-i*.16]} scale={[3.2+i*.24,1.35+i*.12,.16]} rotation={[0,0,i*.39]}>
-   <sphereGeometry args={[1,24,16]}/><meshBasicMaterial color={i%3===0?'#9a62bd':i%3===1?'#405b91':'#75518d'} transparent opacity={.045} depthWrite={false}/>
+   <sphereGeometry args={[1,24,16]}/><meshBasicMaterial color={i%3===0?'#9a62bd':i%3===1?'#405b91':'#75518d'} transparent opacity={.085} depthWrite={false}/>
   </mesh>)}
  </group>
 }
@@ -83,7 +83,7 @@ function TempleArchitecture(){
   {/* Escalier monumental : marches sombres cerclées d'or */}
   {stairs.map((s,i)=><group key={i} position={[0,s.y,s.z]}>
    <mesh position={[0,0,0]}><boxGeometry args={[s.w,.28,.78]}/><meshStandardMaterial color={i%2?'#29213b':'#342844'} metalness={.62} roughness={.34}/></mesh>
-   <mesh position={[0,.145,.02]}><boxGeometry args={[s.w,.018,.79]}/><meshBasicMaterial color="#d7b875" transparent opacity={.8}/></mesh>
+   <mesh position={[0,.145,.02]}><boxGeometry args={[s.w,.018,.79]}/><meshBasicMaterial color="#d7b875" transparent opacity={.95}/></mesh>
    <pointLight position={[0,.24,.2]} color="#c99b55" intensity={.38} distance={2.2}/>
   </group>)}
   {/* Colonnes du portail */}
@@ -103,9 +103,20 @@ function TempleArchitecture(){
  </group>
 }
 
+function CameraRig(){
+ const {camera,size}=useThree();
+ useEffect(()=>{
+  const mobile=size.width<700;
+  camera.position.set(0,mobile?1.05:0,mobile?15.5:11);
+  (camera as THREE.PerspectiveCamera).fov=mobile?58:43;
+  camera.lookAt(0,mobile?.15:0,-1.2);
+  camera.updateProjectionMatrix();
+ },[camera,size.width]);
+ return null;
+}
 function World(){return <>
- <color attach="background" args={['#080611']}/><fog attach="fog" args={['#080611',10,24]}/>
- <ambientLight intensity={.62}/><pointLight position={[0,2,4]} color="#d7b878" intensity={26} distance={17}/><pointLight position={[-6,-2,-4]} color="#78519d" intensity={24} distance={15}/><pointLight position={[6,3,-5]} color="#a47acb" intensity={17} distance={14}/>
+ <color attach="background" args={['#100b1d']}/><fog attach="fog" args={['#100b1d',13,34]}/>
+ <ambientLight intensity={1.08}/><pointLight position={[0,2,4]} color="#d7b878" intensity={34} distance={22}/><pointLight position={[-6,-2,-4]} color="#78519d" intensity={30} distance={19}/><pointLight position={[6,3,-5]} color="#a47acb" intensity={25} distance={18}/>
  <Suspense fallback={null}><Environment preset="night"/></Suspense>
  <Stars radius={90} depth={60} count={1900} factor={3.5} saturation={.35} fade speed={.18}/>
  <Sparkles count={190} scale={[17,11,13]} size={2.1} speed={.14} opacity={.7} color="#ead7aa"/>
@@ -118,4 +129,4 @@ function World(){return <>
   <Crystal position={[3.5,-2.5,-1]} scale={.82}/>
  </Float>
  </>}
-export default function Scene(){return <div className="scene-wrap" aria-hidden="true"><Canvas camera={{position:[0,0,11],fov:43}} dpr={[1,1.35]} gl={{antialias:false,alpha:false,powerPreference:'low-power'}} onCreated={({gl})=>{gl.setClearColor('#080611');gl.toneMapping=THREE.ACESFilmicToneMapping}}><World/></Canvas></div>}
+export default function Scene(){return <div className="scene-wrap" aria-hidden="true"><Canvas camera={{position:[0,0,11],fov:43}} dpr={[1,1.5]} gl={{antialias:true,alpha:false,powerPreference:'high-performance'}} onCreated={({gl})=>{gl.setClearColor('#100b1d');gl.toneMapping=THREE.ACESFilmicToneMapping;gl.toneMappingExposure=1.28}}><CameraRig/><World/></Canvas></div>}
