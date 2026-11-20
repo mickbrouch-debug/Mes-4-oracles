@@ -40,14 +40,33 @@ function Constellations(){
  const points=useMemo(()=>Array.from({length:9},(_,i)=>new THREE.Vector3(Math.sin(i*1.7)*5.8,Math.cos(i*2.1)*3.2,-5)),[]);
  return <group><lineSegments geometry={new THREE.BufferGeometry().setFromPoints(points.flatMap((p,i)=>i<points.length-1?[p,points[i+1]]:[]))}><lineBasicMaterial color="#d7c08f" transparent opacity={.22}/></lineSegments>{points.map((p,i)=><mesh key={i} position={p}><sphereGeometry args={[.035,10,10]}/><meshBasicMaterial color="#f4dfb0"/></mesh>)}</group>
 }
+function MysticMoon(){
+ const group=useRef<THREE.Group>(null!);
+ useFrame((state,delta)=>{group.current.rotation.y+=delta*.012;group.current.rotation.z=Math.sin(state.clock.elapsedTime*.12)*.012});
+ return <group ref={group} position={[5.3,2.25,-6.8]}>
+  <mesh><sphereGeometry args={[1.55,48,48]}/><meshStandardMaterial color="#c8b6dc" emissive="#654c86" emissiveIntensity={.42} roughness={.82} metalness={.08}/></mesh>
+  <mesh scale={1.035}><sphereGeometry args={[1.55,48,48]}/><meshBasicMaterial color="#bda1dc" transparent opacity={.08} side={THREE.BackSide}/></mesh>
+  {[1.82,2.05,2.28].map((r,i)=><mesh key={r} rotation={[.8+i*.18,.3,i*.42]}><torusGeometry args={[r,.008,6,160]}/><meshBasicMaterial color={i===1?"#d9c1f0":"#d9bd83"} transparent opacity={.26-i*.035}/></mesh>)}
+  <pointLight color="#b99bd8" intensity={9} distance={12}/>
+ </group>
+}
+function NebulaVeil(){
+ const ref=useRef<THREE.Group>(null!);
+ useFrame((state,delta)=>{ref.current.rotation.z+=delta*.002;ref.current.position.x=Math.sin(state.clock.elapsedTime*.035)*.22});
+ return <group ref={ref} position={[0,0,-8]}>
+  {Array.from({length:7},(_,i)=><mesh key={i} position={[Math.sin(i*2.1)*4,Math.cos(i*1.6)*2.6,-i*.12]} scale={[3.4+i*.35,1.25+i*.16,.12]} rotation={[0,0,i*.47]}>
+   <sphereGeometry args={[1,24,16]}/><meshBasicMaterial color={i%2===0?"#65417f":"#344c78"} transparent opacity={.045} depthWrite={false}/>
+  </mesh>)}
+ </group>
+}
 function World(){return <>
  <color attach="background" args={['#090813']}/><fog attach="fog" args={['#090813',9,22]}/>
  <ambientLight intensity={.8}/><pointLight position={[0,2,3]} color="#e0bd7c" intensity={34} distance={15}/><pointLight position={[-6,-2,-4]} color="#76518e" intensity={27} distance={14}/><pointLight position={[6,2,-5]} color="#bd9562" intensity={20} distance={13}/>
  <Suspense fallback={null}><Environment preset="night"/></Suspense>
- <Stars radius={100} depth={65} count={2600} factor={3.5} saturation={.2} fade speed={.22}/>
+ <Stars radius={100} depth={65} count={3200} factor={4.1} saturation={.2} fade speed={.22}/>
  <Sparkles count={280} scale={[17,11,12]} size={2.2} speed={.16} opacity={.68} color="#e8d09a"/>
- <Sparkles count={110} scale={[12,8,10]} size={3.2} speed={.12} opacity={.38} color="#b99bc7"/>
- <ZodiacWheel/><Constellations/><FloatingRelics/><SacredCore/>
+ <Sparkles count={150} scale={[14,9,11]} size={3.4} speed={.1} opacity={.48} color="#c6a2e8"/><Sparkles count={70} scale={[10,7,8]} size={4.2} speed={.08} opacity={.24} color="#8fa7dc"/>
+ <NebulaVeil/><MysticMoon/><ZodiacWheel/><Constellations/><FloatingRelics/><SacredCore/>
  <Float speed={.65} rotationIntensity={.05} floatIntensity={.1}><Crystal position={[-4.8,-1.7,-1.2]} scale={1.35}/><Crystal position={[4.7,1.7,-2]} scale={1.15} color="#d7b477"/><Crystal position={[3.7,-2.4,-1]} scale={.8}/></Float>
  </>}
 export default function Scene(){return <div className="scene-wrap" aria-hidden="true"><Canvas camera={{position:[0,0,10],fov:44}} dpr={[1,1.5]} gl={{antialias:false,alpha:false,powerPreference:'low-power'}} onCreated={({gl})=>{gl.setClearColor('#090813');gl.toneMapping=THREE.ACESFilmicToneMapping}}><World/></Canvas></div>}
