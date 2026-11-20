@@ -107,8 +107,8 @@ function CameraRig(){
  const {camera,size}=useThree();
  useEffect(()=>{
   const mobile=size.width<700;
-  camera.position.set(0,mobile?1.05:0,mobile?15.5:11);
-  (camera as THREE.PerspectiveCamera).fov=mobile?58:43;
+  camera.position.set(0,mobile?0.9:0,mobile?14.5:11);
+  (camera as THREE.PerspectiveCamera).fov=mobile?52:43;
   camera.lookAt(0,mobile ? 0.15 : 0,-1.2);
   camera.updateProjectionMatrix();
  },[camera,size.width]);
