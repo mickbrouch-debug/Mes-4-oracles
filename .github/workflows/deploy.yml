@@ -1,4 +1,4 @@
-name: Build and deploy Sanctuaire V17.3
+name: Build and deploy Sanctuaire V17.9
 on:
   push:
     branches: [V17.3]
@@ -28,7 +28,7 @@ jobs:
       - name: Build production application
         run: npm run build
         env:
-          VITE_BUILD_VERSION: V17.3
+          VITE_BUILD_VERSION: V17.9
           VITE_BUILD_RUN: ${{ github.run_number }}
       - name: Verify production entry point
         run: |
