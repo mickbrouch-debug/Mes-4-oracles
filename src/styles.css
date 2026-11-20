@@ -94,3 +94,31 @@ main:not(.oracle-app){background:transparent!important}
 .hero:before{z-index:1!important;opacity:.34!important;background:linear-gradient(90deg,#090813bd 0%,#09081372 38%,#09081318 72%,#09081348 100%),linear-gradient(0deg,#0908139c 0%,transparent 38%,#09081335 100%)!important}
 .hero-copy,.hero-relics,.hero-art-caption,.scroll-cue{position:relative;z-index:2}
 .hero-relics{z-index:3!important}
+
+/* V17.9 — refonte réelle de la scène d'accueil : visibilité, profondeur et cadrage mobile */
+.scene-wrap{opacity:1!important;filter:saturate(1.34) contrast(1.06)!important}
+.scene-wrap canvas{width:100%!important;height:100%!important}
+.scene-vignette{background:radial-gradient(ellipse at 60% 43%,rgba(10,7,22,.02) 0%,rgba(10,7,22,.12) 48%,rgba(10,7,22,.36) 100%),linear-gradient(90deg,rgba(9,8,19,.66) 0%,rgba(9,8,19,.34) 38%,rgba(9,8,19,.04) 72%,rgba(9,8,19,.16) 100%),linear-gradient(0deg,rgba(9,8,19,.82) 0%,transparent 31%,rgba(9,8,19,.12) 100%)!important}
+.hero{isolation:isolate;background:transparent!important}
+.hero-backdrop{display:none!important}
+.hero:before{z-index:1!important;opacity:1!important;background:linear-gradient(90deg,rgba(9,8,19,.72) 0%,rgba(9,8,19,.38) 42%,rgba(9,8,19,.04) 78%),linear-gradient(0deg,rgba(9,8,19,.7),transparent 34%,rgba(9,8,19,.08))!important}
+.hero-relics{display:none!important}
+.hero-copy{max-width:610px;text-shadow:0 2px 22px rgba(0,0,0,.55)}
+.hero h1{text-shadow:0 5px 38px rgba(0,0,0,.72)}
+.hero-lead{color:#eee6f1;text-shadow:0 2px 14px rgba(0,0,0,.85)}
+.hero-footnote{color:#e4d5bc}
+.hero-art-caption{z-index:3!important;color:#f3dfb2;text-shadow:0 2px 18px #000,0 0 26px rgba(212,174,111,.35)}
+.oracle-section,.atelier{background-color:#100b1b;background-image:linear-gradient(180deg,rgba(12,9,22,.91),rgba(13,9,23,.96)),radial-gradient(ellipse at 72% 10%,rgba(139,95,177,.18),transparent 55%)!important;background-attachment:scroll!important}
+.oracle-card>img{filter:brightness(.82) saturate(1.02)!important}
+.oracle-card:hover>img{filter:brightness(1) saturate(1.15)!important}
+@media(max-width:700px){
+ .scene-vignette{background:linear-gradient(180deg,rgba(9,8,19,.30) 0%,rgba(9,8,19,.06) 38%,rgba(9,8,19,.20) 72%,rgba(9,8,19,.78) 100%),linear-gradient(90deg,rgba(9,8,19,.62),rgba(9,8,19,.08) 72%)!important}
+ .hero{min-height:790px;padding-top:92px;padding-bottom:110px}
+ .hero:before{background:linear-gradient(90deg,rgba(9,8,19,.70),rgba(9,8,19,.24) 72%,rgba(9,8,19,.08)),linear-gradient(0deg,rgba(9,8,19,.72),transparent 44%)!important}
+ .hero-copy{max-width:94%;z-index:4}
+ .hero h1{font-size:clamp(70px,17vw,108px)}
+ .hero-lead{max-width:340px;font-size:13px;line-height:1.85}
+ .hero-art-caption{bottom:7%;right:5%;font-size:13px}
+ .oracle-section,.atelier{background-attachment:scroll!important}
+}
+@media(prefers-reduced-motion:reduce){.scene-wrap{filter:none!important}}
