@@ -83,7 +83,9 @@ function TempleArchitecture(){
   {/* Escalier monumental : marches sombres cerclées d'or */}
   {stairs.map((s,i)=><group key={i} position={[0,s.y,s.z]}>
    <mesh position={[0,0,0]}><boxGeometry args={[s.w,.28,.78]}/><meshStandardMaterial color={i%2?'#493a59':'#5a4668'} metalness={.46} roughness={.32} emissive={i%2?'#241b34':'#30203c'} emissiveIntensity={.32}/></mesh>
-   <mesh position={[0,.145,.02]}><boxGeometry args={[s.w,.018,.79]}/><meshBasicMaterial color="#d7b875" transparent opacity={.95}/></mesh>
+   <mesh position={[0,.145,.02]}><boxGeometry args={[s.w,.018,.79]}/><meshBasicMaterial color="#f0d49a" transparent opacity={1}/></mesh>
+   <mesh position={[0,-.105,.405]}><boxGeometry args={[s.w,.025,.035]}/><meshBasicMaterial color="#d9b878" transparent opacity={.88}/></mesh>
+   {[-1,1].map(side=><mesh key={side} position={[side*(s.w/2-.035),-.015,.02]}><boxGeometry args={[.07,.19,.76]}/><meshStandardMaterial color="#8e6c9b" metalness={.72} roughness={.24} emissive="#6b477d" emissiveIntensity={.38}/></mesh>)}
    <pointLight position={[0,.24,.2]} color="#c99b55" intensity={.72} distance={2.8}/>
   </group>)}
   {/* Colonnes du portail */}
@@ -103,12 +105,21 @@ function TempleArchitecture(){
  </group>
 }
 
+function PortalHalo(){
+ const halo=useRef<THREE.Group>(null!);
+ useFrame((state,delta)=>{halo.current.rotation.z-=delta*.009;halo.current.scale.setScalar(1+Math.sin(state.clock.elapsedTime*.42)*.012)});
+ return <group ref={halo} position={[0,.25,-7.45]}>
+  <mesh><circleGeometry args={[2.82,96]}/><meshBasicMaterial color="#78549a" transparent opacity={.075} depthWrite={false}/></mesh>
+  {[2.18,2.42,2.68,3.02].map((r,i)=><mesh key={r} rotation={[0,0,i*.18]}><torusGeometry args={[r,.012+(i%2)*.006,8,160]}/><meshBasicMaterial color={i%2?'#c5a0e8':'#e0c58c'} transparent opacity={.34+i*.07}/></mesh>)}
+  <pointLight color="#a979d0" intensity={11} distance={10}/>
+ </group>
+}
 function CameraRig(){
  const {camera,size}=useThree();
  useEffect(()=>{
   const mobile=size.width<700;
-  camera.position.set(0,mobile?0.9:0,mobile?14.5:11);
-  (camera as THREE.PerspectiveCamera).fov=mobile?52:43;
+  camera.position.set(0,mobile?0.72:0,mobile?13.8:11);
+  (camera as THREE.PerspectiveCamera).fov=mobile?49:43;
   camera.lookAt(0,mobile ? 0.15 : 0,-1.2);
   camera.updateProjectionMatrix();
  },[camera,size.width]);
@@ -122,7 +133,7 @@ function World(){return <>
  <Sparkles count={190} scale={[17,11,13]} size={2.1} speed={.14} opacity={.7} color="#ead7aa"/>
  <Sparkles count={125} scale={[15,10,12]} size={3.1} speed={.09} opacity={.52} color="#c5a0e8"/>
  <Sparkles count={55} scale={[12,8,10]} size={3.8} speed={.07} opacity={.28} color="#8da8dc"/>
- <Nebula/><Crescent/><TempleArchitecture/><AstralPortal/><OrbitingSigils/><FloatingCrystals/>
+ <Nebula/><Crescent/><PortalHalo/><TempleArchitecture/><AstralPortal/><OrbitingSigils/><FloatingCrystals/>
  <Float speed={.55} rotationIntensity={.08} floatIntensity={.12}>
   <Crystal position={[-4.8,-1.8,-1.2]} scale={1.25}/>
   <Crystal position={[4.6,1.5,-1.8]} scale={1.1} color="#d6b477"/>
