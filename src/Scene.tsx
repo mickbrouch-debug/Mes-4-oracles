@@ -88,7 +88,7 @@ function TempleArchitecture(){
   </group>)}
   {/* Colonnes du portail */}
   {[-3.35,3.35].map((x,i)=><group key={i} position={[x,.35,-2.35]}>
-   <mesh position={[0,0,0]}><cylinderGeometry args={[.34,.48,5.5,12]}/><meshStandardMaterial color="#40304f" metalness:.72 roughness:.28/></mesh>
+   <mesh position={[0,0,0]}><cylinderGeometry args={[.34,.48,5.5,12]}/><meshStandardMaterial color="#40304f" metalness={.72} roughness={.28}/></mesh>
    {[ -2.5,-1.85,1.85,2.5].map((y,j)=><mesh key={j} position={[0,y,0]}><torusGeometry args={[.42,.055,8,32]}/><meshStandardMaterial color="#d7b875" metalness={.8} roughness={.24} emissive="#9b7139" emissiveIntensity={.22}/></mesh>)}
    <mesh position={[0,2.82,0]}><boxGeometry args={[.9,.3,.9]}/><meshStandardMaterial color="#b18a52" metalness={.72} roughness={.3}/></mesh>
    <pointLight position={[0,1.2,.55]} color="#a77bd4" intensity={2.2} distance={4}/>
