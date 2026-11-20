@@ -99,7 +99,7 @@ function TempleArchitecture(){
   {/* Parvis et grand sceau au premier plan */}
   <mesh position={[0,-3.55,.7]} rotation={[-Math.PI/2,0,0]}><circleGeometry args={[4.7,96]}/><meshStandardMaterial color="#171225" metalness={.5} roughness={.42}/></mesh>
   {[1.8,2.35,2.9,3.45].map((r,i)=><mesh key={r} position={[0,-3.36,.7]} rotation={[-Math.PI/2,0,i*.12]}><ringGeometry args={[r,r+.018,128]}/><meshBasicMaterial color={i%2?'#b99bd8':'#e0bd78'} transparent opacity={.56}/></mesh>)}
-  {Array.from({length:12},(_,i)=><mesh key={i} position={[Math.cos(i*Math.PI/6)*2.65,-3.34,.7+Math.sin(i*Math.PI/6)*2.65]}><octahedronGeometry args={[.11,0]}/><meshBasicMaterial color="#e5c98c" emissive="#d3a85d" emissiveIntensity={.8}/></mesh>)}
+  {Array.from({length:12},(_,i)=><mesh key={i} position={[Math.cos(i*Math.PI/6)*2.65,-3.34,.7+Math.sin(i*Math.PI/6)*2.65]}><octahedronGeometry args={[.11,0]}/><meshStandardMaterial color="#e5c98c" emissive="#d3a85d" emissiveIntensity={.8} metalness={.45} roughness={.3}/></mesh>)}
  </group>
 }
 
