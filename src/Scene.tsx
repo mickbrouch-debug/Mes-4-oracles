@@ -17,7 +17,7 @@ function AstralPortal(){
   <group ref={portal}>
    {[3.65,3.35,3.02,2.72].map((r,i)=><mesh key={r} rotation={[.16*i,.22*i,.08*i]}>
     <torusGeometry args={[r,.012+(i%2)*.003,8,220]}/>
-    <meshBasicMaterial color={i===1?'#c9a7f2':'#d9bd83'} transparent opacity={.22+i*.045}/>
+    <meshBasicMaterial color={i===1?'#c9a7f2':'#d9bd83'} transparent opacity={.34+i*.055}/>
    </mesh>)}
    {Array.from({length:24},(_,i)=><group key={i} rotation={[0,0,i*Math.PI/12]}>
     <mesh position={[0,3.48,0]}><octahedronGeometry args={[.075,0]}/><meshBasicMaterial color={i%3===0?'#e8d4a6':'#b99bdd'} transparent opacity={.85}/></mesh>
@@ -25,7 +25,7 @@ function AstralPortal(){
    </group>)}
   </group>
   <group ref={inner} position={[0,.35,-4.6]} scale={.66}>
-   <mesh><icosahedronGeometry args={[1.02,2]}/><MeshDistortMaterial color="#211a39" emissive="#5b347e" emissiveIntensity={1.8} roughness={.18} metalness={.72} distort={.32} speed={.7}/></mesh>
+   <mesh><icosahedronGeometry args={[1.02,2]}/><MeshDistortMaterial color="#49345f" emissive="#8e5cba" emissiveIntensity={2.15} roughness={.18} metalness={.72} distort={.32} speed={.7}/></mesh>
    <mesh scale={.72}><sphereGeometry args={[1,40,40]}/><meshBasicMaterial color="#bca0e6" transparent opacity={.12}/></mesh>
    <mesh rotation={[Math.PI/2,.25,0]}><torusGeometry args={[1.38,.018,8,120]}/><meshBasicMaterial color="#d9bd83" transparent opacity={.72}/></mesh>
    <pointLight color="#a77bd4" intensity={18} distance={9}/>
@@ -82,19 +82,19 @@ function TempleArchitecture(){
  return <group>
   {/* Escalier monumental : marches sombres cerclées d'or */}
   {stairs.map((s,i)=><group key={i} position={[0,s.y,s.z]}>
-   <mesh position={[0,0,0]}><boxGeometry args={[s.w,.28,.78]}/><meshStandardMaterial color={i%2?'#29213b':'#342844'} metalness={.62} roughness={.34}/></mesh>
+   <mesh position={[0,0,0]}><boxGeometry args={[s.w,.28,.78]}/><meshStandardMaterial color={i%2?'#493a59':'#5a4668'} metalness={.46} roughness={.32} emissive={i%2?'#241b34':'#30203c'} emissiveIntensity={.32}/></mesh>
    <mesh position={[0,.145,.02]}><boxGeometry args={[s.w,.018,.79]}/><meshBasicMaterial color="#d7b875" transparent opacity={.95}/></mesh>
-   <pointLight position={[0,.24,.2]} color="#c99b55" intensity={.38} distance={2.2}/>
+   <pointLight position={[0,.24,.2]} color="#c99b55" intensity={.72} distance={2.8}/>
   </group>)}
   {/* Colonnes du portail */}
   {[-3.35,3.35].map((x,i)=><group key={i} position={[x,.35,-2.9]}>
-   <mesh position={[0,0,0]}><cylinderGeometry args={[.34,.48,5.5,12]}/><meshStandardMaterial color="#40304f" metalness={.72} roughness={.28}/></mesh>
+   <mesh position={[0,0,0]}><cylinderGeometry args={[.34,.48,5.5,12]}/><meshStandardMaterial color="#695579" metalness={.58} roughness={.3} emissive="#33203f" emissiveIntensity={.22}/></mesh>
    {[ -2.5,-1.85,1.85,2.5].map((y,j)=><mesh key={j} position={[0,y,0]}><torusGeometry args={[.42,.055,8,32]}/><meshStandardMaterial color="#d7b875" metalness={.8} roughness={.24} emissive="#9b7139" emissiveIntensity={.22}/></mesh>)}
    <mesh position={[0,2.82,0]}><boxGeometry args={[.9,.3,.9]}/><meshStandardMaterial color="#b18a52" metalness={.72} roughness={.3}/></mesh>
-   <pointLight position={[0,1.2,.55]} color="#a77bd4" intensity={2.2} distance={4}/>
+   <pointLight position={[0,1.2,.55]} color="#a77bd4" intensity={4.2} distance={5}/>
   </group>)}
   {/* Arc monumental au-dessus de la porte */}
-  <mesh position={[0,3.12,-2.95]} rotation={[0,0,Math.PI/2]}><torusGeometry args={[3.35,.19,16,96,Math.PI]}/><meshStandardMaterial color="#6d4b72" metalness={.78} roughness={.26} emissive="#482b62" emissiveIntensity={.3}/></mesh>
+  <mesh position={[0,3.12,-2.95]} rotation={[0,0,Math.PI/2]}><torusGeometry args={[3.35,.19,16,96,Math.PI]}/><meshStandardMaterial color="#9a6b9c" metalness={.62} roughness={.24} emissive="#75468c" emissiveIntensity={.82}/></mesh>
   <mesh position={[0,5.95,-2.9]}><octahedronGeometry args={[.48,1]}/><meshStandardMaterial color="#c9a0eb" emissive="#9d68d2" emissiveIntensity={1.2} metalness={.3} roughness={.18}/></mesh>
   {/* Parvis et grand sceau au premier plan */}
   <mesh position={[0,-3.78,1.7]} rotation={[-Math.PI/2,0,0]}><circleGeometry args={[4.7,96]}/><meshStandardMaterial color="#171225" metalness={.5} roughness={.42}/></mesh>
