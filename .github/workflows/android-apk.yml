@@ -1,9 +1,9 @@
-name: Build Android APK — Le Sanctuaire V17.9
+name: Build Android APK — Le Sanctuaire V18
 
 on:
   workflow_dispatch:
   push:
-    branches: [V17.3]
+    branches: [V18]
     paths:
       - 'src/**'
       - 'public/**'
@@ -23,7 +23,7 @@ jobs:
       - name: Checkout approved deployment branch V17.3
         uses: actions/checkout@v4
         with:
-          ref: V17.3
+          ref: V18
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -39,11 +39,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build bundled web application V17.9
+      - name: Build bundled web application V18
         run: npm run build
         env:
           CAPACITOR_BUILD: '1'
-          VITE_BUILD_VERSION: V17.9-android
+          VITE_BUILD_VERSION: V18-android
           VITE_BUILD_COMMIT: ${{ github.sha }}
           VITE_BUILD_RUN: ${{ github.run_number }}
 
@@ -80,6 +80,6 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-# V17.9 — relance après correction du calque d'ambiance des six oracles
+# V18 — relance après correction du calque d'ambiance des six oracles
 
 # Rebuild après correction de la visibilité de la scène 3D sur l'accueil
