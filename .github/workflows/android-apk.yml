@@ -1,9 +1,9 @@
-name: Build Android APK — Le Sanctuaire
+name: Build Android APK — Le Sanctuaire V17.9
 
 on:
   workflow_dispatch:
   push:
-    branches: [V17.8]
+    branches: [V17.3]
     paths:
       - 'src/**'
       - 'public/**'
@@ -20,10 +20,10 @@ jobs:
   build-apk:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout V17.8
+      - name: Checkout approved deployment branch V17.3
         uses: actions/checkout@v4
         with:
-          ref: V17.8
+          ref: V17.3
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -39,11 +39,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build bundled web application
+      - name: Build bundled web application V17.9
         run: npm run build
         env:
           CAPACITOR_BUILD: '1'
-          VITE_BUILD_VERSION: V17.8-android
+          VITE_BUILD_VERSION: V17.9-android
           VITE_BUILD_COMMIT: ${{ github.sha }}
           VITE_BUILD_RUN: ${{ github.run_number }}
 
@@ -72,7 +72,7 @@ jobs:
           echo "Android build failed after four attempts."
           exit 1
 
-      - name: Publish APK artifact
+      - name: Publish installable APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: Le-Sanctuaire-Android-APK
@@ -80,6 +80,6 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-# V17.8 — relance après correction du calque d'ambiance des six oracles
+# V17.9 — relance après correction du calque d'ambiance des six oracles
 
 # Rebuild après correction de la visibilité de la scène 3D sur l'accueil
