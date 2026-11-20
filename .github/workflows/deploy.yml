@@ -1,7 +1,7 @@
-name: Build and deploy Sanctuaire V17.9
+name: Build and deploy Sanctuaire V18
 on:
   push:
-    branches: [V17.3]
+    branches: [V18]
   workflow_dispatch:
 permissions:
   contents: read
@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: V17.3
+          ref: V18
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -28,7 +28,7 @@ jobs:
       - name: Build production application
         run: npm run build
         env:
-          VITE_BUILD_VERSION: V17.9
+          VITE_BUILD_VERSION: V18
           VITE_BUILD_RUN: ${{ github.run_number }}
       - name: Verify production entry point
         run: |
