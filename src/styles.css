@@ -84,3 +84,13 @@ footer{background:radial-gradient(ellipse at center,#21172b,#090813 68%)}
 .danger-action{border:1px solid #b86b70;background:linear-gradient(135deg,#552b3c,#301a2a);color:#f7e8e5;border-radius:3px;padding:11px 16px;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
 .danger-action:hover{background:linear-gradient(135deg,#71384b,#452238);border-color:#e09a9d}
 .scene-wrap{filter:saturate(1.18) hue-rotate(8deg)}
+
+/* V17.7 — correction de visibilité : la bannière historique ne doit plus couvrir la scène 3D */
+.scene-wrap{position:fixed!important;inset:0!important;z-index:0!important;opacity:1!important;filter:saturate(1.25) contrast(1.08)}
+main:not(.oracle-app){background:transparent!important}
+.hero{background:transparent!important;isolation:isolate}
+.hero-backdrop{z-index:0!important;opacity:.12!important}
+.hero-backdrop img{opacity:.22!important;filter:saturate(.35) contrast(1.05) brightness(.55)!important}
+.hero:before{z-index:1!important;opacity:.34!important;background:linear-gradient(90deg,#090813bd 0%,#09081372 38%,#09081318 72%,#09081348 100%),linear-gradient(0deg,#0908139c 0%,transparent 38%,#09081335 100%)!important}
+.hero-copy,.hero-relics,.hero-art-caption,.scroll-cue{position:relative;z-index:2}
+.hero-relics{z-index:3!important}
