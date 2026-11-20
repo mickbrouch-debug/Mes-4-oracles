@@ -156,3 +156,13 @@
   box-shadow:0 0 0 2px #f2d99b,0 12px 22px #d6b36a55!important;
 }
 @media(prefers-reduced-motion:reduce){.oracle-app .tarot-back{transition:none!important}}
+
+/* V17.7 — décor 3D commun aux six oracles */
+.oracle-app{background:transparent!important;isolation:isolate;overflow:clip}
+.oracle-app>.scene-wrap{position:fixed!important;inset:0!important;z-index:0!important;opacity:.92!important;filter:saturate(1.18) contrast(1.06)}
+.oracle-app>.scene-vignette{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at 50% 42%,#08061116 0%,#08061165 72%,#080611bd 100%),linear-gradient(180deg,#0806117a 0%,transparent 34%,#0806118c 100%)}
+.oracle-app>.oracle-topbar,.oracle-app>.oracle-nav,.oracle-app>.oracle-content{position:relative;z-index:2}
+.oracle-app>.oracle-topbar{background:#0908139c!important}
+.oracle-app>.oracle-nav{background:#100c1b9c!important}
+.oracle-panel{background:linear-gradient(135deg,#21192dd9,#100e1dcc)!important;backdrop-filter:blur(16px)}
+@media(max-width:600px){.oracle-app>.scene-wrap{opacity:.72!important}.oracle-panel{backdrop-filter:blur(11px)}}
