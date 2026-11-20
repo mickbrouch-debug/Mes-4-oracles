@@ -122,3 +122,42 @@ main:not(.oracle-app){background:transparent!important}
  .oracle-section,.atelier{background-attachment:scroll!important}
 }
 @media(prefers-reduced-motion:reduce){.scene-wrap{filter:none!important}}
+
+
+/* V18 — composition mobile maîtrisée et profondeur de scène */
+.hero{overflow:hidden;isolation:isolate}
+.hero-copy{width:min(100%,650px);max-width:650px}
+.hero-art-caption{max-width:min(29vw,320px);right:clamp(22px,5vw,76px);bottom:10%;padding:12px 16px;border:1px solid #d5b77c30;background:linear-gradient(135deg,#100b1b8a,#100b1b35);backdrop-filter:blur(8px);border-radius:2px}
+.hero-art-caption div{max-width:250px}
+.hero h1{font-size:clamp(70px,9.5vw,138px);line-height:.88}
+.hero-lead{max-width:44ch;text-shadow:0 2px 16px #080610}
+.gold-button{min-height:54px;box-shadow:0 8px 32px #c6a46b38,0 0 0 1px #f4dfb355 inset}
+.hero-footnote{display:flex;align-items:center;gap:7px}
+.scene-wrap canvas{display:block;width:100%;height:100%}
+@media(max-width:700px){
+ .hero{height:auto;min-height:calc(100svh - 72px);max-height:none;align-items:center;padding:clamp(48px,8svh,82px) 24px 76px;overflow:hidden}
+ .hero-copy{width:100%;max-width:100%;z-index:4}
+ .hero .eyebrow{font-size:8px;letter-spacing:.2em;gap:9px}
+ .hero .eyebrow i{width:18px;flex:0 0 18px}
+ .hero h1{font-size:clamp(60px,15.4vw,104px);line-height:.9;letter-spacing:-.045em;margin:25px 0 22px;max-width:100%}
+ .hero h1 em{margin-left:clamp(15px,5vw,30px)}
+ .hero-lead{max-width:38ch;font-size:clamp(13px,3.55vw,15px);line-height:1.78}
+ .hero-actions{gap:15px;margin-top:26px}
+ .gold-button{min-height:54px;padding:15px 17px;gap:14px;font-size:8px;letter-spacing:.12em}
+ .quiet-button{font-size:9px}
+ .hero-footnote{margin-top:32px;font-size:7px;letter-spacing:.14em}
+ .hero-art-caption{display:none!important}
+ .hero-relics{display:none!important}
+ .hero:after{right:-24%;top:15%;width:94vw;opacity:.46}
+ .hero:before{background:linear-gradient(90deg,#090813a8,#09081338 60%,#09081365),linear-gradient(0deg,#0908139c,transparent 62%,#09081355)}
+ .scroll-cue{display:none}
+}
+@media(max-width:390px){
+ .hero{padding-left:20px;padding-right:20px}
+ .hero h1{font-size:clamp(57px,15vw,72px)}
+ .hero-lead{font-size:12px;line-height:1.72}
+ .hero-actions{align-items:flex-start;flex-direction:column}
+ .gold-button{width:100%;justify-content:space-between}
+ .hero-footnote{font-size:6.5px}
+}
+@media(prefers-reduced-motion:reduce){.hero-relics,.relic{animation:none!important}}
