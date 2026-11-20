@@ -102,7 +102,8 @@ function TempleArchitecture(){
   {Array.from({length:12},(_,i)=><mesh key={i} position={[Math.cos(i*Math.PI/6)*2.65,-3.34,.7+Math.sin(i*Math.PI/6)*2.65]}><octahedronGeometry args={[.11,0]}/><meshBasicMaterial color="#e5c98c" emissive="#d3a85d" emissiveIntensity={.8}/></mesh>)}
  </group>
 }
-\nfunction World(){return <>
+
+function World(){return <>
  <color attach="background" args={['#080611']}/><fog attach="fog" args={['#080611',10,24]}/>
  <ambientLight intensity={.62}/><pointLight position={[0,2,4]} color="#d7b878" intensity={26} distance={17}/><pointLight position={[-6,-2,-4]} color="#78519d" intensity={24} distance={15}/><pointLight position={[6,3,-5]} color="#a47acb" intensity={17} distance={14}/>
  <Suspense fallback={null}><Environment preset="night"/></Suspense>
