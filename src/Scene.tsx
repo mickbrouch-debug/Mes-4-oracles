@@ -76,7 +76,33 @@ function FloatingCrystals(){
  useFrame((s,d)=>{group.current.rotation.y+=d*.006;group.current.children.forEach((c,i)=>{c.position.y+=Math.sin(s.clock.elapsedTime*.35+i)*.0007})});
  return <group ref={group}>{items.map((p,i)=><group key={i} position={[p.x,p.y,p.z]} scale={p.s}><Crystal position={[0,0,0]} color={i%2?'#aa8acb':'#d0b27c'}/></group>)}</group>
 }
-function World(){return <>
+
+function TempleArchitecture(){
+ const stairs=Array.from({length:11},(_,i)=>({y:-3.45+i*.34,z:1.2-i*.39,w:5.9-i*.23}));
+ return <group>
+  {/* Escalier monumental : marches sombres cerclées d'or */}
+  {stairs.map((s,i)=><group key={i} position={[0,s.y,s.z]}>
+   <mesh position={[0,0,0]}><boxGeometry args={[s.w,.28,.72]}/><meshStandardMaterial color={i%2?'#29213b':'#342844'} metalness:.62 roughness:.34/></mesh>
+   <mesh position={[0,.145,.02]}><boxGeometry args={[s.w,.018,.73]}/><meshBasicMaterial color="#d7b875" transparent opacity={.8}/></mesh>
+   <pointLight position={[0,.24,.2]} color="#c99b55" intensity={.38} distance={2.2}/>
+  </group>)}
+  {/* Colonnes du portail */}
+  {[-3.35,3.35].map((x,i)=><group key={i} position={[x,.35,-2.35]}>
+   <mesh position={[0,0,0]}><cylinderGeometry args={[.34,.48,5.5,12]}/><meshStandardMaterial color="#40304f" metalness:.72 roughness:.28/></mesh>
+   {[ -2.5,-1.85,1.85,2.5].map((y,j)=><mesh key={j} position={[0,y,0]}><torusGeometry args={[.42,.055,8,32]}/><meshStandardMaterial color="#d7b875" metalness:.8 roughness:.24 emissive="#9b7139" emissiveIntensity:.22/></mesh>)}
+   <mesh position={[0,2.82,0]}><boxGeometry args={[.9,.3,.9]}/><meshStandardMaterial color="#b18a52" metalness:.72 roughness:.3/></mesh>
+   <pointLight position={[0,1.2,.55]} color="#a77bd4" intensity={2.2} distance={4}/>
+  </group>)}
+  {/* Arc monumental au-dessus de la porte */}
+  <mesh position={[0,3.12,-2.4]} rotation={[0,0,Math.PI/2]}><torusGeometry args={[3.35,.19,16,96,Math.PI]}/><meshStandardMaterial color="#6d4b72" metalness:.78 roughness:.26 emissive="#482b62" emissiveIntensity:.3/></mesh>
+  <mesh position={[0,5.95,-2.35]}><octahedronGeometry args={[.48,1]}/><meshStandardMaterial color="#c9a0eb" emissive="#9d68d2" emissiveIntensity:1.2 metalness:.3 roughness:.18/></mesh>
+  {/* Parvis et grand sceau au premier plan */}
+  <mesh position={[0,-3.55,.7]} rotation={[-Math.PI/2,0,0]}><circleGeometry args={[4.7,96]}/><meshStandardMaterial color="#171225" metalness:.5 roughness:.42/></mesh>
+  {[1.8,2.35,2.9,3.45].map((r,i)=><mesh key={r} position={[0,-3.36,.7]} rotation={[-Math.PI/2,0,i*.12]}><ringGeometry args={[r,r+.018,128]}/><meshBasicMaterial color={i%2?'#b99bd8':'#e0bd78'} transparent opacity={.56}/></mesh>)}
+  {Array.from({length:12},(_,i)=><mesh key={i} position={[Math.cos(i*Math.PI/6)*2.65,-3.34,.7+Math.sin(i*Math.PI/6)*2.65]}><octahedronGeometry args={[.11,0]}/><meshBasicMaterial color="#e5c98c" emissive="#d3a85d" emissiveIntensity={.8}/></mesh>)}
+ </group>
+}
+\nfunction World(){return <>
  <color attach="background" args={['#080611']}/><fog attach="fog" args={['#080611',10,24]}/>
  <ambientLight intensity={.62}/><pointLight position={[0,2,4]} color="#d7b878" intensity={26} distance={17}/><pointLight position={[-6,-2,-4]} color="#78519d" intensity={24} distance={15}/><pointLight position={[6,3,-5]} color="#a47acb" intensity={17} distance={14}/>
  <Suspense fallback={null}><Environment preset="night"/></Suspense>
@@ -84,7 +110,7 @@ function World(){return <>
  <Sparkles count={190} scale={[17,11,13]} size={2.1} speed={.14} opacity={.7} color="#ead7aa"/>
  <Sparkles count={125} scale={[15,10,12]} size={3.1} speed={.09} opacity={.52} color="#c5a0e8"/>
  <Sparkles count={55} scale={[12,8,10]} size={3.8} speed={.07} opacity={.28} color="#8da8dc"/>
- <Nebula/><Crescent/><AstralPortal/><OrbitingSigils/><FloatingCrystals/>
+ <Nebula/><Crescent/><TempleArchitecture/><AstralPortal/><OrbitingSigils/><FloatingCrystals/>
  <Float speed={.55} rotationIntensity={.08} floatIntensity={.12}>
   <Crystal position={[-4.8,-1.8,-1.2]} scale={1.25}/>
   <Crystal position={[4.6,1.5,-1.8]} scale={1.1} color="#d6b477"/>
